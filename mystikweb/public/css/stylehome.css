@@ -1,0 +1,27 @@
+.img-producto{
+    width: 200px;
+    height: 300px;
+}
+
+.arg{
+    width: 200px;
+    height: 100px;
+}
+
+#section1{
+    display: flex;
+}
+
+#section2{
+    display: flex;
+}
+
+footer{
+    border-top: 2px solid black;
+    margin-top: 100px;
+}
+
+.carrusel{
+    margin-bottom: 80px;
+    margin-top: 80px;
+}
