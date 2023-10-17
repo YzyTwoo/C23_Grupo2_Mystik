@@ -18,6 +18,10 @@ app.get("/politicas-devolucion", (req,res)=>{
     res.sendFile(path.join(__dirname, "/views/politicas-devolucion.html"))
 });
 
+app.get("/envios-entregas", (req,res)=>{
+    res.sendFile(path.join(__dirname, "/views/envios-entregas.html"))
+});
+
 app.use(express.static("public"))
 
 app.listen(3030, console.log("Servidor corriendo en puero 3030"));
