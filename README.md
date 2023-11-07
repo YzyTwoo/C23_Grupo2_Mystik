@@ -39,5 +39,5 @@ Vamos a utilizar el modelo de pagina de la marca y utilizamos su modelo de carru
 
 ### PRIMERA DIVISION DE TRABAJOS.
 * GIT-HUB: Orieta Tiziano 
-* JIRA: Orieta Tiziano - Rodriguez Valentina
+* JIRA: Rodriguez Valentina - Orieta Tiziano
 * TEMA ELEGIDO, NOMBRE y LOGO: Orieta Tiziano - Contreras Lautaro - Medina Fabían - Rodriguez Valentina - Coppa Ayelen
