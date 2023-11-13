@@ -1,0 +1,226 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 20px 20px;
+}
+
+.nav-general {
+    display: none;
+}
+
+.logo-container {
+    width: 20%;
+    text-align: center;
+}
+
+.logo-general {
+    display: none;
+}
+
+.nav-bar {
+    width: 40%;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.search-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;
+}
+
+.search-cart input {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    border: none;
+    padding: 6px 10px;
+    width: 100%;
+    display: none;
+}
+
+.fas, .fa-search {
+    margin: 1px;
+}
+
+.cart {
+    padding: 13px;
+    cursor: pointer;
+}
+
+.precio {
+    display: none;
+}
+
+.cart img {
+    width: 20px;
+}
+
+/* BURGUER MENU */
+
+.navbar {
+    overflow: hidden;
+}
+
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+}
+
+.dropdown {
+    display: flex;
+}
+
+.dropdown .dropbtn {
+    cursor: pointer;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #d3cbcb;
+    border-radius: 3px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(118, 115, 115, 0.2);
+    z-index: 1;
+    top: 60px;
+    left: 36px;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 2px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #e1e1e1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.options-desktop {
+    display: none;
+}
+
+
+@media (min-width: 768px) {
+
+    /* HEADER MEDIO */
+
+    .dropbtn {
+        display: none;
+    }
+
+    .logo-mobile {
+        display: none;
+    }
+
+    .search-cart input{
+        display: flex;
+    }
+
+    .logo-general{
+        display: flex;
+        max-width: 170%;
+    }
+
+    .precio {
+        display: flex;
+        margin-top: -8px;
+        margin-left: -3px;
+    }
+
+    .fas, .fa-search {
+        position: relative;
+        left: -24px;
+        color: #626262;
+    }
+
+    /* HEADER TOP (.nav-general) */
+
+    .nav-general {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        gap: 10px;
+        font-size: 10px;
+        padding-bottom: 4px;
+        padding: 0 15px;
+        border-bottom: 1px solid black;
+    }
+
+    .nav-general a {
+        padding: 5px 1px 5px 1px;
+        text-decoration: none;
+        color: black;
+    }
+
+    .nav-general a:hover {
+        color: #333;
+    } 
+
+    /* NAVBAR */
+
+    .options-desktop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .options-desktop a {
+        text-decoration: none;
+        color: black;
+        padding-right: 28px;
+        padding-left: 28px;
+        border-right: 1px solid black;
+        font-size: 15px;
+    }
+
+    .options-desktop .line-end {
+        border-right: none;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .header-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .logo-general {
+        margin-left: 87px;
+    }
+}
