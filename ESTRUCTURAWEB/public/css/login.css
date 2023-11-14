@@ -1,4 +1,32 @@
 
+header{
+    background-color: blueviolet;
+    text-align: center;
+    display: inline;
+}
+
+
+.logo_mobile{
+    margin-top: 10%;
+}
+.burger-menu{
+    margin-right: 100%;
+
+}
+
+.menu-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0; 
+}
+
+.menu-list li {
+    margin: 0 0 15px;
+    margin-top: 15px; 
+}
+
+
 .login-form{
     background-color: rgb(255, 255, 255);
     padding: 10px;
@@ -8,4 +36,25 @@
     align-items: center;
     position: relative;
 }
+.logo-vertical-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
 
+h3{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+@media (min-width: 768px){
+
+}
+
+@media (min-width: 1024px){
+
+}
