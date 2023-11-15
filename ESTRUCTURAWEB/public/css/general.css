@@ -1,12 +1,13 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
 
 a:hover{
-    color: violet;
+    color: #511478;
+    font-weight: bold;
   
 }
 

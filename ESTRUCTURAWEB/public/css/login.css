@@ -1,30 +1,40 @@
 
+/*HEADER*/
+
 header{
     background-color: blueviolet;
     text-align: center;
     display: inline;
+    
 }
-
-
 .logo_mobile{
-    margin-top: 10%;
+    margin-top: 20px;
+}
+.section_header{
+    border-bottom: 1px solid black;
 }
 .burger-menu{
     margin-right: 100%;
-
+    margin-bottom: 10px;
 }
+
+/*NAV*/
+
 
 .menu-list {
     list-style: none;
     display: flex;
     align-items: center;
     padding: 0; 
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .menu-list li {
     margin: 0 0 15px;
-    margin-top: 15px; 
+    margin-top: 15px;
 }
+/*LOGIN FORM*/
 
 
 .login-form{
@@ -32,9 +42,11 @@ header{
     padding: 10px;
     margin-top: 0%;
     border-radius:  20px;
-    border: 2px solid rgb(92, 91, 91);
+    border: 1px solid rgb(2, 2, 2);
     align-items: center;
     position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 .logo-vertical-form {
         display: flex;
@@ -47,14 +59,55 @@ h3{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 10px;
+}
+.item-form{
+    margin-left: 15%;
+   
+}
+#name{
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 2px;
+    margin-bottom: 10px;
+    text-align: center;
+    
+}
+#password{
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 2px;
+    margin-bottom: 10px;
+}
+ 
+.forget{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    text-align: center;
+   
 }
 
-
-
-@media (min-width: 768px){
-
-}
-
-@media (min-width: 1024px){
-
+.button-form{
+    
+        background-color: #7E1FBA;
+        border-radius: 15px;
+        font-size: 15px;
+        opacity: 0.7;
+        transition: 0.6s;
+        color: white;
+        width: 100%;
+       text-align: center;
+       font-size: 10px;
+    }
+    
+    .button-form:hover{
+        cursor: pointer;
+        background-color: #511478;
+    }
+.register{
+    margin-top: 8px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    text-align: center;
 }

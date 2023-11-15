@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,51 +8,54 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>Login</title>
 </head>
+
 <body>
     <header>
-<section class="section_header">
-    <div>
-    <img src="/img/LOGO/LogoDesktop/ImagotipoHorizontal.png" alt="logo_mobile" width="30%">
-    </div>
+        <section class="section_header">
+            <div>
+                <img src="/img/LOGO/LogoDesktop/ImagotipoHorizontal.png" alt="logo_mobile" width="30%">
+            </div>
 
-    <div class="burger-menu">
-    <i class="fas fa-bars"></i>
-    </div>
-</section>
- <hr>
+            <div class="burger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </section>
     </header>
+    <div >
     <nav>
         <ul class="menu-list">
-            <li><a href="">Inicio</a><i class="fa-solid fa-chevron-right fa-2xs"></i></li>
-            <li><a href=""> Mi cuenta</a><i class="fa-solid fa-chevron-right fa-2xs"></i></li>
+            <li><a href="">Inicio</a><i class="fa-solid fa-chevron-right fa-2xs" id="flecha"></i></li>
+            <li><a href=""> Mi cuenta</a><i class="fa-solid fa-chevron-right fa-2xs" id="flecha"></i></li>
             <li><a href="">Login</a></li>
         </ul>
     </nav>
+    </div>
     <section>
         <form class="login-form">
             <div class="logo-vertical-form">
                 <img src="/img/LOGO/+logos/imagotipoVertical.png" alt="logovertical" width="10%">
             </div>
             <h3>Iniciar sesión</h3>
-            <label for="email"> Email</label>
             <div class="item-form">
+            <label for="email"> Email</label><br>
                 <input type="text" name="name" id="name" placeholder="ej.: tunombre@gmail.com" required>
             </div>
             <div class="item-form">
                 <label for="password">Contraseña</label> <br>
-                <input type="password" name="password" id="password" placeholder="contraseña" required><i class="fa-solid fa-eye-slash fa-xs"></i>
+                <input type="password" name="password" id="password" placeholder="" required><i
+                    class="fa-solid fa-eye-slash fa-xs" id="eye-slash"></i>
             </div>
             <div class="forget">
-                <label for=""><input type="checkbox">Recuerdame</label>
                 <a href="#">¿Olvidaste tu contraseña?</a>
             </div>
-            <button class="button-form" type="submit">INICIAR SESION</button>
+            <button class="button-form" type="submit"> INICIAR SESION </button>
             <div class="register">
-                <p>¿No tenes cuenta? <a href="#">Crear cuenta</a></p>
+                <p>¿No tenes cuenta? <a href="#">│ Crear cuenta</a></p>
 
             </div>
             </div>
         </form>
     </section>
 </body>
+
 </html>
