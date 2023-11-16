@@ -75,20 +75,21 @@
 
 /* BURGUER MENU */
 
-.navbar {
+.navbar-header {
     overflow: hidden;
 }
 
-.navbar a:hover {
+.navbar-header a:hover {
     background: #ddd;
     color: black;
 }
 
-.dropdown {
+.hamburguesa {
     display: flex;
 }
 
-.dropdown .dropbtn {
+
+.hamburguesa .hamburguesabtn {
     cursor: pointer;
     font-size: 17px;
     border: none;
@@ -100,37 +101,55 @@
     margin: 0;
 }
 
-.dropdown-content {
+.hamburguesa-content {
     display: none;
     position: absolute;
-    background-color: #d3cbcb;
+    background-color: #511478;
     border-radius: 3px;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(118, 115, 115, 0.2);
+    box-shadow: 0px 8px 16px 0px #626262;
     z-index: 1;
     top: 60px;
     left: 36px;
 }
 
-.dropdown-content a {
+
+.hamburguesa-content a {
     float: none;
-    color: black;
-    padding: 2px 16px;
+    color: white;
+    padding: 35px 16px;
     text-decoration: none;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: left;
 }
 
-.dropdown-content a:hover {
-    background-color: #e1e1e1;
+.hamburguesa-content a:hover {
+    background-color: black;
+    color: white;
+    transition:all .5s ease-in-out;
 }
 
-.dropdown:hover .dropdown-content {
+.hamburguesa:hover .hamburguesa-content {
     display: block;
+    width: 70%;
+    top: 0px;
+    left: 0px;
 }
 
 .options-desktop {
     display: none;
+}
+
+.account{
+    padding-top: 13px;
+    padding-right: 7px;
+}
+
+.line-end {
+    align-items: center;
+    font-size: 12px; 
 }
 
 
@@ -138,7 +157,7 @@
 
     /* HEADER MEDIO */
 
-    .dropbtn {
+    .hamburguesabtn {
         display: none;
     }
 
@@ -228,3 +247,4 @@
         font-size: 15px ;
     }
 }
+
