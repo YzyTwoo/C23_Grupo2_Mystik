@@ -1,9 +1,3 @@
-* {
-    padding: 0;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
 .header-top {
     display: flex;
     justify-content: space-between;
@@ -44,7 +38,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 20%;
 }
 
 .search-cart input {
@@ -131,12 +124,31 @@
 
 .options-desktop {
     display: none;
+    border-bottom: 1px solid black;
+    padding-bottom: 2%;
+    
 }
 
+@media (min-width: 426px){
+    .search-cart{
+
+    }
+}
 
 @media (min-width: 768px) {
 
     /* HEADER MEDIO */
+
+    .search-cart {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 20%;
+    }
+
+    .search-cart input{
+        display: flex;
+    }
 
     .dropbtn {
         display: none;
@@ -144,10 +156,6 @@
 
     .logo-mobile {
         display: none;
-    }
-
-    .search-cart input{
-        display: flex;
     }
 
     .logo-general{
