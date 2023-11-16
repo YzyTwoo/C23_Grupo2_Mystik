@@ -1,0 +1,83 @@
+body{
+    background-color: black;
+}
+.nav__principal{
+    padding-top: 5%;
+
+}
+.nav__principal li{
+    list-style: none;
+    margin-top: 1%;
+}
+.nav__principal a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.linea_container {
+    width: 95%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+span{display: flex;
+    color: white;
+}
+span a{
+    display: flex;
+    color: white;
+    text-decoration: none;
+}
+
+.linea {
+    width: 100%;
+    height: 1px; /* Ajusta el grosor de la línea según tus necesidades */
+    background-color: white; 
+    margin-left: 5%;
+}
+.nav__secundario{
+    padding-top: 5%;
+}
+.nav__secundario li{
+    list-style: none;
+    margin-top: 1%;
+}
+.nav__secundario a{
+    text-decoration: none;
+    color: white;
+}
+.negrita{
+    font-weight: bold;
+}
+.nav__nosotros{
+    padding-top: 5%;
+}
+.nav__nosotros li{
+    list-style: none;
+    margin-top: 1%;
+}
+.nav__nosotros a{
+    text-decoration: none;
+    color: white;
+}
+.preciosJustos{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+
+}
+.preciosJustos img{
+    width: 30%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+}
+h3{ color: white;}
+@media (min-width:768px) {
+    body{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
+}
