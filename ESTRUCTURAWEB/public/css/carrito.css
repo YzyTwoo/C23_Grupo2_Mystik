@@ -15,16 +15,31 @@
     border-radius: 10px;
 }
 .productos_carrito img{
-    width: 150px;
-    height: 180px;
-    margin: 10px
+    width: 20%;
+    height: 20%;
+    margin: 8px;
 }
 .article_carrito_body{
     display: flex;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     flex-wrap: wrap;
 }
 
 .caja_de_producto{
+    width: 74%;
+    display: flex;
     margin-top: 2%;
+    font-size: 8px;
+    flex-direction: column;
 }
+
+.caja_de_producto i{
+    position: absolute;
+    left: 85%;
+}
+
+.linea_1{
+    width: 80%;
+    border: 1px solid black;
+}
+
