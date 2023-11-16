@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/1e2541cc15.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+    <div class="botonSeguirComprando">
+        <a href="./index.html"><i class="fa-solid fa-caret-left" style="color:#7E1FBA;"></i> Seguir comprando</a>
+    </div>
+    <section class="productos_carrito">
+        <article class="article_carrito_body">
+            <img src="/img/prod_de_arriba/chaoooos.jpg" alt="buzo chaos">
+            <div class="caja_de_producto">
+                <h2>Buzo Chaos overzise</h2>
+                <h3>(negro, XL)</h3>
+                <h2>$40.000,00</h2>
+                <i class="fa-solid fa-trash-can" style="color: #000000;"></i>
+            </div>
+        </article>        
+        <article class="article_carrito_body">
+            <img src="/img/prod_de_arriba/ReligionSucks.jpg" alt="buzo religion">
+            <div class="caja_de_producto">
+                <h2>Buzo Religion Sucks overzise</h2>
+                <h3>(negro, S)</h3>
+                <h2>$45.000,00</h2>
+                <i class="fa-solid fa-trash-can" style="color: #000000;"></i>
+            </div>
+        </article>
+        <article class="article_carrito_body">
+            <img src="/img/prod_de_arriba/UrbanCity.jpg" alt="buzo UrbanCity">
+            <div class="caja_de_producto">
+                <h2>Buzo Urban City overzise</h2>
+                <h3>(negro, L)</h3>
+                <h2>$30.000,00</h2>
+                <i class="fa-solid fa-trash-can" style="color: #000000;"></i>
+            </div>
+        </article>
+    </section>
+    <div>
+        <h2>Monto Total $115.000,00</h2>
+        <a href="/">Finalizar compra</a>
+    </div>
+    <section class="Pago">
+        <div>
+            <h3>Entrega > Pago</h3>
+        </div>
+        <div>
+            <img src="/img/metodo-de-pago/visa.png" alt="Visa logo">
+            <img src="/img/metodo-de-pago/master.png" alt="master logo">
+        </div>
+    <h1>Datos de contacto</h1>
+    <article>
+        <form action="/carrito" method="post">
+            <input type="email" name="emailContacto" placeholder="Email">
+        </form>
+    </article>
+    <h1>Entrega</h1>
+    <Form>
+        <input type="text" name="direccionEnvio" placeholder="Dirección">
+        <input type="text" name="provinciaEnvio" placeholder="Provincia">
+        <input type="number" name="codigoPostal" placeholder="Código Postal">
+        <input type="text" name="especificacionDireccion" placeholder="Piso, Depto, etc (opcional)">
+        <button type="submit">Enviar</button>
+    </Form>
+    <h4>Envío gratis superando los $100.000,00</h4>
+    </section>
+    <div class="compra__segura__carrito">
+        <i class="fa-solid fa-shield-halved" style="color: #000000;"></i>
+        <h3>Compra segura</h3>
+        <h4>100% protegido</h4>
+    </div>
+    <div class="logo_final_carrito">
+        <img src="/img/LOGO/LogoMobile/Isotipo.png" alt="logo Mystik">
+    </div>
+</main>
+</body>
+</html>

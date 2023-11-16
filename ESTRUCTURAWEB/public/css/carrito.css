@@ -1,0 +1,30 @@
+
+.botonSeguirComprando a{
+    margin: auto;
+    text-decoration: none;
+    color: black;
+    border: solid gray 1px;
+    background-color: grey;
+}
+.productos_carrito{
+    margin: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(128, 128, 128, 0.404);
+    border-radius: 10px;
+}
+.productos_carrito img{
+    width: 150px;
+    height: 180px;
+    margin: 10px
+}
+.article_carrito_body{
+    display: flex;
+    border-bottom: 1px solid black;
+    flex-wrap: wrap;
+}
+
+.caja_de_producto{
+    margin-top: 2%;
+}
