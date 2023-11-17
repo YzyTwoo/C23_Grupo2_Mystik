@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/1e2541cc15.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<main>
+<main class="main_carrito">
     <div class="botonSeguirComprando">
         <a href="./index.html"><i class="fa-solid fa-caret-left" style="color:#7E1FBA;"></i> Seguir comprando</a>
     </div>
@@ -44,21 +44,21 @@
             <hr class="linea_1">
         </article>
     </section>
-    <div>
+    <div class="boton__finalizar">
         <h2>Monto Total $115.000,00</h2>
         <a href="/">Finalizar compra</a>
     </div>
-    <section class="Pago">
-        <div>
-            <h3>Entrega > Pago</h3>
+    <section class="pago">
+        <div class="caja_entrega_pago">
+            <h3 class="entrega-pago">Entrega > Pago</h3>
         </div>
-        <div>
-            <img src="/img/metodo-de-pago/visa.png" alt="Visa logo" width="20px">
-            <img src="/img/metodo-de-pago/master.png" alt="master logo" width="20px">
+        <div class="metodo_de_pago">
+            <i class="fa-brands fa-cc-visa" style="color:  #511478;"></i>
+            <i class="fa-brands fa-cc-mastercard" style="color:  #511478;"></i>
         </div>
     <h1>Datos de contacto</h1>
     <article>
-        <form action="/carrito" method="post">
+        <form class="imput-email" action="/carrito" method="post">
             <input type="email" name="emailContacto" placeholder="Email">
         </form>
     </article>
@@ -73,9 +73,8 @@
     <h4>Envío gratis superando los $100.000,00</h4>
     </section>
     <div class="compra__segura__carrito">
-        <i class="fa-solid fa-shield-halved" style="color: #000000;"></i>
-        <h3>Compra segura</h3>
-        <h4>100% protegido</h4>
+        <h3><i class="fa-solid fa-shield-halved" style="color: #000000;"></i> Compra segura</h3>
+        <h4 class="protegido_carrito">100% protegido</h4>
     </div>
     <div class="logo_final_carrito">
         <img src="/img/LOGO/LogoMobile/Isotipo.png" alt="logo Mystik" width="20px">
