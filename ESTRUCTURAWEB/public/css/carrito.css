@@ -167,7 +167,7 @@ body{
 @media (min-width: 768px) {
     .main_carrito{
         font-size: 15px;
-        width: 60%;
+        width: 90%;
         margin: auto;
     }
     .productos_carrito h2{
@@ -184,13 +184,13 @@ body{
         margin-top: 70px;
     }
     .boton__finalizar{
-        font-size: 15px;
+        font-size: 12px;
     }
     .pago{
-        font-size: 15px;
+        font-size: 12px;
     }
     .pago input{
-        font-size: 15px;
+        font-size: 12px;
         padding: 8px;
     }
     .pago i{
@@ -203,9 +203,16 @@ body{
     .botonSeguirComprando{
         margin: 20px 35px;
     }
+    .logo_final_carrito img{
+        width: 10%;
+    }
 }
 @media (min-width:1024px) {
-
+    .main_carrito{
+        font-size: 15px;
+        width: 60%;
+        margin: auto;
+    }
     .botonSeguirComprando{
         margin: 25px 70px;
     }
