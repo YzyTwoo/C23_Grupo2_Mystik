@@ -1,11 +1,220 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="https://kit.fontawesome.com/2eb7e79ffa.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <title>Mystik</title>
+    </head>
+
 <body>
-    ¡Hola! :D
+
+    <header>
+        <nav class="nav-general">
+            <div>
+                <a href="#" class="line">+54 11 12345678 |</a>
+                <a href="#" class="line">consultas@mystikindumentaria.com |</a>
+                <a href="#">Ayuda</a>
+            </div>
+            <div>
+                <a href="#" class="line">Crear Cuenta | </a>
+                <a href="#">Iniciar Sesión</a>
+            </div>
+  
+        </nav>
+  
+        <div class="header-top">
+            
+            <div class="navbar-header">
+                
+                <div class="hamburguesa">
+                    
+                    <button class="hamburguesabtn"><i class="fas fa-bars"></i></button>
+                    <div class="hamburguesa-content">
+                        <a href="#"><strong>INICIO</strong></a> 
+                        <a href="#"><strong>TIENDA</strong></a> 
+                        <a href="#"><strong>COLECCIÓN</strong></a> 
+                        <br>
+                        <a href="#"><strong><p class="account">Iniciar Sesión </p></strong> <i class="fas fa-sign-out-alt"></i></a> 
+                        <a href="#"><strong><p class="account">Registrate</p></strong> <i class="far fa-id-card"></i></a> 
+                        <a href="#" class="line-end"><strong>POLITICA DE DEVOLUCIÓN</strong></a>
+                    </div>
+                </div>
+            
+            </div>
+            
+            <div class="logo-container">
+                <a href="#"><img src="/img/LOGO/LogoDesktop/ImagotipoHorizontal.png" class="logo-general" alt=""></a>
+                <a href="#"><img src="/img/LOGO/LogoMobile/Isotipo.png"  style="width: 35px;" class="logo-mobile" alt="Logo"></a>
+            </div>
+            
+            <div class="search-cart">
+                <input type="text" placeholder="Buscar"><i class="fas fa-search"></i>
+                <div class="cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <p class="precio">$0</p>
+                </div>
+            </div>
+        </div>
+  
+        <div class="options-desktop">
+            <a href="#"><strong>INICIO</strong></a> 
+            <a href="#"><strong>TIENDA</strong></a> 
+            <a href="#"><strong>COLECCIÓN</strong></a>
+            <a href="#" class="line-end"><strong>POLITICA DE DEVOLUCIÓN</strong></a>
+        </div>
+    
+    </header>
+
+    <main class="main-home">
+
+        <!-- CARRUSEL -->
+        
+        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/img/banner/banner.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="/img/banner/banner.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="/img/banner/banner.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    
+          <!-- fin de carrusel -->
+    
+          <!-- SECCION PRODUCTOS -->
+    
+          <section class="section-home">
+    
+            <article class="home-article">
+                <img class="article-img"  src="/img/prod_de_arriba/chaoooos.jpg" alt="">
+    
+                <div class="article-description">
+                    <h4  class="title-article">BUZO NEGRO - CHAOS</h4>
+                    <p class="article-price" >$42.999</p>
+                    <p class="article-pay">3 Cuotas sin interés de $14.333</p>
+                    <a href="#">VER COLECCIÓN</a>
+                </div>
+            </article>
+    
+            <article class="home-article">
+                <img  class="article-img" src="/img/prod_de_arriba/UrbanCity.jpg" alt="">
+    
+                <div class="article-description">
+                    <h4 class="title-article">BUZO NEGRO - URBAN CITY</h4>
+                    <p class="article-price">$44.999</p>
+                    <p class="article-pay">3 Cuotas sin interés de $14.999</p>
+                    <a href="#">VER COLECCIÓN</a>
+                </div>
+            </article>
+    
+            <article class="home-article">
+                <img  class="article-img" src="/img/prod_de_arriba/ReligionSucks.jpg" alt="">
+    
+                <div class="article-description">
+                    <h4  class="title-article">BUZO NEGRO - RELIGION SUCKS</h4>
+                    <p class="article-price">$44.999</p>
+                    <p class="article-pay">3 Cuotas sin interés de $14.</p>
+                    <a href="#">VER COLECCIÓN</a>
+                </div>
+            </article>
+    
+            <article class="home-article">
+                <img  class="article-img" src="/img/prod_de_abajo/dibujitop.jpg" alt="">
+    
+                <div class="article-description">
+                    <h4  class="title-article" >BUZO NEGRO - CHAOS</h4>
+                    <p class="article-price">$42.999</p>
+                    <p class="article-pay">3 Cuotas sin interés de $14.333</p>
+                    <a href="#">VER COLECCIÓN</a>
+                </div>
+            </article>
+    
+            <article class="home-article">
+                <img  class="article-img" src="/img/prod_de_abajo/dibujito2.jpg" alt="">
+    
+                <div class="article-description">
+                    <h4  class="title-article">BUZO NEGRO - URBAN CITY</h4>
+                    <p class="article-price">$44.999</p>
+                    <p class="article-pay">3 Cuotas sin interés de $14.999</p>
+                    <a href="#">VER COLECCIÓN</a>
+                </div>
+            </article>
+    
+            <article class="home-article">
+                <img  class="article-img" src="/img/prod_de_abajo/dddibujito3.jpg" alt="">
+    
+                <div class="article-description">
+                    <h4  class="title-article" >BUZO NEGRO - RELIGION SUCKS</h4>
+                    <p class="article-price">$44.999</p>
+                    <p class="article-pay">3 Cuotas sin interés de $14.</p>
+                    <a href="#">VER COLECCIÓN</a>
+                </div>
+            </article>
+    
+          </section>
+    
+          <!-- fin de sección productos -->
+    
+          <!-- ASIDE ESPECIAL -->
+    
+          <aside class="home-aside">
+    
+            <section class="section-aside">
+    
+                <div class="img-aside">
+                    <a href="#"><img src="/img/prod_de_arriba/productoColeccion.jpg"    alt=""></a> 
+                </div>
+    
+                <div class="description-aside">
+                    <h4>SPRING COLLECTION</h4>
+                    <p>6 Cuotas sin interés en compras superiores a $60.000</p>
+                </div>
+    
+            </section>
+    
+            <section class="section-aside">
+    
+                <div class="img-aside">
+                    <a href="#"><img src="/img/prod_de_abajo/collectionDibujo.jpg" alt=""></a>
+                </div>
+    
+                <div class="description-aside">
+                    <h4>SPRING COLLECTION</h4>
+                    <p>6 Cuotas sin interés en compras superiores a $60.000</p>
+                </div>
+                
+            </section>
+          </aside>
+    
+          <!-- fin aside -->
+    
+          
+    
+      </main>
+    
+      <div class="article-description"><a href="#">Ver mas productos</a></div>
+    
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  
 </body>
+
 </html>
