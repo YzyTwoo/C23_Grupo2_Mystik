@@ -146,8 +146,8 @@ h3 {
 
     .nav__principal {
         font-size: 12px;
-
-    }
+        margin-top: -17px;
+    }    
 
     .ul-buscar li {
         display: inline;
@@ -157,7 +157,7 @@ h3 {
 
     .nav__secundario {
         position: fixed;
-        top: 0%;
+        top: -30px;
         left: 15%;
         width: 100%;
         z-index: 999;
@@ -207,7 +207,7 @@ h3 {
 
     .linea_container-1 {
         width: 100%;
-        height: 40vh;
+        height: 55vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -226,7 +226,7 @@ h3 {
 
     .nav__secundario {
         position: fixed;
-        top: 0%;
+        top: -23px;
         left: 15%;
         width: 100%;
         z-index: 999;
@@ -235,7 +235,7 @@ h3 {
 
     .nav__nosotros {
         position: fixed;
-        top: 5%;
+        top: 16px;
         left: 30%;
         width: 100%;
         z-index: 999;
