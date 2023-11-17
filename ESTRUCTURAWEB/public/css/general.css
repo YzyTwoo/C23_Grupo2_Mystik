@@ -1,0 +1,27 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-gris-oscuro: #666;
+    --color-gris-claro: #ebebeb;
+    --color-blanco : #fff;
+    --color-negro : #000;
+    --color-violeta-oscuro : #511478;
+    --color-violeta-claro : #7E1FBA;
+}
+
+a{
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+a:hover{
+    color:var(--color-gris-oscuro);
+    transition: all 150ms;
+}
