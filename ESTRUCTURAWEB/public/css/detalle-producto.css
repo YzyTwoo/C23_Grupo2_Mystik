@@ -1,7 +1,3 @@
-/* ESTE CONTENEDOR TITULO ESTÁ FUERA DEL MAIN */
-/* .containter-title {
-} */
-
 /* Sección principal contenedora de todo el detalle-producto */
 .section-container-main{
     display: flex;
@@ -9,10 +5,6 @@
 }
 
 /* CONTENEDOR DE LAS IMAGENES DEL PRODUCTO PARA COMPRAR SELECCIONADO POR EL USUARIO */
-.container-images-product-buy{
-
-}
-
 /* CONTENEDOR img al lado del containter-img (3 img) */
 .container-more-img{
     display: flex;
@@ -61,10 +53,6 @@
 
 .h3-tittle-product{
     font-size: 24px;
-}
-
-/* Icono dentro de la CAJA HIJA PRECIO */
-.fa-chevron-right {
 }
 
 /* Contenedor de los detalles del producto (ABAJO DE LA CAJA PRECIO) */
@@ -217,10 +205,6 @@
     padding: 15px;
     /* outline: 2px solid darkblue ; */
 }
-
-.description-care{
-}
-
 .h4-description-care{
     display: inline-block;
 }
@@ -239,14 +223,6 @@
     outline: 2px solid violet;
 }
 
-/* contenedor del TITULO INFO-ADICIONAL (CONTIENE H4 Y UN ICONO) */
-.tittle-additional-information {
-}
-
-/* CAJA contiene: (Etiqueta p ----------) */
-.text-additional-information {
-}
-
 /* CAJA de redes sociales (CAJA PADRE - span - *5 iconos) */
 .container-social {
     padding: 20px;
@@ -263,20 +239,6 @@
 
 .buttons-social{
     margin: 0px 10px;
-}
-
-/* ICONS SOCIAL */
-.fa-envelope {
-}
-.fa-brands {
-}
-.fa-facebook {
-}
-.fa-x-twitter {
-}
-.fa-instagram {
-}
-.fa-pinterest {
 }
 
 /* FUERA DEL MAIN (Sección principal contenedora de todo el contenido recomendado) */
@@ -579,7 +541,6 @@
         height: 300px;
     }
 }
-
 
 @media (min-width: 1024px){
     .section-container-main{
