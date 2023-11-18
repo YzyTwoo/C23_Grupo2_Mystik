@@ -214,15 +214,6 @@
     color: var(--color-negro);
 }
 
-/* CAJA contiene: (la descripción lorem) */
-.text-description {
-}
-
-/* CONTENEDOR información adicional (CAJA PADRE) */
-.container-additional-information {
-    outline: 2px solid violet;
-}
-
 /* CAJA de redes sociales (CAJA PADRE - span - *5 iconos) */
 .container-social {
     padding: 20px;
@@ -233,9 +224,6 @@
 }
 
 /* CAJA HIJA DE container-social CONTIENE LOS ICONOS */
-.container-buttons-social {
-
-}
 
 .buttons-social{
     margin: 0px 10px;
@@ -278,30 +266,17 @@
 }
 
 /* CAJA contenedora de la IMAGEN del producto recomendado */
-.card-img {
-}
-
 .img-card{
     width: 170px;
     height: 240px;
 }
 
 /* CAJA PADRE DE (text-product - sox-interest-free and buttons-card) */
-.info-card {
-}
 
 /* CAJA PADRE de la INFORMACIÓN del producto recomendado */
 .text-product {
     text-align: center;
     font-size: 10px;
-}
-
-/* p CONTENEDORA del ICONO y del texto 6 cuotas sin interes */
-.six-interest-free {
-}
-
-/* ICON tarjeta de crédito ITEM */
-.fa-credit-card {
 }
 
 /* CAJA CONTENEDORA DE BOTONES (buy - look) */
