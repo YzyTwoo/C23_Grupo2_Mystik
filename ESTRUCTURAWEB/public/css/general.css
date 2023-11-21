@@ -21,7 +21,3 @@ a{
     color: black;
 }
 
-a:hover{
-    color:var(--color-gris-oscuro);
-    transition: all 150ms;
-}
