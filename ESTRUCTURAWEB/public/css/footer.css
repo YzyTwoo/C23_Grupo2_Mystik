@@ -1,0 +1,265 @@
+body {
+    background-color: black;
+}
+
+.nav__principal {
+    padding-top: 5%;
+
+}
+
+.nav__principal li {
+    list-style: none;
+    margin-top: 1%;
+}
+
+.nav__principal a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.linea_container-1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linea_container-2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linea_container-3 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span {
+    color: white;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+span a {
+    color: white;
+    text-decoration: none;
+    text-align: left;
+
+}
+
+.linea {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+
+}
+
+.nav__secundario {
+    padding-top: 5%;
+
+}
+
+.nav__secundario li {
+    list-style: none;
+    margin-top: 2%;
+}
+
+.nav__secundario a {
+    text-decoration: none;
+    color: white;
+}
+
+.negrita {
+    font-weight: bold;
+}
+
+.nav__nosotros {
+    padding-top: 2%;
+}
+
+.nav__nosotros li {
+    list-style: none;
+    margin-top: 2%;
+}
+
+.nav__nosotros a {
+    text-decoration: none;
+    color: white;
+}
+
+.preciosJustos {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    margin-right: 80px;
+    margin-bottom: 20px;
+
+}
+
+.preciosJustos img {
+    width: 30%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    color: white;
+    
+}
+
+.h3-span {
+    font-size: 9px;
+    margin-top: 10px;
+}
+
+
+
+@media (min-width:768px) {
+
+    footer {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .linea_container-2 {
+        display: none;
+    }
+
+    .linea_container-3 {
+        display: none;
+    }
+
+    .linea_container-1 {
+        width: 100%;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .nav__principal {
+        font-size: 12px;
+        margin-top: -17px;
+    }    
+
+    .ul-buscar li {
+        display: inline;
+        margin-left: 5px;
+
+    }
+
+    .nav__secundario {
+        position: fixed;
+        top: -52px;
+        left: 15%;
+        width: 100%;
+        z-index: 999;
+        font-size: 12px;
+    }
+
+    .nav__nosotros {
+        position: fixed;
+        top: -20px;
+        left: 30%;
+        width: 100%;
+        z-index: 999;
+        font-size: 12px;
+
+    }
+
+    .preciosJustos {
+        width: 65%;
+        margin-left: 70%;
+        display: block;
+        top: 10px;
+        z-index: 999;
+        position: absolute;
+    }
+
+    .h3-span {
+        font-size: 16px;
+        display: flex;
+        left: 10px;
+        width: 80%;
+        display: inline;
+        margin-left: 10px;
+
+    }
+
+}
+
+@media (min-width:1024px) {
+
+    .linea_container-2 {
+        display: none;
+    }
+
+    .linea_container-3 {
+        display: none;
+    }
+
+    .linea_container-1 {
+        width: 100%;
+        height: 55vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav__principal {
+        font-size: 12px;
+
+    }
+
+    .ul-buscar li {
+        display: inline;
+        margin-left: 5px;
+
+    }
+
+    .nav__secundario {
+        position: fixed;
+        top: -43px;
+        left: 15%;
+        width: 100%;
+        z-index: 999;
+        font-size: 12px;
+    }
+
+    .nav__nosotros {
+        position: fixed;
+        top: -5px;
+        left: 30%;
+        width: 100%;
+        z-index: 999;
+        font-size: 12px;
+
+    }
+
+    .preciosJustos {
+        width: 50%;
+        margin-left: 60%;
+        display: block;
+        top: 5%;
+        z-index: 999;
+        position: absolute;
+    }
+
+    .h3-span {
+        font-size: 16px;
+        display: flex;
+        left: 10px;
+        width: 80%;
+        display: inline;
+        margin-left: 10px;
+
+    }
+
+}

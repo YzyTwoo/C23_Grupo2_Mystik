@@ -24,7 +24,6 @@ main {
 
 .article-img {
     width: 100%;
-    height: 272px;
 }
 
 .title-article{
@@ -70,7 +69,6 @@ main {
         width: 100%;
     }
     .section-home{
-        border: 1px solid red;
         width: 65%;
         padding: 10px;
         display: flex;
@@ -85,11 +83,16 @@ main {
     box-shadow: 0px 0px 8px 0px grey;
     }
 
+    .article-img {
+        width: 100%;
+   
+    }
+
     .home-aside{
-         border: 1px solid black;
         width: 35%;
         display: flex;
         padding: 10px;
+        gap: 26px;
         flex-direction: column;
     }
     
@@ -98,7 +101,7 @@ main {
         padding: 5px;
         margin: 9px 10px;
         width: 90%;
-        height: 464px;
+        
         box-shadow: 0px 0px 8px 0px grey;
     }   
 
@@ -132,6 +135,7 @@ main {
     } 
     .home-aside{
         width: 30%;
+        gap: 1px;
     }
     .home-article{
      width: 30%;
@@ -140,6 +144,7 @@ main {
     margin: 10px 10px;
     box-shadow: 0px 0px 8px 0px grey;
     }
+
     .carrousel{
         width: 100%;
     }
