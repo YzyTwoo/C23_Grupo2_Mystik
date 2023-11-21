@@ -5,53 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>header Mystik</title>
-    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://kit.fontawesome.com/1e2541cc15.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <footer>
-        <nav class="nav__principal">
-            <ul class="ul-buscar">
-                <li><a href="/buscar">BUSCAR </a></li>
-                <li><a href="/tienda"> TIENDA</a></li>
-            </ul>
-        </nav>
-        <div class="linea_container-1">
-            <div class="linea"></div>
-        </div>
-        <nav class="nav__secundario">
-            <ul>
-                <li><a href="/ayuda" class="negrita">AYUDA</a></li>
-                <li><a href="/envioEntrega">Envíos y entregas</a></li>
-                <li><a href="/opcionPago">Opciones de pago</a></li>
-                <li><a href="/contacto">Contactate</a></li>
-            </ul>
-        </nav>
-        <div class="linea_container-2">
-            <div class="linea"></div>
-        </div>
-        <nav class="nav__nosotros">
-            <ul>
-                <li><a href="acerca" class="negrita">ACERCA DE MYSTIK</a></li>
-                <li><a href="noticias">Noticias</a></li>
-            </ul>
-        </nav>
-        <div class="linea_container-3">
-            <div class="linea"></div>
-        </div>
-        <div class="preciosJustos">
-            <img src="/img/footer/preciosjustos.png" alt="precios justos">
-            <img src="/img/footer/sid.png" alt="sid">
-        </div>
-        <div class="h3-span">
-            <span><i class="fa-solid fa-earth-americas" style="color: #ffffff;"></i>Argentina</span>
-            <span>S.R.L todos los derechos reservados</span>
-        </div>
-        <div class="h3-span">
-            <span><a href="/terminos">Terminos y condiciones</a></span>
-            <span><a href="/politicas">Politicas de privacidad y cookies</a></span>
-        </div>
+        <section class="section__footer__nav">
+                <article class="buscar__tienda__footer">
+                    <a class="a__bold" href="/buscarTienda">BUSCAR TIENDA</a>
+                </article>
+                <article class="ayuda__footer">
+                    <nav class="nav__ayuda">
+                        <ul>
+                            <li><a class="a__bold" href="/ayuda">AYUDA</a></li>
+                            <li><a class="a__nav__footer" href="/envios-entrega">Envíos y entregas</a></li>
+                            <li><a class="a__nav__footer" href="/opciones-pago">Opciones de pago</a></li>
+                            <li><a class="a__nav__footer" href="/contacto">Contactate</a></li>
+                        </ul>
+                    </nav>
+                </article>
+                <article class="acerca__mystik__footer">
+                    <nav>
+                        <ul>
+                            <li><a class="a__bold" href="/acerca-mistyk">ACERCA DE MYSTIK</a></li>
+                            <li><a class="a__nav__footer" href="/noticias">Noticias</a></li>
+                        </ul>
+                    </nav>
+                </article>
+                <article class="precios__justos__footer">
+                    <img src="/img/footer/preciosjustos.png" alt="Logo de precios">
+                    <img src="/img/footer/sid.png" alt="Logo de sid">
+                </article>
+        </section>
+        <section class="section__footer__bottom">
+            <article class="bottom__nav__izquierdo">
+                <i class="fa-solid fa-globe"></i>
+                <span>Argentina</span>
+                <nav>
+                    <ul>
+                        <li><a class="a__nav__footer" href="/derechos-reservados">2023 S.R.L todos los derechos reservados</a></li>
+                    </ul>
+                </nav>
+            </article>
+            <article class="bottom__nav__derecho">
+                <nav>
+                    <ul>
+                        <li><a class="a__nav__footer" href="">Terminos y condiciones</a></li>
+                        <li><a class="a__nav__footer" href="">Politicas de privacidad y cookies</a></li>
+                    </ul>
+                </nav>
+            </article>
+        </section>
     </footer>
 </body>
 
