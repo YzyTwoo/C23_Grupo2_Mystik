@@ -1,0 +1,152 @@
+
+main {
+    position: relative;
+    z-index: 0;
+}
+
+.main-home{
+    padding-top:10px;
+}
+
+.section-home{
+    display: flex;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+.home-article{
+    width: 43%;
+    height: 10%;
+    padding: 15px;
+    margin: 10px 10px;
+    box-shadow: 0px 0px 8px 0px grey;
+}
+
+
+.article-img {
+    width: 100%;
+}
+
+.title-article{
+    font-size: 12px;
+}
+
+.article-description{
+    text-align: center;
+    font-size: 14px;
+    padding: 28px 0 0 0;
+}
+
+.article-price {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.article-pay{
+    font-size: 12px;
+}
+
+.article-description a{
+    text-decoration: none;
+    font-size: 10px;
+    padding: 3px;
+    color: grey;
+    background-color: lightgrey;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.home-aside{
+    display: none;
+}
+
+
+
+@media(min-width: 768px){
+    .main-home{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .section-home{
+        width: 65%;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .home-article{
+    width: 43%;
+    height: 32%;
+    padding: 15px;
+    margin: 10px 10px;
+    box-shadow: 0px 0px 8px 0px grey;
+    }
+
+    .article-img {
+        width: 100%;
+   
+    }
+
+    .home-aside{
+        width: 35%;
+        display: flex;
+        padding: 10px;
+        gap: 26px;
+        flex-direction: column;
+    }
+    
+
+    .section-aside{
+        padding: 5px;
+        margin: 9px 10px;
+        width: 90%;
+        
+        box-shadow: 0px 0px 8px 0px grey;
+    }   
+
+    
+    .img-aside img{
+        width: 100%;
+        height: 62%;
+    }
+
+    .description-aside {
+        margin-top: 5px;
+        padding: 5px;
+    }
+
+    .description-aside h4{
+        font-weight: bold;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .description-aside p{
+        font-size: 13px;
+        text-align: center;
+    }
+
+}
+
+ @media(min-width: 1024px){
+    .section-home{
+        width: 70%;
+    } 
+    .home-aside{
+        width: 30%;
+        gap: 1px;
+    }
+    .home-article{
+     width: 30%;
+    height: 48%;
+    padding: 15px;
+    margin: 10px 10px;
+    box-shadow: 0px 0px 8px 0px grey;
+    }
+
+    .carrousel{
+        width: 100%;
+    }
+}
+ 
