@@ -463,14 +463,15 @@
     }
 
     .buttons-card{
-        margin-top: 10px;
+        margin-top: 20px;
         display: flex;
         justify-content: space-around;
+        width: 100%;
     }
 
     .button-buy{
         font-weight: 600;
-        margin: 10px 0px;
+        margin: 0px 10px;
         padding: 5px;
         width: 100px;
         border: none;
@@ -480,7 +481,7 @@
     }
     .button-look{
         font-weight: 600;
-        margin: 10px 0px;
+        margin: 0px 10px;
         padding: 5px;
         width: 100px;
         border: none;
