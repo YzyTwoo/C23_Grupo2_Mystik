@@ -102,6 +102,7 @@ footer{
         width: 85%;
         margin: auto;
         padding: 40px 0px;
+<<<<<<< HEAD
     }
     .buscar__tienda__footer{
         border: none;
@@ -147,115 +148,57 @@ footer{
         flex-direction: row;
         justify-content: center;
     }
+=======
+    }
+    .buscar__tienda__footer{
+        border: none;
+        margin: 0px 20px;
+    }
+    .ayuda__footer{
+        border: none;
+        margin: 0px;
+        padding: 0px 20px;
+    }
+    .acerca__mystik__footer{
+        border: none;
+        margin: 0px 20px;
+        padding: 0px;
+    }
+    .precios__justos__footer{
+        flex-direction: column;
+    }
+    .precios__justos__footer img{
+        width: 200px;
+        height: 80px;
+    }
+    .section__footer__bottom{
+        border-top: 1px solid var(--color-gris-oscuro);
+        display: flex;
+        flex-direction: row;
+        padding: 40px 0px;
+    }
+    .bottom__nav__derecho{
+        text-align: none;
+        align-items: none;
+    }
+    .bottom__nav__derecho nav{
+        display: flex;
+    }
+    .bottom__nav__derecho nav ul{
+        display: flex;
+    }
+    .bottom__nav__derecho nav ul li{
+        margin: 0px 20px;
+    }
+    .bottom__nav__izquierdo{
+        flex-direction: row;
+        justify-content: center;
+    }
+>>>>>>> 37ca838823d2f3cb8c13a9dd55fb8cf05081a453
     .fa-globe{
         margin-right: 8px;
     }
-
-    .nav__secundario {
-        position: fixed;
-        top: -52px;
-        left: 15%;
-        width: 100%;
-        z-index: 999;
-        font-size: 12px;
+    .bottom__nav__izquierdo span{
+        margin-right: 40px;
     }
-
-    .nav__nosotros {
-        position: fixed;
-        top: -20px;
-        left: 30%;
-        width: 100%;
-        z-index: 999;
-        font-size: 12px;
-
-    }
-
-    .preciosJustos {
-        width: 65%;
-        margin-left: 70%;
-        display: block;
-        top: 10px;
-        z-index: 999;
-        position: absolute;
-    }
-
-    .h3-span {
-        font-size: 16px;
-        display: flex;
-        left: 10px;
-        width: 80%;
-        display: inline;
-        margin-left: 10px;
-
-    }
-
-}
-
-@media (min-width:1024px) {
-
-    .linea_container-2 {
-        display: none;
-    }
-
-    .linea_container-3 {
-        display: none;
-    }
-
-    .linea_container-1 {
-        width: 100%;
-        height: 55vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .nav__principal {
-        font-size: 12px;
-
-    }
-
-    .ul-buscar li {
-        display: inline;
-        margin-left: 5px;
-
-    }
-
-    .nav__secundario {
-        position: fixed;
-        top: -43px;
-        left: 15%;
-        width: 100%;
-        z-index: 999;
-        font-size: 12px;
-    }
-
-    .nav__nosotros {
-        position: fixed;
-        top: -5px;
-        left: 30%;
-        width: 100%;
-        z-index: 999;
-        font-size: 12px;
-
-    }
-
-    .preciosJustos {
-        width: 50%;
-        margin-left: 60%;
-        display: block;
-        top: 5%;
-        z-index: 999;
-        position: absolute;
-    }
-
-    .h3-span {
-        font-size: 16px;
-        display: flex;
-        left: 10px;
-        width: 80%;
-        display: inline;
-        margin-left: 10px;
-
-    }
-
 }
