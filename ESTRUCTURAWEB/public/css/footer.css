@@ -102,6 +102,7 @@ footer{
         width: 85%;
         margin: auto;
         padding: 40px 0px;
+<<<<<<< HEAD
     }
     .buscar__tienda__footer{
         border: none;
@@ -147,6 +148,53 @@ footer{
         flex-direction: row;
         justify-content: center;
     }
+=======
+    }
+    .buscar__tienda__footer{
+        border: none;
+        margin: 0px 20px;
+    }
+    .ayuda__footer{
+        border: none;
+        margin: 0px;
+        padding: 0px 20px;
+    }
+    .acerca__mystik__footer{
+        border: none;
+        margin: 0px 20px;
+        padding: 0px;
+    }
+    .precios__justos__footer{
+        flex-direction: column;
+    }
+    .precios__justos__footer img{
+        width: 200px;
+        height: 80px;
+    }
+    .section__footer__bottom{
+        border-top: 1px solid var(--color-gris-oscuro);
+        display: flex;
+        flex-direction: row;
+        padding: 40px 0px;
+    }
+    .bottom__nav__derecho{
+        text-align: none;
+        align-items: none;
+    }
+    .bottom__nav__derecho nav{
+        display: flex;
+    }
+    .bottom__nav__derecho nav ul{
+        display: flex;
+    }
+    .bottom__nav__derecho nav ul li{
+        margin: 0px 20px;
+    }
+    .bottom__nav__izquierdo{
+        flex-direction: row;
+        justify-content: center;
+    }
+>>>>>>> 37ca838823d2f3cb8c13a9dd55fb8cf05081a453
     .fa-globe{
         margin-right: 8px;
     }
