@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8f20961981.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title><%= title %></title>
+</head>
+
+<body>
+    <header>
+        <section id="section_header">
+            <div class="logo_container">
+                <img src="/images/LOGO/LogoDesktop/ImagotipoHorizontal.png" alt="logo_mobile" class="logo_mobile">
+                <img src="/images/LOGO/LogoDesktop/ImagotipoHorizontal.png" alt="logo_desktop" class="logo_desktop">
+            </div>
+
+
+            <div class="burger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </section>
+    </header>
+    <div>
+        <nav>
+            <ul class="menu-list">
+                <li><a href="">Inicio</a><i class="fa-solid fa-chevron-right fa-2xs" id="flecha"></i></li>
+                <li><a href=""> Mi cuenta</a><i class="fa-solid fa-chevron-right fa-2xs" id="flecha"></i></li>
+                <li><a href="">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main class="registro_main">
+        <fieldset>
+            <div>
+                <img src="/images/LOGO/LogoMobile/Isotipo.png" alt="logovertical" class="logo-vertical-form">
+            </div>
+            <form class="login-form">
+                <h3>Iniciar sesión</h3>
+                <div class="item-form">
+                    <label for="email"> Email</label><br>
+                    <input type="text" name="name" id="name" placeholder="Ej.: tunombre@gmail.com" required>
+                </div>
+                <div class="item-form">
+                    <label for="password">Contraseña</label> <br>
+                    <input type="password" name="password" id="password" placeholder="" required><i
+                        class="fa-solid fa-eye-slash fa-xs" id="eye-slash"></i>
+                </div>
+                <div class="forget">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button class="button-form" type="submit"> INICIAR SESIÓN </button>
+                <div class="register">
+                    <p>¿No tenés cuenta? <a href="#">│ Crear cuenta</a></p>
+
+                </div>
+                </div>
+            </form>
+            </section>
+        </fieldset>
+    </main>
+</body>
+
+</html>

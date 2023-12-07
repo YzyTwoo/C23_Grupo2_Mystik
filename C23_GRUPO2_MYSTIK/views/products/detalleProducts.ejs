@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src="https://kit.fontawesome.com/2eb7e79ffa.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+        <title><%= title %></title>
+    </head>
+<body>
+    <header>
+        <nav class="nav-general">
+            <div>
+                <a href="#" class="line">+54 11 12345678 |</a>
+                <a href="#" class="line">consultas@mystikindumentaria.com |</a>
+                <a href="#">Ayuda</a>
+            </div>
+            <div>
+                <a href="#" class="line">Crear Cuenta | </a>
+                <a href="#">Iniciar Sesión</a>
+            </div>
+
+        </nav>
+
+        <div class="header-top">
+            
+            <div class="navbar">
+                
+                <div class="dropdown">
+                    
+                    <button class="dropbtn"><i class="fas fa-bars"></i></button>
+                    <div class="dropdown-content">
+                        <a href="#">INICIO</a> 
+                        <a href="#">TIENDA</a> 
+                        <a href="#">COLECCIÓN</a> 
+                        <a href="#" class="line-end">POLITICA DE DEVOLUCIÓN</a>
+                    </div>
+                </div>
+            
+            </div>
+            
+            <div class="logo-container">
+                <a href="#"><img src="/images/LOGO/LogoDesktop/logo.svg" class="logo-general" alt=""></a>
+                <a href="#"><img src="/images/LOGO/LogoMobile/logo-mobile.svg" class="logo-mobile" alt="Logo"></a>
+            </div>
+            
+            <div class="search-cart">
+                <input type="text" placeholder="Buscar"><i class="fas fa-search"></i>
+                <div class="cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <p class="precio">$0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="options-desktop">
+            <a href="#"><strong>INICIO</strong></a> 
+            <a href="#"><strong>TIENDA</strong></a> 
+            <a href="#"><strong>COLECCIÓN</strong></a> 
+            <a href="#" class="line-end"><strong>POLITICA DE DEVOLUCIÓN</strong></a>
+        </div>
+    </header>
+
+    <div class="containter-title"></div>
+
+    <main>
+        <section class="section-container-main">
+
+            <div class="container-images-product-buy">
+                <div class="container-more-img">
+                    <img class="img-more-prod" src="/images/producto-detalle/2.jpg" alt="producto-kotk-campera">
+                    <img class="img-more-prod" src="/images/producto-detalle/3.jpg" alt="producto-kotk-campera">
+                    <img class="img-more-prod" src="/images/producto-detalle/4.jpg" alt="producto-kotk-campera">
+                </div>
+                <div class="container-img">
+                    <img class="img-product" src="/images/producto-detalle/1.jpg" alt="producto-kotk-campera">
+                </div>
+            </div>
+
+            <div class="container-info-product">
+
+                <div class="container-price">
+                    <h3 class="h3-tittle-product">Campera KOTK Black</h3>
+                    <span>$33.990</span>
+                </div>
+
+                <div class="container-details-product">
+                    <div class="six-interest-free-details-product">
+                        <p>
+                            <i class="fa-solid fa-credit-card"></i>
+                            6 cuotas sin interés
+                        </p>
+                    </div>
+                    <h3 class="h3-size">TALLE</h3>
+                    <div class="form-grup-size">
+                            <input class="size-s size-options" type="radio" name="size" value="s"></input>
+                            <input class="size-m size-options" type="radio" name="size" value="m"></input>
+                            <input class="size-l size-options" type="radio" name="size" value="l"></input>
+                            <input class="size-xl size-options" type="radio" name="size" value="xl"></input>
+                            <input class="size-xxl size-options" type="radio" name="size" value="xxl"></input>
+                    </div>
+                </div>
+
+                <div class="container-add-cart">
+                    <div class="containter-quantity">
+                        <!-- INPUT CONTADOR (CANTIDAD DE PRODUCTOS PARA AÑADIR AL CARRITO) -->
+                        <label for="quantity">Cantidad</label>
+                        <input
+                            type="number"
+                            placeholder="1"
+                            value="1"
+                            min="1"
+                            id="quantity"
+                            class="input-quantity"
+                        />
+                    </div>
+                    <button class="btn-add-to-cart">
+                        <i class="fa-solid fa-plus"></i>
+                        Añadir al carrito
+                    </button>
+
+                    <div class="container-social">
+                        <span class="span-social">Compartir</span>
+                        <div class="container-buttons-social">
+                            <a href="#"><i class="buttons-social fa-solid fa-envelope"></i></a>
+                            <a href="#"><i class="buttons-social fa-brands fa-facebook"></i></a>
+                            <a href="#"><i class="buttons-social fa-brands fa-x-twitter"></i></a>
+                            <a href="#"><i class="buttons-social fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="buttons-social fa-brands fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                    <div class="container-description">
+                        <div class="description-care">                        
+                            <h4 class="h4-description-care">DESCRIPCIÓN</h4>
+                            <i class="fa-solid fa-chevron-down"></i>
+                            <ul>
+                                <li>Campera con capucha, aplique en el frente.</li>
+                                <li>Puños y cintura en rib.</li>
+                                <li>Material: Algodon Premium</li>
+                            </ul>
+                        </div>
+        
+                        <div class="description-care">
+                            <h4 class="h4-description-care">CUIDADOS</h4>
+                            <i class="fa-solid fa-chevron-down"></i>
+                            <ul>
+                                <li>Lavar la prenda con agua fría.</li>
+                                <li>Lavar a mano del lado del reves.</li>
+                                <li>No secar a maquina.</li>
+                                <li>No planchar sobre estampa.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <h2 class="h2-detail-product">También te puede gustar</h2>
+    </main>
+
+    <section class="container-related-products">
+        <div class="card-list-products">
+            <article class="card">
+                <div class="card-img">
+                    <img class="img-card" src="/images/prod_de_arriba/chaoooos.jpg" alt="producto-1">
+                </div>
+
+                <div class="info-card">
+                    <div class="text-product">
+                        <h3>BUZO NEGRO - CHAOS</h3>
+                        <h4>$42.999</h4>
+                        <p class="six-interest-free">
+                            <i class="fa-solid fa-credit-card"></i>
+                            3 cuotas sin interés de $14.333
+                        </p>
+                    </div>
+
+                    <div class="buttons-card">
+                        <button class="button-buy">
+                            Comprar
+                        </button>
+                        <button class="button-look">
+                            Ver
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img">
+                    <img class="img-card" src="/images/prod_de_arriba/ReligionSucks.jpg" alt="producto-1">
+                </div>
+
+                <div class="info-card">
+                    <div class="text-product">
+                        <h3>BUZO NEGRO - RELIGION SUCKS</h3>
+                        <h4>$44.999</h4>
+                        <p class="six-interest-free">
+                            <i class="fa-solid fa-credit-card"></i>
+                            3 cuotas sin interés de $14.333
+                        </p>
+                    </div>
+                    <div class="buttons-card">
+                        <button class="button-buy">
+                            Comprar
+                        </button>
+                        <button class="button-look">
+                            Ver
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img">
+                    <img class="img-card" src="/images/prod_de_arriba/UrbanCity.jpg" alt="producto-1">
+                </div>
+                <div class="info-card">
+                    <div class="text-product">
+                        <h3>BUZO NEGRO - URBAN CITY</h3>
+                        <h4>$44.999</h4>
+                        <p class="six-interest-free">
+                            <i class="fa-solid fa-credit-card"></i>
+                            3 cuotas sin interés de $14.333
+                        </p>
+                    </div>
+                    <div class="buttons-card">
+                        <button class="button-buy">
+                            Comprar
+                        </button>
+                        <button class="button-look">
+                            Ver
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img">
+                    <img class="img-card" src="/images/prod_de_abajo/dddibujito3.jpg" alt="producto-1">
+                </div>
+                <div class="info-card">
+                    <div class="text-product">
+                        <h3>BUZO NEGRO - WORLD</h3>
+                        <h4>$44.999</h4>
+                        <p class="six-interest-free">
+                            <i class="fa-solid fa-credit-card"></i>
+                            3 cuotas sin interés de $14.333
+                        </p>
+                    </div>
+                    <div class="buttons-card">
+                        <button class="button-buy">
+                            Comprar
+                        </button>
+                        <button class="button-look">
+                            Ver
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <a href="/">
+            <button class="button-look-more-products">
+                Ver más productos
+            </button>
+        </a>
+    </section>
+
+    <footer>
+        <section class="section__footer__nav">
+                <article class="buscar__tienda__footer">
+                    <a class="a__bold" href="/buscarTienda">BUSCAR TIENDA</a>
+                </article>
+                <article class="ayuda__footer">
+                    <nav class="nav__ayuda">
+                        <ul>
+                            <li><a class="a__bold" href="/ayuda">AYUDA</a></li>
+                            <li><a class="a__nav__footer" href="/envios-entrega">Envíos y entregas</a></li>
+                            <li><a class="a__nav__footer" href="/opciones-pago">Opciones de pago</a></li>
+                            <li><a class="a__nav__footer" href="/contacto">Contactate</a></li>
+                        </ul>
+                    </nav>
+                </article>
+                <article class="acerca__mystik__footer">
+                    <nav>
+                        <ul>
+                            <li><a class="a__bold" href="/acerca-mistyk">ACERCA DE MYSTIK</a></li>
+                            <li><a class="a__nav__footer" href="/noticias">Noticias</a></li>
+                        </ul>
+                    </nav>
+                </article>
+                <article class="precios__justos__footer">
+                    <img src="/images/footer/preciosjustos.png" alt="Logo de precios">
+                    <img src="/images/footer/sid.png" alt="Logo de sid">
+                </article>
+        </section>
+        <section class="section__footer__bottom">
+            <article class="bottom__nav__izquierdo">
+                <i class="fa-solid fa-globe"></i>
+                <span>Argentina</span>
+                <nav>
+                    <ul>
+                        <li><a class="a__nav__footer" href="/derechos-reservados">2023 S.R.L todos los derechos reservados</a></li>
+                    </ul>
+                </nav>
+            </article>
+            <article class="bottom__nav__derecho">
+                <nav>
+                    <ul>
+                        <li><a class="a__nav__footer" href="">Terminos y condiciones</a></li>
+                        <li><a class="a__nav__footer" href="">Politicas de privacidad y cookies</a></li>
+                    </ul>
+                </nav>
+            </article>
+        </section>
+    </footer>
+    <script src="/js/detalle-producto.js"></script>
+</body>
+</html>
