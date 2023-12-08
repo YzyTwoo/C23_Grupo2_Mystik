@@ -102,7 +102,6 @@ footer{
         width: 85%;
         margin: auto;
         padding: 40px 0px;
-<<<<<<< HEAD
     }
     .buscar__tienda__footer{
         border: none;
@@ -148,7 +147,6 @@ footer{
         flex-direction: row;
         justify-content: center;
     }
-=======
     }
     .buscar__tienda__footer{
         border: none;
@@ -194,11 +192,9 @@ footer{
         flex-direction: row;
         justify-content: center;
     }
->>>>>>> 37ca838823d2f3cb8c13a9dd55fb8cf05081a453
     .fa-globe{
         margin-right: 8px;
     }
     .bottom__nav__izquierdo span{
         margin-right: 40px;
     }
-}

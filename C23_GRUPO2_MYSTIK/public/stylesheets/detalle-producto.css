@@ -83,7 +83,7 @@
 /* TALLES (S - M - L - XL - XXL) */
 .size-s{
     cursor: pointer;
-    background-image: url("/img/checkbox-svg/S.svg");
+    background-image: url("/images/checkbox-svg/S.svg");
     appearance: none;
     width: 50px;
     height: 50px;
@@ -93,7 +93,7 @@
 
 .size-m{
     cursor: pointer;
-    background-image: url("/img/checkbox-svg/M.svg");
+    background-image: url("/images/checkbox-svg/M.svg");
     appearance: none;
     width: 50px;
     height: 50px;
@@ -103,7 +103,7 @@
 
 .size-l{
         cursor: pointer;
-        background-image: url("/img/checkbox-svg/L.svg");
+        background-image: url("/images/checkbox-svg/L.svg");
         appearance: none;
         width: 50px;
         height: 50px;
@@ -113,7 +113,7 @@
 
 .size-xl{
     cursor: pointer;
-    background-image: url("/img/checkbox-svg/XL.svg");
+    background-image: url("/images/checkbox-svg/XL.svg");
     appearance: none;
     width: 50px;
     height: 50px;
@@ -123,7 +123,7 @@
 
 .size-xxl{
     cursor: pointer;
-    background-image: url("/img/checkbox-svg/XXL.svg");
+    background-image: url("/images/checkbox-svg/XXL.svg");
     appearance: none;
     width: 50px;
     height: 50px;
