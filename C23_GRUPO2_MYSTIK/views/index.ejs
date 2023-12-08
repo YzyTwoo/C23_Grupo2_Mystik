@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/stylesheets/style.css">
-        <script src="https://kit.fontawesome.com/2eb7e79ffa.js" crossorigin="anonymous"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <title><%= title %></title>
-    </head>
+<!-- head -->
 
+<%- include('./partials/head.ejs') %>
 <body>
 
     <header>
@@ -161,54 +150,9 @@
 
       
 
-      <footer>
-        <section class="section__footer__nav">
-                <article class="buscar__tienda__footer">
-                    <a class="a__bold" href="/buscarTienda">BUSCAR TIENDA</a>
-                </article>
-                <article class="ayuda__footer">
-                    <nav class="nav__ayuda">
-                        <ul>
-                            <li><a class="a__bold" href="/ayuda">AYUDA</a></li>
-                            <li><a class="a__nav__footer" href="/envios-entrega">Envíos y entregas</a></li>
-                            <li><a class="a__nav__footer" href="/opciones-pago">Opciones de pago</a></li>
-                            <li><a class="a__nav__footer" href="/contacto">Contactate</a></li>
-                        </ul>
-                    </nav>
-                </article>
-                <article class="acerca__mystik__footer">
-                    <nav>
-                        <ul>
-                            <li><a class="a__bold" href="/acerca-mistyk">ACERCA DE MYSTIK</a></li>
-                            <li><a class="a__nav__footer" href="/noticias">Noticias</a></li>
-                        </ul>
-                    </nav>
-                </article>
-                <article class="precios__justos__footer">
-                    <img src="/images/footer/preciosjustos.png" alt="Logo de precios">
-                    <img src="/images/footer/sid.png" alt="Logo de sid">
-                </article>
-        </section>
-        <section class="section__footer__bottom">
-            <article class="bottom__nav__izquierdo">
-                <i class="fa-solid fa-globe"></i>
-                <span>Argentina</span>
-                <nav>
-                    <ul>
-                        <li><a class="a__nav__footer" href="/derechos-reservados">2023 S.R.L todos los derechos reservados</a></li>
-                    </ul>
-                </nav>
-            </article>
-            <article class="bottom__nav__derecho">
-                <nav>
-                    <ul>
-                        <li><a class="a__nav__footer" href="">Terminos y condiciones</a></li>
-                        <li><a class="a__nav__footer" href="">Politicas de privacidad y cookies</a></li>
-                    </ul>
-                </nav>
-            </article>
-        </section>
-    </footer>
+<!-- footer -->
+
+<%- include('./partials/footer.ejs') %>
 
 
 
