@@ -50,7 +50,11 @@ const productosControllers = {
     },
     carritoProducts: (req, res) => {
         res.render('products/carritoProducts', {title:'Carrito', productos });
+    },
+    cargaProducto:  (req, res) => {
+        res.render('products/cargaProducto')
     }
+
 }
 
 module.exports = productosControllers;
