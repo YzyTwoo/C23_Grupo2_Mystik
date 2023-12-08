@@ -1,0 +1,47 @@
+.section_form_edit_product{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.form_edit_product {
+    margin: 40px 0px;
+    padding: 30px;
+    border: 1px solid var(--color-gris-oscuro);
+    width: 50%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+.form_edit_product input{
+    display: flex;
+    width: 40%;
+}
+.form_edit_product label{
+}
+
+.textarea_form_edit_product{
+    resize: none;
+    width: 40%;
+}
+.container_img_edit_product {
+    width: 140px;
+    height: 80px;
+}
+.img_edit_product{
+    width: 100%;
+}
+
+.containter_talle_edit_product{
+    display: flex;
+    flex-direction: row;
+}
+
+.containter_talle_edit_product label{
+    
+}
+
+.containter_talle_edit_product input{
+    margin-left: 30px;
+    height: 20px;
+    width: 20px;
+}

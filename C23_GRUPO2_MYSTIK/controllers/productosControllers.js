@@ -52,7 +52,7 @@ const productosControllers = {
         res.render('products/carritoProducts', {title:'Carrito', productos });
     },
     editProduct: (req, res) => {
-        res.render('products/editProduct', {title:'Carrito', productos })
+        res.render('products/editProduct', {title:'Edición', productos })
     }
 }
 
