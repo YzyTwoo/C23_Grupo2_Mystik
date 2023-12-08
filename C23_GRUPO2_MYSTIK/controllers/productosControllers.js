@@ -12,7 +12,11 @@ const productosControllers = {
         res.render('products/carritoProducts', {title:'Carrito', productos });
     },
     dashboard:(req, res) => {
-        res.render('products/dashboard', { title: "Dashboard", productos });
+        const propiedades = []
+        for (prop in productos[0]) {
+            propiedades.push(prop)
+        }
+        res.render('products/dashboard', { title: "Dashboard", productos, propiedades });
     }
 }
 

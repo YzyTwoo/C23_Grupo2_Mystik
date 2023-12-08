@@ -1,38 +1,82 @@
-<%- include("../partials/head.ejs") %>
-  <body class="">
-    <%- include("../partials/header.ejs") %>
-    <main>
-      <section class="home__main__products">
-          <% products.forEach(product => {%>
-            <article class="home__main__products__product">
-              <div class="home__main__products__product__photo-container">
-                <img
-                  class="home__main__products__product__photo-container--photo"
-                  src="/images/<%= product.imagen %>"
-                  alt="<%= product.nombre %>"
-                />
-              </div>
-              <h4><%= product.nombre %></h4>
-              <div class="contenedor-botones-dashboard">
-              <a
-                class="home__main__products__product__photo-container--more"
-                href="/products/detail/<%= product.id %>"
-                ><i class="fa-brands fa-readme"></i></a
-              >
-              <a class="home__main__products__product__photo-container--more"
-              href="/products/update/<%= product.id %>"
-                ><i class="fa-solid fa-pen-to-square"></i>
-              </a>
-              <a class="home__main__products__product__photo-container--more"
-              href="/products/delete/<%= product.id %>"
-                ><i class="fa-solid fa-trash"></i>
-              </a>
-            </div>
-            </article>
-          <% }); %>
-        
-      </section>
-    </main>
-    <%- include("../partials/footer.ejs") %>
-  </body>
+<%- include("../partials/heads.ejs") %>
+<body>
+
+    <%- include("../partials/headerProduct.ejs") %>
+
+    <main class="main-home">
+
+
+    
+          <!-- SECCION PRODUCTOS -->
+    
+          <section class="section-home">
+
+            <a href="/products/formCreate"><button class="dashboard-button-create">Crear Producto</button></a>
+
+            <table class="table">
+                <thead>
+                  <tr >
+                    <% propiedades.forEach(propiedad => { %>
+                        <th scope="col"><%= propiedad %></th>
+                    <%}); %>
+
+                    <th> Acciones</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                    <% productos.forEach(obj => { %>
+                        <tr>
+                            
+    
+                            <% for(propiedad in obj) { %>
+                                 <% if (propiedad == "id") {%>
+                                    <th scope="row"> <%= obj.id %></th>
+                                <%}else{ %>
+                                  <td><%= obj[propiedad]%></td>
+                                <%}%>
+                            <%};%>
+                            
+
+
+                            <td class="dashboard-container-buttons-actions"> 
+                                <a
+                                href="/detalle/:id/<%= obj.id %>"
+                                ><i class="fa-brands fa-readme"></i></a
+                              >
+                              <a
+                              href="/products/formUpdate/<%= obj.id %>"
+                                ><i class="fa-solid fa-pen-to-square"></i>
+                              </a>
+                              <a 
+                              href="/products/delete/<%= obj.id %>"
+                                ><i class="fa-solid fa-trash"></i>
+                              </a></td>
+                        </tr>
+                    <%}); %>
+                </tbody>
+              </table>
+
+    
+          </section>
+    
+          <!-- fin de sección productos -->
+    
+    
+          
+
+      </main>
+    
+
+      
+      <!-- Footer -->
+      <%- include("../partials/footer.ejs") %>
+
+
+    
+     
+  
+</body>
+
 </html>
