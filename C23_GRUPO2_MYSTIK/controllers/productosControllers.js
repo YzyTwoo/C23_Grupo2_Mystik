@@ -50,6 +50,9 @@ const productosControllers = {
     },
     carritoProducts: (req, res) => {
         res.render('products/carritoProducts', {title:'Carrito', productos });
+    },
+    editProduct: (req, res) => {
+        res.render('products/editProduct', {title:'Carrito', productos })
     }
 }
 
