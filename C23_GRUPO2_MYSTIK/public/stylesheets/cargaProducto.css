@@ -1,0 +1,62 @@
+.titulo-producto{
+    text-align: center;
+    padding: 20px;
+}
+
+.section-form{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.subtitulo{
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.form-product{
+    margin: 40px 0px;
+    padding: 30px;
+    border: 1px solid var(--color-gris-oscuro);
+    width: 30%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.form-product textarea{
+    display: flex;
+    width: 100%;
+}
+
+.form-product input{
+    display: flex;
+    width: 100%;  
+    height: 35px;
+    margin-bottom: 20px;
+}
+
+.talle-titulo{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+ .talle-productos{
+    display: flex;
+    flex-direction: row;
+ }
+
+ .talle-productos input{
+    height: 20px;
+ }
+
+.button-enviar-borrar{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.button-enviar-borrar button{
+    width: 80px;
+}
+

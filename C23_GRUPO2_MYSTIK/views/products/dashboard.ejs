@@ -11,7 +11,7 @@
     
           <section class="section-home">
 
-            <a href="/products/formCreate"><button class="dashboard-button-create">Crear Producto</button></a>
+            <a href="/productos/cargaProducto"><button class="dashboard-button-create">Crear Producto</button></a>
 
             <table class="table">
                 <thead>
@@ -20,7 +20,7 @@
                         <th scope="col"><%= propiedad %></th>
                     <%}); %>
 
-                    <th> Acciones</th>
+                    <th> Actions</th>
                   </tr>
                 </thead>
 
@@ -40,9 +40,9 @@
                             
 
 
-                            <td class="dashboard-container-buttons-actions"> 
+                            <td class="dashboard-buttons-actions"> 
                                 <a
-                                href="/detalle/:id/<%= obj.id %>"
+                                href="/productos/detalle/:id"
                                 ><i class="fa-brands fa-readme"></i></a
                               >
                               <a

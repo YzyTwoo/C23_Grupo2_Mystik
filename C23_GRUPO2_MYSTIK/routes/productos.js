@@ -8,4 +8,8 @@ router.get('/carrito', productosControllers.carritoProducts)
 router.get('/dashboard', productosControllers.dashboard)
 
 
+
+router.get('/cargaProducto', productosControllers.cargaProducto)
+router.post('/cargaProducto', productosControllers.cargaProducto)
+
 module.exports = router;
