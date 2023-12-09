@@ -5,7 +5,7 @@
 * Rodriguez Valentina
 * Coppa Ayelen
 * Contreras Lautaro
-* Medina Fabían
+* Medina Fabian
 
 ## COMENZAR A HACER
 
@@ -28,3 +28,41 @@
 ## HACER MENOS
 
 * Trabajar menos individualmente.
+----------------------------------------------------------------------------------------------------------------------------------------------
+# Retrospectiva sprint 3 - C23 GRUPO 2, MYSTIK
+
+## GRUPO N°2:
+* Orieta Tiziano    
+* Rodriguez Valentina
+* Coppa Ayelen
+* Contreras Lautaro
+* Medina Fabian
+
+## COMENZAR A HACER
+
+* Empezar a comunicar más por Jira los avances de cada tarea, dejar el link y que novedades hay (OBLIGATORIO).
+* Coordinar mejor las daylis para mayor apoyo y actualización del equipo.
+* Recordar siempre asignar un lider de equipo.
+* Comenzar a elegir quienes aprueban las tareas asignadas cuanto estan en QA.
+
+## HACER MAS
+
+* Comunicar más cuando estemos bloqueados así nuestros compañeros nos ayudan con los bloqueos.
+* Terminar las tareas en tiempo y forma.
+
+## CONTINUAR HACIENDO
+
+* Comunicación activa tanto para plantear ideas o errores que surjan en cada Sprint.
+* Obteniendo confianza con nuestro equipo así podemos ayudarnos entre todos para agilizar las tareas.
+
+## DEJAR DE HACER
+
+* Llegar tarde a las dailys.
+* Tratar de trabajar menos individualmente para tener segundas opiniones y mayor comunicación con los compañeros.
+* Ha mejorado la comunicación en el grupo pero falta seguir trabajando en ello para un mejor feedback.
+
+## HACER MENOS
+
+* Trabajar menos individualmente.
+* Daylis en discord, buscar una mejor alternativa para las daylis.
+* Usar menos whatsapp, más Jira para adaptarse a la forma de trabajo habitual.
