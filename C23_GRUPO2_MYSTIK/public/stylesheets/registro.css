@@ -128,7 +128,6 @@
     align-self: center;
     border: 1px solid black;
     width: 270px;
-    height: 490px;
 }
 
 .titulo_cuenta{
@@ -163,7 +162,7 @@
     margin-bottom: 10px;
 }
 
-input{
+.formulario_section input{
     width: 100px;
 }
 
@@ -252,7 +251,6 @@ input{
         align-self: center;
         border: 1px solid black;
         width: 400px;
-        height: 545px;
         margin-right: 20px;
     }
     
