@@ -12,8 +12,11 @@ const productosControllers = {
         res.render('products/carritoProducts', {title:'Carrito', productos });
     },
     cargaProducto:  (req, res) => {
-        res.render('products/cargaProducto'), {title:'Carga', productos };
-    },   
+        res.render('products/cargaProducto');
+    },
+    editarProducto:  (req, res) => {
+        res.render('products/editProduct', {title:'Edición'});
+    },
     dashboard:(req, res) => {
         const propiedades = []
         for (prop in productos[0]) {
