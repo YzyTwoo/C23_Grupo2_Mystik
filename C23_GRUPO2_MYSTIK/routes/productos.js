@@ -4,6 +4,13 @@ const productosControllers = require('../controllers/productosControllers');
 
 /* GET home page. */
 router.get('/detalle/:id', productosControllers.detalleProducts);
-router.get('/carrito', productosControllers.carritoProducts)
+router.get('/carrito', productosControllers.carritoProducts);
+router.get('/dashboard', productosControllers.dashboard);
+
+router.get('/editarProducto', productosControllers.editarProducto);
+router.post('/editarProducto', productosControllers.editarProducto);
+
+router.get('/cargaProducto', productosControllers.cargaProducto);
+router.post('/cargaProducto', productosControllers.cargaProducto);
 
 module.exports = router;

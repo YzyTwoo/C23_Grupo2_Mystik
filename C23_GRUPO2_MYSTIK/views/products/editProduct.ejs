@@ -1,0 +1,46 @@
+<!-- head -->
+
+<%- include('../partials/heads.ejs') %>
+<body>
+    <!-- header -->
+    <%- include("../partials/headerProduct.ejs") %>
+
+    <main>
+        <section class="section_form_edit_product">
+        <form action="/products/edit/:id?_method=PUT" method="POST" class="form_edit_product">
+                <h1 class="h1_form_edit_product">Edición del producto</h1>
+        <div class="div-form-edit-product">
+            <label for="">Imagen</label>
+            <div class="container_img_edit_product">
+                <img class="img_edit_product" src="/images/default.png" alt="no-img">
+            </div>
+            <input type="file" name="" id="">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre">
+            <label for="precio">Precio</label>
+            <input type="text" name="precio" id="precio">
+            <textarea class="textarea_form_edit_product" name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Descripción"></textarea>
+            <label class="talle-titulo">Talle</label>
+            <div class="talle-productos">
+                <label>S</label>
+                <input type="checkbox" tabindex="20" name="talle" value="S" />
+                <label>M</label>
+                <input type="checkbox" tabindex="21" name="talle" value="M" />
+                <label>L</label>
+                <input type="checkbox" tabindex="22" name="talle" value="L" />
+                <label>XL</label>
+                <input type="checkbox" tabindex="23" name="talle" value="XL" />
+                <label>XXL</label>
+                <input type="checkbox" tabindex="24" name="talle" value="XXL" />
+            </div>
+            <div class="button-enviar-borrar">
+                <a  href="/"><button type="submit" value="Enviar">Enviar</button></a>
+                <a href="/"> <button type="reset" value="Borrar">Borrar</button></a>
+            </div>
+        </div>
+            </form>
+    </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
