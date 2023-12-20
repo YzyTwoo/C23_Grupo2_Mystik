@@ -29,7 +29,7 @@
                         <a href="#"><strong>TIENDA</strong></a> 
                         <a href="#"><strong>COLECCIÓN</strong></a> 
                         <br>
-                        <a href="#"><strong><p class="account">Iniciar Sesión </p></strong> <i class="fas fa-sign-out-alt"></i></a> 
+                        <a href="#"><strong><p class="account">Iniciar Sesión</p></strong> <i class="fas fa-sign-out-alt"></i></a> 
                         <a href="#"><strong><p class="account">Registrate</p></strong> <i class="far fa-id-card"></i></a> 
                         <a href="#" class="line-end"><strong>POLITICA DE DEVOLUCIÓN</strong></a>
                     </div>
@@ -94,8 +94,7 @@
     
             <% productos.forEach(function(producto) { %>
                 <article class="home-article">
-                  <img class="article-img" src="/images/prod_de_arriba/<%= producto.image %>" alt="">
-                  <img class="article-img" src="/images/prod_de_abajo/<%= producto.image %>" alt="">
+                  <img class="article-img" src="/images/products/<%= producto.image %>" alt="">
                   <div class="article-description">
                     <h4 class="title-article"><%= producto.name %></h4>
                     <p class="article-price">$<%= producto.price %></p>
@@ -116,7 +115,7 @@
             <section class="section-aside">
     
                 <div class="img-aside">
-                    <a href="#"><img src="/images/prod_de_arriba/productoColeccion.jpg"    alt=""></a> 
+                    <a href="#"><img src="/images/products/productoColeccion.jpg"    alt=""></a> 
                 </div>
     
                 <div class="description-aside">
@@ -129,7 +128,7 @@
             <section class="section-aside">
     
                 <div class="img-aside">
-                    <a href="#"><img src="/images/prod_de_abajo/collectionDibujo.jpg" alt=""></a>
+                    <a href="#"><img src="/images/products/collectionDibujo.jpg" alt=""></a>
                 </div>
     
                 <div class="description-aside">
