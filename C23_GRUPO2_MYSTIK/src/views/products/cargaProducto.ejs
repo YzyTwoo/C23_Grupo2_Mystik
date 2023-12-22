@@ -1,6 +1,6 @@
 <!-- head -->
 
-<%- include('../partials/heads.ejs') %>
+<%- include('../partials/heads.ejs', {title: 'Formulario de creación'}) %>
 <body>
 <!-- header -->
 
@@ -8,7 +8,8 @@
     <main>
         <h1 class="titulo-producto">Carga de productos</h1>
         <section class="section-form">
-        <form class="form-product">
+            
+        <form action="/productos/create" method="POST" class="form-product">
         <div class="div-form">
             <label class="subtitulo">Cargar imagen del producto</label>
             <input type="file" name="imagen">
