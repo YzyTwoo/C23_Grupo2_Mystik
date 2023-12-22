@@ -1,6 +1,7 @@
+const { log } = require("console");
 const fs = require("fs");
 const path = require("path");
-const json = fs.readFileSync(path.join(__dirname,"../database/productos.json"),"utf-8")
+const json = fs.readFileSync(path.join(__dirname,"../database/productos.json"),'utf-8')
 const productos = JSON.parse(json);
 
 
@@ -36,24 +37,15 @@ const productosControllers = {
 	},
 
     create: (req,res)=>{
+        const producto = req.body;
+        producto.id =  productos[productos.length-1].id + 1;
+        productos.push(producto);
+        const Json = JSON.stringify(productos);
+        fs.writeFileSync(path.join(__dirname,"../database/productos.json"), Json, 'utf-8' );
+        res.redirect("/productos/dashboard");
 
-        const {nombre , price , description , image} = req.body
-        const products = getJson();
 
-        const id = products[products.length -1].id +1;
-
-        let nuevoObjeto = {
-            id,
-            nombre,
-            price,
-            description,
-            image,
-    }
-        res.send(nuevoObjeto)
-
-        const json = JSON.stringify(products);
-        fs.writeFileSync(productsFilePath, json, 'utf-8');
-		res.redirect(`/products/detail/${productNuevo.id}`);
+       
 },
 }
 

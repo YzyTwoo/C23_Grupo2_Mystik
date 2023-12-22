@@ -8,17 +8,17 @@
     <h1 class="titulo-producto">Carga de productos</h1>
     <section class="section-form">
         
-    <form action="/preductos/detalleProducto" method="POST" class="form-product">
+    <form action="/productos/create" method="POST" class="form-product">
     <div class="div-form">
         <label class="subtitulo">Cargar imagen del producto</label>
 
-        <input type="file" name="imagen">
+        <input type="file" name="image" id="imagen">
 
-        <input type="text" name="nombre"  placeholder="Nombre" required>
+        <input type="text" name="name" placeholder="Nombre" required>
 
-        <input type="text" name="precio" placeholder="Precio" required>
+        <input type="text" name="price" placeholder="Precio" required>
 
-        <textarea name="descripcion" placeholder="Descripción"></textarea required>
+        <textarea name="description" id="description" placeholder="Descripción"></textarea required>
 
         <label class="talle-titulo">Talle</label>
 
