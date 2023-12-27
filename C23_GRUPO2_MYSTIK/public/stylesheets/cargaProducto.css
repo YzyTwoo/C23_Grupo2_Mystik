@@ -52,9 +52,6 @@
     margin-bottom: 20px;
    
 }
-.div-form{
-margin-left: 50px;
-}
 .talle-titulo{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -80,19 +77,25 @@ margin-left: 50px;
     font-weight: bold;
  }
  .box{
+    
+    margin-bottom: 20px;
     display: flex;
-    justify-content: space-around;
     flex-direction:row;
+    
  }
  .color-box input{
     height: 20px;
+    display: inline;
+   
+
+
  }
  .estock{
      margin-bottom: 20px;
     font-weight: bold;
     display: flex;
     justify-content: space-around;
-    flex-direction:row;
+    flex-direction:column;
  }
  .estock input{
     width: 80px;
@@ -109,111 +112,3 @@ margin-left: 50px;
 }
 
 
-@media (min-width: 768px) {
-.titulo-producto{
-    text-align: center;
-    padding: 20px;
-}
-
-.section-form{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.subtitulo{
-    margin-bottom: 20px;
-    margin-left: 20px;
-    font-weight: bold;
-}
-
-.titulo-producto{
-    text-align: center;
-    padding: 20px;
-}
-
-.section-form{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.subtitulo{
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-.form-product{
-    margin: 40px 0px;
-    padding: 30px;
-    border: 1px solid var(--color-gris-oscuro);
-    width: 30%;
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-}
-
-.form-product textarea{
-    display: flex;
-    width: 100%;
-}
-
-.form-product input{
-    display: flex;
-    width: 100%;  
-    height: 35px;
-    margin-bottom: 20px;
-}
-
-.talle-titulo{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
- .talle-productos{
-    display: flex;
-    flex-direction: row;
- }
-
- .talle-productos input{
-    height: 20px;
- }
- .category{
-    margin-bottom: 20px;
-    font-weight: bold;
- }
- .colors{
-    margin-bottom: 20px;
-    font-weight: bold;
- }
- .box{
-    display: flex;
-    justify-content: space-around;
-    flex-direction:row;
- }
- .color-box input{
-    height: 20px;
- }
- .estock{
-     margin-bottom: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-around;
-    flex-direction:row;
- }
- .estock input{
-    width: 80px;
- }
-
-.button-enviar-borrar{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.button-enviar-borrar button{
-    width: 80px;
-}
-
-
-}
