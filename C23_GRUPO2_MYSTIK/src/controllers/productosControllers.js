@@ -37,12 +37,24 @@ const productosControllers = {
 	},
 
     create: (req,res)=>{
-        const producto = req.body;
-        producto.id =  productos[productos.length-1].id + 1;
-        productos.push(producto);
+        const {image, name, price, description, talle, category, color, stock} = req.body;
+        const id =  productos[productos.length-1].id + 1;
+        const productoNuevo = {
+			id: +id,
+            image,
+			name,
+			price,
+			description,
+            talle,
+            category,
+            color,
+            stock,
+			
+		};
+        productos.push(productoNuevo);
         const Json = JSON.stringify(productos);
         fs.writeFileSync(path.join(__dirname,"../database/productos.json"), Json, 'utf-8' );
-        res.redirect("/productos/dashboard");
+        res.redirect(`/productos/detalleProducts/${productoNuevo.id}`);
 
 
        

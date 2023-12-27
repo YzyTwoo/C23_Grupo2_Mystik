@@ -10,7 +10,7 @@ router.get('/detalle/:id', productosControllers.detalleProducts);
 router.get('/carrito', productosControllers.carritoProducts);
 router.get('/dashboard', productosControllers.dashboard);
 
-/*edistar productos*/
+/*editar productos*/
 
 router.get('/editarProducto', productosControllers.editarProducto);
 router.post('/editarProducto', productosControllers.editarProducto);

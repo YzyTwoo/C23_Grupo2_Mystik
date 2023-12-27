@@ -12,11 +12,17 @@
         <form action="/productos/create" method="POST" class="form-product">
         <div class="div-form">
             <label class="subtitulo">Cargar imagen del producto</label>
-            <input type="file" name="imagen">
-            <input type="text" name="nombre" placeholder="Nombre">
-            <input type="text" name="precio" placeholder="Precio">
-            <textarea name="descripcion" placeholder="Descripción"></textarea>
+
+            <input type="file" name="image" id="imagen">
+
+            <input type="text" name="name" placeholder="Nombre" >
+
+            <input type="text" name="price" placeholder="Precio">
+
+            <textarea name="description" id="Descripción" placeholder="Descripción"></textarea>
+
             <label class="talle-titulo">Talle</label>
+
             <div class="talle-productos">
                 <label>S</label>
                 <input type="checkbox" tabindex="20" name="talle" value="S" />

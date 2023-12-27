@@ -5,6 +5,7 @@ const productos = [
         name: "BUZO NEGRO - CHAOS CITY",
         price: 42.999,
         description: '3 Cuotas sin interés de $14.333',
+        talle: 'M',
     },
     {
         id: 2,
@@ -12,6 +13,7 @@ const productos = [
         name: "BUZO NEGRO - URBAN CITY",
         price: 44.999,
         description: '3 Cuotas sin interés de $14.999',
+        talle: 'M', 
     },
     {
         id: 3,
@@ -19,6 +21,7 @@ const productos = [
         name: "BUZO NEGRO - RELIGION SUCKS",
         price: 44.999,
         description: '3 Cuotas sin interés de $14.333',
+        talle: 'M',
     },
     {
         id: 4,
@@ -26,6 +29,7 @@ const productos = [
         name: "BUZO NEGRO - CHAOS CITY",
         price: 42.999,
         description: '3 Cuotas sin interés de $14.333',
+        talle: 'M',
     },
     {
         id: 5,
@@ -33,6 +37,7 @@ const productos = [
         name: "BUZO NEGRO - URBAN CITY",
         price: 44.999,
         description: '3 Cuotas sin interés de $14.999',
+        talle: 'M',
     },
     {
         id: 6,
@@ -40,6 +45,7 @@ const productos = [
         name: "BUZO NEGRO - RELIGION  SUCKS",
         price: 44.999,
         description: '3 Cuotas sin interés de $14.999',
+        talle: 'M',
     },
 ]
 
