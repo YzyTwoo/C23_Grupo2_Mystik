@@ -7,19 +7,20 @@
 
     <main>
         <section class="section_form_edit_product">
-        <form action="/products/edit/:id?_method=PUT" method="POST" class="form_edit_product">
+        <form action="<%= `/products/editarProducto/${productos.id}?_method=PUT`%>" method="POST" class="form_edit_product">
                 <h1 class="h1_form_edit_product">Edición del producto</h1>
         <div class="div-form-edit-product">
             <label for="">Imagen</label>
             <div class="container_img_edit_product">
-                <img class="img_edit_product" src="/images/default.png" alt="no-img">
+                <img class="img_edit_product" src="/images/<%= productos.image? productos.image : "default.png"%>" alt="no-img">
             </div>
-            <input type="file" name="" id="">
+            <input type="file" name="imagen" id="imagen" value="<%= productos.image %>">
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre">
+            <input type="text" name="nombre" id="nombre" value="<%= productos.name %>">
             <label for="precio">Precio</label>
-            <input type="text" name="precio" id="precio">
-            <textarea class="textarea_form_edit_product" name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Descripción"></textarea>
+            <input type="text" name="precio" id="precio" value="<%= productos.price %>">
+            <label for="descripcion">Agregue una descripción del producto</label>
+            <input type="text" name="descripcion" id="descripcion" value="<%= productos.description %>">
             <label class="talle-titulo">Talle</label>
             <div class="talle-productos">
                 <label>S</label>

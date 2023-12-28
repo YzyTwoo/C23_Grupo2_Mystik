@@ -7,8 +7,8 @@ router.get('/detalle/:id', productosControllers.detalleProducts);
 router.get('/carrito', productosControllers.carritoProducts);
 router.get('/dashboard', productosControllers.dashboard);
 
-router.get('/editarProducto', productosControllers.editarProducto);
-router.post('/editarProducto', productosControllers.editarProducto);
+router.get('/formEditarProducto/:id', productosControllers.formEditarProducto);
+router.put('/editarProducto/:id', productosControllers.editarProducto);
 
 router.get('/cargaProducto', productosControllers.cargaProducto);
 router.post('/cargaProducto', productosControllers.cargaProducto);

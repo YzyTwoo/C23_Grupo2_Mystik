@@ -14,8 +14,15 @@ const productosControllers = {
     cargaProducto:  (req, res) => {
         res.render('products/cargaProducto');
     },
+    formEditarProducto:  (req, res) => {
+        const id = req.params.id;
+        const product = productos[id -1];
+        res.render('products/editProduct', {title: productos.nombre, productos, id});
+    },
     editarProducto:  (req, res) => {
-        res.render('products/editProduct', {title:'Edición'});
+        const {id} = req.params;
+        const product = productos.find(producto => productos.id == id);
+        res.redirect('products/dashboard', {title:'Edición', productos});
     },
     dashboard:(req, res) => {
         const propiedades = []
