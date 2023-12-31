@@ -49,10 +49,13 @@
                               href="/productos/editarProducto"
                                 ><i class="fa-solid fa-pen-to-square"></i>
                               </a>
+
                               <a 
                               href="/"
-                                ><i class="fa-solid fa-trash"></i>
-                              </a></td>
+                                >
+                                <form action="/products/delete/<%= productos.id %> ?_method=DELETE" methor="POST"></form><i class="fa-solid fa-trash"></i>
+                              </a>
+                            </td>
                         </tr>
                     <%}); %>
                 </tbody>

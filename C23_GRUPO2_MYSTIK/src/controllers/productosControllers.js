@@ -30,7 +30,16 @@ const productosControllers = {
             propiedades.push(prop)
         }
         res.render('products/dashboard', { title: "Dashboard", productos, propiedades });
-    }
+    },
+    
+    destroy : (req, res) => {
+        let productos = leerArchivo('productos');
+		const {id} = req.params;
+		const nuevaLista = productos.filter(productos => productos.id != id);
+		const json = JSON.stringify(nuevaLista);
+		fs.writeFileSync(productsFilePath,json,"utf-8");
+		res.redirect('products/productosView');
+	}
 
 }
 
