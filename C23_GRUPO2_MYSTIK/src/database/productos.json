@@ -1,1 +1,62 @@
-[{"id":1,"image":"chaoooos.jpg","name":"BUZO NEGRO - CHAOS CITY","price":"$42.999","description":"3 Cuotas sin interés de $14.333","talle":"M","category":"oferta","color":"negro","stock":"true"},{"id":2,"image":"UrbanCity.jpg","name":"BUZO NEGRO - URBAN CITY","price":"$44.999","description":"3 Cuotas sin interés de $14.999","talle":"M","category":"oferta","color":"negro","stock":"true"},{"id":3,"image":"ReligionSucks.jpg","name":"BUZO NEGRO - RELIGION SUCKS","price":"$44.999","description":"3 Cuotas sin interés de $14.333","talle":"M","category":"oferta","color":"negro","stock":"true"},{"id":4,"image":"dibujitop.jpg","name":"BUZO NEGRO - CHAOS CITY","price":"$42.999","description":"3 Cuotas sin interés de $14.333","talle":"M","category":"oferta","color":"negro","stock":"true"},{"id":5,"image":"dibujito2.jpg","name":"BUZO NEGRO - URBAN CITY","price":"$44.999","description":"3 Cuotas sin interés de $14.999","talle":"M","category":"oferta","color":"negro","stock":"true"},{"id":6,"image":"dddibujito3.jpg","name":"BUZO NEGRO - RELIGION  SUCKS","price":"$44.999","description":"3 Cuotas sin interés de $14.999","talle":"M","category":"oferta","color":"negro","stock":"true"},{"id":7,"image":"default-image-5-1.jpg","name":"gdfgg","price":56.99,"description":"hgjkhjk","talle":["S","M"],"category":"ropa","stock":"4"},{"id":8,"image":"default-image-5-1.jpg","name":"yttdyi","price":"7568","description":"hkhugk","talle":"S","category":"ropa","stock":"2"},{"id":9,"image":"default-image-5-1.jpg","name":"tiuyiyu","price":"$","description":"fgxjfj","talle":"M","category":"ropa","stock":"1"},{"id":10,"image":"default-image-5-1.jpg","name":"jo´fj","price":"67.99","description":"hgkgk","talle":"S","category":"ropa","stock":"1"},{"id":11,"image":"default-image-5-1.jpg","name":"rftjhsyj","price":"70.99","description":"fghjfjh","talle":"XXL","category":"buzos","stock":"1"},{"id":12,"image":"default-image-5-1.jpg","name":"7toi7","price":"78.99","description":"lgl","talle":"M","category":"colecciones especiales","color":["Negro","Blanco","Gris"]},{"id":13,"image":"default-image-5-1.jpg","name":"yuyu","price":"457.99","description":"gjgj","talle":"L","category":"buzos","color":"Gris","stock":"2"},{"id":14,"image":"default-image-5-1.jpg","name":"probando","price":"59.99","description":"sthgrtsgh","talle":"L","category":"remeras","color":"Gris","stock":"1"}]
+[
+    {
+        "id": "1",
+        "image": "chaoooos.jpg",
+        "name": "BUZO NEGRO - CHAOS CITY",
+        "price": "$42.999",
+        "description": "3 Cuotas sin interés de $14.333",
+        "category": "buzos",
+        "color": "negro",
+        "stock": "true"
+    },
+    {
+        "id": "2",
+        "image": "UrbanCity.jpg",
+        "name": "BUZO NEGRO - URBAN CITY",
+        "price": "$44.999",
+        "description": "3 Cuotas sin interés de $14.999",
+        "category": "buzos",
+        "color": "negro",
+        "stock": "true"
+    },
+    {
+        "id": "3",
+        "image": "ReligionSucks.jpg",
+        "name": "BUZO NEGRO - RELIGION SUCKS",
+        "price": "$44.999",
+        "description": "3 Cuotas sin interés de $14.333",
+        "category": "oferta",
+        "color": "negro",
+        "stock": "true"
+    },
+    {
+        "id": "4",
+        "image": "dibujitop.jpg",
+        "name": "BUZO NEGRO - CHAOS CITY",
+        "price": "$42.999",
+        "description": "3 Cuotas sin interés de $14.333",
+        "category": "oferta",
+        "color": "negro",
+        "stock": "true"
+    },
+    {
+        "id": "5",
+        "image": "dibujito2.jpg",
+        "name": "BUZO NEGRO - URBAN CITY",
+        "price": "$44.999",
+        "description": "3 Cuotas sin interés de $14.999",
+        "category": "Coleccion Especial",
+        "color": "negro",
+        "stock": "true"
+    },
+    {
+        "id": "6",
+        "image": "dddibujito3.jpg",
+        "name": "BUZO NEGRO - RELIGION  SUCKS",
+        "price":"$44.999",
+        "description": "3 Cuotas sin interés de $14.999",
+        "category": "Coleccion especial",
+        "color": "negro",
+        "stock": "true"
+    }
+]

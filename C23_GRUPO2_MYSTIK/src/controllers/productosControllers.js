@@ -1,30 +1,35 @@
-const { log } = require("console");
-const fs = require("fs");
 const path = require("path");
-const json = fs.readFileSync(path.join(__dirname,"../database/productos.json"),'utf-8')
-const productos = JSON.parse(json);
+const leerArchivo = require('../database/dbLogica')
 
 
 const productosControllers = {
-
+    viewProducts: (req, res) => {
+        let productos = leerArchivo('productos');
+        res.render('products/productosView', {title:'productos', productos})
+    },
     detalleProducts: (req, res) => {
+        let productos = leerArchivo('productos');
         res.render('products/detalleProducts', { title:'Detalles', productos });
     },
     
 
     carritoProducts: (req, res) => {
+        let productos = leerArchivo('productos');
         res.render('products/carritoProducts', {title:'Carrito', productos });
     },
 
     cargaProducto:  (req, res) => {
+        let productos = leerArchivo('productos');
         res.render('products/cargaProducto');
     },
 
     editarProducto:  (req, res) => {
+        let productos = leerArchivo('productos');
         res.render('products/editProduct', {title:'Edición'});
     },
 
     dashboard:(req, res) => {
+        let productos = leerArchivo('productos');
         const propiedades = []
         for (prop in productos[0]) {
             propiedades.push(prop)
