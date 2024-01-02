@@ -27,12 +27,14 @@ const productosControllers = {
         res.render('products/cargaProducto', productos);
     },
     formEditarProducto:  (req, res) => {
+        let productos = leerArchivo('productos');
         const {id} = req.params;
         const product = productos.find(producto => producto.id == id);
         res.render('products/editProduct', {title: product.name, product});
         // res.send(product)
     },
     editarProducto:  (req, res) => {
+        let productos = leerArchivo('productos');
         const {id} = req.params;
         const {image, name, price, description, talle, category,color,stock} = req.body
         const nuevoArray = productos.map(product => {
