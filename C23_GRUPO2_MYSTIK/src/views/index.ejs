@@ -97,9 +97,9 @@
                   <img class="article-img" src="/images/products/<%= producto.image %>" alt="">
                   <div class="article-description">
                     <h4 class="title-article"><%= producto.name %></h4>
-                    <p class="article-price">$<%= producto.price %></p>
+                    <p class="article-price"><%= producto.price %></p>
                     <p class="article-pay"><%= producto.description %></p>
-                    <a href="productos/detalle/:id">VER COLECCIÓN</a>
+                    <a href="productos/detalle/<%= producto.id %>">VER COLECCIÓN</a>
                   </div>
                 </article>
               <% }); %>

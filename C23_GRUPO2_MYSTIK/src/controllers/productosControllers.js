@@ -1,5 +1,5 @@
 const path = require("path");
-const leerArchivo = require('../database/dbLogica')
+const {leerArchivo, setJson }= require('../database/dbLogica')
 
 
 const productosControllers = {
@@ -8,8 +8,11 @@ const productosControllers = {
         res.render('products/productosView', {title:'productos', productos})
     },
     detalleProducts: (req, res) => {
-        let productos = leerArchivo('productos');
-        res.render('products/detalleProducts', { title:'Detalles', productos });
+        let productos = setJson();
+        let { id } = req.params;
+        let product = productos.find(productos => productos.id == id);
+        productos.splice(product.id - 1, 1)
+        res.render('products/detalleProducts', { title: 'Detalles', productos, product }); 
     },
     carritoProducts: (req, res) => {
         let productos = leerArchivo('productos');

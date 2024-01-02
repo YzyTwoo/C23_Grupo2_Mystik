@@ -10,23 +10,22 @@
 
     <main>
         <section class="section-container-main">
-
             <div class="container-images-product-buy">
                 <div class="container-more-img">
-                    <img class="img-more-prod" src="/images/producto-detalle/2.jpg" alt="producto-kotk-campera">
-                    <img class="img-more-prod" src="/images/producto-detalle/3.jpg" alt="producto-kotk-campera">
-                    <img class="img-more-prod" src="/images/producto-detalle/4.jpg" alt="producto-kotk-campera">
+                <% productos.forEach(item => { %>
+                    <img class="img-more-prod" src="/images/productoDetalle/<%= item.image %>" alt="producto">
+                    <% }) %>
                 </div>
                 <div class="container-img">
-                    <img class="img-product" src="/images/producto-detalle/1.jpg" alt="producto-kotk-campera">
+                    <img class="img-product" src="/images/productoDetalle/<%= product.image %>" alt="producto">
                 </div>
             </div>
 
             <div class="container-info-product">
 
                 <div class="container-price">
-                    <h3 class="h3-tittle-product">Campera KOTK Black</h3>
-                    <span>$33.990</span>
+                    <h3 class="h3-tittle-product"><%= product.name %></h3>
+                    <span><%= product.price %></span>
                 </div>
 
                 <div class="container-details-product">
@@ -107,7 +106,7 @@
         <div class="card-list-products">
             <article class="card">
                 <div class="card-img">
-                    <img class="img-card" src="/images/prod_de_arriba/chaoooos.jpg" alt="producto-1">
+                    <img class="img-card" src="/images/products/chaoooos.jpg" alt="producto-1">
                 </div>
 
                 <div class="info-card">
@@ -124,16 +123,16 @@
                         <a href="users/registro"><button class="button-buy">
                             Comprar
                         </button></a>
-                        <button class="button-look">
+                        <a href="<%= product.id %>"><button class="button-look">
                             Ver
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </article>
 
             <article class="card">
                 <div class="card-img">
-                    <img class="img-card" src="/images/prod_de_arriba/ReligionSucks.jpg" alt="producto-1">
+                    <img class="img-card" src="/images/products/ReligionSucks.jpg" alt="producto-1">
                 </div>
 
                 <div class="info-card">
@@ -149,16 +148,16 @@
                         <a href="users/registro"><button class="button-buy">
                             Comprar
                         </button></a>
-                        <button class="button-look">
+                        <a href="<%= product.id %>"><button class="button-look">
                             Ver
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </article>
 
             <article class="card">
                 <div class="card-img">
-                    <img class="img-card" src="/images/prod_de_arriba/UrbanCity.jpg" alt="producto-1">
+                    <img class="img-card" src="/images/products/UrbanCity.jpg" alt="producto-1">
                 </div>
                 <div class="info-card">
                     <div class="text-product">
@@ -173,16 +172,16 @@
                         <a href="users/registro"><button class="button-buy">
                             Comprar
                         </button></a>
-                        <button class="button-look">
+                        <a href="<%= product.id %>"><button class="button-look">
                             Ver
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </article>
 
             <article class="card">
                 <div class="card-img">
-                    <img class="img-card" src="/images/prod_de_abajo/dddibujito3.jpg" alt="producto-1">
+                    <img class="img-card" src="/images/products/dddibujito3.jpg" alt="producto-1">
                 </div>
                 <div class="info-card">
                     <div class="text-product">
@@ -197,9 +196,9 @@
                         <a href="users/registro"><button class="button-buy">
                             Comprar
                         </button></a>
-                        <button class="button-look">
+                        <a href="<%= product.id %>"><button class="button-look">
                             Ver
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </article>
