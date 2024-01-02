@@ -15,14 +15,30 @@ const productosControllers = {
         res.render('products/cargaProducto');
     },
     formEditarProducto:  (req, res) => {
-        const id = req.params.id;
-        const product = productos[id -1];
-        res.render('products/editProduct', {title: productos.nombre, productos, id});
+        const {id} = req.params;
+        const product = productos.find(producto => producto.id == id);
+        res.render('products/editProduct', {title: product.name, product});
+        // res.send(product)
     },
     editarProducto:  (req, res) => {
         const {id} = req.params;
-        const product = productos.find(producto => productos.id == id);
-        res.redirect('products/dashboard', {title:'Edición', productos});
+        const {image, name, price, description, size} = req.body
+        const nuevoArray = productos.map(product => {
+            if (product.id == id){
+                return{
+                    id,
+                    name:name.trim(),
+                    image: image ? image : product.image,
+                    price:price.trim(),
+                    description:description.trim(),
+                    size
+                }
+            }
+            return product
+        })
+        const json =JSON.stringify(nuevoArray);
+        fs.writeFileSync(path.join(__dirname,"../database/productos.json"), json, "utf-8")
+        res.redirect('/productos/dashboard')
     },
     dashboard:(req, res) => {
         const propiedades = []
