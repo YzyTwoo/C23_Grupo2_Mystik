@@ -20,12 +20,12 @@ const productosControllers = {
 
     cargaProducto:  (req, res) => {
         let productos = leerArchivo('productos');
-        res.render('products/cargaProducto');
+        res.render('products/cargaProducto', productos);
     },
 
     editarProducto:  (req, res) => {
         let productos = leerArchivo('productos');
-        res.render('products/editProduct', {title:'Edición'});
+        res.render('products/editProduct', {title:'Edición', productos});
     },
 
     dashboard:(req, res) => {
@@ -59,7 +59,7 @@ const productosControllers = {
         productos.push(productoNuevo);
         const Json = JSON.stringify(productos);
         fs.writeFileSync(path.join(__dirname,"../database/productos.json"), Json, 'utf-8' );
-        res.redirect(`/productos/detalleProducts/${productoNuevo.id}`);
+        res.redirect(`/productos/detallePoducts/${productoNuevo.id}`,);
 
 
        
