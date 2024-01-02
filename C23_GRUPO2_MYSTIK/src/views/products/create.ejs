@@ -1,0 +1,85 @@
+<!-- head -->
+
+<%- include('../partials/heads.ejs') %>
+
+    <body>
+        <!-- header -->
+        <%- include("../partials/headerProduct.ejs") %>
+            <main>
+                <h1 class="titulo-producto">Carga de productos</h1>
+                <section class="section-form">
+
+                    <form action="/productos/create" method="POST" class="form-product">
+                        <div class="div-form">
+                            <label class="subtitulo">Cargar imagen del producto</label>
+
+                            <input type="file" name="image" id="imagen">
+
+                            <input type="text" name="name" placeholder="Nombre" required>
+
+                            <input type="text" name="price" placeholder="Precio" required>
+
+                            <textarea name="description" id="description" placeholder="Descripción"></textarea required>
+                            </div>
+
+                            <label class="talle-titulo">Talle</label>
+
+        <div class="talle-productos">
+            
+            <label>S</label>
+            <input type="checkbox" tabindex="20" name="talle" value="S" />
+            <label>M</label>
+            <input type="checkbox" tabindex="21" name="talle" value="M" />
+            <label>L</label>
+            <input type="checkbox" tabindex="22" name="talle" value="L" />
+            <label>XL</label>
+            <input type="checkbox" tabindex="23" name="talle" value="XL" />
+            <label>XXL</label>
+            <input type="checkbox" tabindex="24" name="talle" value="XXL" />
+        </div>
+        <label class="category">Categoría</label>
+        <select name="category">
+            <option value="buzos">Buzos</option>
+            <option value="remeras">Remeras</option>
+            <option value="camperas">Camperas</option>
+            <option value="colecciones especiales">Colecciones especiales</option>
+            <option value="ofertas">Ofertas</option>
+        </select>
+        <br>
+        <label class="colors">Colores disponibles :</label> 
+        <div class="box">
+        
+                <div class="color-box">
+                  <input type="checkbox" name="color" value="Negro" id="color">
+                  <label for="color" >Negro</label>
+                </div>
+
+                <div class="color-box">
+                  <input type="checkbox" name="color" value="Blanco" id="color">
+                  <label for="color" >Blanco</label>
+                </div>
+
+                <div class="color-box">
+                  <input type="checkbox" name="color" value="Gris" id="color">
+                  <label for="color" >Gris</label>
+                </div>
+        </div>
+        <div class="estock">
+        <label>Stock :</label>
+        <input type="number" name="stock" min="0">
+        </div>
+
+        <div class="button-enviar-borrar">
+            <a  href="/"><button type="submit" value="Enviar">Enviar</button></a>
+            <a href="/"> <button type="reset" value="Borrar">Borrar</button></a>
+        </div>
+    </form>  
+</section>
+</main>
+
+
+<!-- footer -->
+
+
+
+</body>
