@@ -1,5 +1,11 @@
+const fs = require('fs');
 const path = require("path");
-const leerArchivo = require('../database/dbLogica')
+const leerArchivo = require('../database/dbLogica');
+
+
+const productsFilePath = path.join(__dirname, '../database/productos.json');
+
+
 
 
 const productosControllers = {
@@ -38,9 +44,8 @@ const productosControllers = {
 		const nuevaLista = productos.filter(productos => productos.id != id);
 		const json = JSON.stringify(nuevaLista);
 		fs.writeFileSync(productsFilePath,json,"utf-8");
-		res.redirect('products/productosView');
+		res.redirect('/');
 	}
-
 }
 
 module.exports = productosControllers;
