@@ -1,11 +1,5 @@
-const fs = require('fs');
 const path = require("path");
-const leerArchivo = require('../database/dbLogica');
-
-
-const productsFilePath = path.join(__dirname, '../database/productos.json');
-
-
+const {leerArchivo, setJson }= require('../database/dbLogica')
 
 
 const productosControllers = {
@@ -14,8 +8,11 @@ const productosControllers = {
         res.render('products/productosView', {title:'productos', productos})
     },
     detalleProducts: (req, res) => {
-        let productos = leerArchivo('productos');
-        res.render('products/detalleProducts', { title:'Detalles', productos });
+        let productos = setJson();
+        let { id } = req.params;
+        let product = productos.find(productos => productos.id == id);
+        productos.splice(product.id - 1, 1)
+        res.render('products/detalleProducts', { title: 'Detalles', productos, product }); 
     },
     
 
@@ -42,15 +39,6 @@ const productosControllers = {
         }
         res.render('products/dashboard', { title: "Dashboard", productos, propiedades });
     },
-    
-    destroy : (req, res) => {
-        let productos = leerArchivo('productos');
-		const {id} = req.params;
-		const nuevaLista = productos.filter(productos => productos.id != id);
-		const json = JSON.stringify(nuevaLista);
-		fs.writeFileSync(productsFilePath,json,"utf-8");
-		res.redirect('/');
-	},
 
     vistacrear: (req,res)=>{
 		res.render('products/create', { title: "create"});

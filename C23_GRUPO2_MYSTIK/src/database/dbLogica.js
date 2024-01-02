@@ -8,4 +8,10 @@ let leerArchivo = (parametro) => {
     return products
 }
 
-module.exports = leerArchivo
+const setJson= () => {
+    const productsFilePath = path.join(__dirname, '../database/productosDetalle.json');
+    const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+	return products
+}
+
+module.exports = {leerArchivo, setJson};
