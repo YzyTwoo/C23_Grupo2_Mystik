@@ -62,11 +62,16 @@ const productosControllers = {
         productos.push(productoNuevo);
         const Json = JSON.stringify(productos);
         fs.writeFileSync(path.join(__dirname,"../database/productos.json"), Json, 'utf-8' );
-        res.redirect(`/productos/detallePoducts/${productoNuevo.id}`,);
-
-
-       
+        res.redirect(`/productos/detallePoducts/${productoNuevo.id}`,);  
 },
+destroy : (req, res) => {
+    let productos = leerArchivo('productos');
+    const {id} = req.params;
+    const nuevaLista = productos.filter(productos => productos.id != id);
+    const json = JSON.stringify(nuevaLista);
+    fs.writeFileSync(productsFilePath,json,"utf-8");
+    res.redirect('/');
+}
 }
 
 module.exports = productosControllers;
