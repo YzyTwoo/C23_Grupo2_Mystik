@@ -17,18 +17,23 @@ const productosControllers = {
         let productos = leerArchivo('productos');
         res.render('products/detalleProducts', { title:'Detalles', productos });
     },
+    
+
     carritoProducts: (req, res) => {
         let productos = leerArchivo('productos');
         res.render('products/carritoProducts', {title:'Carrito', productos });
     },
+
     cargaProducto:  (req, res) => {
         let productos = leerArchivo('productos');
-        res.render('products/cargaProducto');
+        res.render('products/cargaProducto', productos);
     },
+
     editarProducto:  (req, res) => {
         let productos = leerArchivo('productos');
-        res.render('products/editProduct', {title:'Edición'});
+        res.render('products/editProduct', {title:'Edición', productos});
     },
+
     dashboard:(req, res) => {
         let productos = leerArchivo('productos');
         const propiedades = []
@@ -45,7 +50,35 @@ const productosControllers = {
 		const json = JSON.stringify(nuevaLista);
 		fs.writeFileSync(productsFilePath,json,"utf-8");
 		res.redirect('/');
-	}
+	},
+
+    vistacrear: (req,res)=>{
+		res.render('products/create', { title: "create"});
+	},
+
+    create: (req,res)=>{
+        const {image, name, price, description, talle, category, color, stock} = req.body;
+        const id =  productos[productos.length-1].id + 1;
+        const productoNuevo = {
+			id: +id,
+            image,
+			name,
+			price,
+			description,
+            talle,
+            category,
+            color,
+            stock,
+			
+		};
+        productos.push(productoNuevo);
+        const Json = JSON.stringify(productos);
+        fs.writeFileSync(path.join(__dirname,"../database/productos.json"), Json, 'utf-8' );
+        res.redirect(`/productos/detallePoducts/${productoNuevo.id}`,);
+
+
+       
+},
 }
 
 module.exports = productosControllers;
