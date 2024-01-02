@@ -22,7 +22,7 @@ const productosControllers = {
     },
     editarProducto:  (req, res) => {
         const {id} = req.params;
-        const {image, name, price, description, size} = req.body
+        const {image, name, price, description, talle, category,color,stock} = req.body
         const nuevoArray = productos.map(product => {
             if (product.id == id){
                 return{
@@ -31,7 +31,10 @@ const productosControllers = {
                     image: image ? image : product.image,
                     price:price.trim(),
                     description:description.trim(),
-                    size
+                    talle,
+                    category,
+                    color,
+                    stock
                 }
             }
             return product

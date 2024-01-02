@@ -1,1 +1,68 @@
-[{"id":"1","name":"BUZO NEGRO - CHAOS CITY","image":"chaoooos.jpg","price":"$42.999","description":"3 Cuotas sin interés de $14.333","size":"M"},{"id":"2","name":"BUZO NEGRO - URBAN CITY","image":"UrbanCity.jpg","price":"$44.999","description":"3 Cuotas sin interés de $14.999","size":"L"},{"id":"3","name":"BUZO NEGRO - RELIGION SUCKS","image":"ReligionSucks.jpg","price":"$44.999","description":"3 Cuotas sin interés de $14.333","size":"S"},{"id":"4","name":"BUZO NEGRO - CHAOS CITY","image":"dibujitop.jpg","price":"$42.999","description":"3 Cuotas sin interés de $14.333","size":"XL"},{"id":"5","name":"BUZO NEGRO - URBAN CITY","image":"dibujito2.jpg","price":"$44.999","description":"3 Cuotas sin interés de $14.999","size":"XXL"},{"id":"6","name":"BUZO NEGRO - RELIGION  SUCKS 3","image":"dddibujito3.jpg","price":"$44.999","description":"3 Cuotas sin interés de $14.999","size":"M"}]
+[
+  {
+    "id": "1",
+    "name": "BUZO NEGRO - CHAOS CITY",
+    "image": "chaoooos.jpg",
+    "price": "$42.999",
+    "description": "3 Cuotas sin interés de $14.333",
+    "talle": "M",
+    "category":"buzos",
+    "color":"Negro",
+    "stock":"true"
+  },
+  {
+    "id": "2",
+    "name": "BUZO NEGRO - URBAN CITY",
+    "image": "UrbanCity.jpg",
+    "price": "$44.999",
+    "description": "3 Cuotas sin interés de $14.999",
+    "talle": "L",
+    "category":"buzos",
+    "color":"Negro",
+    "stock":"true"
+  },
+  {
+    "id": "3",
+    "name": "BUZO NEGRO - RELIGION SUCKS",
+    "image": "ReligionSucks.jpg",
+    "price": "$44.999",
+    "description": "3 Cuotas sin interés de $14.333",
+    "talle": "S",    
+    "category":"buzos",
+    "color":"Negro",
+    "stock":"true"
+  },
+  {
+    "id": "4",
+    "name": "BUZO NEGRO - CHAOS CITY",
+    "image": "dibujitop.jpg",
+    "price": "$42.999",
+    "description": "3 Cuotas sin interés de $14.333",
+    "talle": "XL",
+    "category":"buzos",
+    "color":"Negro",
+    "stock":"true"
+  },
+  {
+    "id": "5",
+    "name": "BUZO NEGRO - URBAN CITY",
+    "image": "dibujito2.jpg",
+    "price": "$44.999",
+    "description": "3 Cuotas sin interés de $14.999",
+    "talle": "XXL",
+    "category":"buzos",
+    "color":"Negro",
+    "stock":"true"
+  },
+  {
+    "id": "6",
+    "name": "BUZO NEGRO - RELIGION  SUCKS 3",
+    "image": "dddibujito3.jpg",
+    "price": "$44.999",
+    "description": "3 Cuotas sin interés de $14.999",
+    "talle": "M",
+    "category":"buzos",
+    "color":"Negro",
+    "stock":"true"
+  }
+]
