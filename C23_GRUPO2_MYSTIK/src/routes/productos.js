@@ -1,16 +1,25 @@
 var express = require('express');
 var router = express.Router();
-const productosControllers = require('../controllers/productosControllers');
+const {detalleProducts, cargaProducto, dashboard, editarProducto, carritoProducts, viewProducts, vistacrear, create} = require('../controllers/productosControllers');
 
 /* GET home page. */
-router.get('/detalle/:id', productosControllers.detalleProducts);
-router.get('/carrito', productosControllers.carritoProducts);
-router.get('/dashboard', productosControllers.dashboard);
+router.get('/detalle/:id', detalleProducts);
+router.get('/', viewProducts)
+router.get('/carrito', carritoProducts);
+router.get('/dashboard', dashboard);
 
-router.get('/editarProducto', productosControllers.editarProducto);
-router.post('/editarProducto', productosControllers.editarProducto);
+/*editar productos*/
 
-router.get('/cargaProducto', productosControllers.cargaProducto);
-router.post('/cargaProducto', productosControllers.cargaProducto);
+
+/*carga de productos*/
+
+router.get('/editarProducto', editarProducto);
+router.post('/editarProducto', editarProducto);
+
+router.get('/cargaProducto', cargaProducto);
+router.post('/cargaProducto', cargaProducto);
+
+router.get('/create', vistacrear);
+router.post('/create', create);
 
 module.exports = router;

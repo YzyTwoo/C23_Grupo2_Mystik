@@ -1,4 +1,4 @@
-<!-- head -->
+ <!-- head -->
 
 <%- include('../partials/heads.ejs') %>
 <body>
@@ -6,27 +6,26 @@
 
 <%- include('../partials/headerProduct.ejs') %>
 
-    <div class="containter-title"></div>
+     <div class="containter-title"></div>
 
     <main>
         <section class="section-container-main">
-
             <div class="container-images-product-buy">
                 <div class="container-more-img">
-                    <img class="img-more-prod" src="/images/producto-detalle/2.jpg" alt="producto-kotk-campera">
-                    <img class="img-more-prod" src="/images/producto-detalle/3.jpg" alt="producto-kotk-campera">
-                    <img class="img-more-prod" src="/images/producto-detalle/4.jpg" alt="producto-kotk-campera">
+                <% productos.forEach(item => { %>
+                    <img class="img-more-prod" src="/images/productoDetalle/<%= item.image %>" alt="producto">
+                    <% }) %>
                 </div>
                 <div class="container-img">
-                    <img class="img-product" src="/images/producto-detalle/1.jpg" alt="producto-kotk-campera">
+                    <img class="img-product" src="/images/productoDetalle/<%= product.image %>" alt="producto">
                 </div>
             </div>
 
             <div class="container-info-product">
 
                 <div class="container-price">
-                    <h3 class="h3-tittle-product">Campera KOTK Black</h3>
-                    <span>$33.990</span>
+                    <h3 class="h3-tittle-product"><%= product.name %></h3>
+                    <span><%= product.price %></span>
                 </div>
 
                 <div class="container-details-product">
@@ -124,9 +123,9 @@
                         <a href="users/registro"><button class="button-buy">
                             Comprar
                         </button></a>
-                        <button class="button-look">
+                        <a href="<%= product.id %>"><button class="button-look">
                             Ver
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </article>
@@ -149,9 +148,9 @@
                         <a href="users/registro"><button class="button-buy">
                             Comprar
                         </button></a>
-                        <button class="button-look">
+                        <a href="<%= product.id %>"><button class="button-look">
                             Ver
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </article>
@@ -173,9 +172,9 @@
                         <a href="users/registro"><button class="button-buy">
                             Comprar
                         </button></a>
-                        <button class="button-look">
+                        <a href="<%= product.id %>"><button class="button-look">
                             Ver
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </article>
@@ -197,9 +196,9 @@
                         <a href="users/registro"><button class="button-buy">
                             Comprar
                         </button></a>
-                        <button class="button-look">
+                        <a href="<%= product.id %>"><button class="button-look">
                             Ver
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </article>
@@ -210,7 +209,7 @@
                 Ver más productos
             </button>
         </a>
-    </section>
+    </section> 
 
 <!-- footer -->
 
@@ -218,4 +217,4 @@
 
     <script src="/js/detalle-producto.js"></script>
 </body>
-</html>
+</html> 
