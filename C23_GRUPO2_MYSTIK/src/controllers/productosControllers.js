@@ -1,5 +1,6 @@
 const path = require("path");
 const {leerArchivo, setJson }= require('../database/dbLogica')
+const fs = require('fs');
 
 
 const productosControllers = {
@@ -45,6 +46,7 @@ const productosControllers = {
 	},
 
     create: (req,res)=>{
+        let productos = leerArchivo('productos');
         const {image, name, price, description, talle, category, color, stock} = req.body;
         const id =  productos[productos.length-1].id + 1;
         const productoNuevo = {
@@ -62,7 +64,7 @@ const productosControllers = {
         productos.push(productoNuevo);
         const Json = JSON.stringify(productos);
         fs.writeFileSync(path.join(__dirname,"../database/productos.json"), Json, 'utf-8' );
-        res.redirect(`/productos/detallePoducts/${productoNuevo.id}`,);  
+        res.redirect(`/productos/dashboard`,);  
 },
 destroy : (req, res) => {
     let productos = leerArchivo('productos');
