@@ -9,7 +9,7 @@ let leerArchivo = (parametro) => {
 }
 
 const setJson= () => {
-    const productsFilePath = path.join(__dirname, '../database/productosDetalle.json');
+    const productsFilePath = path.join(__dirname, '../database/productos.json');
     const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 	return products
 }
