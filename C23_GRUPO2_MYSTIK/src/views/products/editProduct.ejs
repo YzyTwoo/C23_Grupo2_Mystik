@@ -7,35 +7,60 @@
 
     <main>
         <section class="section_form_edit_product">
-        <form action="/products/edit/:id?_method=PUT" method="POST" class="form_edit_product">
+        <form action="<%= `/productos/editarProducto/${product.id}?_method=PUT`%>" method="POST" class="form_edit_product">
                 <h1 class="h1_form_edit_product">Edición del producto</h1>
         <div class="div-form-edit-product">
-            <label for="">Imagen</label>
+            <label for="image">Imagen</label>
             <div class="container_img_edit_product">
-                <img class="img_edit_product" src="/images/default.png" alt="no-img">
+                <img class="img_edit_product" src="/images/products/<%= product.image? product.image : "default.png"%>" alt="no-img">
             </div>
-            <input type="file" name="" id="">
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre">
-            <label for="precio">Precio</label>
-            <input type="text" name="precio" id="precio">
-            <textarea class="textarea_form_edit_product" name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Descripción"></textarea>
-            <label class="talle-titulo">Talle</label>
-            <div class="talle-productos">
-                <label>S</label>
-                <input type="checkbox" tabindex="20" name="talle" value="S" />
-                <label>M</label>
-                <input type="checkbox" tabindex="21" name="talle" value="M" />
-                <label>L</label>
-                <input type="checkbox" tabindex="22" name="talle" value="L" />
-                <label>XL</label>
-                <input type="checkbox" tabindex="23" name="talle" value="XL" />
-                <label>XXL</label>
-                <input type="checkbox" tabindex="24" name="talle" value="XXL" />
+            <input type="file" name="image" id="image" value="<%= product.image %>">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name" value="<%= product.name %>">
+            <label for="price">Precio</label>
+            <input type="text" name="price" id="price" value="<%= product.price %>">
+            <label for="description">Agregue una descripción del producto</label>
+            <input type="text" name="description" id="description" value="<%= product.description %>">
+            <label name="talle"  class="talle-titulo">Talle</label>
+            <select name="talle" id="talle" class="talle">
+            <option value="" <%= product.talle == "" ? "selected" : null %>>Elegí</option>
+            <option value="S" <%= product.talle == "S" ? "selected" : null %>>Talle S</option>
+            <option value="M" <%= product.talle == "M" ? "selected" : null %>>Talle M</option>
+            <option value="L" <%= product.talle == "L" ? "selected" : null %>>Talle L</option>
+            <option value="XL" <%= product.talle == "XL" ? "selected" : null %>>Talle XL</option>
+            <option value="XXL" <%= product.talle == "XXL" ? "selected" : null %>>Talle XXL</option>
+            </select>
+            <label class="category">Categoría</label>
+            <select name="category">
+            <option value="buzos" <%= product.category == "buzos" ? "selected" : null %>>Buzos</option>
+            <option value="remeras" <%= product.category == "remeras" ? "selected" : null %>>Remeras</option>
+            <option value="camperas" <%= product.category == "camperas" ? "selected" : null %>>Camperas</option>
+            <option value="colecciones especiales" <%= product.category == "colecciones especiales" ? "selected" : null %>>Colecciones especiales</option>
+            <option value="ofertas" <%= product.category == "ofertas" ? "selected" : null %>>Ofertas</option>
+            </select>
+            <label class="colors">Colores disponibles :</label> 
+        <div class="box">
+            <div class="color-box">
+                <input type="checkbox" name="color" value="Negro" <%= product.color == "Negro" ? product.color : null %> id="color">
+                <label for="color" >Negro</label>
+                </div>
+                <div class="color-box">
+                <input type="checkbox" name="color" value="Blanco" <%= product.color == "Blanco" ? product.color : null %> id="color">
+                <label for="color" >Blanco</label>
+                </div>
+                <div class="color-box">
+                    <input type="checkbox" name="color" value="Gris" <%= product.color == "Gris" ? product.color : null %> id="color">
+                    <label for="color" >Gris</label>
+                </div>
             </div>
+        <div class="estock">
+        <label>Stock :</label>
+        <input type="number" name="stock" min="0" value="<%= product.stock %>">
+        </div>
+
             <div class="button-enviar-borrar">
-                <a  href="/"><button type="submit" value="Enviar">Enviar</button></a>
-                <a href="/"> <button type="reset" value="Borrar">Borrar</button></a>
+                <button type="submit" value="Enviar">Enviar</button>
+                <button type="reset" value="Borrar">Borrar</button>
             </div>
         </div>
             </form>

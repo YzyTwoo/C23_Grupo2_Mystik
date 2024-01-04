@@ -26,10 +26,36 @@ const productosControllers = {
         let productos = leerArchivo('productos');
         res.render('products/cargaProducto', productos);
     },
-
+    formEditarProducto:  (req, res) => {
+        let productos = leerArchivo('productos');
+        const {id} = req.params;
+        const product = productos.find(producto => producto.id == id);
+        res.render('products/editProduct', {title: product.name, product});
+        // res.send(product)
+    },
     editarProducto:  (req, res) => {
         let productos = leerArchivo('productos');
-        res.render('products/editProduct', {title:'Edición', productos});
+        const {id} = req.params;
+        const {image, name, price, description, talle, category,color,stock} = req.body
+        const nuevoArray = productos.map(product => {
+            if (product.id == id){
+                return{
+                    id,
+                    name:name.trim(),
+                    image: image ? image : product.image,
+                    price:price.trim(),
+                    description:description.trim(),
+                    talle,
+                    category,
+                    color,
+                    stock
+                }
+            }
+            return product
+        })
+        const json =JSON.stringify(nuevoArray);
+        fs.writeFileSync(path.join(__dirname,"../database/productos.json"), json, "utf-8")
+        res.redirect('/productos/dashboard')
     },
 
     dashboard:(req, res) => {

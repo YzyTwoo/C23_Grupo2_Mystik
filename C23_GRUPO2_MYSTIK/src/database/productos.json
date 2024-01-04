@@ -77,13 +77,13 @@
         "stock": "1"
     },
     {
-        "id": 8,
-        "image": "default-image-5-1.jpg",
+        "id": "8",
         "name": "dfghd",
-        "price": "5655",
-        "description": "ghjj",
+        "image": "dibujitop.jpg",
+        "price": "15350",
+        "description": "hola",
         "talle": "M",
-        "category": "buzos",
+        "category": "camperas",
         "color": "Blanco",
         "stock": "1"
     },
