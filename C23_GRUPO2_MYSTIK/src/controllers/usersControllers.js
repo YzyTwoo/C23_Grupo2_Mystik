@@ -13,11 +13,13 @@ const usersControllers = {
         const users = leerArchivo("usuarios");
         const {nombre,email,telefono,contraseña} = req.body;
         const id = uuidv4();
+        const file = req.file;
         const user ={
             nombre: nombre.trim(),
             email: email.trim(),
             telefono,
             password: bcrypt.hashSync(contraseña,10),
+            imagen: file ? file.filename : "default.jpg",
             id
         }
         users.push(user);

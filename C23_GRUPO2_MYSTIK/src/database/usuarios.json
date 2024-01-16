@@ -38,7 +38,8 @@
     "nombre": "Lautaro",
     "email": "Lautarocontreras98@hotmail.com",
     "telefono": "3513549629",
-    "password": "$2a$10$Hd.T/vM05YpAjEiZwuqC9Ovx6QIdPwWu1HmJwMb1aEZyvtEbJTTy2",
-    "id": "45ac8ad2-b81c-4a4b-93e8-f6a6023c8e67"
+    "password": "$2a$10$.i9Y2ZKlpC5hqPNw87ydYOy8meVdm6sHO4kO9e64lpwhnQUCVhubO",
+    "imagen": "default.jpg",
+    "id": "a8a80f03-672c-4050-9adf-41fb45798fc3"
   }
 ]
