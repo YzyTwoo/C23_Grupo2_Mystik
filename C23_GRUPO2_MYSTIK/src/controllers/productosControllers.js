@@ -1,6 +1,7 @@
 const path = require("path");
-const {leerArchivo, setJson }= require('../database/dbLogica')
+const {leerArchivo, setJson, cargarArchivo }= require('../database/dbLogica')
 const fs = require('fs');
+
 
 
 const productosControllers = {
@@ -40,7 +41,7 @@ const productosControllers = {
         const nuevoArray = productos.map(product => {
             if (product.id == id){
                 return{
-                    id,
+                    id:+id,
                     name:name.trim(),
                     image: image ? image : product.image,
                     price:price.trim(),
@@ -92,14 +93,27 @@ const productosControllers = {
         fs.writeFileSync(path.join(__dirname,"../database/productos.json"), Json, 'utf-8' );
         res.redirect(`/productos/dashboard`,);  
 },
-destroy : (req, res) => {
-    let productos = leerArchivo('productos');
+    destroy : (req, res) => {
     const {id} = req.params;
-    const nuevaLista = productos.filter(productos => productos.id != id);
-    const json = JSON.stringify(nuevaLista);
-    fs.writeFileSync(productsFilePath,json,"utf-8");
-    res.redirect('/');
-}
+    let productos = leerArchivo('productos');
+    /* const cargarArchivo = cargarArchivo() */
+    
+    const nuevaLista = productos.filter(producto => producto.id !== +id);
+    cargarArchivo(nuevaLista, 'productos')
+   
+    res.redirect(`/productos/dashboard`);
+},
+
+/* destroy : (req, res) => {
+    const {id} = req.params;
+    const archivoJson = leerArchivo('productsDataBase')
+
+    const productosNoEliminados = archivoJson.filter(product => product.id !== +id)
+
+    cargarArchivo(productosNoEliminados, 'productsDataBase')
+
+    res.redirect('/')
+} */
 }
 
 module.exports = productosControllers;

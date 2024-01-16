@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const {detalleProducts, cargaProducto, dashboard, formEditarProducto, editarProducto, carritoProducts, viewProducts, vistacrear, create} = require('../controllers/productosControllers');
+const {detalleProducts, cargaProducto, dashboard, formEditarProducto, editarProducto, carritoProducts, viewProducts, vistacrear, create, destroy} = require('../controllers/productosControllers');
 
 /* GET home page. */
 router.get('/detalle/:id', detalleProducts);
@@ -19,5 +19,7 @@ router.post('/cargaProducto', cargaProducto);
 
 router.get('/create', vistacrear);
 router.post('/create', create);
+
+router.delete('/delete/:id', destroy); 
 
 module.exports = router;

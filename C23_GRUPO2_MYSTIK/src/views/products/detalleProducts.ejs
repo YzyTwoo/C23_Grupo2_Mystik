@@ -11,13 +11,8 @@
     <main>
         <section class="section-container-main">
             <div class="container-images-product-buy">
-                <div class="container-more-img">
-                <% productos.forEach(item => { %>
-                    <img class="img-more-prod" src="/images/productoDetalle/<%= item.image %>" alt="producto">
-                    <% }) %>
-                </div>
                 <div class="container-img">
-                    <img class="img-product" src="/images/productoDetalle/<%= product.image %>" alt="producto">
+                    <img class="img-product" src="/images/products/<%= product.image %>" alt="producto">
                 </div>
             </div>
 
