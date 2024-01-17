@@ -18,8 +18,8 @@ const usersControllers = {
             nombre: nombre.trim(),
             email: email.trim(),
             telefono,
-            password: bcrypt.hashSync(contraseña,10),
-            imagen: file ? file.filename : "default.jpg",
+            imagen: file ? file.filename : "default.png",
+            conraseña: bcrypt.hashSync(contraseña,10),
             id
         }
         users.push(user);
