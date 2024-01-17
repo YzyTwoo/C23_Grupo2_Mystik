@@ -33,12 +33,5 @@
     "telefono": "11 1010-1111",
     "contraseña": "password5",
     "id": 5
-  },
-  {
-    "nombre": "Lautaro",
-    "email": "Lautarocontreras98@hotmail.com",
-    "telefono": "3513549629",
-    "password": "$2a$10$Hd.T/vM05YpAjEiZwuqC9Ovx6QIdPwWu1HmJwMb1aEZyvtEbJTTy2",
-    "id": "45ac8ad2-b81c-4a4b-93e8-f6a6023c8e67"
   }
 ]

@@ -24,21 +24,27 @@
                 <p>
                 <label for="nombre">Nombre</label>
                 </p>
-                <input id="cuadro_texto" type="text" name="nombre">
+                <input id="cuadro_texto" type="text" name="nombre" value="<%= locals.old && old.nombre ? old.nombre : null %>">
+                <small class="text-danger d-flex">
+                    <%= locals.errors && errors.nombre ? errors.nombre.msg : null %>
+                  </small>
                 </div>
                 
                 <div class="email_div">
                 <p>
                 <label for="email">Email</label>
                 </p>
-                <input id="cuadro_texto" type="email" name="email">
+                <input id="cuadro_texto" type="email" name="email" value="<%= locals.old && old.email ? old.email : null %>">
+                <small class="text-danger d-flex">
+                    <%= locals.errors && errors.email ? errors.email.msg : null %>
+                  </small>
                 </div>
             
                 <div class="telefono_div">
                 <p>
                 <label for="telefono">Teléfono (opcional)</label>
                 </p>
-                <input id="cuadro_texto" type="text" name="telefono">
+                <input id="cuadro_texto" type="text" name="telefono" value="<%= locals.old && old.telefono ? old.telefono : null %>">
                 </div>
             
                 <div class="contraseña_div">
@@ -46,6 +52,9 @@
                 <label for="contraseña">Contraseña</label>
                 </p>
                 <input id="cuadro_texto" type="password" name="contraseña">
+                <small class="text-danger d-flex">
+                    <%= locals.errors && errors.contraseña ? errors.contraseña.msg : null %>
+                  </small>
                 </div>
             </section>
                 <div class="boton_registro_div">
