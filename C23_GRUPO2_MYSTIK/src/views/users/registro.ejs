@@ -52,6 +52,9 @@
                 <label for="password">Contraseña</label>
                 </p>
                 <input id="cuadro_texto" type="password" name="password">
+                <small class="text-danger d-flex">
+                    <%= locals.errors && errors.password? errors.password.msg : null %>
+                  </small>
                 </div>
                 <div class="telefono_div">
                     <label for="description" class="form-label">Seleccione una imagen de perfil:</label>
