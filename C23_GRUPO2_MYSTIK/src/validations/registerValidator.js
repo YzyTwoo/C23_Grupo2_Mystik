@@ -11,8 +11,8 @@ module.exports =[
     .custom(value => {       
         const user = users.find(elemento => elemento.email == value);
         return user ? false : true
-    }).withMessage("El usuario ya existe, utilice otro correo electronico"),
+    }).withMessage("El usuario ya existe, utilice otro correo electronico"), 
 
-    body('contraseña').notEmpty().withMessage("El campo no puede estar vacio").bail()
+    body('password').notEmpty().withMessage("El campo no puede estar vacio").bail()
     .isLength({min:6 , max:12}).withMessage("La contraseña debe tener un minimo de 6 caracteres y maximo 12 caracteres")
 ]
