@@ -11,7 +11,7 @@ const usersControllers = {
     },
     createUsers: (req,res)=>{
         const users = leerArchivo("usuarios");
-        const {nombre,email,telefono,contraseña} = req.body;
+        const {nombre,email,telefono,password} = req.body;
         const id = uuidv4();
         const file = req.file;
         const user ={
@@ -19,7 +19,7 @@ const usersControllers = {
             email: email.trim(),
             telefono,
             imagen: file ? file.filename : "default.png",
-            conraseña: bcrypt.hashSync(contraseña,10),
+            password: bcrypt.hashSync(password,10),
             id
         }
         users.push(user);
