@@ -13,9 +13,7 @@ const usersControllers = {
     createUsers: (req,res)=>{
         const errors = validationResult(req)
        
-        if (!errors.isEmpty()) {
-            return res.render('users/registro',{old:req.body, errors:errors.mapped()})
-        }else{
+        if (errors.isEmpty()) {
             const users = leerArchivo("usuarios");
             const {nombre,email,telefono,password} = req.body;
             const id = uuidv4();
@@ -31,6 +29,9 @@ const usersControllers = {
             users.push(user);
             cargarArchivo(users,"usuarios");
             return res.redirect("/users/login")
+           
+        }else{
+            return res.render('users/registro',{old:req.body, errors:errors.mapped()})
         }
         
     }
