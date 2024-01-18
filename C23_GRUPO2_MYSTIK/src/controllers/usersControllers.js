@@ -12,14 +12,15 @@ const usersControllers = {
     createUsers: (req,res)=>{
         const errors = validationResult(req)
         const users = leerArchivo("usuarios");
-        const {nombre,email,telefono,contraseña} = req.body;
+        const {nombre,email,telefono,password} = req.body;
         const id = uuidv4();
-
+        const file = req.file;
         if (errors.isEmpty()) {
             const user ={
                 nombre: nombre.trim(),
                 email: email.trim(),
                 telefono,
+                imagen: file ? file.filename : "default.png",
                 password: bcrypt.hashSync(contraseña,10),
                 id
             }
