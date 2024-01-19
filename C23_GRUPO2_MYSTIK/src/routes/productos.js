@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
 const {detalleProducts, cargaProducto, dashboard, formEditarProducto, editarProducto, carritoProducts, viewProducts, vistacrear, create, destroy} = require('../controllers/productosControllers');
+const sessionValidate = require('../middleware/sessionValidate');
 
 /* GET home page. */
 router.get('/detalle/:id', detalleProducts);
 router.get('/', viewProducts)
-router.get('/carrito', carritoProducts);
+router.get('/carrito', sessionValidate,carritoProducts);
 router.get('/dashboard', dashboard);
 
 router.get('/formEditarProducto/:id', formEditarProducto);
