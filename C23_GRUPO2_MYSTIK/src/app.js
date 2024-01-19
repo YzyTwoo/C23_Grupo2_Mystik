@@ -5,9 +5,11 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
 
-const indexRouter = require('./routes/index');
+
+
 const usersRouter = require('./routes/users');
 const detalleRouter = require('./routes/productos');
+const indexRouter = require('./routes/index')
 
 
 
