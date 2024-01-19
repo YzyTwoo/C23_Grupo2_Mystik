@@ -1,6 +1,7 @@
 const isAdminValidate = (req, res, next) => {
-    if(req.session.user.rol == "admin"){
+    if( req.session.usuario && req.session.usuario.rol == "admin"){
         next()
     }
-    res.redirect('/users/login')
+    res.redirect('/')
 }
+module.exports = isAdminValidate;
