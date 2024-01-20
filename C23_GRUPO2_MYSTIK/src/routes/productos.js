@@ -21,7 +21,7 @@ router.get('/carrito', carritoProducts);
 router.get('/dashboard', dashboard);
 
 router.get('/formEditarProducto/:id', formEditarProducto);
-router.put('/editarProducto/:id', editarProducto);
+router.put('/editarProducto/:id',uploadFile.single('image'), editarProducto);
 
 
 /*carga de productos*/
