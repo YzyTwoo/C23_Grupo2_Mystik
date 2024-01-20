@@ -97,5 +97,16 @@
         "category": "buzos",
         "color": "Blanco",
         "stock": "1"
+    },
+    {
+        "id": 10,
+        "name": "fgfj",
+        "image": "Daily 3 - copia.png",
+        "price": "54553",
+        "description": "hjkhjk",
+        "talle": "M",
+        "category": "remeras",
+        "color": "Negro",
+        "stock": "1"
     }
 ]
