@@ -13,7 +13,7 @@ const productosControllers = {
         let { id } = req.params;
         let product = productos.find(productos => productos.id == id);
         productos.splice(product.id - 1, 1)
-        res.render('products/detalleProducts', { title: 'Detalles', productos, product }); 
+        res.render('products/detalleProducts', { title: 'Detalles', productos, product, usuario:req.session.user }); 
     },
     
 

@@ -19,11 +19,17 @@ const usersControllers = {
     },
     iniciarSession:(req, res, next)=>{
         const {email} = req.body
+        if(req.cookies.rememberMe && req.cookies.userEmail){
+        const users = leerArchivo('usuarios');
+        const user = users.find(elemento => elemento.email == req.cookies.userEmail);
+        console.log('user', user);
+        }
         const users = leerArchivo('usuarios');
         const user = users.find(usuario => usuario.email == email);
         if(user){
             req.session.user = user;
-            console.log("Session:",req.session);
+            res.cookie('userEmail', user.email, {maxAge: 1000 * 60 * 15})
+            res.cookie('rememberMe', "true", {maxAge: 1000 * 60 * 15})
             res.redirect('/');
         }else{
             const errors = validationResult(req);
