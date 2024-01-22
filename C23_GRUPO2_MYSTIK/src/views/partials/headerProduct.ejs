@@ -7,8 +7,12 @@
             <a href="#">Ayuda</a>
         </div>
         <div>
+            <% if(locals.usuario){ %>
+                <p><%= usuario.nombre %></p>
+            <% }else{ %>
             <a href="users/registro" class="line">Crear Cuenta | </a>
             <a href="users/login">Iniciar Sesión</a>
+            <% } %>
         </div>
 
     </nav>

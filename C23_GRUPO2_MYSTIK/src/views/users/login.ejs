@@ -8,8 +8,9 @@
     <div>
         <nav>
             <ul class="menu-list">
-                <li><a href="">Inicio</a><i class="fa-solid fa-chevron-right fa-2xs" id="flecha"></i></li>
-                <li><a href=""> Mi cuenta</a><i class="fa-solid fa-chevron-right fa-2xs" id="flecha"></i></li>
+                <li><a href="/">Inicio</a><i class="fa-solid fa-chevron-right fa-2xs" id="flecha"></i></li>
+                <!-- // Commitie por que no le ví sentido. -->
+                <!-- <li><a href=""> Mi cuenta</a><i class="fa-solid fa-chevron-right fa-2xs" id="flecha"></i></li> -->
                 <li><a href="">Login</a></li>
             </ul>
         </nav>
@@ -19,23 +20,27 @@
             <div>
                 <img src="/images/LOGO/LogoMobile/Isotipo.png" alt="logovertical" class="logo-vertical-form">
             </div>
-            <form class="login-form">
+            <form action="/users/login" method="POST" class="login-form">
                 <h3 class="titulo_iniciar_sesion">Iniciar sesión</h3>
                 <div class="item-form">
                     <label for="email"> Email</label><br>
-                    <input type="text" name="name" id="name" placeholder="Ej.: tunombre@gmail.com" required>
+                    <input type="text" name="email" id="name" placeholder="Ej.: tunombre@gmail.com"
+                    value="<%= locals.old && old.email %>">
                 </div>
+                <p class="p-errors"><%= locals.errors && errors.email ? errors.email.msg : null %></p>
                 <div class="item-form">
                     <label for="password">Contraseña</label> <br>
-                    <input type="password" name="password" id="password" placeholder="" required><i
-                        class="fa-solid fa-eye-slash fa-xs" id="eye-slash"></i>
+                    <input type="password" name="password" id="password"
+                    <%= locals.old && old.password %>>
+                    <i class="fa-solid fa-eye-slash fa-xs" id="eye-slash"></i>
                 </div>
+                <p class="p-errors"><%= locals.errors && errors.password ? errors.password.msg : null %></p>
                 <div class="forget">
                     <a href="#">¿Olvidaste tu contraseña?</a>
                 </div>
                 <button class="button-form" type="submit"> INICIAR SESIÓN </button>
                 <div class="register">
-                    <p>¿No tenés cuenta? <a href="#">│ Crear cuenta</a></p>
+                    <p>¿No tenés cuenta? <a href="/users/registro">Crear cuenta</a></p>
 
                 </div>
                 </div>

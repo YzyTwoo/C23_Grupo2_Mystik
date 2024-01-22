@@ -79,7 +79,28 @@ header {
     margin-left: 40px;
 
 }
+.p-errors{
+    color: red;
+    margin-left: 58px;
+    animation-duration: 550ms;
+    animation-name: error;
+}
+@keyframes error {
+    100% {
+    margin-left: 10%;
+    width: 100%;
+    }
 
+    50% {
+    margin-left: 20%;
+    width: 100%;
+    }
+
+    0% {
+        margin-left: 10%;
+        width: 100%;
+        }
+}
 #name {
     margin-top: 10px;
     border-radius: 15px;
