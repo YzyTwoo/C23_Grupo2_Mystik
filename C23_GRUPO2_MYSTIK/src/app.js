@@ -5,9 +5,11 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
 
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const detalleRouter = require('./routes/productos');
+const rememberMe = require('./middlewares/rememberUser');
 
 
 
@@ -28,7 +30,7 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', detalleRouter);
-
+app.use(rememberMe);
 
 
 // catch 404 and forward to error handler
