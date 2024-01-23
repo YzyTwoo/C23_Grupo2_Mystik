@@ -28,6 +28,14 @@
     margin-bottom: 20px;
 }
 
+.form_imagen{
+    width: 100%;
+}
+
+.form_imagen input {
+    font-size: 11px;
+}
+
 .form_input {
     width: 100%;
     padding: 8px;
@@ -65,6 +73,10 @@
     text-align: center;
 }
 
+.imagen_perfil{
+    max-width: 40%;
+}
+
 @media (min-width: 768px) {
     .main_edit {
         max-width: 700px;
@@ -99,6 +111,15 @@
     .form_contraseña {
         width: 48%;
     }
+
+    .form_imagen input {
+        font-size: 13px;
+    }
+
+    .form_imagen{
+        width: 100%
+    }
+
     .update_perfil {
         cursor: pointer;
         transition: background-color 0.2s;
@@ -109,6 +130,9 @@
     }
     .div_submit {
         text-align: left;
+    }
+    .imagen_perfil{
+        max-width: 40%;
     }
 }
 
@@ -146,6 +170,12 @@
     .form_contraseña {
         width: 48%;
     }
+    .form_imagen{
+        width: 100%;
+    }
+    .form_imagen input {
+        font-size: 13px;
+    }
     .update_perfil {
         cursor: pointer;
         transition: background-color 0.2s;
@@ -156,5 +186,8 @@
     }
     .div_submit {
         text-align: left;
+    }
+    .imagen_perfil{
+        max-width: 50%;
     }
 }

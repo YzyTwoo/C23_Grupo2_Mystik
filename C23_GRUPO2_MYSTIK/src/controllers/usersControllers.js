@@ -8,7 +8,7 @@ const usersControllers = {
     register: (req,res) => {
         res.render("users/registro", {title: "Crear Cuenta"});
     },
-    edit: (req,res)=>{
+    perfil: (req,res)=>{
         const {id} = req.params;
         const users = getJson("usuarios");
         const user = users.find(elemento => elemento.id == id);

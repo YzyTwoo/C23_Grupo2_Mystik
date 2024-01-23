@@ -4,6 +4,7 @@
         "email": "ayelencoppa@gmail.com",
         "telefono": "11 2222-3333",
         "contraseña": "password1",
+        "image": "default.png",
         "rol": "admin",
         "id": 1
     },
@@ -12,6 +13,7 @@
         "email": "valentinarodriguez@gmail.com",
         "telefono": "11 4444-5555",
         "contraseña": "password2",
+        "image": "default.png",
         "rol": "user",
         "id": 2
     },
@@ -20,6 +22,7 @@
         "email": "fabianmedina@gmail.com",
         "telefono": "11 6666-7777",
         "contraseña": "password3",
+        "image": "default.png",
         "rol": "admin",
         "id": 3
     },
@@ -28,6 +31,7 @@
         "email": "tizianoorieta@gmail.com",
         "telefono": "11 8888-9999",
         "contraseña": "password4",
+        "image": "default.png",
         "rol": "admin",
         "id": 4
     },
@@ -36,6 +40,7 @@
         "email": "lautarocontreras@gmail.com",
         "telefono": "11 1010-1111",
         "contraseña": "password5",
+        "image": "default.png",
         "rol": "admin",
         "id": 5
     }

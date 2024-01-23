@@ -41,6 +41,12 @@
             </div>
             </div>
 
+            <div class="form_imagen">
+                <label class="label_form" for="image">Foto de perfil</label>
+                <input type="file" class="form_input" name="image">
+                <p><%= locals.errores && errores.image ? errores.image.msg : null %> </p>
+            </div>
+
             <div class="div_submit">
             <button type="submit" class="update_perfil">Actualizar Perfil</button>
             </div>
