@@ -7,14 +7,14 @@
 
     <main>
         <section class="section_form_edit_product">
-        <form action="<%= `/productos/editarProducto/${product.id}?_method=PUT`%>" method="POST" class="form_edit_product">
+        <form action="<%= `/productos/editarProducto/${product.id}?_method=PUT`%>" method="POST" class="form_edit_product" enctype="multipart/form-data">
                 <h1 class="h1_form_edit_product">Edición del producto</h1>
         <div class="div-form-edit-product">
             <label for="image">Imagen</label>
             <div class="container_img_edit_product">
                 <img class="img_edit_product" src="/images/products/<%= product.image? product.image : "default.png"%>" alt="no-img">
             </div>
-            <input type="file" name="image" id="image" value="<%= product.image %>">
+            <input type="file" name="image" id="image" value="<%= product.image %>" accept="image/*">
             <label for="name">Nombre</label>
             <input type="text" name="name" id="name" value="<%= product.name %>">
             <label for="price">Precio</label>

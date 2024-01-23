@@ -38,12 +38,13 @@ const productosControllers = {
         let productos = leerArchivo('productos');
         const {id} = req.params;
         const {image, name, price, description, talle, category,color,stock} = req.body
+        const file = req.file;
         const nuevoArray = productos.map(product => {
             if (product.id == id){
                 return{
                     id:+id,
                     name:name.trim(),
-                    image: image ? image : product.image,
+                    image: file ? file.filename : "default.png",
                     price:price.trim(),
                     description:description.trim(),
                     talle,
@@ -76,9 +77,10 @@ const productosControllers = {
         let productos = leerArchivo('productos');
         const {image, name, price, description, talle, category, color, stock} = req.body;
         const id =  productos[productos.length-1].id + 1;
+        const file = req.file;
         const productoNuevo = {
 			id: +id,
-            image,
+            image: file?file.filename:"default.png",
 			name,
 			price,
 			description,
