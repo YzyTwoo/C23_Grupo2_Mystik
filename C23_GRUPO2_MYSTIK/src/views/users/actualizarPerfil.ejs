@@ -1,0 +1,51 @@
+<!-- head -->
+
+<%- include('../partials/heads.ejs', {title: 'Actualizar Perfil'}) %>
+<link rel="stylesheet" href="/stylesheets/editarUsuario.css">
+<body>
+    <!-- header -->
+<%- include('../partials/headerUser.ejs') %>
+    <main class="main_edit">
+        <form class="form_class" action="/users/editar/<%=user.id%>?_method=PUT" method="post" enctype="multipart/form-data">
+            <div class="forms_general">
+            <div class="form_nombre">
+                <label class="label_form" for="nombre">Nombre:</label>
+                <input type="text" class="form_input" id="nombre" name="nombre" value="<%= locals.user ? user.nombre : locals.old && old.nombre ? old.nombre : null %>">
+                <p class="local_error"> <%= locals.errores && errores.nombre ? errores.nombre.msg : null %> </p>
+            </div>
+
+            <div class="form_email">
+                <label class="label_form" for="email">Email:</label>
+                <input type="text" class="form_input" id="email" name="email" value="<%= locals.user ? user.email : locals.old && old.email ? old.email : null %>">
+                <p class="local_error"> <%= locals.errores && errores.email ? errores.email.msg : null %> </p>
+            </div>
+
+            <div class="form_telefono">
+                <label class="label_form" for="telefono">Teléfono:</label>
+                <input type="text" class="form_input" id="telefono" name="telefono" value="<%= locals.user ? user.telefono : locals.old && old.telefono ? old.telefono : null %>">
+                <p class="local_error"> <%= locals.errores && errores.telefono ? errores.telefono.msg : null %> </p>
+            </div>
+
+            <% if (locals.usuario && usuario.rol == 'admin') {%>
+                <div class="form_rol">
+                    <label class="label_form" for="rol">Rol</label>
+                    <input type="text" id="rol" name="rol" class="form_input" value="<%= locals.user ? user.rol : locals.old && old.rol ? old.rol : null %>">
+                    <p> <%= locals.errores && errores.rol ? errores.rol.msg : null %> </p>
+                </div>
+            <% } %>
+
+            <div class="form_contraseña">
+                <label class="label_form" for="contraseña">Contraseña:</label>
+                <input type="password" class="form_input" id="contraseña" name="contraseña" value="<%= locals.user ? user.contraseña : locals.old && old.contraseña ? old.contraseña : null %>">
+                <p class="local_error"> <%= locals.errores && errores.contraseña ? errores.contraseña.msg : null %> </p>
+            </div>
+            </div>
+
+            <div class="div_submit">
+            <button type="submit" class="update_perfil">Actualizar Perfil</button>
+            </div>
+        </form>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+</body>
+</html>

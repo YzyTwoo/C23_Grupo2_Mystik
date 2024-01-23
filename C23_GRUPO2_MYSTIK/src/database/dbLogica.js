@@ -8,6 +8,12 @@ let leerArchivo = (parametro) => {
     return products
 }
 
+const getJson = (fileName) => {
+    const file = fs.readFileSync(`${__dirname}/../database/${fileName}.json`,"utf-8");
+    const json = JSON.parse(file);
+    return json;
+}
+
 const setJson= () => {
     const productsFilePath = path.join(__dirname, '../database/productos.json');
     const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -20,4 +26,4 @@ let cargarArchivo = (newArray, fileName) => {
     fs.writeFileSync(pathFile, newJson, 'utf-8')
     }
 
-module.exports = {leerArchivo, setJson,cargarArchivo};
+module.exports = {leerArchivo, getJson, setJson, cargarArchivo};
