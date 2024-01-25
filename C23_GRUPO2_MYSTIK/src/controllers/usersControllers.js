@@ -28,8 +28,8 @@ const usersControllers = {
         const user = users.find(usuario => usuario.email == email);
         if(user){
             req.session.user = user;
-            res.cookie('userEmail', user.email, {maxAge: 1000 * 60 * 15})
-            res.cookie('rememberMe', "true", {maxAge: 1000 * 60 * 15})
+            res.cookie('userEmail', user.email, {maxAge: 1000 * 60 * 1})
+            res.cookie('rememberMe', "true", {maxAge: 1000 * 60 * 1})
             res.redirect('/');
         }else{
             const errors = validationResult(req);
@@ -38,7 +38,16 @@ const usersControllers = {
             }
         }
         
-    }
+    },
+
+    logout:(req,res)=>{
+        req.session.destroy();
+        if (req.cookies.user) {
+          res.clearCookie('user');
+          res.clearCookie('remember');
+        }
+        res.redirect('/');
+      },
 }
 
 module.exports = usersControllers;
