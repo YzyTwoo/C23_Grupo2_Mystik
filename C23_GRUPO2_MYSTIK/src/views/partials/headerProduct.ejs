@@ -4,11 +4,15 @@
         <div>
             <a href="#" class="line">+54 11 12345678 |</a>
             <a href="mailto:correo@example.com" class="line">consultas@mystikindumentaria.com |</a>
-            <a href="#">Ayuda</a>
+            <a href="#" class="line">Ayuda</a>
         </div>
         <div>
+            <% if(locals.usuario){ %>
+                <a class="line"><%= locals.usuario.nombre %></a>
+            <% }else{ %>
             <a href="users/registro" class="line">Crear Cuenta | </a>
-            <a href="users/login">Iniciar Sesión</a>
+            <a href="users/login" class="line">Iniciar Sesión</a>
+            <% } %>
         </div>
 
     </nav>

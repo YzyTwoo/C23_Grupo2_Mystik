@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
+const session = require('express-session');
 
 
 
@@ -14,6 +15,7 @@ const indexRouter = require('./routes/index')
 
 
 
+const sessionValidate = require('./middlewares/sessionValidate')
 const app = express();
 
 // view engine setup
@@ -26,6 +28,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(methodOverride('_method'));
+
+app.use(session({
+  secret: 'mystik',
+  resave: 'false',
+  saveUninitialized: true
+}))
+
+app.use(sessionValidate);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

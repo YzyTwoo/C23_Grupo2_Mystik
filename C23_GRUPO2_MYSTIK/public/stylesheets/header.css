@@ -4,6 +4,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.line{
+    font-size: 18px;
+}
+
 .header-top {
     display: flex;
     justify-content: space-between;
