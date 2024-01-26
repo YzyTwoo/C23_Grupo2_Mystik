@@ -14,23 +14,30 @@ const getJson = (fileName) => {
     return json;
 }
 
+const setJson= () => {
+    const productsFilePath = path.join(__dirname, '../database/productos.json');
+    const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+    
+	return products
+}
+
 let cargarArchivo = (newArray, fileName) => {
     const pathFile = path.join(__dirname, '../database/', fileName + '.json');
     const newJson = JSON.stringify(newArray);
     fs.writeFileSync(pathFile, newJson, 'utf-8')
     }
 
-module.exports = {leerArchivo, getJson, setJson, cargarArchivo};
 const guardarArchivo = (newArray, nameFile)=>{
     const pathFile = path.join(__dirname, '../database/', nameFile + '.json'); //es la ruta necesaria para ubicar el .JSON
     let datosjson = JSON.stringify(newArray); //transforma array de objetos a JSON
     fs.appendFileSync(pathFile, datosjson, 'utf-8'); //carga el nuevo objeto al JSON
 }
 
-const setJson= () => {
-    const productsFilePath = path.join(__dirname, '../database/productosDetalle.json');
+const uploadUser = () => {
+    const productsFilePath = path.join(__dirname, '../database/usuarios.json');
     const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+    
 	return products
 }
 
-module.exports = {leerArchivo, setJson, guardarArchivo};
+module.exports = {leerArchivo, getJson, setJson, guardarArchivo, uploadUser, cargarArchivo};

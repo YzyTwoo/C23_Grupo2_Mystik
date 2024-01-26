@@ -1,9 +1,9 @@
-const {leerArchivo, setJson, cargarArchivo }= require('../database/dbLogica');
+const fs = require('fs');
+const {leerArchivo, getJson, uploadUser, cargarArchivo }= require('../database/dbLogica');
 const {v4: uuidv4} = require('uuid');
 const bcrypt = require('bcryptjs');
 const {validationResult}= require('express-validator')
-const fs = require('fs');
-const {getJson, setJson}= require('../database/dbLogica');
+
 
 const usersControllers = {
     ingreso: (req,res) => {
@@ -73,6 +73,45 @@ const usersControllers = {
         const user = users.find(elemento => elemento.id == id);
         res.render('users/actualizarPerfil', { title: 'Editar Perfil', user });
     },
+    perfilEditar: (req, res) => {
+        const { id } = req.params;
+        const { nombre, email, telefono, rol } = req.body;
+        const users = getJson("usuarios");
+        const usuarios = users.map((element) => {
+            if (element.id == id) {
+                return {
+                    id,
+                    nombre: nombre.trim(),
+                    email: email.trim(),
+                    telefono,
+                    image: req.file ? req.file.filename : element.image,
+                    password: element.password,
+                    rol: rol ? rol : "user",
+                };
+            }
+            return element;
+        });
+    
+        uploadUser(usuarios, "usuarios");
+        const updateUsers = usuarios.find((elemento) => elemento.id == id);
+        req.session.user = updateUsers;
+        delete updateUsers.password;
+    
+        req.session.userName = updateUsers.nombre;
+        res.cookie('userName', updateUsers.nombre);
+        res.redirect('/');
+    },    
+    logout:(req,res)=>{
+        req.session.destroy();
+        if (req.cookies.user) {
+          res.clearCookie('user');
+          res.clearCookie('remember');
+        }
+        res.redirect('/');
+      },
+      dashboard:(req,res)=>{
+        res.send(req.session.user)
+      }
 }
 
 module.exports = usersControllers;

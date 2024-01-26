@@ -10,12 +10,8 @@ const session = require('express-session');
 
 const usersRouter = require('./routes/users');
 const detalleRouter = require('./routes/productos');
-const indexRouter = require('./routes/index')
-
-
-
-
-const sessionValidate = require('./middlewares/sessionValidate')
+const indexRouter = require('./routes/index');
+const sessionValidate = require('./middlewares/sessionValidate');
 const app = express();
 
 // view engine setup
