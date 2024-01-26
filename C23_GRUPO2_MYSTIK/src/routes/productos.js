@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const multer = require('multer');
 const {detalleProducts, cargaProducto, dashboard, formEditarProducto, editarProducto, carritoProducts, viewProducts, vistacrear, create, destroy} = require('../controllers/productosControllers');
+const adminValidate = require('../middlewares/adminValidate');
 const path = require('path');
 
 const storage = multer.diskStorage({ 
@@ -18,7 +19,7 @@ const storage = multer.diskStorage({
 router.get('/detalle/:id', detalleProducts);
 router.get('/', viewProducts)
 router.get('/carrito', carritoProducts);
-router.get('/dashboard', dashboard);
+router.get('/dashboard', adminValidate, dashboard);
 
 router.get('/formEditarProducto/:id', formEditarProducto);
 router.put('/editarProducto/:id',uploadFile.single('image'), editarProducto);

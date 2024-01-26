@@ -24,7 +24,7 @@
     margin-bottom: 20px;
 }
 
-.form_contraseña {
+.form_password {
     margin-bottom: 20px;
 }
 
@@ -112,7 +112,7 @@
         width: 48%;
     }
 
-    .form_contraseña {
+    .form_password {
         width: 48%;
     }
 
@@ -174,9 +174,10 @@
         width: 48%;
     }
 
-    .form_contraseña {
+    .form_password {
         width: 48%;
     }
+    
     .form_imagen{
         width: 100%;
     }

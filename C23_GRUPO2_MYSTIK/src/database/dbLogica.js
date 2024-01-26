@@ -21,6 +21,11 @@ const setJson= () => {
 	return products
 }
 
+const uploadUser = (array,fileName) => {
+    const json = JSON.stringify(array);
+    fs.writeFileSync(`${__dirname}/../database/${fileName}.json`,json,"utf-8")
+}
+
 let cargarArchivo = (newArray, fileName) => {
     const pathFile = path.join(__dirname, '../database/', fileName + '.json');
     const newJson = JSON.stringify(newArray);
@@ -33,11 +38,4 @@ const guardarArchivo = (newArray, nameFile)=>{
     fs.appendFileSync(pathFile, datosjson, 'utf-8'); //carga el nuevo objeto al JSON
 }
 
-const uploadUser = () => {
-    const productsFilePath = path.join(__dirname, '../database/usuarios.json');
-    const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-    
-	return products
-}
-
-module.exports = {leerArchivo, getJson, setJson, guardarArchivo, uploadUser, cargarArchivo};
+module.exports = {leerArchivo, getJson, uploadUser, setJson, guardarArchivo, cargarArchivo};

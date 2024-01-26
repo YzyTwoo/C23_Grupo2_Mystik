@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {leerArchivo, getJson, uploadUser, cargarArchivo }= require('../database/dbLogica');
+const {leerArchivo, getJson, cargarArchivo, uploadUser}= require('../database/dbLogica');
 const {v4: uuidv4} = require('uuid');
 const bcrypt = require('bcryptjs');
 const {validationResult}= require('express-validator')
@@ -17,16 +17,17 @@ const usersControllers = {
        
         if (errors.isEmpty()) {
             const users = leerArchivo("usuarios");
-            const {nombre,email,telefono,password} = req.body;
+            const {nombre,email,telefono,password,rol} = req.body;
             const id = uuidv4();
             const file = req.file;
             const user ={
+                id,
                 nombre: nombre.trim(),
                 email: email.trim(),
                 telefono,
-                imagen: file ? file.filename : "default.png",
+                image: file ? file.filename : "default.png",
                 password: bcrypt.hashSync(password,10),
-                id
+                rol: rol ? rol : "user"
             }
             users.push(user);
             cargarArchivo(users,"usuarios");
@@ -67,51 +68,49 @@ const usersControllers = {
             }
         }
     },
-    perfil: (req,res)=>{
+    perfil:(req,res)=>{
         const {id} = req.params;
-        const users = getJson("usuarios");
+        const users = getJson('usuarios');
         const user = users.find(elemento => elemento.id == id);
-        res.render('users/actualizarPerfil', { title: 'Editar Perfil', user });
-    },
-    perfilEditar: (req, res) => {
-        const { id } = req.params;
-        const { nombre, email, telefono, rol } = req.body;
+        res.render('users/actualizarPerfil', { title: 'Editar', user, usuario:req.session.user});
+      },
+    perfilEditar: (req,res)=>{
+        const {id} = req.params;
+        const {nombre,email, telefono, rol} = req.body;
         const users = getJson("usuarios");
-        const usuarios = users.map((element) => {
-            if (element.id == id) {
-                return {
-                    id,
-                    nombre: nombre.trim(),
-                    email: email.trim(),
-                    telefono,
-                    image: req.file ? req.file.filename : element.image,
-                    password: element.password,
-                    rol: rol ? rol : "user",
-                };
+        const usuarios = users.map(element => {
+        if (element.id == id) {
+            return {
+            id,
+            nombre,
+            email,
+            telefono,
+            image:req.file ? req.file.filename : element.image, 
+            password: element.password,
+            rol: rol ? rol : "user"
             }
-            return element;
+          }
+          return element
         });
-    
-        uploadUser(usuarios, "usuarios");
-        const updateUsers = usuarios.find((elemento) => elemento.id == id);
-        req.session.user = updateUsers;
-        delete updateUsers.password;
-    
-        req.session.userName = updateUsers.nombre;
-        res.cookie('userName', updateUsers.nombre);
-        res.redirect('/');
-    },    
-    logout:(req,res)=>{
+        uploadUser(usuarios,"usuarios");
+        const userUpdate = usuarios.find(elemento => elemento.id == id);
+        req.session.user = userUpdate;
+        delete userUpdate.password
+        res.cookie('user',(userUpdate))
+        res.redirect(`/`);
+    },
+    dashboard:(req,res)=>{
+        res.send(req.session.user)
+    },
+        logout:(req,res) =>{
         req.session.destroy();
-        if (req.cookies.user) {
-          res.clearCookie('user');
-          res.clearCookie('remember');
+        if (req.cookies) {
+        res.clearCookie('user');
+        res.clearCookie("userEmail")
+        res.clearCookie('rememberMe');
         }
         res.redirect('/');
-      },
-      dashboard:(req,res)=>{
-        res.send(req.session.user)
-      }
+}
 }
 
 module.exports = usersControllers;

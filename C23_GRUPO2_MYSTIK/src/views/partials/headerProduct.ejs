@@ -8,13 +8,15 @@
         </div>
         <div>
             <% if(locals.usuario){ %>
+                <div class="transition_menu">
                 <a class="line"><%= locals.usuario.nombre %></a>
                 <div id="user-name">
                     <ul>
                       <li id="user-name"><%= usuario.name %></li>
-                      <li><a class="user-menu" href="/users/editar/<%=usuario.id%>">Profile</a></li>
+                      <li><a class="user-menu" href="/users/editar/<%=usuario.id%>">Perfil</a></li>
                       <li><a class="user-menu" href="/users/logout">Cerrar sesion</a></li>
                     </ul>
+                </div>
                 </div>
             <% }else{ %>
             <a href="users/registro" class="line">Crear Cuenta | </a>

@@ -34,10 +34,10 @@
                 </div>
             <% } %>
 
-            <div class="form_contraseña">
-                <label class="label_form" for="contraseña">Contraseña:</label>
-                <input type="password" class="form_input" id="contraseña" name="contraseña" value="<%= locals.user ? user.contraseña : locals.old && old.contraseña ? old.contraseña : null %>">
-                <p class="local_error"> <%= locals.errores && errores.contraseña ? errores.contraseña.msg : null %> </p>
+            <div class="form_password">
+                <label class="label_form" for="password">Contraseña:</label>
+                <input type="password" class="form_input" id="contraseña" name="password" value="<%= locals.user ? user.password : locals.old && old.password ? old.password : null %>">
+                <p class="local_error"> <%= locals.errores && errores.password ? errores.password.msg : null %> </p>
             </div>
             </div>
 
