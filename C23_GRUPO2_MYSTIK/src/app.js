@@ -9,7 +9,7 @@ const session = require('express-session');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const detalleRouter = require('./routes/productos');
-const sessionValidate = require('./middlewares/sessionValidate')
+const cookieValidate = require('./middlewares/cookieValidate')
 const app = express();
 
 // view engine setup
@@ -29,7 +29,7 @@ app.use(session({
   saveUninitialized: true
 }))
 
-app.use(sessionValidate);
+app.use(cookieValidate);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

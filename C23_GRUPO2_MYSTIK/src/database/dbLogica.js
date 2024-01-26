@@ -8,6 +8,11 @@ let leerArchivo = (fileName) => {
     return products
 }
 
+const getJson = (fileName) => {
+    const file = fs.readFileSync(`${__dirname}/../database/${fileName}.json`,"utf-8");
+    const json = JSON.parse(file);
+    return json;
+}
 const guardarArchivo = (newArray, nameFile)=>{
     const pathFile = path.join(__dirname, '../database/', nameFile + '.json'); //es la ruta necesaria para ubicar el .JSON
     let datosjson = JSON.stringify(newArray); //transforma array de objetos a JSON
@@ -20,4 +25,4 @@ const setJson= () => {
 	return products
 }
 
-module.exports = {leerArchivo, setJson, guardarArchivo};
+module.exports = {leerArchivo, setJson, guardarArchivo, getJson};

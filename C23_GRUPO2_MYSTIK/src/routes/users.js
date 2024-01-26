@@ -4,6 +4,7 @@ const {ingreso, register, iniciarSession,logout} = require('../controllers/users
 const validationLogin = require('../middlewares/validacionLogin')
 
 
+
 /* GET home page. */
 router.get('/login', ingreso);
 router.post('/login', validationLogin, iniciarSession)
