@@ -7,8 +7,20 @@
             <a href="#">Ayuda</a>
         </div>
         <div>
-            <a href="users/registro" class="line">Crear Cuenta | </a>
-            <a href="users/login">Iniciar Sesión</a>
+
+                <a <% if (locals.usuarios) { %>
+                        <% if (usuarios.rol == "admin") { %>
+                            href="/../products/dashboard">Dashboard
+                        <% }else{null %>
+                            
+                        <% } %>
+                    <% }else{ %>
+                        <a href="../users/registro">Crear Cuenta |
+                        <a href="/../users/login">Iniciar Sesión
+                    <% } %>
+                </a>
+            <!-- <a href="users/registro" class="line">Crear Cuenta | </a>
+            <a href="users/login">Iniciar Sesión</a> -->
         </div>
 
     </nav>

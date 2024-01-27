@@ -15,7 +15,7 @@ const usersControllers = {
        
         if (errors.isEmpty()) {
             const users = leerArchivo("usuarios");
-            const {nombre,email,telefono,password} = req.body;
+            const {nombre,email,telefono,password, rol} = req.body;
             const id = uuidv4();
             const file = req.file;
             const user ={
@@ -24,7 +24,8 @@ const usersControllers = {
                 telefono,
                 imagen: file ? file.filename : "default.png",
                 password: bcrypt.hashSync(password,10),
-                id
+                id,
+                rol: rol ? rol : "user"
             }
             users.push(user);
             cargarArchivo(users,"usuarios");

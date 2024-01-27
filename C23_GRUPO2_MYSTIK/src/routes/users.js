@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
         cb(null,`${Date.now()}_img_${path.extname(file.originalname)}`);
     }
 });
- const upload = multer({storage})
+const upload = multer({storage})
 
 const usersControllers = require('../controllers/usersControllers')
 

@@ -37,9 +37,19 @@
                 <input id="cuadro_texto" type="email" name="email" value="<%= locals.old && old.email ? old.email : null %>">
                 <small class="text-danger d-flex">
                     <%= locals.errors && errors.email ? errors.email.msg : null %>
-                  </small>
+                </small>
                 </div>
-            
+                <% if (locals.usuario && usuario.rol == "admin") {%>
+                <div class="email_div">
+                    <p>
+                    <label for="rol">Rol</label>
+                    </p>
+                    <input id="cuadro_texto" type="rol" name="rol" value="<%= locals.old && old.rol ? old.rol : null %>">
+                    <small class="text-danger d-flex">
+                        <%= locals.errors && errors.rol ? errors.rol.msg : null %>
+                    </small>
+                    </div>
+                <% } %>
                 <div class="telefono_div">
                 <p>
                 <label for="telefono">Teléfono (opcional)</label>
