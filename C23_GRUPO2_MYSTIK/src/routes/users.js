@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
-const usersControllers = require('../controllers/usersControllers')
+const {ingreso, register, iniciarSession,logout} = require('../controllers/usersControllers')
+const validationLogin = require('../middlewares/validacionLogin')
+
+
 
 /* GET home page. */
-router.get('/login', usersControllers.ingreso);
-router.get('/registro', usersControllers.register);
-
+router.get('/login', ingreso);
+router.post('/login', validationLogin, iniciarSession)
+router.get('/registro', register);
+router.get('/logout', logout);
 module.exports = router;

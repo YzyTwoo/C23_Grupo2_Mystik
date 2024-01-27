@@ -4,13 +4,20 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.line{
+    font-size: 18px;
+}
+
 .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 20px 20px 20px;
 }
-
+ul{
+    list-style-type: none;
+    font-size: 15px;
+}
 .nav-general {
     display: none;
 }
@@ -246,4 +253,6 @@
     .nav-general{
         font-size: 15px ;
     }
+  
+    
 }

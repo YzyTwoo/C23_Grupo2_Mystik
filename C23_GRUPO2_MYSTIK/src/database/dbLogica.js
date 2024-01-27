@@ -1,11 +1,22 @@
 const path = require('path');
 const fs = require('fs');
 
-let leerArchivo = (parametro) => {
-    let filePath = path.join(__dirname, '../database/', parametro + '.json');
+let leerArchivo = (fileName) => {
+    let filePath = path.join(__dirname, '../database/', fileName + '.json');
     let fileJson = fs.readFileSync(filePath, 'utf-8');
     let products = JSON.parse(fileJson);
     return products
+}
+
+const getJson = (fileName) => {
+    const file = fs.readFileSync(`${__dirname}/../database/${fileName}.json`,"utf-8");
+    const json = JSON.parse(file);
+    return json;
+}
+const guardarArchivo = (newArray, nameFile)=>{
+    const pathFile = path.join(__dirname, '../database/', nameFile + '.json'); //es la ruta necesaria para ubicar el .JSON
+    let datosjson = JSON.stringify(newArray); //transforma array de objetos a JSON
+    fs.appendFileSync(pathFile, datosjson, 'utf-8'); //carga el nuevo objeto al JSON
 }
 
 const setJson= () => {
@@ -20,4 +31,8 @@ let cargarArchivo = (newArray, fileName) => {
     fs.writeFileSync(pathFile, newJson, 'utf-8')
     }
 
+<<<<<<< HEAD
 module.exports = {leerArchivo, setJson,cargarArchivo};
+=======
+module.exports = {leerArchivo, setJson, guardarArchivo, getJson};
+>>>>>>> EC-80-FORM-LOGIN-JS
