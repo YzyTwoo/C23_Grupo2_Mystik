@@ -47,17 +47,6 @@ const usersControllers = {
             }
         }
     },
-    
-   
-    logout:(req,res)=>{
-        req.session.destroy();
-        if (req.cookies.user) {
-          res.clearCookie('userEmail');
-          res.clearCookie('rememberMe');
-          res.clearCookie('user');
-        }
-        res.redirect('/');
-      },
     createUsers: (req,res)=>{
         const errors = validationResult(req)
        
@@ -70,15 +59,14 @@ const usersControllers = {
                 nombre: nombre.trim(),
                 email: email.trim(),
                 telefono,
-                imagen: file ? file.filename : "default.png",
+                image: file ? file.filename : "default.png",
                 password: bcrypt.hashSync(password,10),
                 id,
                 rol: rol ? rol : "user"
             }
             users.push(user);
-            cargarArchivo(users,"usuarios");
+            uploadUser(users,"usuarios");
             return res.redirect("/users/login")
-           
         }else{
             return res.render('users/registro',{old:req.body, errors:errors.mapped()})
         }
@@ -89,7 +77,7 @@ const usersControllers = {
         const users = getJson('usuarios');
         const user = users.find(elemento => elemento.id == id);
         res.render('users/actualizarPerfil', { title: 'Editar', user, usuario:req.session.user});
-      },
+    },
     perfilEditar: (req,res)=>{
         const {id} = req.params;
         const {nombre,email, telefono, rol} = req.body;
@@ -105,8 +93,8 @@ const usersControllers = {
             password: element.password,
             rol: rol ? rol : "user"
             }
-          }
-          return element
+        }
+        return element
         });
         uploadUser(usuarios,"usuarios");
         const userUpdate = usuarios.find(elemento => elemento.id == id);
@@ -114,6 +102,15 @@ const usersControllers = {
         delete userUpdate.password
         res.cookie('user',(userUpdate))
         res.redirect(`/`);
+    },
+    logout:(req,res)=>{
+        req.session.destroy();
+        if (req.cookies.user) {
+        res.clearCookie('userEmail');
+        res.clearCookie('rememberMe');
+        res.clearCookie('user');
+        }
+        res.redirect('/');
     },
     dashboard:(req,res)=>{
         res.send(req.session.user)
