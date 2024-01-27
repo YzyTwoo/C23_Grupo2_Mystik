@@ -20,18 +20,18 @@ const productosControllers = {
 
     carritoProducts: (req, res) => {
         let productos = leerArchivo('productos');
-        res.render('products/carritoProducts', {title:'Carrito', productos });
+        res.render('products/carritoProducts', {title:'Carrito', productos, usuario:req.session.usuario });
     },
 
     cargaProducto:  (req, res) => {
         let productos = leerArchivo('productos');
-        res.render('products/cargaProducto', productos);
+        res.render('products/cargaProducto', {productos, usuario:req.session.usuario});
     },
     formEditarProducto:  (req, res) => {
         let productos = leerArchivo('productos');
         const {id} = req.params;
         const product = productos.find(producto => producto.id == id);
-        res.render('products/editProduct', {title: product.name, product});
+        res.render('products/editProduct', {title: product.name, product, usuario:req.session.usuario});
         // res.send(product)
     },
     editarProducto:  (req, res) => {
@@ -57,7 +57,7 @@ const productosControllers = {
         })
         const json =JSON.stringify(nuevoArray);
         fs.writeFileSync(path.join(__dirname,"../database/productos.json"), json, "utf-8")
-        res.redirect('/productos/dashboard')
+        res.redirect('/productos/dashboard', {usuario:req.session.usuario})
     },
 
     dashboard:(req, res) => {
@@ -66,11 +66,11 @@ const productosControllers = {
         for (prop in productos[0]) {
             propiedades.push(prop)
         }
-        res.render('products/dashboard', { title: "Dashboard", productos, propiedades });
+        res.render('products/dashboard', { title: "Dashboard", productos, propiedades, usuario:req.session.usuario });
     },
 
     vistacrear: (req,res)=>{
-		res.render('products/create', { title: "create"});
+		res.render('products/create', { title: "create", usuario:req.session.usuario});
 	},
 
     create: (req,res)=>{
@@ -93,7 +93,7 @@ const productosControllers = {
         productos.push(productoNuevo);
         const Json = JSON.stringify(productos);
         fs.writeFileSync(path.join(__dirname,"../database/productos.json"), Json, 'utf-8' );
-        res.redirect(`/productos/dashboard`,);  
+        res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});  
 },
     destroy : (req, res) => {
     const {id} = req.params;
@@ -103,7 +103,7 @@ const productosControllers = {
     const nuevaLista = productos.filter(producto => producto.id !== +id);
     cargarArchivo(nuevaLista, 'productos')
    
-    res.redirect(`/productos/dashboard`);
+    res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});
 },
 
 /* destroy : (req, res) => {
