@@ -31,8 +31,5 @@ let cargarArchivo = (newArray, fileName) => {
     fs.writeFileSync(pathFile, newJson, 'utf-8')
     }
 
-<<<<<<< HEAD
-module.exports = {leerArchivo, setJson,cargarArchivo};
-=======
-module.exports = {leerArchivo, setJson, guardarArchivo, getJson};
->>>>>>> EC-80-FORM-LOGIN-JS
+
+module.exports = {leerArchivo, getJson, setJson, guardarArchivo, cargarArchivo};

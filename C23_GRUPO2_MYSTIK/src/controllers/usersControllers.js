@@ -1,3 +1,4 @@
+const fs = require('fs');
 const {leerArchivo, setJson, cargarArchivo, getJson}= require('../database/dbLogica');
 const {v4: uuidv4} = require('uuid');
 const bcrypt = require('bcryptjs');
@@ -81,7 +82,13 @@ const usersControllers = {
             return res.render('users/registro',{old:req.body, errors:errors.mapped()})
         }
         
-    }
+    },
+    perfil: (req,res)=>{
+        const {id} = req.params;
+        const users = getJson("usuarios");
+        const user = users.find(elemento => elemento.id == id);
+        res.render('users/actualizarPerfil', { title: 'Editar Perfil', user });
+    },
 }
 
 module.exports = usersControllers;
