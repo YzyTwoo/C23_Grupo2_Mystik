@@ -24,7 +24,7 @@
     margin-bottom: 20px;
 }
 
-.form_contraseña {
+.form_password {
     margin-bottom: 20px;
 }
 
@@ -77,6 +77,10 @@
     max-width: 40%;
 }
 
+.nav-general {
+    display: none;
+}
+
 @media (min-width: 768px) {
     .main_edit {
         max-width: 700px;
@@ -108,7 +112,7 @@
         width: 48%;
     }
 
-    .form_contraseña {
+    .form_password {
         width: 48%;
     }
 
@@ -133,6 +137,9 @@
     }
     .imagen_perfil{
         max-width: 40%;
+    }
+    .nav-general {
+        display: none;
     }
 }
 
@@ -167,9 +174,10 @@
         width: 48%;
     }
 
-    .form_contraseña {
+    .form_password {
         width: 48%;
     }
+    
     .form_imagen{
         width: 100%;
     }
@@ -189,5 +197,8 @@
     }
     .imagen_perfil{
         max-width: 50%;
+    }
+    .nav-general {
+        display: none;
     }
 }

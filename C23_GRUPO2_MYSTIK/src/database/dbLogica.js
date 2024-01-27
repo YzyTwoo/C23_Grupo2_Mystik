@@ -13,6 +13,7 @@ const getJson = (fileName) => {
     const json = JSON.parse(file);
     return json;
 }
+
 const guardarArchivo = (newArray, nameFile)=>{
     const pathFile = path.join(__dirname, '../database/', nameFile + '.json'); //es la ruta necesaria para ubicar el .JSON
     let datosjson = JSON.stringify(newArray); //transforma array de objetos a JSON
@@ -25,11 +26,16 @@ const setJson= () => {
     
 	return products
 }
+
+const uploadUser = (array,fileName) => {
+    const json = JSON.stringify(array);
+    fs.writeFileSync(`${__dirname}/../database/${fileName}.json`,json,"utf-8")
+}
+
 let cargarArchivo = (newArray, fileName) => {
     const pathFile = path.join(__dirname, '../database/', fileName + '.json');
     const newJson = JSON.stringify(newArray);
     fs.writeFileSync(pathFile, newJson, 'utf-8')
     }
 
-
-module.exports = {leerArchivo, getJson, setJson, guardarArchivo, cargarArchivo};
+module.exports = {leerArchivo, getJson, uploadUser, setJson, guardarArchivo, cargarArchivo};

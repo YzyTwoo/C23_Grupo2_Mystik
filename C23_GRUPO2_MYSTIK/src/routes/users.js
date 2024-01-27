@@ -2,12 +2,11 @@ var express = require('express');
 var router = express.Router();
 const multer = require('multer');
 const path = require("path")
-const {ingreso, register, iniciarSession,logout, createUsers, perfil} = require('../controllers/usersControllers')
+const {ingreso, register, iniciarSession,logout, createUsers, perfil, perfilEditar} = require('../controllers/usersControllers')
 const validationLogin = require('../middlewares/validacionLogin')
-
-
-
 const registerValidator = require('../validations/registerValidator')
+const validationLogin = require('../validations/validacionLogin');
+const sessionValidate = require('../middlewares/sessionValidate');
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
@@ -27,7 +26,8 @@ router.post('/login', validationLogin, iniciarSession)
 router.get('/registro', register);
 router.post('/registro',upload.single("imagen"),registerValidator,createUsers);
 
-router.get('/editar/:id', perfil);
+router.get('/editar/:id', sessionValidate, perfil);
+router.put('/editar/:id', upload.single('image'), perfilEditar);
 
 router.get('/logout', logout);
 
