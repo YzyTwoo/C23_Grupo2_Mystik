@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const multer = require('multer');
 const {detalleProducts, cargaProducto, dashboard, formEditarProducto, editarProducto, carritoProducts, viewProducts, vistacrear, create, destroy} = require('../controllers/productosControllers');
+const isAdminValidate = require('../middlewares/isadminValidate');
+const sessionValidate = require('../middlewares/sessionValidate');
 const path = require('path');
 
 const storage = multer.diskStorage({ 
@@ -17,21 +19,22 @@ const storage = multer.diskStorage({
 /* GET home page. */
 router.get('/detalle/:id', detalleProducts);
 router.get('/', viewProducts)
-router.get('/carrito', carritoProducts);
-router.get('/dashboard', dashboard);
+router.get('/carrito', sessionValidate,carritoProducts);
+router.get('/dashboard', isAdminValidate ,dashboard);
 
-router.get('/formEditarProducto/:id', formEditarProducto);
-router.put('/editarProducto/:id',uploadFile.single('image'), editarProducto);
+router.get('/formEditarProducto/:id', isAdminValidate, formEditarProducto);
+router.put('/editarProducto/:id', isAdminValidate, uploadFile.single('image'), editarProducto);
 
 
 /*carga de productos*/
 
-router.get('/cargaProducto', cargaProducto);
-router.post('/cargaProducto', cargaProducto);
+router.get('/cargaProducto', isAdminValidate, cargaProducto);
+router.post('/cargaProducto', isAdminValidate, cargaProducto);
 
-router.get('/create', vistacrear);
-router.post('/create', uploadFile.single('image'),create);
 
-router.delete('/delete/:id', destroy); 
+router.get('/create', isAdminValidate, vistacrear);
+router.post('/create', isAdminValidate, uploadFile.single('image'), create);
 
-module.exports = router;
+router.delete('/delete/:id', isAdminValidate, destroy); 
+
+module.exports = router; 
