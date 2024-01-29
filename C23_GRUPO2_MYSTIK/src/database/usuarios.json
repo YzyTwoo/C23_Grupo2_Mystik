@@ -41,5 +41,14 @@
     "imagen": "1705619291093_img_.jpg",
     "password": "$2a$10$wi4ck7pAiNLuIkKuFJp2Ueu9ZOFDC//1OVCXI0YrJfZSckonrBcBW",
     "id": "055f1333-c843-4fd3-9350-6482dd4d5639"
+  },
+  {
+    "nombre": "Lautaro",
+    "email": "Lautarocontreras@hotmail.com",
+    "telefono": "3513549629",
+    "image": "default.png",
+    "password": "$2a$10$RBFbk35gV8DYeoFZPQpYS.N8O.DnuSxT6R2lizZwpeIb82j7bEUGi",
+    "id": "5775015a-bbce-4878-95c9-c34b150f6ce9",
+    "rol": "user"
   }
 ]
