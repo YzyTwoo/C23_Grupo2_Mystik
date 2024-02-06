@@ -26,7 +26,7 @@ const usersControllers = {
         if(req.cookies.rememberMe && req.cookies.userEmail){
         const users = getJson('usuarios');
         const user = users.find(elemento => elemento.email == req.cookies.userEmail);
-        console.log('user', user);
+        console.log('user', user); c
         }
         const users = getJson('usuarios');
         const user = users.find(usuario => usuario.email == email);
