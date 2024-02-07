@@ -31,10 +31,10 @@
                 <div class="item-form">
                     <label for="password">Contraseña</label> <br>
                     <input type="password" name="password" id="password"
-                    <%= locals.old && old.contraseña %>>
+                    <%= locals.old && old.password %>>
                     <i class="fa-solid fa-eye-slash fa-xs" id="eye-slash"></i>
                 </div>
-                <p class="p-errors"><%= locals.errors && errors.contraseña ? errors.contraseña.msg : null %></p>
+                <p class="p-errors"><%= locals.errors && errors.password ? errors.password.msg : null %></p>
                 <div class="forget">
                     <a href="#">¿Olvidaste tu contraseña?</a>
                 </div>

@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 const multer = require('multer');
 const {detalleProducts, cargaProducto, dashboard, formEditarProducto, editarProducto, carritoProducts, viewProducts, vistacrear, create, destroy} = require('../controllers/productosControllers');
-const isAdminValidate = require('../middlewares/isadminValidate');
+const isAdminValidate = require('../middlewares/isAdminValidate');
 const sessionValidate = require('../middlewares/sessionValidate');
 const path = require('path');
+
 
 const storage = multer.diskStorage({ 
     destination: function (req, file, cb) { 
