@@ -36,19 +36,11 @@
   },
   {
     "nombre": "Lautaro",
-    "email": "Lautarocontreras98@hotmail.com",
-    "telefono": "3513549629",
-    "imagen": "1705619291093_img_.jpg",
-    "password": "$2a$10$wi4ck7pAiNLuIkKuFJp2Ueu9ZOFDC//1OVCXI0YrJfZSckonrBcBW",
-    "id": "055f1333-c843-4fd3-9350-6482dd4d5639"
-  },
-  {
-    "nombre": "Lautaro",
-    "email": "Lautarocontreras@hotmail.com",
-    "telefono": "3513549629",
+    "email": "Lautarocontreras98@gmail.com",
+    "telefono": "03513549629",
     "image": "default.png",
-    "password": "$2a$10$RBFbk35gV8DYeoFZPQpYS.N8O.DnuSxT6R2lizZwpeIb82j7bEUGi",
-    "id": "5775015a-bbce-4878-95c9-c34b150f6ce9",
+    "password": "$2a$10$Ev.dW.UI7iE0Hvr7daNP2OCz72vVzwtpIgDf0AiPNyK5tr9VyYu22",
+    "id": "1bfe6e35-6af1-4f86-8db8-7b1208238389",
     "rol": "user"
   }
 ]
