@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 const multer = require('multer');
 const path = require("path");
-const usersControllers = require('../controllers/usersControllers');
+const {ingreso, iniciarSession, register, createUsers, perfil, perfilEditar, logout} = require('../controllers/usersControllers');
 const registerValidator = require('../validations/registerValidator');
 const validationLogin = require('../validations/validacionLogin');
+const profileValidator = require('../validations/profileValidator');
 const sesionValidate = require('../middlewares/sesionValidate');
 
 const storage = multer.diskStorage({
@@ -19,15 +20,15 @@ const storage = multer.diskStorage({
  const upload = multer({storage})
 
 /* GET home page. */
-router.get('/login', usersControllers.ingreso);
-router.post('/login', validationLogin, usersControllers.iniciarSession);
-router.get('/registro', usersControllers.register);
-router.post('/registro',upload.single("imagen"),registerValidator, usersControllers.createUsers);
+router.get('/login', ingreso);
+router.post('/login', validationLogin, iniciarSession);
+router.get('/registro', register);
+router.post('/registro',upload.single("imagen"),registerValidator, createUsers);
 
 /* Editar Perfil Usuario. */
-router.get('/editar/:id', sesionValidate, usersControllers.perfil);
-router.put('/editar/:id', upload.single('image'), usersControllers.perfilEditar);
+router.get('/editar/:id', sesionValidate, perfil);
+router.put('/editar/:id', upload.single('image'), profileValidator, perfilEditar);
 
-router.get('/logout', usersControllers.logout)
+router.get('/logout', logout)
 
 module.exports = router;
