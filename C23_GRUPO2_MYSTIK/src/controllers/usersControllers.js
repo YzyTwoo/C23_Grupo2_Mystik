@@ -73,32 +73,42 @@ const usersControllers = {
         const {id} = req.params;
         const users = getJson('usuarios');
         const user = users.find(elemento => elemento.id == id);
-        res.render('users/actualizarPerfil', { title: 'Editar', user, usuario:req.session.user});
-    },
+        res.render('users/actualizarPerfil', { title: 'Editar Perfil', user, usuario:req.session.user});
+      },
     perfilEditar: (req,res)=>{
-        const {id} = req.params;
-        const {nombre,email, telefono, rol} = req.body;
-        const users = getJson("usuarios");
-        const usuarios = users.map(element => {
-        if (element.id == id) {
-            return {
-            id,
-            nombre,
-            email,
-            telefono,
-            image:req.file ? req.file.filename : element.image, 
-            password: element.password,
-            rol: rol ? rol : "user"
-            }
+        const errors = validationResult(req);
+        
+        if (!errors.isEmpty()) {
+            const { id } = req.params;
+            const users = getJson('usuarios');
+            const user = users.find(elemento => elemento.id == id);
+            return res.render('users/actualizarPerfil', { title: 'Editar Perfil', user, usuario:req.session.user, errors:errors.mapped(), old:req.body});
+        } else {
+            const {id} = req.params;
+            const {nombre, email, telefono, rol} = req.body;
+            const users = getJson('usuarios');
+            const usuarios = users.map(element => {
+                if (element.id == id) {
+                    return {
+                        nombre: nombre.trim(),
+                        email: email.trim(),
+                        telefono,
+                        image: req.file ? req.file.filename : element.image,
+                        password: element.password,
+                        id,
+                        rol: rol ? rol : "user"
+                    };
+                }
+                return element;
+            });
+            
+            uploadUser(usuarios, "usuarios");
+            const userUpdate = usuarios.find(elemento => elemento.id == id);
+            req.session.user = userUpdate;
+            delete userUpdate.password;
+            res.cookie('user', userUpdate);
+            res.redirect(`/`);
         }
-        return element
-        });
-        uploadUser(usuarios,"usuarios");
-        const userUpdate = usuarios.find(elemento => elemento.id == id);
-        req.session.user = userUpdate;
-        delete userUpdate.password
-        res.cookie('user',(userUpdate))
-        res.redirect(`/`);
     },
     logout:(req,res)=>{
         req.session.destroy();
