@@ -8,20 +8,7 @@
         </div>
         <div>
             <% if(locals.usuario){ %>
-<<<<<<< HEAD
                 <a class="line"><%= locals.usuario.nombre %></a>
-=======
-                <div class="transition_menu">
-                <a class="line"><%= locals.usuario.nombre %></a>
-                <div id="user-name">
-                    <ul>
-                      <li id="user-name"><%= usuario.name %></li>
-                      <li><a class="user-menu" href="/users/editar/<%=usuario.id%>">Perfil</a></li>
-                      <li><a class="user-menu" href="/users/logout">Cerrar sesion</a></li>
-                    </ul>
-                </div>
-                </div>
->>>>>>> 5047dc657434e94fa70e5386cb1764615fe66d5d
             <% }else{ %>
             <a href="users/registro" class="line">Crear Cuenta | </a>
             <a href="users/login" class="line">Iniciar Sesión</a>
