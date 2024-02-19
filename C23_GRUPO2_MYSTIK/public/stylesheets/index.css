@@ -64,7 +64,6 @@ main {
 
 @media(min-width: 768px){
     .main-home{
-        display: flex;
         flex-wrap: wrap;
         width: 100%;
     }

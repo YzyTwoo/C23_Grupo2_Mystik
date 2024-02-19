@@ -13,11 +13,3 @@
     --color-violeta-oscuro : #511478;
     --color-violeta-claro : #7E1FBA;
 }
-
-a{
-    list-style: none;
-    text-decoration: none;
-    cursor: pointer;
-    color: black;
-}
-

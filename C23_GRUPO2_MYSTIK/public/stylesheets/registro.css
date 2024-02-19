@@ -1,20 +1,6 @@
-@import url(/css/general.css);
-
-.header-top {
-    display: flex;
-    justify-content: left;
-    padding: 20px 20px 20px 20px;
-    border-bottom: 1px solid black;
-}
 
 .nav-general {
     display: none;
-}
-
-.logo-container {
-    width: 70%;
-    margin-top: 10px;
-    text-align: center;
 }
 
 .logo_general {
@@ -375,10 +361,4 @@
     .nav-general a:hover {
         color: #333;
     } 
-}
-
-@media (min-width: 1024px) {
-    .header-top {
-        display: flex;
-    }
 }
