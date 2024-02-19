@@ -1,37 +1,51 @@
 [
-    {
-        "nombre": "Ayelen Coppa",
-        "email": "ayelencoppa@gmail.com",
-        "telefono": "11 2222-3333",
-        "contraseña": "password1",
-        "id": 1
-    },
-    {
-        "nombre": "Valentina Rodriguez",
-        "email": "valentinarodriguez@gmail.com",
-        "telefono": "11 4444-5555",
-        "contraseña": "password2",
-        "id": 2
-    },
-    {
-        "nombre": "Fabian Medina",
-        "email": "fabianmedina@gmail.com",
-        "telefono": "11 6666-7777",
-        "contraseña": "password3",
-        "id": 3
-    },
-    {
-        "nombre": "Tiziano Orieta",
-        "email": "tizianoorieta@gmail.com",
-        "telefono": "11 8888-9999",
-        "contraseña": "password4",
-        "id": 4
-    },
-    {
-        "nombre": "Lautaro Contreras",
-        "email": "lautarocontreras@gmail.com",
-        "telefono": "11 1010-1111",
-        "contraseña": "password5",
-        "id": 5
-    }
+  {
+    "nombre": "Ayelen Coppa",
+    "email": "ayelencoppa@gmail.com",
+    "telefono": "11 2222-3333",
+    "password": "password1",
+    "id": 1,
+    "rol": "admin"
+  },
+  {
+    "nombre": "Valentina Rodriguez",
+    "email": "valentinarodriguez@gmail.com",
+    "telefono": "11 4444-5555",
+    "password": "password2",
+    "id": 2,
+    "rol": "user"
+  },
+  {
+    "nombre": "Fabian Medina",
+    "email": "fabianmedina@gmail.com",
+    "telefono": "11 6666-7777",
+    "password": "password3",
+    "id": 3,
+    "rol": "admin"
+  },
+  {
+    "nombre": "Tiziano Orieta",
+    "email": "tizianoorieta@gmail.com",
+    "telefono": "11 8888-9999",
+    "password": "password4",
+    "id": 4,
+    "rol": "admin"
+  },
+  {
+    "nombre": "Lautaro Contreras",
+    "email": "lautarocontreras@gmail.com",
+    "telefono": "11 1010-1111",
+    "password": "password5",
+    "id": 5,
+    "rol": "admin"
+  },
+  {
+    "nombre": "Lautaro",
+    "email": "Lautarocontreras98@gmail.com",
+    "telefono": "03513549629",
+    "image": "default.png",
+    "password": "$2a$10$Ev.dW.UI7iE0Hvr7daNP2OCz72vVzwtpIgDf0AiPNyK5tr9VyYu22",
+    "id": "1bfe6e35-6af1-4f86-8db8-7b1208238389",
+    "rol": "user"
+  }
 ]

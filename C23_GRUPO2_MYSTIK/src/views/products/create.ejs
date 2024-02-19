@@ -9,11 +9,11 @@
                 <h1 class="titulo-producto">Carga de productos</h1>
                 <section class="section-form">
 
-                    <form action="/productos/create" method="POST" class="form-product">
+                    <form action="/productos/create" method="POST" class="form-product" enctype="multipart/form-data">
                         <div class="div-form">
                             <label class="subtitulo">Cargar imagen del producto</label>
 
-                            <input type="file" name="image" id="imagen">
+                            <input type="file" name="image" id="image" accept="image/*">
 
                             <input type="text" name="name" placeholder="Nombre" required>
 

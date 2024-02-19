@@ -29,6 +29,7 @@ footer{
     list-style: none;
 }
 .nav__ayuda ul li{
+    list-style-type: none;
     margin:20px 0px ;
 }
 .a__nav__footer {
@@ -46,6 +47,7 @@ footer{
     border-bottom: 1px solid var(--color-gris-oscuro);
 }
 .acerca__mystik__footer nav ul li{
+    list-style-type: none;
     margin: 20px 0px;
 }
 .precios__justos__footer{
@@ -141,6 +143,7 @@ footer{
         display: flex;
     }
     .bottom__nav__derecho nav ul li{
+        list-style-type: none;
         margin: 0px 20px;
     }
     .bottom__nav__izquierdo{
@@ -186,6 +189,7 @@ footer{
         display: flex;
     }
     .bottom__nav__derecho nav ul li{
+        list-style-type: none;
         margin: 0px 20px;
     }
     .bottom__nav__izquierdo{

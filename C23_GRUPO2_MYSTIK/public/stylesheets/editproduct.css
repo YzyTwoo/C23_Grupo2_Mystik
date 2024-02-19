@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 70%;
 }
 .form_edit_product {
     margin: 40px 0px;
@@ -22,20 +22,24 @@
     display: flex;
     width: 100%;
 }
+.talle{
+    width: 120px;
+}
 .form_edit_product label{
 }
 
-.textarea_form_edit_product{
+/* .textarea_form_edit_product{
     resize: none;
     margin-top: 20px;
     width: 100%;
-}
+} */
 .container_img_edit_product {
-    width: 170px;
-    height: 100px;
+    width: 200px;
+    height: 250px;
+    text-align: center;
 }
 .img_edit_product{
-    width: 100%;
+    width: 70%;
 }
 .h1_form_edit_product{
     margin-bottom: 20px;
@@ -47,12 +51,12 @@
  }
 
  .talle-productos label{
-    margin-left: 25px;
+    /* margin-left: 25px; */
 }
- .talle-productos input{
+ /* .talle-productos select{
     height: 20px;
     margin-left:15px;
- }
+ } */
 
  .button-enviar-borrar{
     width: 100%;
