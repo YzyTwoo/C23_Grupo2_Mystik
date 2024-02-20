@@ -1,8 +1,0 @@
-const path = require('path');
-
-module.exports = {
-    config: path.resolve('./databaseSq/config', 'config.js'),
-    'models-path': path.resolve('./databaseSq/models'),
-    'seeders-path': path.resolve('./databaseSq/seeders'),
-    'migrations-path': path.resolve('./databaseSq/migrations')
-}
