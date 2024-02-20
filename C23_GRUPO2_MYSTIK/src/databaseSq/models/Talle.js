@@ -1,26 +1,27 @@
 module.exports = (sequelize, DataType) => {
 
-    const alias = "Roles"
+    const alias = "Talle"
 
     const colums = {
         id: {
             type: DataType.INTEGER,
             primaryKey: true,
             allowNull: false,
+            unsigned: true,
             autoIncrement: true
         },
-        rol:{
-            type: DataType.STRING(255),
+        nombre_talle:{
+            type: DataType.STRING(90),
             allowNull: true
         }
     }
 
     const config = {
-        tableName: 'Roles',
-        timestamp: true
+        tableName: 'talles',
+        timestamp: false
     }
     
-    const Roles = sequelize.define(alias, colums, config)
-    return Roles
+    const Talles = sequelize.define(alias, colums, config)
+    return Talles
     
 }

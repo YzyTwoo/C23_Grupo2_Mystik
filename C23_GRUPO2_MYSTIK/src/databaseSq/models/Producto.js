@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataType) => {
 
-    const alias = "Productos"
+    const alias = "Producto"
 
     const colums = {
         id: {
@@ -15,8 +15,9 @@ module.exports = (sequelize, DataType) => {
             allowNull: false
         },
         precio:{
-            type: DataType.DECIMAL,
-            allowNull: false
+            type: DataType.DECIMAL(6,2),
+            allowNull: false,
+            unsigned: true
         },
         descripcion:{
             type: DataType.STRING(500),
@@ -26,31 +27,31 @@ module.exports = (sequelize, DataType) => {
         stock:{
             type: DataType.STRING(45),
             allowNull: true
-        },
-        // forange key
-        colecciones_id:{
-            type: DataType.INTEGER,
-            allowNull: false
-        },
-        //forange key
-        categoria_producto_id:{
-            type: DataType.INTEGER,
-            allowNull: false
-        },
-        //forange key
-        color_id:{
-            type: DataType.INTEGER,
-            allowNull: false
-        },
-        //forange key
-        talle_id:{
-            type: DataType.INTEGER,
-            allowNull: false
         }
+        // forange key
+        // colecciones_id:{
+        //     type: DataType.INTEGER,
+        //     allowNull: false
+        // },
+        // //forange key
+        // categoria_producto_id:{
+        //     type: DataType.INTEGER,
+        //     allowNull: false
+        // },
+        // //forange key
+        // color_id:{
+        //     type: DataType.INTEGER,
+        //     allowNull: false
+        // },
+        // //forange key
+        // talle_id:{
+        //     type: DataType.INTEGER,
+        //     allowNull: false
+        // }
     }
 
     const config = {
-        tableName: 'Productos',
+        tableName: 'productos',
         timestamp: false
     }
     

@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataType) => {
 
-    const alias = "Usuarios"
+    const alias = "Usuario"
 
     const colums = {
         id: {
@@ -16,7 +16,7 @@ module.exports = (sequelize, DataType) => {
         },
         apellido:{
             type: DataType.STRING(255),
-            allowNull: false
+            allowNull: true
         },
         email:{
             type: DataType.STRING(255),
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataType) => {
             unique: true
         },
         contrasenia:{
-            type: DataType.STRING(255),
+            type: DataType.STRING(100),
             allowNull: false
         },
         imagen:{
@@ -42,12 +42,12 @@ module.exports = (sequelize, DataType) => {
         nacimiento:{
             type: DataType.DATE,
             allowNull: true
-        },
+        }
         //forange key
-        roles_id:{
-            type: DataType.INTEGER,
-            allowNull: false
-        },
+        // roles_id:{
+        //     type: DataType.INTEGER,
+        //     allowNull: false
+        // },
     }
 
     const config = {

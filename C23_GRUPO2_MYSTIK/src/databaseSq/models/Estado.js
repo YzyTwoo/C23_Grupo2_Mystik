@@ -1,26 +1,28 @@
 module.exports = (sequelize, DataType) => {
 
-    const alias = "Colecciones"
+    const alias = "Estado"
 
     const colums = {
         id: {
             type: DataType.INTEGER,
             primaryKey: true,
             allowNull: false,
+            unsigned: true,
             autoIncrement: true
         },
-        nombre_coleccion:{
+        estado:{
             type: DataType.STRING(255),
             allowNull: true
-        },
+        }
+    
     }
 
     const config = {
-        tableName: 'Colecciones',
+        tableName: 'estados',
         timestamp: true
     }
     
-    const Colecciones = sequelize.define(alias, colums, config)
-    return Colecciones
+    const Estados = sequelize.define(alias, colums, config)
+    return Estados
     
 }
