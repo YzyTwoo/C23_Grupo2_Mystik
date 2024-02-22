@@ -13,6 +13,22 @@ module.exports = {
     total:{
         type: DataType.INTEGER,
         allowNull: true
+    },
+    usuarios_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'usuarios',
+        key: 'id'
+      },
+    },
+    estados_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'estados',
+        key: 'id'
+      },
     }
     });
   },

@@ -13,7 +13,23 @@ module.exports = {
     cantidad:{
         type: DataType.INTEGER,
         allowNull: true
-    }
+    },
+    productos_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'productos',
+        key: 'id'
+      },
+    },
+    ordenes_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'ordenes',
+        key: 'id'
+      },
+    },
     });
   },
   async down(queryInterface, DataType) {

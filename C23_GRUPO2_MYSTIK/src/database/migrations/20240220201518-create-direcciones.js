@@ -21,10 +21,21 @@ module.exports = {
     provincia:{
         type: DataType.STRING(255),
         allowNull: true
+    },
+    usuarios_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'usuarios',
+        key: 'id'
+      },
     }
     });
+    
   },
   async down(queryInterface, DataType) {
     await queryInterface.dropTable('direcciones');
   }
 };
+
+

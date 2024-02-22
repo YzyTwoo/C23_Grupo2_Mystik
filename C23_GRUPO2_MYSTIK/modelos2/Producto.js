@@ -23,7 +23,6 @@ module.exports = (sequelize, DataType) => {
             type: DataType.STRING(500),
             allowNull: false,
         },
-        // ???? quizás falte completar 14/2
         stock:{
             type: DataType.STRING(45),
             allowNull: true

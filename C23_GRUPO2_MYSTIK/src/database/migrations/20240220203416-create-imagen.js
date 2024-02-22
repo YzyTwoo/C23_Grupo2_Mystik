@@ -17,7 +17,15 @@ module.exports = {
     path:{
         type: DataType.STRING(255),
         allowNull: true
-    }
+    },
+    productos_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'productos',
+        key: 'id'
+      },
+    },
     });
   },
   async down(queryInterface, DataType) {

@@ -42,6 +42,14 @@ module.exports = {
     nacimiento:{
         type: DataType.DATE,
         allowNull: true
+    },
+    roles_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'roles', 
+          key: 'id'       
+        }
     }
     });
   },
@@ -49,3 +57,4 @@ module.exports = {
     await queryInterface.dropTable('usuarios');
   }
 };
+

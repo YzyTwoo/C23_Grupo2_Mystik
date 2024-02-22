@@ -26,6 +26,38 @@ module.exports = {
     stock:{
         type: DataType.STRING(45),
         allowNull: true
+    },
+    talles_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'talles',
+        key: 'id'
+      },
+    },
+    colecciones_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'colecciones',
+        key: 'id'
+      },
+    },
+    categorias_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'categorias',
+        key: 'id'
+      }
+    },
+    colores_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'colores',
+        key: 'id'
+      },
     }
     });
   },
