@@ -28,6 +28,13 @@ module.exports = (sequelize, DataType) => {
         //     allowNull: false,
         //     unsigned: true
         
+        // references: {
+        //     model: {
+        //       tableName: 'users',
+        //       schema: 'schema'
+        //     },
+        //     key: 'id'
+        //   },
     }
 
     const config = {
