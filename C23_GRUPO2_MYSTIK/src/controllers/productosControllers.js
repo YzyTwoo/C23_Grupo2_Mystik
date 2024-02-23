@@ -2,7 +2,7 @@ const path = require("path");
 const {leerArchivo, setJson, cargarArchivo }= require('../database/dbLogica')
 const fs = require('fs');
 
-/* const db = require("../database/models") */
+ const db = require("../database/models") 
 
 
 
@@ -63,6 +63,7 @@ const productosControllers = {
     },
 
     dashboard:(req, res) => {
+        
         let productos = leerArchivo('productos');
         const propiedades = []
         for (prop in productos[0]) {
@@ -76,7 +77,8 @@ const productosControllers = {
 	},
 
     create: (req,res)=>{
-  /*   db.Producto.create({
+        res.send(req.body)
+    db.Producto.create({
             image: req.body.image,
 			name: req.body.name,
 			price: req.body.price,
@@ -86,8 +88,8 @@ const productosControllers = {
             color:req.body.color,
             stock:req.body.stock,
     })
-        res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});  */
-        let productos = leerArchivo('productos');
+        res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});  
+       /*  let productos = leerArchivo('productos');
         const {image, name, price, description, talle, category, color, stock} = req.body;
         const id =  productos[productos.length-1].id + 1;
         const file = req.file;
@@ -106,7 +108,7 @@ const productosControllers = {
         productos.push(productoNuevo);
         const Json = JSON.stringify(productos);
         fs.writeFileSync(path.join(__dirname,"../database/productos.json"), Json, 'utf-8' );
-        res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});  
+        res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});   */
 },
     destroy : (req, res) => {
     const {id} = req.params;
