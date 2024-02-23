@@ -2,6 +2,8 @@ const path = require("path");
 const {leerArchivo, setJson, cargarArchivo }= require('../database/dbLogica')
 const fs = require('fs');
 
+/* const db = require("../database/models") */
+
 
 
 const productosControllers = {
@@ -66,7 +68,7 @@ const productosControllers = {
         for (prop in productos[0]) {
             propiedades.push(prop)
         }
-        res.render('products/dashboard', { title: "Dashboard", productos, propiedades, usuario:req.session.usuario });
+        res.render('products/dashboard', { title: "Dashboard", productos, propiedades, usuario:req.session.user });
     },
 
     vistacrear: (req,res)=>{
@@ -74,6 +76,17 @@ const productosControllers = {
 	},
 
     create: (req,res)=>{
+  /*   db.Producto.create({
+            image: req.body.image,
+			name: req.body.name,
+			price: req.body.price,
+			description: req.body.description,
+            talle: req.body.talle,
+            category: req.body.category,
+            color:req.body.color,
+            stock:req.body.stock,
+    })
+        res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});  */
         let productos = leerArchivo('productos');
         const {image, name, price, description, talle, category, color, stock} = req.body;
         const id =  productos[productos.length-1].id + 1;

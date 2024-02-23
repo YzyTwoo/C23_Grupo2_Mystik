@@ -46,6 +46,6 @@
     "image": "default.png",
     "password": "$2a$10$Ev.dW.UI7iE0Hvr7daNP2OCz72vVzwtpIgDf0AiPNyK5tr9VyYu22",
     "id": "1bfe6e35-6af1-4f86-8db8-7b1208238389",
-    "rol": "user"
+    "rol": "admin"
   }
 ]
