@@ -89,6 +89,8 @@ const productosControllers = {
             stock:req.body.stock,
     })
         res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});  
+
+        
        /*  let productos = leerArchivo('productos');
         const {image, name, price, description, talle, category, color, stock} = req.body;
         const id =  productos[productos.length-1].id + 1;
