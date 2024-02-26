@@ -150,4 +150,4 @@ pd : estoy re contento
 
  
 # Retrospectiva sprint 6 - C23 GRUPO 2, MYSTIK:
-![Retrospectiva sprint 6](<../../../../../../../../Downloads/Retrospectiva Estrella.png>)
+![Retrospectiva sprint 6](<Retrospectiva Estrella.png>)
