@@ -2,7 +2,7 @@ const path = require("path");
 const {leerArchivo, setJson, cargarArchivo }= require('../database/dbLogica')
 const fs = require('fs');
 
- const db = require("../database/models") 
+ const db = require("../../modelos2")
 
 
 
@@ -78,7 +78,9 @@ const productosControllers = {
 
     create: (req,res)=>{
         res.send(req.body)
-    db.Producto.create({
+        
+        
+        db.Producto.create({
             image: req.body.image,
 			name: req.body.name,
 			price: req.body.price,
