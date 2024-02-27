@@ -50,7 +50,8 @@ module.exports = {
           model: 'roles', 
           key: 'id'       
         }
-    }
+    },
+  
     });
   },
   async down(queryInterface, DataType) {

@@ -77,9 +77,9 @@ const productosControllers = {
 	},
 
     create: (req,res)=>{
-        res.send(req.body)
-        
-        
+
+    console.log(req.body);
+
         db.Producto.create({
             image: req.body.image,
 			name: req.body.name,
@@ -90,7 +90,7 @@ const productosControllers = {
             color:req.body.color,
             stock:req.body.stock,
     }).then(()=>{res.redirect(`/productos/dashboard`)})
-          
+    
 
         
        /*  let productos = leerArchivo('productos');
@@ -125,16 +125,7 @@ const productosControllers = {
     res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});
 },
 
-/* destroy : (req, res) => {
-    const {id} = req.params;
-    const archivoJson = leerArchivo('productsDataBase')
 
-    const productosNoEliminados = archivoJson.filter(product => product.id !== +id)
-
-    cargarArchivo(productosNoEliminados, 'productsDataBase')
-
-    res.redirect('/')
-} */
 }
 
 module.exports = productosControllers;
