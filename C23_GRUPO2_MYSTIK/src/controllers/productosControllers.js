@@ -1,7 +1,7 @@
 const path = require("path");
 const {leerArchivo, setJson, cargarArchivo }= require('../database/dbLogica')
 const fs = require('fs');
-
+const db = require('../database/models')
 
 
 const productosControllers = {
@@ -96,26 +96,17 @@ const productosControllers = {
         res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});  
 },
     destroy : (req, res) => {
-    const {id} = req.params;
-    let productos = leerArchivo('productos');
-    /* const cargarArchivo = cargarArchivo() */
-    
-    const nuevaLista = productos.filter(producto => producto.id !== +id);
-    cargarArchivo(nuevaLista, 'productos')
-   
-    res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});
+        id = req.params.id
+        db.Producto.destroy({
+        where: {id : id}
+    }).then(result => {
+        if(result){
+            res.redirect(`/productos/dashboard`,{usuario:req.session.usuario})
+        }else{
+            res.send("se a producido un error"
+            )}
+    }).catch(err => console.log(err))
 },
-
-/* destroy : (req, res) => {
-    const {id} = req.params;
-    const archivoJson = leerArchivo('productsDataBase')
-
-    const productosNoEliminados = archivoJson.filter(product => product.id !== +id)
-
-    cargarArchivo(productosNoEliminados, 'productsDataBase')
-
-    res.redirect('/')
-} */
 }
 
 module.exports = productosControllers;
