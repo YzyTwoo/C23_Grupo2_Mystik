@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, DataType) {
-    await queryInterface.createTable('talles', {
+    await queryInterface.createTable('Colecciones', {
       id: {
         type: DataType.INTEGER,
         primaryKey: true,
@@ -10,13 +10,13 @@ module.exports = {
         unsigned: true,
         autoIncrement: true
     },
-    nombre_talle:{
-        type: DataType.STRING(90),
+    nombre_coleccion:{
+        type: DataType.STRING(255),
         allowNull: true
     }
     });
   },
   async down(queryInterface, DataType) {
-    await queryInterface.dropTable('talles');
+    await queryInterface.dropTable('Colecciones');
   }
 };

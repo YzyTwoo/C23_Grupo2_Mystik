@@ -3,6 +3,7 @@ const {leerArchivo, setJson, cargarArchivo, getJson, uploadUser}= require('../da
 const {v4: uuidv4} = require('uuid');
 const bcrypt = require('bcryptjs');
 const {validationResult}= require('express-validator')
+const db = require('../database/models')
 
 
 const usersControllers = {
@@ -41,12 +42,11 @@ const usersControllers = {
             res.cookie("rememberMe","true",{maxAge: 1000*60*15});
         }
         res.redirect("/");
-      
     }
 },
     createUsers: (req,res)=>{
         const errors = validationResult(req)
-       
+    
         if (errors.isEmpty()) {
             const users = leerArchivo("usuarios");
             const {nombre,email,telefono,password, rol} = req.body;
@@ -67,14 +67,13 @@ const usersControllers = {
         }else{
             return res.render('users/registro',{old:req.body, errors:errors.mapped()})
         }
-        
     },
     perfil:(req,res)=>{
         const {id} = req.params;
         const users = getJson('usuarios');
         const user = users.find(elemento => elemento.id == id);
         res.render('users/actualizarPerfil', { title: 'Editar Perfil', user, usuario:req.session.user});
-      },
+    },
     perfilEditar: (req,res)=>{
         const errors = validationResult(req);
         
@@ -121,6 +120,16 @@ const usersControllers = {
     },
     dashboard:(req,res)=>{
         res.send(req.session.user)
+},
+allUsers: (req, res) => {
+    db.Usuario.findAll()
+        .then(users => {
+            res.send(users);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).send('Error al buscar usuarios');
+        });
 }
 }
 

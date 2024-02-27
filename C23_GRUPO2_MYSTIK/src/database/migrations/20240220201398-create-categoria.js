@@ -2,21 +2,22 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, DataType) {
-    await queryInterface.createTable('colecciones', {
+    await queryInterface.createTable('Categorias', {
       id: {
         type: DataType.INTEGER,
         primaryKey: true,
         allowNull: false,
         unsigned: true,
         autoIncrement: true
+        
     },
-    nombre_coleccion:{
+    nombre_categoria:{
         type: DataType.STRING(255),
-        allowNull: true
+        allowNull: false
     }
     });
   },
   async down(queryInterface, DataType) {
-    await queryInterface.dropTable('colecciones');
+    await queryInterface.dropTable('Categorias');
   }
 };
