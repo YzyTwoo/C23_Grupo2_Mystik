@@ -2,7 +2,7 @@ const path = require("path");
 const {leerArchivo, setJson, cargarArchivo }= require('../database/dbLogica')
 const fs = require('fs');
 
- const db = require("../../modelos2")
+ const db = require("../database/models")
 
 
 
@@ -89,8 +89,8 @@ const productosControllers = {
             category: req.body.category,
             color:req.body.color,
             stock:req.body.stock,
-    })
-        res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});  
+    }).then(()=>{res.redirect(`/productos/dashboard`)})
+          
 
         
        /*  let productos = leerArchivo('productos');
