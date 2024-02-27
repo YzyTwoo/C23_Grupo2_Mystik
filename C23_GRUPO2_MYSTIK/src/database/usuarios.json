@@ -47,5 +47,23 @@
     "password": "$2a$10$Ev.dW.UI7iE0Hvr7daNP2OCz72vVzwtpIgDf0AiPNyK5tr9VyYu22",
     "id": "1bfe6e35-6af1-4f86-8db8-7b1208238389",
     "rol": "user"
+  },
+  {
+    "nombre": "Tiziano",
+    "email": "tizianoorieta@gmail.com",
+    "telefono": "12121212",
+    "image": "default.png",
+    "password": "12345678",
+    "id": "7",
+    "rol": "admin"
+  },
+  {
+    "nombre": "martin",
+    "email": "martin@gmail.com",
+    "telefono": "",
+    "image": "default.png",
+    "password": "$2a$10$giJBDfcm4yFuo5R6y.FOUuj69FVj1tDgNfD5aJKrqnW3TNsAXr5gG",
+    "id": "40dbb86c-c157-4e33-8770-ef40b461fa46",
+    "rol": "admin"
   }
 ]

@@ -8,14 +8,14 @@ const path = require('path');
 
 
 const storage = multer.diskStorage({ 
-    destination: function (req, file, cb) { 
-       cb(null, (path.join(__dirname,"../","../","/public/images/products"))); 
-    }, 
-    filename: function (req, file, cb) { 
-       cb(null, `${Date.now()}_img_product_${path.extname(file.originalname)}`);  } 
-  })
+   destination: function (req, file, cb) { 
+      cb(null, (path.join(__dirname,"../","../","/public/images/products"))); 
+   }, 
+   filename: function (req, file, cb) { 
+      cb(null, `${Date.now()}_img_product_${path.extname(file.originalname)}`);  } 
+})
 
-  const uploadFile = multer({ storage:storage }); 
+const uploadFile = multer({ storage:storage }); 
 
 /* GET home page. */
 router.get('/detalle/:id', detalleProducts);
