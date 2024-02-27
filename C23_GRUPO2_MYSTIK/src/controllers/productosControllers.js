@@ -79,7 +79,7 @@ const productosControllers = {
     create: (req,res)=>{
 
     console.log(req.body);
-
+        
         db.Producto.create({
             image: req.body.image,
 			name: req.body.name,

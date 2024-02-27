@@ -58,10 +58,10 @@ module.exports = {
         model: 'colores',
         key: 'id'
       },
-    },
-  
+    }
     });
   },
+  
   async down(queryInterface, DataType) {
     await queryInterface.dropTable('productos');
   }
