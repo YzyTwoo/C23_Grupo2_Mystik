@@ -1,20 +1,22 @@
 const path = require("path");
 const {leerArchivo, setJson, cargarArchivo }= require('../database/dbLogica')
 const fs = require('fs');
+const db = require('../database/models')
 
 
 
 const productosControllers = {
     viewProducts: (req, res) => {
-        let productos = leerArchivo('productos');
-        res.render('products/productosView', {title:'productos', productos})
+        db.Producto.findAll()
+        .then(function(productos){
+            res.render('products/productosView', {title:'productos', productos})
+            })
     },
     detalleProducts: (req, res) => {
-        let productos = setJson();
-        let { id } = req.params;
-        let product = productos.find(productos => productos.id == id);
-        productos.splice(product.id - 1, 1)
-        res.render('products/detalleProducts', { title: 'Detalles', productos, product, usuario:req.session.user }); 
+        db.Producto.findByPk(req.params.id)
+        .then(function(productos){
+        res.render('products/detalleProducts', { title: 'Detalles', productos, usuario:req.session.user })
+    }); 
     },
     
 
@@ -61,12 +63,10 @@ const productosControllers = {
     },
 
     dashboard:(req, res) => {
-        let productos = leerArchivo('productos');
-        const propiedades = []
-        for (prop in productos[0]) {
-            propiedades.push(prop)
-        }
-        res.render('products/dashboard', { title: "Dashboard", productos, propiedades, usuario:req.session.usuario });
+        db.Producto.findAll()
+        .then(function(productos){
+        res.render('products/dashboard', { title: "Dashboard", productos,  usuario:req.session.usuario })
+    });
     },
 
     vistacrear: (req,res)=>{
