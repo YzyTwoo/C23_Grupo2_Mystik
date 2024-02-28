@@ -21,7 +21,7 @@ const uploadFile = multer({ storage:storage });
 router.get('/detalle/:id', detalleProducts);
 router.get('/', viewProducts)
 router.get('/carrito', sessionValidate,carritoProducts);
-router.get('/dashboard', isAdminValidate ,dashboard);
+router.get('/dashboard', /*isAdminValidate,*/ dashboard);
 
 router.get('/formEditarProducto/:id', isAdminValidate, formEditarProducto);
 router.put('/editarProducto/:id', isAdminValidate, uploadFile.single('image'), editarProducto);

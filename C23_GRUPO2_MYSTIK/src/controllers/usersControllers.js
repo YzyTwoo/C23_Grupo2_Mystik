@@ -14,13 +14,24 @@ const usersControllers = {
         res.render("users/registro", {title: "Crear Cuenta"});
     },
     registrarUsuario: (req,res) => {
-        const users = leerArchivo('usuarios');
-        const user = req.body;
-        const id = Date.now();
-        user.id = id;
-        users.push(user);
-        cargarArchivo(users, "usuarios");
+        db.Usuario.Create({
+            nombre:req.body.nombre,
+            apellido:req.body.apellido,
+            email:req.body.email,
+            contrasenia:req.body.password,
+            imagen:req.body.imagen,
+            telefono:req.body.telefono,
+            genero: req.body.genero,
+            nacimiento:req.body.nacimiento
+        })
         res.redirect('/users/login')
+        // const users = leerArchivo('usuarios');
+        // const user = req.body;
+        // const id = Date.now();
+        // user.id = id;
+        // users.push(user);
+        // cargarArchivo(users, "usuarios");
+        // res.redirect('/users/login')
     },
     iniciarSession:(req, res)=>{
         const errors = validationResult(req);
