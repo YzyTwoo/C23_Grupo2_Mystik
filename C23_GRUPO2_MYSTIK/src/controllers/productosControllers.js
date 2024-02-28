@@ -77,22 +77,32 @@ const productosControllers = {
     create: (req,res)=>{
 
     console.log(req.body);
-       /*  db.Categoria.create({
-            nombre_categoria
-        })
-        .then(categoria=>{
-            db.
-        }) */
-
-
-        db.Producto.create({
+        
+        
+            db.Producto.create({
             
+                nombre: req.body.nombre,
+                precio: req.body.precio,
+                descripcion: req.body.descripcion,
+                talles_id:req.body.talles_id,
+                stock:req.body.stock,
+                categorias_id:req.body.categorias_id,
+                colores_id:req.body.colores_id, 
+        }).then(()=>{res.redirect(`/productos/dashboard`)})
+        
+
+
+      /*  db.Producto.create({
+             
 			nombre: req.body.nombre,
 			precio: req.body.precio,
 		    descripcion: req.body.descripcion,
+            talles_id:req.body.talles_id,
+            /* colecciones_id:req.body.colecciones_id,
             stock:req.body.stock,
-    }).then(()=>{res.redirect(`/productos/dashboard`)})
-    
+            stock:req.body.stock,
+            stock:req.body.stock, */
+   
 
         
        /*  let productos = leerArchivo('productos');

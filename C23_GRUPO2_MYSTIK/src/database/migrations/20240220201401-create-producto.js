@@ -28,7 +28,7 @@ module.exports = {
         allowNull: true
     },
     talles_id: {
-      type: Sequelize.INTEGER,
+      type: DataType.STRING(45),
       allowNull: false,
       references: {
         model: 'talles',
@@ -36,7 +36,7 @@ module.exports = {
       },
     },
     colecciones_id: {
-      type: Sequelize.INTEGER,
+      type: DataType.INTEGER,
       allowNull: false,
       references: {
         model: 'colecciones',
@@ -44,7 +44,7 @@ module.exports = {
       },
     },
     categorias_id: {
-      type: Sequelize.INTEGER,
+      type: DataType.STRING(45),
       allowNull: false,
       references: {
         model: 'categorias',
@@ -52,7 +52,7 @@ module.exports = {
       }
     },
     colores_id: {
-      type: Sequelize.INTEGER,
+      type: DataType.STRING(45),
       allowNull: false,
       references: {
         model: 'colores',

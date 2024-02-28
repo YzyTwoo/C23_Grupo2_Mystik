@@ -2,12 +2,12 @@ require('dotenv').config();
 
 module.exports = {
   "development": {
-    "username": "root",
-    "password": "vsc-spiderman-5112@!LCDTM4949",
-    "database": "mystik_db",
-    "host": "localhost",
-    "port": 3306,
-    "dialect": "mysql"
+    "username": process.env.DB_USERNAME,
+    "password": process.env.DB_PASSWORD,
+    "database": process.env.DB_DATABASE,
+    "host": process.env.DB_HOST,
+    "dialect": process.env.DB_DIALECT,
+    "port":process.env.DB_PORT
   },
   "test": {
     "username": "root",
