@@ -37,7 +37,7 @@ module.exports = {
     },
     colecciones_id: {
       type: DataType.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'colecciones',
         key: 'id'

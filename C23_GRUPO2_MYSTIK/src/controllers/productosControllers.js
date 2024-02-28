@@ -80,7 +80,6 @@ const productosControllers = {
         
         
             db.Producto.create({
-            
                 nombre: req.body.nombre,
                 precio: req.body.precio,
                 descripcion: req.body.descripcion,
