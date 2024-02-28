@@ -79,15 +79,19 @@ const productosControllers = {
     create: (req,res)=>{
 
     console.log(req.body);
-        
+       /*  db.Categoria.create({
+            nombre_categoria
+        })
+        .then(categoria=>{
+            db.
+        }) */
+
+
         db.Producto.create({
-            image: req.body.image,
-			name: req.body.name,
-			price: req.body.price,
-			description: req.body.description,
-            talle: req.body.talle,
-            category: req.body.category,
-            color:req.body.color,
+            
+			nombre: req.body.nombre,
+			precio: req.body.precio,
+		    descripcion: req.body.descripcion,
             stock:req.body.stock,
     }).then(()=>{res.redirect(`/productos/dashboard`)})
     
