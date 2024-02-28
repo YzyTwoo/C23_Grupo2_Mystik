@@ -58,8 +58,16 @@ module.exports = {
         model: 'colores',
         key: 'id'
       },
-    }
-    });
+    },
+    imagenes_id: {
+      type: DataType.STRING(200),
+      allowNull: false,
+      references: {
+        model: 'imagenes',
+        key: 'id'
+      },
+    
+    }});
   },
   
   async down(queryInterface, DataType) {
