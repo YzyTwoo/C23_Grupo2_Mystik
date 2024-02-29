@@ -3,6 +3,36 @@
     font-size: 18px;
 }
 
+.transition_menu {
+    position: relative;
+    display: inline-block;
+}
+
+#user-name {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 1px 1px black;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0s ease-in-out;
+}
+
+.transition_menu:hover #user-name {
+    max-height: 200px;
+}
+
+#user-name ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#user-name li {
+    padding: 10px;
+}
+
 .container-circle-up{
     position: fixed;
     bottom: 0;
@@ -319,7 +349,6 @@ ul{
     .nav-general{
         font-size: 15px ;
     }
-<<<<<<< HEAD
 
     .logo-container {
         display: flex;
@@ -343,8 +372,3 @@ ul{
         text-align: center;
     }
 }
-=======
-  
-    
-}
->>>>>>> 5047dc657434e94fa70e5386cb1764615fe66d5d

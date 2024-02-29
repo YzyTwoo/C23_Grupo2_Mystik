@@ -29,6 +29,14 @@ module.exports = {
         model: 'usuarios',
         key: 'id'
       },
+    },
+    createdAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
+    },
+    updatedAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
     }
     });
     

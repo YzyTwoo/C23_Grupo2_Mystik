@@ -46,7 +46,7 @@ const usersControllers = {
 },
     createUsers: (req,res)=>{
         const errors = validationResult(req)
-    
+
         if (errors.isEmpty()) {
             const users = leerArchivo("usuarios");
             const {nombre,email,telefono,password, rol} = req.body;
@@ -78,12 +78,12 @@ const usersControllers = {
         const errors = validationResult(req);
         
         if (!errors.isEmpty()) {
-            const { id } = req.params;
-            const users = getJson('usuarios');
-            const user = users.find(elemento => elemento.id == id);
+            db.Usuario.findByPk(req.params.id)
+            .then()
             return res.render('users/actualizarPerfil', { title: 'Editar Perfil', user, usuario:req.session.user, errors:errors.mapped(), old:req.body});
         } else {
-            const {id} = req.params;
+            // const {id} = req.params;
+
             const {nombre, email, telefono, rol} = req.body;
             const users = getJson('usuarios');
             const usuarios = users.map(element => {
