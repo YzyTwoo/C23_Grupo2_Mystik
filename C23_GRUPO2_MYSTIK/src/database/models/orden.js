@@ -21,7 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Orden',
     tableName: 'ordenes',
-    timestamps: true
+    timestamps: true,
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   });
   return Orden;
 };

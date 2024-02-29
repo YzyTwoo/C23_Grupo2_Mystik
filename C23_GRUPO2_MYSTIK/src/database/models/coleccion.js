@@ -19,7 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Coleccion',
     tableName: 'colecciones',
-    timestamps: true
+    timestamps: true,
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   });
   return Coleccion;
 };

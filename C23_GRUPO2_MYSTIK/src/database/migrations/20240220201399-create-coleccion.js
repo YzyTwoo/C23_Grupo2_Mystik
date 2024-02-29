@@ -6,7 +6,7 @@ module.exports = {
       id: {
         type: DataType.INTEGER,
         primaryKey: true,
-        allowNull: false,
+        allowNull: true,
         unsigned: true,
         autoIncrement: true
     },

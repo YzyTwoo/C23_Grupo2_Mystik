@@ -21,7 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Direccion',
     tableName: 'direcciones',
-    timestamps: true
+    timestamps: true,
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   });
   return Direccion;
 };
