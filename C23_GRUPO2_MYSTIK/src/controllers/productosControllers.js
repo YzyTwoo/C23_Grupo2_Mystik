@@ -20,18 +20,18 @@ const productosControllers = {
 
     carritoProducts: (req, res) => {
         let productos = leerArchivo('productos');
-        res.render('products/carritoProducts', {title:'Carrito', productos, usuario:req.session.usuario });
+        res.render('products/carritoProducts', {title:'Carrito', productos, usuario:req.session.user });
     },
 
     cargaProducto:  (req, res) => {
         let productos = leerArchivo('productos');
-        res.render('products/cargaProducto', {productos, usuario:req.session.usuario});
+        res.render('products/cargaProducto', {productos, usuario:req.session.user});
     },
     formEditarProducto:  (req, res) => {
         let productos = leerArchivo('productos');
         const {id} = req.params;
         const product = productos.find(producto => producto.id == id);
-        res.render('products/editProduct', {title: product.name, product, usuario:req.session.usuario});
+        res.render('products/editProduct', {title: product.name, product, usuario:req.session.user});
         // res.send(product)
     },
     editarProducto:  (req, res) => {
@@ -57,7 +57,7 @@ const productosControllers = {
         })
         const json =JSON.stringify(nuevoArray);
         fs.writeFileSync(path.join(__dirname,"../database/productos.json"), json, "utf-8")
-        res.redirect('/productos/dashboard', {usuario:req.session.usuario})
+        res.redirect('/productos/dashboard', {usuario:req.session.user})
     },
 
     dashboard:(req, res) => {
@@ -71,7 +71,7 @@ const productosControllers = {
     },
 
     vistacrear: (req,res)=>{
-		res.render('products/create', { title: "create", usuario:req.session.usuario});
+		res.render('products/create', { title: "create", usuario:req.session.user});
 	},
 
     create: (req,res)=>{
@@ -87,7 +87,7 @@ const productosControllers = {
                 stock:req.body.stock,
                 categorias_id:req.body.categorias_id,
                 colores_id:req.body.colores_id, 
-        }).then(()=>{res.redirect(`/productos/dashboard`)})
+        }).then(()=>{res.redirect(`/productos/dashboard`,{usuario:req.session.user})})
         
 
 
@@ -131,7 +131,7 @@ const productosControllers = {
         where: {id : id}
     }).then(result => {
         if(result){
-            res.redirect(`/productos/dashboard`,{usuario:req.session.usuario})
+            res.redirect(`/productos/dashboard`,{usuario:req.session.user})
         }else{
             res.send("se a producido un error"
             )}
