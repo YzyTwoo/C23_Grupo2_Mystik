@@ -15,7 +15,7 @@ module.exports = {
         allowNull: true
     },
     usuarios_id: {
-      type: Sequelize.INTEGER,
+      type: DataType.INTEGER,
       allowNull: false,
       references: {
         model: 'usuarios',
@@ -23,7 +23,7 @@ module.exports = {
       },
     },
     estados_id: {
-      type: Sequelize.INTEGER,
+      type: DataType.INTEGER,
       allowNull: false,
       references: {
         model: 'estados',

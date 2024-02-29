@@ -57,16 +57,17 @@ const productosControllers = {
         })
         const json =JSON.stringify(nuevoArray);
         fs.writeFileSync(path.join(__dirname,"../database/productos.json"), json, "utf-8")
-        res.redirect('/productos/dashboard', {usuario:req.session.usuario})
+        res.redirect('/productos/dashboard', {usuario:req.session.user})
     },
 
     dashboard:(req, res) => {
-        let productos = leerArchivo('productos');
-        const propiedades = []
-        for (prop in productos[0]) {
-            propiedades.push(prop)
-        }
-        res.render('products/dashboard', { title: "Dashboard", productos, propiedades, usuario:req.session.usuario });
+        db.Producto.findAll()
+            .then(productos => {
+                const propiedades = ['id', 'nombre', 'precio', 'descripcion', 'stock', 'categorias_id', 'colecciones_id', 'colores_id', 'talles_id'];
+                res.render('products/dashboard', { title: "Dashboard", productos, propiedades, usuario:req.session.user });
+            }).catch(err => { 
+                console.log(err)
+            });
     },
 
     vistacrear: (req,res)=>{
@@ -93,7 +94,7 @@ const productosControllers = {
         productos.push(productoNuevo);
         const Json = JSON.stringify(productos);
         fs.writeFileSync(path.join(__dirname,"../database/productos.json"), Json, 'utf-8' );
-        res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});  
+        res.redirect(`/products/dashboard`,{usuario:req.session.user});  
 },
     destroy : (req, res) => {
         id = req.params.id
@@ -101,10 +102,9 @@ const productosControllers = {
         where: {id : id}
     }).then(result => {
         if(result){
-            res.redirect(`/productos/dashboard`,{usuario:req.session.usuario})
-        }else{
-            res.send("se a producido un error"
-            )}
+            req.session.usuario = req.session.user;
+            res.redirect('/productos/dashboard');
+        }
     }).catch(err => console.log(err))
 },
 }
