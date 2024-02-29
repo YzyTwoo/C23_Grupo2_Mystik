@@ -13,26 +13,6 @@ const usersControllers = {
     register: (req,res) => {
         res.render("users/registro", {title: "Crear Cuenta"});
     },
-    registrarUsuario: (req,res) => {
-        db.Usuario.Create({
-            nombre:req.body.nombre,
-            apellido:req.body.apellido,
-            email:req.body.email,
-            contrasenia:req.body.password,
-            imagen:req.body.imagen,
-            telefono:req.body.telefono,
-            genero: req.body.genero,
-            nacimiento:req.body.nacimiento
-        })
-        res.redirect('/users/login')
-        // const users = leerArchivo('usuarios');
-        // const user = req.body;
-        // const id = Date.now();
-        // user.id = id;
-        // users.push(user);
-        // cargarArchivo(users, "usuarios");
-        // res.redirect('/users/login')
-    },
     iniciarSession:(req, res)=>{
         const errors = validationResult(req);
         if(!errors.isEmpty()){
@@ -40,41 +20,45 @@ const usersControllers = {
         res.render('users/login', {errors: errors.mapped(), old: req.body}) 
         }
         else{
-
         const {email} = req.body
-        const users = getJson('usuarios');
-        const user = users.find(elemento => elemento.email == email);
+        db.Usuario.findOne({
+            where:{
+                email: email 
+            }
+        })
+        .then(user => {
+            req.session.user = user;
+            res.cookie("user",user,{maxAge:1000 * 60 *15})
+            if(req.body.remember == "true"){
+                res.cookie("rememberMe","true",{maxAge: 1000*60*15});
+            }
+            res.redirect("/");
+        })
+        .catch(err => {console.log(err)})
         
-        req.session.user = user;
 
-        res.cookie("user",user,{maxAge:1000 * 60 *15})
-
-        if(req.body.remember == "true"){
-            res.cookie("rememberMe","true",{maxAge: 1000*60*15});
-        }
-        res.redirect("/");
-    }
+    }console.log(req.session.usuario)
 },
     createUsers: (req,res)=>{
         const errors = validationResult(req)
     
         if (errors.isEmpty()) {
-            const users = leerArchivo("usuarios");
-            const {nombre,email,telefono,password, rol} = req.body;
-            const id = uuidv4();
+            const { nombre ,apellido,email,telefono,contrasenia, roles_id, imagen} = req.body;
             const file = req.file;
             const user ={
                 nombre: nombre.trim(),
+                apellido: apellido.trim(),
                 email: email.trim(),
                 telefono,
-                image: file ? file.filename : "default.png",
-                password: bcrypt.hashSync(password,10),
-                id,
-                rol: rol ? rol : "user"
+                imagen: imagen ? imagen.filename : "default.png",
+                contrasenia: bcrypt.hashSync(contrasenia,10),
+                roles_id: roles_id ? roles_id : 2
             }
-            users.push(user);
-            uploadUser(users,"usuarios");
-            return res.redirect("/users/login")
+            db.Usuario.create(user)
+            .then( user => {
+                res.redirect('/users/login')
+            })
+            .catch(err => console.log(err))
         }else{
             return res.render('users/registro',{old:req.body, errors:errors.mapped()})
         }

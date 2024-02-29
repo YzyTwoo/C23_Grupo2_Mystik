@@ -65,5 +65,32 @@
     "password": "$2a$10$giJBDfcm4yFuo5R6y.FOUuj69FVj1tDgNfD5aJKrqnW3TNsAXr5gG",
     "id": "40dbb86c-c157-4e33-8770-ef40b461fa46",
     "rol": "admin"
+  },
+  {
+    "nombre": "prueba",
+    "email": "prueba@gmail.com",
+    "telefono": "11763767266",
+    "image": "default.png",
+    "password": "$2a$10$OApBUv.A9dhUs7a93H73RuczBQoz3Y08t.L6gu0mWzZCJC.P2v4n.",
+    "id": "4049ff9e-8f40-4dc3-adc6-82c9460dcdce",
+    "rol": "user"
+  },
+  {
+    "nombre": "fabian",
+    "email": "prueba2@gmail.com",
+    "telefono": "2234342423",
+    "image": "default.png",
+    "password": "$2a$10$kojFhXsrcLn0wMau0u2JqumZiWjy8NNoxL8mf.gc0xue67tyIbP1i",
+    "id": "398eba9b-bc13-4d74-82f4-6388120440f6",
+    "rol": "user"
+  },
+  {
+    "nombre": "prueba",
+    "email": "prueba3@gmail.com",
+    "telefono": "11221221121",
+    "image": "default.png",
+    "password": "$2a$10$dW4ujR8x5fz/29srH3N/8u/fqq68vZMbro6GVdFRqg9iUxReYr.OW",
+    "id": "39ab7fce-5c95-4fec-bc63-ca1e47ff1247",
+    "rol": "user"
   }
 ]

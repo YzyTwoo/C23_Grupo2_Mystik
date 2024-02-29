@@ -1,7 +1,8 @@
 const isAdminValidate = (req, res, next) => {
-    if( req.session.usuario && req.session.usuario.rol == "admin"){
-        next()
+    if (req.session.user.roles_id === 1) {
+        next();
+    } else {
+        res.status(403).send('Acceso denegado. Debes ser administrador para acceder a esta ruta');
     }
-    res.redirect('/')
-}
+};
 module.exports = isAdminValidate;

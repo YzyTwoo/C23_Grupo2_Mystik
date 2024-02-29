@@ -29,12 +29,12 @@
                 </div>
                 <p class="p-errors"><%= locals.errors && errors.email ? errors.email.msg : null %></p>
                 <div class="item-form">
-                    <label for="password">Contraseña</label> <br>
-                    <input type="password" name="password" id="password"
-                    <%= locals.old && old.password %>>
+                    <label for="contrasenia">Contraseña</label> <br>
+                    <input type="password" name="contrasenia" id="contrasenia"
+                    <%= locals.old && old.contrasenia %>>
                     <i class="fa-solid fa-eye-slash fa-xs" id="eye-slash"></i>
                 </div>
-                <p class="p-errors"><%= locals.errors && errors.password ? errors.password.msg : null %></p>
+                <p class="p-errors"><%= locals.errors && errors.contrasenia ? errors.contrasenia.msg : null %></p>
                 <div class="forget">
                     <a href="#">¿Olvidaste tu contraseña?</a>
                 </div>
