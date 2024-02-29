@@ -87,7 +87,7 @@ const productosControllers = {
                 stock:req.body.stock,
                 categorias_id:req.body.categorias_id,
                 colores_id:req.body.colores_id, 
-        }).then(()=>{res.redirect(`/productos/dashboard`,{usuario:req.session.user})})
+        }).then(()=>{res.redirect(`/productos/dashboard`)})
         
 
 
