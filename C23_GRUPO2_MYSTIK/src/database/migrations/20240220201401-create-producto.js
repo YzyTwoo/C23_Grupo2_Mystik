@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, DataType) {
-    await queryInterface.createTable('Productos', {
+    await queryInterface.createTable('productos', {
       id: {
         type: DataType.INTEGER,
         primaryKey: true,
@@ -28,7 +28,7 @@ module.exports = {
         allowNull: true
     },
     talles_id: {
-      type: Sequelize.INTEGER,
+      type: DataType.INTEGER,
       allowNull: false,
       references: {
         model: 'talles',
@@ -36,7 +36,7 @@ module.exports = {
       },
     },
     colecciones_id: {
-      type: Sequelize.INTEGER,
+      type: DataType.INTEGER,
       allowNull: false,
       references: {
         model: 'colecciones',
@@ -44,7 +44,7 @@ module.exports = {
       },
     },
     categorias_id: {
-      type: Sequelize.INTEGER,
+      type: DataType.INTEGER,
       allowNull: false,
       references: {
         model: 'categorias',
@@ -52,16 +52,24 @@ module.exports = {
       }
     },
     colores_id: {
-      type: Sequelize.INTEGER,
+      type: DataType.INTEGER,
       allowNull: false,
       references: {
         model: 'colores',
         key: 'id'
       },
+    },
+    createdAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
+    },
+    updatedAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
     }
     });
   },
   async down(queryInterface, DataType) {
-    await queryInterface.dropTable('Productos');
+    await queryInterface.dropTable('productos');
   }
 };

@@ -23,12 +23,20 @@ module.exports = {
         allowNull: true
     },
     usuarios_id: {
-      type: Sequelize.INTEGER,
+      type: DataType.INTEGER,
       allowNull: false,
       references: {
         model: 'usuarios',
         key: 'id'
       },
+    },
+    createdAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
+    },
+    updatedAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
     }
     });
     
@@ -37,5 +45,3 @@ module.exports = {
     await queryInterface.dropTable('direcciones');
   }
 };
-
-
