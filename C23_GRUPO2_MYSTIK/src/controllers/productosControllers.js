@@ -88,6 +88,7 @@ const productosControllers = {
                 categorias_id:req.body.categorias_id,
                 colores_id:req.body.colores_id, 
         }).then(()=>{res.redirect(`/productos/dashboard`)})
+        .catch(error => console.log(error))
         
 
 
