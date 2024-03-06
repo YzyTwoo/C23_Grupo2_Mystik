@@ -29,6 +29,14 @@ module.exports = {
         model: 'estados',
         key: 'id'
       },
+    },
+    createdAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
+    },
+    updatedAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
     }
     });
   },

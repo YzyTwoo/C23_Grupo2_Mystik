@@ -109,6 +109,8 @@ CREATE TABLE IF NOT EXISTS `mystik_db`.`productos` (
   `colecciones_id` INT UNSIGNED NOT NULL,
   `categorias_id` INT UNSIGNED NOT NULL,
   `colores_id` INT UNSIGNED NOT NULL,
+   `createdAt` TIMESTAMP NULL DEFAULT NULL,
+  `updatedAt` TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_productos_talles1_idx` (`talles_id` ASC) VISIBLE,
   INDEX `fk_productos_colecciones1_idx` (`colecciones_id` ASC) VISIBLE,

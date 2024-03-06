@@ -28,7 +28,7 @@ module.exports = {
         allowNull: true
     },
     talles_id: {
-      type: DataType.STRING(45),
+      type: DataType.INTEGER,
       allowNull: false,
       references: {
         model: 'talles',
@@ -37,14 +37,14 @@ module.exports = {
     },
     colecciones_id: {
       type: DataType.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'colecciones',
         key: 'id'
       },
     },
     categorias_id: {
-      type: DataType.STRING(45),
+      type: DataType.INTEGER,
       allowNull: false,
       references: {
         model: 'categorias',
@@ -52,22 +52,22 @@ module.exports = {
       }
     },
     colores_id: {
-      type: DataType.STRING(45),
+      type: DataType.INTEGER,
       allowNull: false,
       references: {
         model: 'colores',
         key: 'id'
       },
     },
-    imagenes_id: {
-      type: DataType.STRING(200),
-      allowNull: false,
-      references: {
-        model: 'imagenes',
-        key: 'id'
-      },
-    
-    }});
+    createdAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
+    },
+    updatedAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
+    }
+    });
   },
   
   async down(queryInterface, DataType) {

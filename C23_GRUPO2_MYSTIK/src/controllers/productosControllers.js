@@ -1,7 +1,8 @@
 const path = require("path");
 const {leerArchivo, setJson, cargarArchivo }= require('../database/dbLogica')
 const fs = require('fs');
-const db = require('../database/models')
+
+const db = require('../database/models');
 
 
 const productosControllers = {
@@ -9,6 +10,7 @@ const productosControllers = {
         let productos = leerArchivo('productos');
         res.render('products/productosView', {title:'productos', productos})
     },
+
     detalleProducts: (req, res) => {
         let productos = setJson();
         let { id } = req.params;
@@ -16,7 +18,6 @@ const productosControllers = {
         productos.splice(product.id - 1, 1)
         res.render('products/detalleProducts', { title: 'Detalles', productos, product, usuario:req.session.user }); 
     },
-    
 
     carritoProducts: (req, res) => {
         let productos = leerArchivo('productos');
@@ -27,6 +28,7 @@ const productosControllers = {
         let productos = leerArchivo('productos');
         res.render('products/cargaProducto', {productos, usuario:req.session.user});
     },
+    
     formEditarProducto:  (req, res) => {
         let productos = leerArchivo('productos');
         const {id} = req.params;
@@ -61,13 +63,13 @@ const productosControllers = {
     },
 
     dashboard:(req, res) => {
-        
-        let productos = leerArchivo('productos');
-        const propiedades = []
-        for (prop in productos[0]) {
-            propiedades.push(prop)
-        }
-        res.render('products/dashboard', { title: "Dashboard", productos, propiedades, usuario:req.session.user });
+        db.Producto.findAll()
+            .then(productos => {
+                const propiedades = ['id', 'nombre', 'precio', 'descripcion', 'stock', 'categorias_id', 'colecciones_id', 'colores_id', 'talles_id'];
+                res.render('products/dashboard', { title: "Dashboard", productos, propiedades, usuario:req.session.user });
+            }).catch(err => { 
+                console.log(err)
+            });
     },
 
     vistacrear: (req,res)=>{

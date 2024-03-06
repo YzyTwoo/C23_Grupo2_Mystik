@@ -51,11 +51,17 @@ module.exports = {
           key: 'id'       
         }
     },
-  
+    createdAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
+    },
+    updatedAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
+    }
     });
   },
   async down(queryInterface, DataType) {
     await queryInterface.dropTable('usuarios');
   }
 };
-

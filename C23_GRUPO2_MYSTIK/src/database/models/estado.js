@@ -18,8 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Estado',
-    tableName: 'estados',
-    timestamps: true
+    tableName: 'estados'
   });
   return Estado;
 };
