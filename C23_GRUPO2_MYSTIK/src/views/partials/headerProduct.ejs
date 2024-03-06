@@ -4,19 +4,30 @@
         <div>
             <a href="#" class="line">+54 11 12345678 |</a>
             <a href="mailto:correo@example.com" class="line">consultas@mystikindumentaria.com |</a>
-            <a href="#">Ayuda</a>
+            <a href="#" class="line">Ayuda</a>
         </div>
         <div>
+            <% if(locals.usuario){ %>
+                <div class="transition_menu">
+                <a class="line"><%= locals.usuario.nombre %></a>
+                <div id="user-name">
+                    <ul>
+                      <li id="user-name"><%= usuario.name %></li>
+                      <li><a class="user-menu" href="/users/editar/<%=usuario.id%>">Perfil</a></li>
+                      <li><a class="user-menu" href="/users/logout">Cerrar sesion</a></li>
+                    </ul>
+                </div>
+                </div>
+            <% }else{ %>
             <a href="users/registro" class="line">Crear Cuenta | </a>
-            <a href="users/login">Iniciar Sesión</a>
+            <a href="users/login" class="line">Iniciar Sesión</a>
+            <% } %>
         </div>
-
     </nav>
 
     <div class="header-top">
         
         <div class="navbar-header">
-            
             <div class="hamburguesa">
                 
                 <button class="hamburguesabtn"><i class="fas fa-bars"></i></button>
@@ -29,15 +40,20 @@
                     <a href="#"><strong><p class="account">Registrate</p></strong> <i class="far fa-id-card"></i></a> 
                     <a href="#" class="line-end"><strong>POLITICA DE DEVOLUCIÓN</strong></a>
                 </div>
+
             </div>
-        
         </div>
         
         <div class="logo-container">
             <a href="/"><img src="/images/LOGO/LogoDesktop/logo.svg" class="logo-general" alt=""></a>
-            <a href="/"><img src="/images/LOGO/LogoMobile/logo-mobile.svg"  style="width: 35px;" class="logo-mobile" alt="Logo"></a>
+            <a href="/"><img src="/images/LOGO/LogoMobile/logo-mobile.svg" class="logo-mobile" alt="Logo"></a>
         </div>
-        
+        <div class="nav-desktop">
+            <p>INICIO</p> 
+            <p>TIENDA</p> 
+            <p>COLECCIÓN</p>
+            <p>POLITICA DE DEVOLUCIÓN</p>
+        </div>
         <div class="search-cart">
             <input type="text" placeholder="Buscar"><i class="fas fa-search"></i>
             <div class="cart">
@@ -47,11 +63,7 @@
         </div>
     </div>
 
-    <div class="options-desktop">
-        <a href="#"><strong>INICIO</strong></a> 
-        <a href="#"><strong>TIENDA</strong></a> 
-        <a href="#"><strong>COLECCIÓN</strong></a>
-        <a href="#" class="line-end"><strong>POLITICA DE DEVOLUCIÓN</strong></a>
+    <div class="container-circle-up">
+        <a href="#"><i class="fa-solid fa-caret-up"></i></a>
     </div>
-
 </header>

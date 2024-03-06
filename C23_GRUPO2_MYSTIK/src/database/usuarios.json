@@ -57,5 +57,14 @@
         "password": "$2a$10$M8se949QK1nkVBgtOFmitOCgYLrCtbU9U7gzZ2EnsjyQ/tVoiEKky",
         "id": "0f8c9df1-ea1a-49d9-ab24-46163d35bb72",
         "rol": "admin"
+    },
+    {
+        "nombre": "hola",
+        "email": "holaperdida@gmail.com",
+        "telefono": "12345678",
+        "image": "default.png",
+        "password": "$2a$10$Kk/dvScUYPYAd35ziN69sOJkHSmDIH5Ayt48ftgtOQOPamP.r9PMS",
+        "id": "05e08dbe-9865-44e3-a1cc-eee6211b5103",
+        "rol": "admin"
     }
 ]

@@ -15,7 +15,6 @@ main {
 }
 .home-article{
     width: 43%;
-    height: 10%;
     padding: 15px;
     margin: 10px 10px;
     box-shadow: 0px 0px 8px 0px grey;
@@ -64,7 +63,6 @@ main {
 
 @media(min-width: 768px){
     .main-home{
-        display: flex;
         flex-wrap: wrap;
         width: 100%;
     }
@@ -77,7 +75,6 @@ main {
     }
     .home-article{
     width: 43%;
-    height: 32%;
     padding: 15px;
     margin: 10px 10px;
     box-shadow: 0px 0px 8px 0px grey;
@@ -138,8 +135,7 @@ main {
         gap: 1px;
     }
     .home-article{
-     width: 30%;
-    height: 48%;
+    width: 30%;
     padding: 15px;
     margin: 10px 10px;
     box-shadow: 0px 0px 8px 0px grey;

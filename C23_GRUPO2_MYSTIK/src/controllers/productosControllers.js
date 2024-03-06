@@ -4,6 +4,7 @@ const fs = require('fs');
 
 const db = require('../database/models');
 
+
 const productosControllers = {
     viewProducts: (req, res) => {
         let productos = leerArchivo('productos');
@@ -27,56 +28,47 @@ const productosControllers = {
         let productos = leerArchivo('productos');
         res.render('products/cargaProducto', {productos, usuario:req.session.usuario});
     },
-
-    formEditarProducto:  (req, res) => {
-        db.Producto.findByPk(req.params.id)
-        .then(function(result) {
-            if (result) {
-                req.session.usuario = req.session.user
-                res.render('products/editProduct', {title: result.nombre, result: result});
-            }
-        });
-    },
-
-    editarProducto: (req, res) => {
-        const id = req.params.id;
-        const { nombre, precio, descripcion, stock, talles_id, colecciones_id, categorias_id, colores_id } = req.body;
-        const file = req.file;
     
-        db.Producto.update(
-            {
-                nombre,
-                precio,
-                descripcion,
-                stock,
-                talles_id,
-                colecciones_id,
-                categorias_id,
-                colores_id
-            },
-            {
-                where: {
-                    id: id
+    formEditarProducto:  (req, res) => {
+        let productos = leerArchivo('productos');
+        const {id} = req.params;
+        const product = productos.find(producto => producto.id == id);
+        res.render('products/editProduct', {title: product.name, product, usuario:req.session.usuario});
+        // res.send(product)
+    },
+    editarProducto:  (req, res) => {
+        let productos = leerArchivo('productos');
+        const {id} = req.params;
+        const {image, name, price, description, talle, category,color,stock} = req.body
+        const file = req.file;
+        const nuevoArray = productos.map(product => {
+            if (product.id == id){
+                return{
+                    id:+id,
+                    name:name.trim(),
+                    image: file ? file.filename : "default.png",
+                    price:price.trim(),
+                    description:description.trim(),
+                    talle,
+                    category,
+                    color,
+                    stock
                 }
             }
-            )
-            .then(() => {
-                req.session.usuario = req.session.user;
-                res.redirect('/productos/dashboard');
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+            return product
+        })
+        const json =JSON.stringify(nuevoArray);
+        fs.writeFileSync(path.join(__dirname,"../database/productos.json"), json, "utf-8")
+        res.redirect('/productos/dashboard', {usuario:req.session.usuario})
     },
 
     dashboard:(req, res) => {
-        db.Producto.findAll()
-            .then(productos => {
-                const propiedades = ['id', 'nombre', 'precio', 'descripcion', 'stock', 'categorias_id', 'colecciones_id', 'colores_id', 'talles_id'];
-                res.render('products/dashboard', { title: "Dashboard", productos, propiedades, usuario:req.session.user });
-            }).catch(err => { 
-                console.log(err)
-            });
+        let productos = leerArchivo('productos');
+        const propiedades = []
+        for (prop in productos[0]) {
+            propiedades.push(prop)
+        }
+        res.render('products/dashboard', { title: "Dashboard", productos, propiedades, usuario:req.session.usuario });
     },
 
     vistacrear: (req,res)=>{
@@ -103,9 +95,8 @@ const productosControllers = {
         productos.push(productoNuevo);
         const Json = JSON.stringify(productos);
         fs.writeFileSync(path.join(__dirname,"../database/productos.json"), Json, 'utf-8' );
-        res.redirect(/productos/dashboard,{usuario:req.session.usuario});  
-    },
-
+        res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});  
+},
     destroy : (req, res) => {
     const {id} = req.params;
     let productos = leerArchivo('productos');
@@ -114,8 +105,8 @@ const productosControllers = {
     const nuevaLista = productos.filter(producto => producto.id !== +id);
     cargarArchivo(nuevaLista, 'productos')
    
-    res.redirect(/productos/dashboard,{usuario:req.session.usuario});
-    },
+    res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});
+},
 
 /* destroy : (req, res) => {
     const {id} = req.params;
