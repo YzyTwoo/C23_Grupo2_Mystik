@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, DataType) {
-    await queryInterface.createTable('Ordenes', {
+    await queryInterface.createTable('items', {
       id: {
         type: DataType.INTEGER,
         primaryKey: true,
@@ -10,29 +10,37 @@ module.exports = {
         unsigned: true,
         autoIncrement: true
     },
-    total:{
+    cantidad:{
         type: DataType.INTEGER,
         allowNull: true
     },
-    usuarios_id: {
-      type: Sequelize.INTEGER,
+    productos_id: {
+      type: DataType.INTEGER,
       allowNull: false,
       references: {
-        model: 'usuarios',
+        model: 'productos',
         key: 'id'
       },
     },
-    estados_id: {
-      type: Sequelize.INTEGER,
+    ordenes_id: {
+      type: DataType.INTEGER,
       allowNull: false,
       references: {
-        model: 'estados',
+        model: 'ordenes',
         key: 'id'
       },
+    },
+    createdAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
+    },
+    updatedAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
     }
     });
   },
   async down(queryInterface, DataType) {
-    await queryInterface.dropTable('Ordenes');
+    await queryInterface.dropTable('items');
   }
 };

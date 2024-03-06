@@ -44,12 +44,20 @@ module.exports = {
         allowNull: true
     },
     roles_id: {
-        type: Sequelize.INTEGER,
+        type: DataType.INTEGER,
         allowNull: false,
         references: {
           model: 'roles', 
           key: 'id'       
         }
+    },
+    createdAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
+    },
+    updatedAt:{
+      type: DataType.DATEONLY,
+      allowNull: false
     }
     });
   },
@@ -57,4 +65,3 @@ module.exports = {
     await queryInterface.dropTable('usuarios');
   }
 };
-
