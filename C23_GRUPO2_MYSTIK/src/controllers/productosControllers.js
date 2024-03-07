@@ -4,7 +4,6 @@ const fs = require('fs');
 
 const db = require('../database/models');
 
-
 const productosControllers = {
     viewProducts: (req, res) => {
         db.Producto.findAll()
@@ -31,38 +30,46 @@ const productosControllers = {
         let productos = leerArchivo('productos');
         res.render('products/cargaProducto', {productos, usuario:req.session.user});
     },
-    
+
     formEditarProducto:  (req, res) => {
-        let productos = leerArchivo('productos');
-        const {id} = req.params;
-        const product = productos.find(producto => producto.id == id);
-        res.render('products/editProduct', {title: product.name, product, usuario:req.session.user});
-        // res.send(product)
+        db.Producto.findByPk(req.params.id)
+        .then(function(result) {
+            if (result) {
+                req.session.usuario = req.session.user
+                res.render('products/editProduct', {title: result.nombre, result: result});
+            }
+        });
     },
-    editarProducto:  (req, res) => {
-        let productos = leerArchivo('productos');
-        const {id} = req.params;
-        const {image, name, price, description, talle, category,color,stock} = req.body
+
+    editarProducto: (req, res) => {
+        const id = req.params.id;
+        const { nombre, precio, descripcion, stock, talles_id, colecciones_id, categorias_id, colores_id } = req.body;
         const file = req.file;
-        const nuevoArray = productos.map(product => {
-            if (product.id == id){
-                return{
-                    id:+id,
-                    name:name.trim(),
-                    image: file ? file.filename : "default.png",
-                    price:price.trim(),
-                    description:description.trim(),
-                    talle,
-                    category,
-                    color,
-                    stock
+    
+        db.Producto.update(
+            {
+                nombre,
+                precio,
+                descripcion,
+                stock,
+                talles_id,
+                colecciones_id,
+                categorias_id,
+                colores_id
+            },
+            {
+                where: {
+                    id: id
                 }
             }
-            return product
-        })
-        const json =JSON.stringify(nuevoArray);
-        fs.writeFileSync(path.join(__dirname,"../database/productos.json"), json, "utf-8")
-        res.redirect('/productos/dashboard', {usuario:req.session.user})
+            )
+            .then(() => {
+                req.session.usuario = req.session.user;
+                res.redirect('/productos/dashboard');
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     },
 
     dashboard:(req, res) => {
@@ -83,7 +90,6 @@ const productosControllers = {
 
     console.log(req.body);
         
-        
             db.Producto.create({
                 nombre: req.body.nombre,
                 precio: req.body.precio,
@@ -97,8 +103,8 @@ const productosControllers = {
         
 
 
-      /*  db.Producto.create({
-             
+    /*  db.Producto.create({
+            
 			nombre: req.body.nombre,
 			precio: req.body.precio,
 		    descripcion: req.body.descripcion,
@@ -107,10 +113,9 @@ const productosControllers = {
             stock:req.body.stock,
             stock:req.body.stock,
             stock:req.body.stock, */
-   
 
         
-       /*  let productos = leerArchivo('productos');
+        /*  let productos = leerArchivo('productos');
         const {image, name, price, description, talle, category, color, stock} = req.body;
         const id =  productos[productos.length-1].id + 1;
         const file = req.file;
