@@ -7,16 +7,19 @@ const db = require('../database/models');
 
 const productosControllers = {
     viewProducts: (req, res) => {
-        let productos = leerArchivo('productos');
-        res.render('products/productosView', {title:'productos', productos})
+        db.Producto.findAll()
+        .then(function(productos){
+            res.render('products/productosView', {title:'productos', productos})
+        })
+        .catch(err => console.log(err))
     },
 
     detalleProducts: (req, res) => {
-        let productos = setJson();
-        let { id } = req.params;
-        let product = productos.find(productos => productos.id == id);
-        productos.splice(product.id - 1, 1)
-        res.render('products/detalleProducts', { title: 'Detalles', productos, product, usuario:req.session.user }); 
+        db.Producto.findByPk(req.params.id)
+        .then(function(productos){
+            res.render('products/detalleProducts', { title: 'Detalles', productos, usuario:req.session.user })
+        })
+        .catch(err => console.log(err))
     },
 
     carritoProducts: (req, res) => {
@@ -134,10 +137,9 @@ const productosControllers = {
         where: {id : id}
     }).then(result => {
         if(result){
-            res.redirect(`/productos/dashboard`,{usuario:req.session.user})
-        }else{
-            res.send("se a producido un error"
-            )}
+            req.session.usuario = req.session.user;
+            res.redirect('/productos/dashboard');
+        }
     }).catch(err => console.log(err))
 },
 }

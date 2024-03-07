@@ -6,6 +6,17 @@
     "price": "$42.999",
     "description": "3 Cuotas sin interés de $14.333",
     "talle": "M",
+    "category_id": "buzos",
+    "color_id": "negro",
+    "stock": "true"
+  },
+  {
+    "id": 2,
+    "image": "UrbanCity.jpg",
+    "name": "BUZO NEGRO - URBAN CITY",
+    "price": "$44.999",
+    "description": "3 Cuotas sin interés de $14.999",
+    "talle": "M",
     "category": "buzos",
     "color": "negro",
     "stock": "true"
@@ -16,7 +27,7 @@
     "name": "BUZO NEGRO - URBAN CITY",
     "price": "$44.999",
     "description": "3 Cuotas sin interés de $14.999",
-    "talle": "M",
+    "talle": "s",
     "category": "buzos",
     "color": "negro",
     "stock": "true"
