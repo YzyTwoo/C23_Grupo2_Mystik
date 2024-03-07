@@ -25,20 +25,20 @@ module.exports = validationLogin = [
     }),
 
     body('contrasenia').trim().notEmpty().withMessage('Este campo es obligatorio').bail()
-    .custom((value,{req}) =>{
-    return db.Usuario.findOne({
-        where:{
-            contrasenia: value
+    .custom(async (value,{ req }) => {
+        const user = await db.Usuario.findOne({
+            where: {
+                email: req.body.email
+            }
+        });
+        if (!user) {
+            return Promise.reject('Credenciales inválidas');
         }
-    }).then(user => {
-        if(!user){
-            return  Promise.reject()
+
+        const comparacion = await bcrypt.compare(value, user.contrasenia)
+        if (!comparacion) {
+            return Promiuse.reject('Credenciales inválidas')
         }
-    }
-    ).catch(error => {
-        console.log(error)
-        return Promise.reject('credenciales invalidas')
-    })
     })
 
 ]

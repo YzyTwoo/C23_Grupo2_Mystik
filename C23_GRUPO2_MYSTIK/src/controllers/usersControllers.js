@@ -15,29 +15,47 @@ const usersControllers = {
     },
     iniciarSession:(req, res)=>{
         const errors = validationResult(req);
+
         if(!errors.isEmpty()) {
             console.log(errors)
-            res.render('users/login', {errors: errors.mapped(), old: req.body}) 
+            res.render('users/login', {errors: errors.mapped(), old: req.body})
         } else {
-        const { email } = req.body
+
+        const { email, contrasenia } = req.body
+
         db.Usuario.findOne({
             where: {
                 email: email 
             }
         })
-            .then(user => {
-            req.session.user = user;
-            res.cookie("user",user,{maxAge:1000 * 60 * 15})
-            if(req.body.remember == "true"){
-                res.cookie("rememberMe","true",{maxAge: 1000 * 60 * 15});
+        .then(user => {
+            if (!user) {
+                // si el usuario no existe // https://http.cat/status/401
+                return res.status(401).send('Credenciales inválidas');
             }
-            res.redirect("/");
+            bcrypt.compare(contrasenia, user.contrasenia, (err, result) => {
+                if(err){
+                    console.log(err);
+                }
+                if (result) { // Si la contraseña es correcta
+                    req.session.user = user;
+                    res.cookie("user", user, { maxAge: 1000 * 60 * 15 });
+                    if (req.body.remember == "true") {
+                        res.cookie("rememberMe", "true", { maxAge: 1000 * 60 * 15 });
+                    }
+                    res.redirect("/");
+                } else { // si la contraseña no es correcta
+                    return res.status(401).send('Credenciales inválidas');
+                    // no está autorizado // https://http.cat/status/401
+                }
+            });
         })
         .catch(err => {
             console.log(err);
             res.status(500).send('Error interno del servidor');
+            // https://http.cat/status/500
         });
-    }
+        }
     },
     createUsers: (req,res)=>{
         const errors = validationResult(req)
