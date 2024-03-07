@@ -64,21 +64,6 @@
                 </p>
                 <input id="cuadro_texto" type="text" name="telefono" value="<%= locals.old && old.telefono ? old.telefono : null %>">
                 </div>
-                <div class="telefono_div">
-                    <label for="genero" class="form-label">Genero:</label>
-                    <select name="genero" id="genero">
-                        <option value="masculino">Masculino</option>
-                        <option value="femenino">Femenino</option>
-                        <option value="Notiene">Prefiero no decir</option>
-                    </select>
-                </div>
-                <div class="telefono_div">
-                    <label for="nacimiento" class="form-label">Seleccione su fecha de nacimiento</label>
-                    <input name="nacimiento" id="nacimiento" class="form-input" type="date" multiple></input>
-                    <small class="text-danger d-flex">
-                        <%= locals.errors && errors.nacimiento ? errors.nacimiento.msg : null %>
-                    </small>
-                </div>
                 <div class="contraseña_div">
                 <p>
                 <label for="contrasenia">Contraseña</label>

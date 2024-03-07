@@ -35,6 +35,22 @@
             <% } %>
 
             <div class="form_password">
+                <label for="genero" class="label_form">Genero:</label>
+                <select name="genero" id="genero" class="form_input">
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="Notiene">Prefiero no decirlo</option>
+                </select>
+            </div>
+            <div class="form_password">
+                <label for="nacimiento" class="label_form">Fecha de nacimiento:</label>
+                <input name="nacimiento" id="nacimiento" class="form_input" type="date" multiple></input>
+                <small class="text-danger d-flex">
+                    <%= locals.errors && errors.nacimiento ? errors.nacimiento.msg : null %>
+                </small>
+            </div>
+
+            <div class="form_password">
                 <label class="label_form" for="password">Crear nueva contraseña:</label>
                 <input type="password" class="form_input" id="contraseña" name="contrasenia"
                 <p class="local_error"> <%= locals.errors && errors.contrasenia ? errors.contrasenia.msg : null %> </p>

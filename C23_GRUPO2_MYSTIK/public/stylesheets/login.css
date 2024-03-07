@@ -265,6 +265,23 @@ header {
 
 
 @media(min-width:1024px) {
+
+    .recuerdame-div{
+        margin-left: 11%;
+    }
+
+    .recuerdame-label{
+        cursor: pointer;
+        transition: 500ms;
+    }
+    .recuerdame-label:hover{
+        transition: 300ms;
+        font-size: 18px;
+        color: var(--color-violeta-claro);
+    }
+    .recuerdame-input{
+        cursor: pointer;
+    }
     .iniciar_main {
         margin-left: 10%;
         padding: 10px;

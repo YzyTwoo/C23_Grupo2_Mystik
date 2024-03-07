@@ -103,7 +103,7 @@ const usersControllers = {
         } else {
             console.log('Datos recibidos para actualizar:', req.body);
             const id = req.params.id;
-            const { nombre, email, telefono, contrasenia } = req.body;
+            const { nombre, email, telefono, contrasenia, genero, nacimiento } = req.body;
     
             if (contrasenia) {
                 const hashedPassword = bcrypt.hashSync(contrasenia, 10);
@@ -112,6 +112,8 @@ const usersControllers = {
                         nombre: nombre.trim(),
                         email: email.trim(),
                         telefono: telefono,
+                        genero: genero,
+                        nacimiento: nacimiento,
                         contrasenia: hashedPassword
                     },
                     {
@@ -129,6 +131,9 @@ const usersControllers = {
                         req.session.user.nombre = nombre.trim();
                         req.session.user.email = email.trim();
                         req.session.user.telefono = telefono;
+                        req.session.user.genero = genero;
+                        req.session.user.nacimiento = nacimiento;
+
                         delete req.session.user.password;
                         res.cookie('user', req.session.user);
                     }
@@ -145,6 +150,8 @@ const usersControllers = {
                         nombre: nombre.trim(),
                         email: email.trim(),
                         telefono: telefono,
+                        genero: genero,
+                        nacimiento: nacimiento
                     },
                     {
                         where: { id: id }
@@ -158,6 +165,8 @@ const usersControllers = {
                     req.session.user.nombre = nombre.trim();
                     req.session.user.email = email.trim();
                     req.session.user.telefono = telefono;
+                    req.session.user.genero = genero;
+                    req.session.user.nacimiento = nacimiento;
     
                     res.cookie('user', req.session.user);
     
@@ -181,16 +190,6 @@ const usersControllers = {
     },
     dashboard:(req,res)=>{
         res.send(req.session.user)
-},
-allUsers: (req, res) => {
-    db.Usuario.findAll()
-        .then(users => {
-            res.send(users);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).send('Error al buscar usuarios');
-        });
 }
 }
 

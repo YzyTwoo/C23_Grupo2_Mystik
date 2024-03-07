@@ -30,17 +30,17 @@
                 <p class="p-errors"><%= locals.errors && errors.email ? errors.email.msg : null %></p>
                 <div class="item-form">
                     <label for="contrasenia">Contraseña</label> <br>
-                    <input type="password" name="contrasenia" id="contrasenia"
+                    <input type="password" id="name" name="contrasenia" id="contrasenia"
                     <%= locals.old && old.contrasenia %>>
                     <i class="fa-solid fa-eye-slash fa-xs" id="eye-slash"></i>
                 </div>
                 <p class="p-errors"><%= locals.errors && errors.contrasenia ? errors.contrasenia.msg : null %></p>
+                <div class="recuerdame-div">
+                    <label class="recuerdame-label" for="remember">Recuerdame</label>
+                    <input class="recuerdame-input" type="checkbox" id="remember" name="remember" value="true">
+                </div>
                 <div class="forget">
                     <a href="#">¿Olvidaste tu contraseña?</a>
-                </div>
-                <div>
-                    <label for="remember">Recuerdame</label>
-        <input type="checkbox" id="remember" name="remember" value="true">
                 </div>
                 <button class="button-form" type="submit"> INICIAR SESIÓN </button>
                 <div class="register">

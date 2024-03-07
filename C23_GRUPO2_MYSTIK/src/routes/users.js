@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const multer = require('multer');
 const path = require("path")
-const {ingreso, register, iniciarSession,logout, createUsers, perfil, perfilEditar, allUsers} = require('../controllers/usersControllers');
+const { ingreso, register, iniciarSession,logout, createUsers, perfil, perfilEditar } = require('../controllers/usersControllers');
 const registerValidator = require('../validations/registerValidator');
 const validationLogin = require('../validations/validacionLogin');
 const profileValidator = require('../validations/profileValidator');
@@ -31,6 +31,5 @@ router.get('/editar/:id', sessionValidate, perfil);
 router.put('/editar/:id', upload.single('image'), sessionValidate, profileValidator, perfilEditar);
 
 router.get('/logout', logout);
-router.get('/all', allUsers)
 
 module.exports = router;
