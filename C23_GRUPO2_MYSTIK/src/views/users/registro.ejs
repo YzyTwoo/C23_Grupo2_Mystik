@@ -29,7 +29,15 @@
                     <%= locals.errors && errors.nombre ? errors.nombre.msg : null %>
                   </small>
                 </div>
-                
+                <div class="nombre_div">
+                    <p>
+                    <label for="apellido">Apellido</label>
+                    </p>
+                    <input id="cuadro_texto" type="text" name="apellido" value="<%= locals.old && old.apellido ? old.apellido : null %>">
+                    <small class="text-danger d-flex">
+                        <%= locals.errors && errors.apellido ? errors.apellido.msg : null %>
+                    </small>
+                    </div>
                 <div class="email_div">
                 <p>
                 <label for="email">Email</label>
@@ -39,14 +47,14 @@
                     <%= locals.errors && errors.email ? errors.email.msg : null %>
                 </small>
                 </div>
-                <% if (locals.usuario && usuario.rol == "admin") {%>
+                <% if (locals.usuario && usuario.roles_id == "admin") {%>
                 <div class="email_div">
                     <p>
-                    <label for="rol">Rol</label>
+                    <label for="roles_id">Rol</label>
                     </p>
-                    <input id="cuadro_texto" type="rol" name="rol" value="<%= locals.old && old.rol ? old.rol : null %>">
+                    <input id="cuadro_texto" type="rol" name="roles_id" value="<%= locals.old && old.roles_id ? old.roles_id : null %>">
                     <small class="text-danger d-flex">
-                        <%= locals.errors && errors.rol ? errors.rol.msg : null %>
+                        <%= locals.errors && errors.roles_id ? errors.roles_id.msg : null %>
                     </small>
                     </div>
                 <% } %>
@@ -56,20 +64,36 @@
                 </p>
                 <input id="cuadro_texto" type="text" name="telefono" value="<%= locals.old && old.telefono ? old.telefono : null %>">
                 </div>
-            
+                <div class="telefono_div">
+                    <label for="genero" class="form-label">Genero:</label>
+                    <select name="genero" id="genero">
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="Notiene">Prefiero no decir</option>
+                    </select>
+                </div>
+                <div class="telefono_div">
+                    <label for="nacimiento" class="form-label">Seleccione su fecha de nacimiento</label>
+                    <input name="nacimiento" id="nacimiento" class="form-input" type="date" multiple></input>
+                    <small class="text-danger d-flex">
+                        <%= locals.errors && errors.nacimiento ? errors.nacimiento.msg : null %>
+                    </small>
+                </div>
                 <div class="contraseña_div">
                 <p>
-                <label for="password">Contraseña</label>
+                <label for="contrasenia">Contraseña</label>
                 </p>
-                <input id="cuadro_texto" type="password" name="password">
+                <input id="cuadro_texto" type="password" name="contrasenia">
                 <small class="text-danger d-flex">
-                    <%= locals.errors && errors.password ? errors.password.msg : null %>
-                  </small>
+                    <%= locals.errors && errors.contrasenia ? errors.contrasenia.msg : null %>
+                </small>
                 </div>
+
                 <div class="telefono_div">
                     <label for="description" class="form-label">Seleccione una imagen de perfil:</label>
                     <input name="imagen" id="imagen" class="form-input" type="file" multiple></input>
                 </div>
+
             </section>
                 <div class="boton_registro_div">
                 <a href=""><input id="boton_enviar" type="submit" value="Registrarse"></a>

@@ -6,32 +6,35 @@ const db = require('../database/models')
 
 const productosControllers = {
     viewProducts: (req, res) => {
-        let productos = leerArchivo('productos');
-        res.render('products/productosView', {title:'productos', productos})
+        db.Producto.findAll()
+        .then(function(productos){
+            res.render('products/productosView', {title:'productos', productos})
+        })
+        .catch(err => console.log(err))
     },
     detalleProducts: (req, res) => {
-        let productos = setJson();
-        let { id } = req.params;
-        let product = productos.find(productos => productos.id == id);
-        productos.splice(product.id - 1, 1)
-        res.render('products/detalleProducts', { title: 'Detalles', productos, product, usuario:req.session.user }); 
+        db.Producto.findByPk(req.params.id)
+        .then(function(productos){
+            res.render('products/detalleProducts', { title: 'Detalles', productos, usuario:req.session.user })
+        })
+        .catch(err => console.log(err))
     },
     
 
     carritoProducts: (req, res) => {
         let productos = leerArchivo('productos');
-        res.render('products/carritoProducts', {title:'Carrito', productos, usuario:req.session.usuario });
+        res.render('products/carritoProducts', {title:'Carrito', productos, usuario:req.session.user });
     },
 
     cargaProducto:  (req, res) => {
         let productos = leerArchivo('productos');
-        res.render('products/cargaProducto', {productos, usuario:req.session.usuario});
+        res.render('products/cargaProducto', {productos, usuario:req.session.user});
     },
     formEditarProducto:  (req, res) => {
         let productos = leerArchivo('productos');
         const {id} = req.params;
         const product = productos.find(producto => producto.id == id);
-        res.render('products/editProduct', {title: product.name, product, usuario:req.session.usuario});
+        res.render('products/editProduct', {title: product.name, product, usuario:req.session.user});
         // res.send(product)
     },
     editarProducto:  (req, res) => {
@@ -71,7 +74,7 @@ const productosControllers = {
     },
 
     vistacrear: (req,res)=>{
-		res.render('products/create', { title: "create", usuario:req.session.usuario});
+		res.render('products/create', { title: "create", usuario:req.session.user});
 	},
 
     create: (req,res)=>{

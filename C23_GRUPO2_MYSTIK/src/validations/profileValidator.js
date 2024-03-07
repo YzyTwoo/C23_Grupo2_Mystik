@@ -1,6 +1,8 @@
 const {body} = require ('express-validator');
-const {getJson}= require('../database/dbLogica');
-const users = getJson('usuarios');
+// const {getJson}= require('../database/dbLogica');
+// const users = getJson('usuarios');
+// const db = require('../database/models')
+
 
 module.exports =[
     body('nombre').notEmpty().withMessage('Debe ingresar un nombre').bail()
@@ -13,6 +15,5 @@ module.exports =[
     .isInt().withMessage('El valor ingresado debe ser un número').bail()
     .isLength({min:6, max:21}).withMessage('El valor ingresado debe tener al menos 6 y maximo 21 caracteres').bail(),
 
-    body('password').notEmpty().withMessage('Debe ingresar una contraseña').bail()
-    .isLength({min:6, max:12}).withMessage('La contraseña debe tener un minimo de 6 caracteres y maximo 12 caracteres')
+    body('contrasenia').isLength({max:30}).withMessage('La contraseña debe tener maximo 30 caracteres')
 ]

@@ -13,100 +13,161 @@ const usersControllers = {
     register: (req,res) => {
         res.render("users/registro", {title: "Crear Cuenta"});
     },
-    registrarUsuario: (req,res) => {
-        const users = leerArchivo('usuarios');
-        const user = req.body;
-        const id = Date.now();
-        user.id = id;
-        users.push(user);
-        cargarArchivo(users, "usuarios");
-        res.redirect('/users/login')
-    },
     iniciarSession:(req, res)=>{
         const errors = validationResult(req);
-        if(!errors.isEmpty()){
+        if(!errors.isEmpty()) {
             console.log(errors)
-        res.render('users/login', {errors: errors.mapped(), old: req.body}) 
-        }
-        else{
-
-        const {email} = req.body
-        const users = getJson('usuarios');
-        const user = users.find(elemento => elemento.email == email);
-        
-        req.session.user = user;
-
-        res.cookie("user",user,{maxAge:1000 * 60 *15})
-
-        if(req.body.remember == "true"){
-            res.cookie("rememberMe","true",{maxAge: 1000*60*15});
-        }
-        res.redirect("/");
+            res.render('users/login', {errors: errors.mapped(), old: req.body}) 
+        } else {
+        const { email } = req.body
+        db.Usuario.findOne({
+            where: {
+                email: email 
+            }
+        })
+            .then(user => {
+            req.session.user = user;
+            res.cookie("user",user,{maxAge:1000 * 60 * 15})
+            if(req.body.remember == "true"){
+                res.cookie("rememberMe","true",{maxAge: 1000 * 60 * 15});
+            }
+            res.redirect("/");
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).send('Error interno del servidor');
+        });
     }
-},
+    },
     createUsers: (req,res)=>{
         const errors = validationResult(req)
 
         if (errors.isEmpty()) {
-            const users = leerArchivo("usuarios");
-            const {nombre,email,telefono,password, rol} = req.body;
-            const id = uuidv4();
+            const { nombre ,apellido,email,telefono,contrasenia, roles_id, imagen} = req.body;
             const file = req.file;
             const user ={
                 nombre: nombre.trim(),
+                apellido: apellido.trim(),
                 email: email.trim(),
                 telefono,
-                image: file ? file.filename : "default.png",
-                password: bcrypt.hashSync(password,10),
-                id,
-                rol: rol ? rol : "user"
+                imagen: imagen ? imagen.filename : "default.png",
+                contrasenia: bcrypt.hashSync(contrasenia,10),
+                roles_id: roles_id ? roles_id : 2
             }
-            users.push(user);
-            uploadUser(users,"usuarios");
-            return res.redirect("/users/login")
+            db.Usuario.create(user)
+            .then( user => {
+                res.redirect('/users/login')
+            })
+            .catch(err => console.log(err))
         }else{
             return res.render('users/registro',{old:req.body, errors:errors.mapped()})
         }
     },
-    perfil:(req,res)=>{
-        const {id} = req.params;
-        const users = getJson('usuarios');
-        const user = users.find(elemento => elemento.id == id);
-        res.render('users/actualizarPerfil', { title: 'Editar Perfil', user, usuario:req.session.user});
+    perfil: (req, res) => {
+        const { id } = req.params;
+        db.Usuario.findByPk(id)
+            .then(user => {
+                if (!user) {
+                    return res.status(404).send('Usuario no encontrado');
+                }
+                res.render('users/actualizarPerfil', { title: 'Editar Perfil', user: user, usuario: req.session.user });
+            })
+            .catch(error => {
+                console.log('Error al obtener usuario:', error);
+                res.status(404).send('Not found');
+            });
     },
-    perfilEditar: (req,res)=>{
+    perfilEditar: (req, res) => {
         const errors = validationResult(req);
-        
+        const { id } = req.params;
+    
         if (!errors.isEmpty()) {
-            db.Usuario.findByPk(req.params.id)
-            .then()
-            return res.render('users/actualizarPerfil', { title: 'Editar Perfil', user, usuario:req.session.user, errors:errors.mapped(), old:req.body});
+            console.log('Errores de validación:', errors.array());
+            db.Usuario.findByPk(id)
+                .then(user => {
+                    if (!user) {
+                        return res.status(404).send('Usuario no encontrado');
+                    }
+                    res.render('users/actualizarPerfil', {
+                        title: 'Editar Perfil',
+                        user: user,
+                        usuario: req.session.user,
+                        errors: errors.mapped(),
+                        old: req.body
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al buscar usuario:', error);
+                    res.status(404).send('NOT FOUND');
+                });
         } else {
-            // const {id} = req.params;
-
-            const {nombre, email, telefono, rol} = req.body;
-            const users = getJson('usuarios');
-            const usuarios = users.map(element => {
-                if (element.id == id) {
-                    return {
+            console.log('Datos recibidos para actualizar:', req.body);
+            const id = req.params.id;
+            const { nombre, email, telefono, contrasenia } = req.body;
+    
+            if (contrasenia) {
+                const hashedPassword = bcrypt.hashSync(contrasenia, 10);
+                db.Usuario.update(
+                    {
                         nombre: nombre.trim(),
                         email: email.trim(),
-                        telefono,
-                        image: req.file ? req.file.filename : element.image,
-                        password: element.password,
-                        id,
-                        rol: rol ? rol : "user"
-                    };
-                }
-                return element;
-            });
-            
-            uploadUser(usuarios, "usuarios");
-            const userUpdate = usuarios.find(elemento => elemento.id == id);
-            req.session.user = userUpdate;
-            delete userUpdate.password;
-            res.cookie('user', userUpdate);
-            res.redirect(`/`);
+                        telefono: telefono,
+                        contrasenia: hashedPassword
+                    },
+                    {
+                        where: { id: id }
+                    }
+                )
+                .then(filasActualizadas => {
+                    if (filasActualizadas[0] === 0) {
+                        return res.status(404).send('Usuario no encontrado');
+                    }
+                    
+                    console.log('Usuario actualizado con éxito:', id);
+    
+                    if (req.session.user) {
+                        req.session.user.nombre = nombre.trim();
+                        req.session.user.email = email.trim();
+                        req.session.user.telefono = telefono;
+                        delete req.session.user.password;
+                        res.cookie('user', req.session.user);
+                    }
+    
+                    res.redirect('/');
+                })
+                .catch(error => {
+                    console.error('Error al actualizar usuario:', error);
+                    res.status(500).send('Error interno del servidor');
+                });
+            } else { // En caso de que el usuario no quiera cambiar su contraseña
+                db.Usuario.update(
+                    {
+                        nombre: nombre.trim(),
+                        email: email.trim(),
+                        telefono: telefono,
+                    },
+                    {
+                        where: { id: id }
+                    }
+                )
+                .then(filasActualizadas => {
+                    if (filasActualizadas[0] === 0) {
+                        return res.status(404).send('Usuario no encontrado');
+                    }
+                    
+                    req.session.user.nombre = nombre.trim();
+                    req.session.user.email = email.trim();
+                    req.session.user.telefono = telefono;
+    
+                    res.cookie('user', req.session.user);
+    
+                    res.redirect('/');
+                })
+                .catch(error => {
+                    console.error('Error al actualizar usuario:', error);
+                    res.status(500).send('Error interno del servidor');
+                });
+            }
         }
     },
     logout:(req,res)=>{

@@ -42,11 +42,11 @@
     
             <% productos.forEach(function(producto) { %>
                 <article class="home-article">
-                  <img class="article-img" src="/images/products/<%= producto.image %>" alt="">
+                  <img class="article-img" src="/images/products/<%= producto.imagen %>" alt="">
                   <div class="article-description">
-                    <h4 class="title-article"><%= producto.name %></h4>
-                    <p class="article-price"><%= producto.price %></p>
-                    <p class="article-pay"><%= producto.description %></p>
+                    <h4 class="title-article"><%= producto.nombre %></h4>
+                    <p class="article-price"><%= producto.precio %></p>
+                    <p class="article-pay"><%= producto.descripcion %></p>
                     <a href="productos/detalle/<%= producto.id %>">VER COLECCIÓN</a>
                   </div>
                 </article>
