@@ -70,7 +70,7 @@ const usersControllers = {
                 telefono,
                 imagen: imagen ? imagen.filename : "default.png",
                 contrasenia: bcrypt.hashSync(contrasenia,10),
-                roles_id: roles_id ? roles_id : 2
+                roles_id: roles_id ? roles_id : 1
             }
             db.Usuario.create(user)
             .then( user => {
