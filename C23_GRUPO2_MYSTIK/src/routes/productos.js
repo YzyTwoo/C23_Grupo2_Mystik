@@ -34,7 +34,7 @@ router.post('/cargaProducto', isAdminValidate, cargaProducto);
 
 
 router.get('/create', isAdminValidate, vistacrear);
-router.post('/create', isAdminValidate, uploadFile.single('image'), create);
+router.post('/create', isAdminValidate, uploadFile.single('imagen_id'), create);
 
 router.delete('/delete/:id', isAdminValidate, destroy); 
 

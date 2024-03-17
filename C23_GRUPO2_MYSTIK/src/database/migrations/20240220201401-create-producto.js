@@ -14,6 +14,9 @@ module.exports = {
         type: DataType.STRING(255),
         allowNull: false
     },
+    imagen_id: {
+      type: Sequelize.STRING(255),
+    },
     precio:{
         type: DataType.DECIMAL(6,2),
         allowNull: false,

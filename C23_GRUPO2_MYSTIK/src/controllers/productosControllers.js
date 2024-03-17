@@ -89,8 +89,9 @@ const productosControllers = {
     create: (req,res)=>{
 
     console.log(req.body);
-        
+        const file = req.file;
             db.Producto.create({
+                imagen_id : file?file.filename:"default.png",
                 nombre: req.body.nombre,
                 precio: req.body.precio,
                 descripcion: req.body.descripcion,
