@@ -29,11 +29,11 @@ module.exports = {
     },
     imagen:{
         type: DataType.STRING(255),
-        allowNull: false
+        allowNull: true
     },
     telefono:{
         type: DataType.STRING(255),
-        allowNull: false
+        allowNull: true
     },
     genero:{
         type: DataType.STRING(255),

@@ -18,7 +18,7 @@ module.exports = {
       type: DataType.STRING(255),
     },
     precio:{
-        type: DataType.DECIMAL(6,2),
+        type: DataType.DECIMAL(10,2),
         allowNull: false,
         unsigned: true
     },
