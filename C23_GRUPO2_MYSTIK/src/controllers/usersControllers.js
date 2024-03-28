@@ -1,10 +1,6 @@
-const fs = require('fs');
-const {leerArchivo, setJson, cargarArchivo, getJson, uploadUser}= require('../database/dbLogica');
-const {v4: uuidv4} = require('uuid');
 const bcrypt = require('bcryptjs');
-const {validationResult}= require('express-validator')
-const db = require('../database/models')
-
+const {validationResult} = require('express-validator');
+const db = require('../database/models');
 
 const usersControllers = {
     ingreso: (req,res) => {
