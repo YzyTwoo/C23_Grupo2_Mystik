@@ -340,25 +340,4 @@
     }
 
     /* HEADER TOP (.nav-general) */
-
-    .nav-general {
-        display: flex;
-        justify-content: space-between;
-        list-style: none;
-        gap: 10px;
-        font-size: 10px;
-        padding-bottom: 4px;
-        padding: 0 15px;
-        border-bottom: 1px solid black;
-    }
-
-    .nav-general a {
-        padding: 5px 1px 5px 1px;
-        text-decoration: none;
-        color: black;
-    }
-
-    .nav-general a:hover {
-        color: #333;
-    } 
 }

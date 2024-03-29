@@ -1,11 +1,13 @@
 
 .line{
     font-size: 18px;
+    cursor: pointer;
 }
 
 .transition_menu {
     position: relative;
     display: inline-block;
+    margin-right: 25px;
 }
 
 #user-name {
@@ -13,10 +15,15 @@
     top: 100%;
     left: 0;
     background-color: #fff;
-    box-shadow: 0 1px 1px black;
+    /*  */
+    box-shadow: 0px 14px 10px -2px rgba(0,0,0,0.38);
+    -webkit-box-shadow: 0px 14px 10px -2px rgba(0,0,0,0.38);
+    -moz-box-shadow: 0px 14px 10px -2px rgba(0,0,0,0.38);
+    /*  */
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0s ease-in-out;
+    transition: max-height 345ms ease-in-out;
+    cursor: pointer;
 }
 
 .transition_menu:hover #user-name {
@@ -30,7 +37,7 @@
 }
 
 #user-name li {
-    padding: 10px;
+    padding: 16px;
 }
 
 .container-circle-up{
@@ -97,45 +104,16 @@
 	}
 }
 
-.line{
-    font-size: 18px;
-}
-
 .transition_menu {
     position: relative;
     display: inline-block;
-}
-
-#user-name {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    box-shadow: 0 1px 1px black;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0s ease-in-out;
-}
-
-.transition_menu:hover #user-name {
-    max-height: 200px;
-}
-
-#user-name ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-#user-name li {
-    padding: 10px;
 }
 
 .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px 20px 20px;
+    padding: 6px 10px;
 }
 ul{
     list-style-type: none;
@@ -170,7 +148,7 @@ ul{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 20%;
+    width: 26%;
 }
 
 .search-cart input {
@@ -186,13 +164,17 @@ ul{
     margin: 1px;
 }
 
+.icon-user-login{
+    font-size: 25px;
+}
+
 .cart {
-    padding: 13px;
+    padding: 0px 25px;
     cursor: pointer;
 }
 
-.precio {
-    display: none;
+.icon-carrito-user{
+    font-size: 25px;
 }
 
 .cart img {
@@ -302,8 +284,6 @@ ul{
 
     .precio {
         display: flex;
-        margin-top: -8px;
-        margin-left: -3px;
     }
 
     .fas, .fa-search {
@@ -314,40 +294,56 @@ ul{
 
     /* HEADER TOP (.nav-general) */
 
-    .nav-general {
-        display: flex;
-        justify-content: space-between;
-        list-style: none;
-        gap: 10px;
-        font-size: 10px;
-        padding-bottom: 4px;
-        padding: 5px 15px;
-        border-bottom: 1px solid black;
-    }
+    
 
     .nav-desktop {
         display: flex;
         justify-content: space-between;
         padding: 0px 40px;
         width: 45%;
-        margin-top: 20px;
     }
 
-    .nav-general a:hover {
-        color: #333;
-    } 
+    .nav-desktop a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .nav-general {
+        display: flex;
+        width: 100%;
+        padding: 0px 7px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+    }
+    
+    .scrolling-text {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+    
+    .scrolling-text-inner {
+        white-space: nowrap;
+        animation: scrollLeft 10s linear infinite;
+        right: 0;
+    }
+    
+    @keyframes scrollLeft {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-70%);
+        }
+    }
 
     .header-top {
+        justify-content: center;
         display: flex;
         width: 100%;
         align-items: center;
-        justify-content: center;
-        padding: 20px 20px 20px 20px;
-        border-bottom: 1px solid black;
-    }
-
-    .nav-general{
-        font-size: 15px ;
+        border-bottom: 1px solid var(--color-gris-claro-v2);
     }
 
     .logo-container {
@@ -355,20 +351,7 @@ ul{
         justify-content: space-around;
         margin-top: 10px;
         text-align: center;
+        width: 180px;
     }
     /* NAVBAR */
-
-}
-
-@media only screen and (min-width: 1024px) and (max-width: 2560px) {
-    .nav-general{
-        font-size: 15px ;
-    }
-
-    .logo-container {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 10px;
-        text-align: center;
-    }
 }

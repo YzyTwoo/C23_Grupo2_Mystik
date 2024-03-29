@@ -33,7 +33,8 @@ const usersControllers = {
                 const cookieUser = {
                     id: user.dataValues.id,
                     email: user.dataValues.email,
-                    image: user.dataValues.image
+                    image: user.dataValues.image,
+                    nombre: user.dataValues.nombre
                 };
                 res.cookie("user", cookieUser, { maxAge: 1000 * 60 * 15 });
                 res.cookie("rememberMe", "true", { maxAge: 1000 * 60 * 15 });
