@@ -1,10 +1,6 @@
-const fs = require('fs');
-const {leerArchivo, setJson, cargarArchivo, getJson, uploadUser}= require('../database/dbLogica');
-const {v4: uuidv4} = require('uuid');
 const bcrypt = require('bcryptjs');
-const {validationResult}= require('express-validator')
-const db = require('../database/models')
-
+const {validationResult} = require('express-validator');
+const db = require('../database/models');
 
 const usersControllers = {
     ingreso: (req,res) => {
@@ -13,47 +9,40 @@ const usersControllers = {
     register: (req,res) => {
         res.render("users/registro", {title: "Crear Cuenta"});
     },
-    iniciarSession:(req, res)=>{
+    login:(req, res)=>{
         const errors = validationResult(req);
 
         if(!errors.isEmpty()) {
-            console.log(errors)
+            console.log("errores:", errors.mapped())
             res.render('users/login', {errors: errors.mapped(), old: req.body})
+
         } else {
-
-        const { email, contrasenia } = req.body
-
-        db.Usuario.findOne({
+        const { email } = req.body
+        db.Usuario.findOne(
+            {
+            attributes: { exclude: ["password"] },
             where: {
                 email: email 
             }
         })
         .then(user => {
-            if (!user) {
-                // si el usuario no existe // https://http.cat/status/401
-                return res.status(401).send('Credenciales inválidas');
+            console.log("Info usuario:", user);
+            req.session.user = user.dataValues;
+
+            if (req.body.remember == "true") {
+                const cookieUser = {
+                    id: user.dataValues.id,
+                    email: user.dataValues.email,
+                    image: user.dataValues.image
+                };
+                res.cookie("user", cookieUser, { maxAge: 1000 * 60 * 15 });
+                res.cookie("rememberMe", "true", { maxAge: 1000 * 60 * 15 });
             }
-            bcrypt.compare(contrasenia, user.contrasenia, (err, result) => {
-                if(err){
-                    console.log(err);
-                }
-                if (result) { // Si la contraseña es correcta
-                    req.session.user = user;
-                    res.cookie("user", user, { maxAge: 1000 * 60 * 15 });
-                    if (req.body.remember == "true") {
-                        res.cookie("rememberMe", "true", { maxAge: 1000 * 60 * 15 });
-                    }
-                    res.redirect("/");
-                } else { // si la contraseña no es correcta
-                    return res.status(401).send('Credenciales inválidas');
-                    // no está autorizado // https://http.cat/status/401
-                }
-            });
+            res.redirect("/");
         })
         .catch(err => {
             console.log(err);
             res.status(500).send('Error interno del servidor');
-            // https://http.cat/status/500
         });
         }
     },
