@@ -12,6 +12,8 @@ const cookieValidate = require('./middlewares/cookieValidate')
 const indexRouter = require('./routes/index')
 
 
+/* API's */
+const productsApiRouter = require('./routes/api/products');
 
 
 const app = express();
@@ -40,7 +42,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', detalleRouter);
 
-
+app.use(productsApiRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
