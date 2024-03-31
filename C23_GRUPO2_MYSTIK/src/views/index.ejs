@@ -37,33 +37,33 @@
       <!-- fin de carrusel -->
 
           <!-- SECCION PRODUCTOS -->
-    
           <section class="section-home">
-    
             <% productos.forEach(function(producto) { %>
                 <article class="home-article">
-                  <img class="article-img" src="/images/products/<%= producto.imagen_id %>" alt="">
-                  <div class="article-description">
-                    <h4 class="title-article"><%= producto.nombre %></h4>
-                    <p class="article-price"><%= producto.precio %></p>
-                    <p class="article-pay"><%= producto.descripcion %></p>
-                    <a href="productos/detalle/<%= producto.id %>">VER COLECCIÓN</a>
-                  </div>
+                    <a href="/productos/detalle/<%= producto.id %>">
+                        <img class="article-img" src="/images/products/<%= producto.imagen_id %>" alt="">
+                        <div class="article-description">
+                            <h4 class="title-article"><%= producto.nombre %></h4>
+                            <p class="article-price">$ <%= producto.precio %></p>
+                            <p class="article-pay"><%= producto.descripcion %></p>
+                            <a class="detalle-texto" href="/productos/detalle/<%= producto.id %>">VER DETALLE</a>
+                        </div>
+                    </a>
                 </article>
-              <% }); %>
-    
-          </section>
-    
+            <% }); %>
+        </section>
+
           <!-- fin de sección productos -->
     
           <!-- ASIDE ESPECIAL -->
-    
+          <div class="color-fondo-colecciones">
+          <h2 class="colecciones-text"> COLECCIONES </h2>
+          </div>
           <aside class="home-aside">
     
             <section class="section-aside">
-    
                 <div class="img-aside">
-                    <a href="#"><img src="/images/products/productoColeccion.jpg"    alt=""></a> 
+                    <a href="#"><img src="/images/products/banner1.jpg"    alt=""></a> 
                 </div>
     
                 <div class="description-aside">
@@ -76,7 +76,7 @@
             <section class="section-aside">
     
                 <div class="img-aside">
-                    <a href="#"><img src="/images/products/collectionDibujo.jpg" alt=""></a>
+                    <a href="#"><img src="/images/products/Banner2.jpg" alt=""></a>
                 </div>
     
                 <div class="description-aside">

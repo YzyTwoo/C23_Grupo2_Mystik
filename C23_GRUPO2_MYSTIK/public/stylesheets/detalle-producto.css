@@ -273,8 +273,7 @@
 
 /* CAJA contenedora de la IMAGEN del producto recomendado */
 .img-card{
-    width: 170px;
-    height: 240px;
+    height: 300px;
 }
 
 /* CAJA PADRE DE (text-product - sox-interest-free and buttons-card) */
@@ -454,8 +453,7 @@
     }
 
     .img-card{
-        width: 100%;
-        height: 340px;
+        height: 300px;
     }
 
     .text-product{
