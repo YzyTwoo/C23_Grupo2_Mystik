@@ -1,11 +1,8 @@
 const {body} = require ('express-validator');
-const {leerArchivo}= require('../database/dbLogica');
 const db = require('../database/models')
 
 module.exports =[
     body('nombre').notEmpty().withMessage("Debe ingresar un nombre").bail()
-        .isLength({min:3}).withMessage("El valor ingresado debe tener al menos 3 caracteres").bail(),
-    body('apellido').notEmpty().withMessage("Debe ingresar un apellido").bail()
         .isLength({min:3}).withMessage("El valor ingresado debe tener al menos 3 caracteres").bail(),
     body('email')
         .notEmpty().withMessage('Este campo es obligatorio').bail()

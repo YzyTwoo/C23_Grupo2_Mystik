@@ -2,7 +2,7 @@
 <header>
     <nav class="nav-general">
         <div class="scrolling-text">
-            <div class="scrolling-text-inner">MÍNIMO DE COMPRA $60.000 ENVIOS A TODO EL PAÍS</div>
+            <div class="scrolling-text-inner">MÍNIMO DE COMPRA $75.000 ENVIOS A TODO EL PAÍS💥60% OFF EN LA SEGUNDA PRENDA💣30% OFF EN TU PRIMERA COMPRA🔥PARTICIPA EN LOS SORTEOS REGISTRANDOTE</div>
         </div>
     </nav>
     <div class="header-top">
@@ -44,6 +44,9 @@
                         <ul>
                         <li id="user-name"><%= usuario.nombre %></li>
                         <li><a class="user-menu" href="/users/editar/<%=usuario.id%>">Perfil</a></li>
+                        <% if (locals.usuario && usuario.roles_id == 1) {%>
+                            <li><a class="user-menu" href="/productos/dashboard">Dashboard</a></li>
+                            <% } %>
                         <li><a class="user-menu" href="/users/logout">Cerrar sesion</a></li>
                         </ul>
                     </div>
@@ -56,6 +59,6 @@
     </div>
 
     <div class="container-circle-up">
-        <a href="#"><i class="fa-solid fa-caret-up"></i></a>
+        <a href="#"><i class="fa-solid fa-circle-up fa-caret-up"></i></a>
     </div>
 </header>

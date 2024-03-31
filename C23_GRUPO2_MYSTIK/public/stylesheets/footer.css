@@ -4,6 +4,7 @@ footer{
 .a__bold{
     font-weight: bold;
     color: var(--color-blanco);
+    text-decoration: none;
 }
 .section__footer__nav {
     background-color: var(--color-negro);
@@ -33,6 +34,7 @@ footer{
     margin:20px 0px ;
 }
 .a__nav__footer {
+    text-decoration: none;
     color: var(--color-gris-oscuro);
     transition: all 600ms;
 }
@@ -198,6 +200,7 @@ footer{
     }
     .fa-globe{
         margin-right: 8px;
+        margin-bottom: 15px;
     }
     .bottom__nav__izquierdo span{
         margin-right: 40px;

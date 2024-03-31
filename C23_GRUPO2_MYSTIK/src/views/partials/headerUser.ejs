@@ -1,42 +1,42 @@
+
 <header>
     <nav class="nav-general">
-        <div>
-            <a href="#" class="line">+54 11 12345678 |</a>
-            <a href="#" class="line">consultas@mystikindumentaria.com |</a>
-            <a href="#">Ayuda</a>
+        <div class="scrolling-text">
+            <div class="scrolling-text-inner">MÍNIMO DE COMPRA $75.000 ENVIOS A TODO EL PAÍS💥60% OFF EN LA SEGUNDA PRENDA💣30% OFF EN TU PRIMERA COMPRA🔥PARTICIPA EN LOS SORTEOS REGISTRANDOTE</div>
         </div>
-        <div>
-            <% if(locals.usuario){ %>
-                <a class="line"><%= locals.usuario.nombre %></a>
-            <% }else{ %>
-            <a href="../users/registro" class="line">Crear Cuenta | </a>
-            <a href="../users/login" class="line">Iniciar Sesión</a>
-            <% } %>
-        </div>
-
-
     </nav>
     <div class="header-top">
         
-        <div class="navbar">
-            
-            <div class="dropdown">
+        <div class="navbar-header">
+            <div class="hamburguesa">
                 
-                <button class="dropbtn"><i class="fas fa-bars"></i></button>
-                <div class="dropdown-content">
-                    <a href="#"><strong>INICIO</strong></a> 
+                <button class="hamburguesabtn"><i class="fas fa-bars"></i></button>
+                <div class="hamburguesa-content">
+                    <a href="/"><strong>INICIO</strong></a> 
                     <a href="#"><strong>TIENDA</strong></a> 
                     <a href="#"><strong>COLECCIÓN</strong></a> 
                     <a href="#" class="line-end"><strong>POLITICA DE DEVOLUCIÓN</strong></a>
                 </div>
+
             </div>
-        
         </div>
         
         <div class="logo-container">
-            <a href="/"><img src="/images/LOGO/LogoDesktop/logo.svg" class="logo_general" alt=""></a>
-            <a href="/"><img src="/images/LOGO/LogoMobile/logo-mobile.svg" class="logo_mobile" alt="Logo"></a>
+            <a href="/"><img src="/images/LOGO/LogoDesktop/logo.svg" class="logo-general" alt=""></a>
+            <a href="/"><img src="/images/LOGO/LogoMobile/logo-mobile.svg" class="logo-mobile" alt="Logo"></a>
         </div>
-        
+        <div class="nav-desktop">
+            <a href="/">INICIO</a> 
+            <a href="/">TIENDA</a> 
+            <a href="/">COLECCIÓN</a>
+            <a href="/">POLITICA DE DEVOLUCIÓN</a>
+        </div>
+        <div class="search-cart">
+            <input type="text" placeholder="Buscar"><i class="fas fa-search"></i>
+        </div>
+    </div>
+
+    <div class="container-circle-up">
+        <a href="#"><i class="fa-solid fa-circle-up fa-caret-up"></i></a>
     </div>
 </header>
