@@ -28,22 +28,41 @@ header {
 
 /*NAV*/
 
+.img-background-login{
+    width: 349px;
+    background-image: url("/images/background-login.jpg");
+    background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center;
+}
 
 .menu-list {
+    width: 100%;
     list-style: none;
     display: flex;
     align-items: center;
-    padding: 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
+    margin-left: 14px;
+}
 
+.menu-list ul{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px
 }
 
 .menu-list li {
-    margin: 0px 5px 15px;
-    margin-top: 10px;
-    
+    margin: 0px 5px;
+    margin-top: 25px;
+}
+
+.menu-list li a {
+    text-decoration: none;
+    color: var(--color-violeta-claro);
+}
+
+#flecha{
+    margin-left: 9px;
 }
 
 /*LOGIN FORM*/
@@ -51,69 +70,57 @@ header {
 
 .class_cuadrado {
     width: 80%;
-    border-radius: 15px;
-    margin-left: 30px;
     border: 1px solid black;
 
 }
 
-
-.logo-vertical-form {
-    width: 10%;
+.container_logo_vertical_form{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 45%;
-    margin-top: 15px;
+    justify-content: center;
+    width: 100%;
 }
 
 .titulo_iniciar_sesion {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
+    text-align: center;
+}
+
+.login-form{
+    width: 100%;
 }
 
 .item-form {
-    margin-left: 40px;
-
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .p-errors{
     color: red;
     margin-left: 58px;
-    animation-duration: 550ms;
-    animation-name: error;
+    animation: error-animated 700ms ease-out 0s 1 normal forwards;
 }
-@keyframes error {
-    100% {
-    margin-left: 10%;
-    width: 100%;
-    }
+@keyframes error-animated {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
 
-    50% {
-    margin-left: 20%;
-    width: 100%;
-    }
-
-    0% {
-        margin-left: 10%;
-        width: 100%;
-        }
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 #name {
     margin-top: 10px;
-    border-radius: 15px;
     padding: 2px;
     margin-bottom: 10px;
     text-align: center;
-
-
 }
 
 #password {
     margin-top: 10px;
-    border-radius: 15px;
     padding: 2px;
     margin-bottom: 10px;
 }
@@ -122,41 +129,38 @@ header {
     margin-top: 5px;
     margin-bottom: 10px;
     font-size: 12px;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-
-
+    text-align: center;
 }
 
 .button-form {
-
-    background-color: #7E1FBA;
-    border-radius: 15px;
-    padding: 2px;
-    font-size: 15px;
-    opacity: 0.7;
-    transition: 0.6s;
-    color: white;
-    width: 80%;
-    justify-content: center;
-    margin-left: 30px;
-    margin-right: 60px;
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 10px;
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    background-color: #111111;
+    border-bottom: none;
+    border-style: none;
+    color: #fff;
+    padding: 5px 0px;
+    transition: background-color 0.3s ease;
 }
 
 .button-form:hover {
     cursor: pointer;
-    background-color: #511478;
+    background-color: #3a3a3a;
 }
 
 .register {
     margin-top: 8px;
     margin-bottom: 15px;
-    font-size: 12px;
-    text-align: center;
+}
+
+.register p{
+    font-size: 17px;
+}
+
+.register p a{
+    text-decoration: none;
+    color: var(--color-violeta-claro);
 }
 
 
@@ -173,101 +177,111 @@ header {
         margin-left: 5px;
     }
 
+    .register {
+        margin-top: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .register p{
+        font-size: 17px;
+    }
+    
+    .register p a{
+        text-decoration: none;
+        color: var(--color-violeta-claro);
+        transition: color 0.2s ease;
+    }
+
+    .register p a:hover{
+        text-decoration: none;
+        color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+    }
+
     .burger-menu {
         display: none;
     }
 
-    .class_cuadrado {
-        width: 80%;
-        margin: 0 40%;
-        border-radius: 15px;
-        margin-left: 10%;
-        border: 1px solid black;
-
+    .iniciar_main {
+        padding: 10px;
     }
 
-    .item-form {
-        margin-top: 40px;
-        margin-left: 10%;
+    .class_cuadrado {
+        width: 40%;
+        border: 1px solid black;
     }
 
     .titulo_iniciar_sesion {
-        font-size: 30px;
-        text-align: center;
-        margin-left: 50px;
+        font-size: 20px;
+        font-weight: bolder;
+        text-align: start;
+        margin-left: 137px;
     }
 
-    .logo-vertical-form {
-        width: 20%;
-        margin-top: 10px;
+    .menu-list {
+        width: 100%;
+        list-style: none;
+        display: flex;
         align-items: center;
+        margin-left: 100px;
+    }
+    
+    .menu-list ul{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px
+    }
+    
+    .menu-list li {
+        margin: -12px 5px;
+        margin-top: 25px;
+    }
+    
+    .menu-list li a {
+        text-decoration: none;
+        color: var(--color-violeta-claro);
     }
 
     #name {
         margin-top: 10px;
-        border-radius: 15px;
         padding: 5px;
         margin-bottom: 10px;
         text-align: center;
         font-size: 16px;
-        width: 80%;
+        width: 100%;
     }
 
     #password {
         margin-top: 10px;
-        border-radius: 15px;
         padding: 5px;
         margin-bottom: 20px;
         width: 80%;
     }
 
     .forget {
-        margin-top: 5px;
+        margin-top: 15px;
         margin-bottom: 30px;
-        font-size: 12px;
+        font-size: 17px;
         display: grid;
         justify-content: center;
-        align-items: center;
     }
-
-    .button-form {
-
-        background-color: #7E1FBA;
-        border-radius: 15px;
-        padding: 2px;
-        font-size: 15px;
-        opacity: 0.7;
-        transition: 0.6s;
-        color: white;
-        width: 80%;
-        justify-content: center;
-        margin-left: 60px;
-        margin-right: 90px;
-        margin-bottom: 20px;
-        text-align: center;
-        font-size: 10px;
-    }
-
-    .button-form:hover {
-        cursor: pointer;
-        background-color: #511478;
+    
+    .forget a{
+        color: var(--color-violeta-claro);
+        text-decoration: none;
     }
 
     .register {
+        display: grid;
+        justify-content: center;
         margin-top: 20px;
-        margin-bottom: 15px;
-        font-size: 15px;
+        margin-bottom: 30px;
+        font-size: 20px;
         text-align: center;
     }
 
-
-}
-
-
-@media(min-width:1024px) {
-
     .recuerdame-div{
-        margin-left: 11%;
+        margin-bottom: 15px;
+        margin-left: 30%;
     }
 
     .recuerdame-label{
@@ -282,10 +296,12 @@ header {
     .recuerdame-input{
         cursor: pointer;
     }
-    .iniciar_main {
-        margin-left: 10%;
-        padding: 10px;
-    }
+
+
+}
+
+
+@media(min-width:1024px) {
 
     .logo_mobile {
         display: none;
@@ -303,88 +319,11 @@ header {
         display: none;
     }
 
-    .class_cuadrado {
-        width: 90vh;
-        margin: 0 40%;
-        border-radius: 15px;
-        margin-left: 20%;
-        border: 1px solid black;
-    }
-
-    .item-form {
-        margin-top: 40px;
-    }
-
-    .titulo_iniciar_sesion {
-        font-size: 30px;
-        text-align: center;
-        margin-left: 50px;
-    }
-
-    .logo-vertical-form {
-        width: 20%;
-        margin-top: 10px;
-        display: grid;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #name {
-        margin-top: 10px;
-        border-radius: 15px;
-        padding: 5px;
-        margin-bottom: 10px;
-        text-align: center;
-        font-size: 16px;
-        width: 90%;
-    }
-
     #password {
         margin-top: 10px;
         border-radius: 15px;
         padding: 5px;
         margin-bottom: 20px;
         width: 90%;
-    }
-
-    .forget {
-        margin-top: 5px;
-        margin-bottom: 30px;
-        font-size: 15px;
-        display: grid;
-        justify-content: center;
-
-    }
-
-    .button-form {
-
-        background-color: #7E1FBA;
-        border-radius: 15px;
-        padding: 2px;
-        font-size: 15px;
-        opacity: 0.7;
-        transition: 0.6s;
-        color: white;
-        width: 80%;
-        justify-content: center;
-        margin-left: 60px;
-        margin-right: 90px;
-        margin-bottom: 20px;
-        text-align: center;
-        font-size: 10px;
-    }
-
-    .button-form:hover {
-        cursor: pointer;
-        background-color: #511478;
-    }
-
-    .register {
-        display: grid;
-        justify-content: center;
-        margin-top: 20px;
-        margin-bottom: 30px;
-        font-size: 20px;
-        text-align: center;
     }
 }

@@ -1,11 +1,11 @@
 @import url("footer.css");
 @import url("general.css");
-@import url("header.css");
 @import url("index.css");
 @import url("carrito.css");
 @import url("detalle-producto.css");
 @import url("login.css");
 @import url("registro.css");
+@import url("header.css");
 @import url("editproduct.css");
 @import url("cargaProducto.css");
 @import url("dashboard.css");
