@@ -47,28 +47,25 @@ const usersControllers = {
         });
         }
     },
-    createUsers: (req,res)=>{
+    createUsers: (req, res) => {
         const errors = validationResult(req)
-
+    
         if (errors.isEmpty()) {
-            const { nombre ,apellido,email,telefono,contrasenia, roles_id, imagen} = req.body;
-            const file = req.file;
-            const user ={
+            const { nombre, email, contrasenia } = req.body;
+            const user = {
                 nombre: nombre.trim(),
-                apellido: apellido.trim(),
                 email: email.trim(),
-                telefono,
-                imagen: imagen ? imagen.filename : "default.png",
-                contrasenia: bcrypt.hashSync(contrasenia,10),
-                roles_id: roles_id ? roles_id : 1
-            }
+                contrasenia: bcrypt.hashSync(contrasenia, 10),
+                roles_id: 2
+            };
+    
             db.Usuario.create(user)
-            .then( user => {
-                res.redirect('/users/login')
-            })
-            .catch(err => console.log(err))
-        }else{
-            return res.render('users/registro',{old:req.body, errors:errors.mapped()})
+                .then(user => {
+                    res.redirect('/users/login');
+                })
+                .catch(err => console.log(err));
+        } else {
+            return res.render('users/registro', { old: req.body, errors: errors.mapped() });
         }
     },
     perfil: (req, res) => {
