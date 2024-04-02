@@ -112,17 +112,20 @@ header {
 		transform: translateY(0);
 	}
 }
-#name {
+
+.input-form{
     margin-top: 10px;
     padding: 2px;
     margin-bottom: 10px;
     text-align: center;
 }
 
-#password {
+#contrasenia {
     margin-top: 10px;
     padding: 2px;
     margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+    
 }
 
 .forget {
@@ -241,7 +244,7 @@ header {
         color: var(--color-violeta-claro);
     }
 
-    #name {
+    .input-form {
         margin-top: 10px;
         padding: 5px;
         margin-bottom: 10px;
@@ -250,11 +253,24 @@ header {
         width: 100%;
     }
 
-    #password {
+    .password-container {
+        position: relative;
+        width: 100%;
+    }
+    
+    #togglePassword {
+        position: absolute;
+        top: 50%;
+        left: 514px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    #contrasenia {
         margin-top: 10px;
-        padding: 5px;
-        margin-bottom: 20px;
-        width: 80%;
+        padding: 2px;
+        margin-bottom: 10px;
+        transition: background-color 0.3s ease;
     }
 
     .forget {
