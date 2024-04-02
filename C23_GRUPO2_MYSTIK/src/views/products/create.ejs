@@ -9,17 +9,18 @@
                 <h1 class="titulo-producto">Carga de productos</h1>
                 <section class="section-form">
 
-                    <form action="/productos/create" method="POST" class="form-product" enctype="multipart/form-data">
+                    <form action="/productos/create" method="POST" class="form-product" enctype="multipart/form-data" id="form-id">
                         <div class="div-form">
                             <label class="subtitulo">Cargar imagen del producto</label>
 
                             <input type="file" name="imagen_id" id="imagen_id" accept="image/*">
-
+                            <p class="local_error" ><%= locals.errors && errors.imagen_id? errors.imagen_id.msg : null %></p>
                             <input type="text" name="nombre" placeholder="Nombre" id="nombre"required>
-
+                            <p class="local_error" ><%= locals.errors && errors.nombre? errors.nombre.msg : null %></p>
                             <input type="text" name="precio" id="precio" placeholder="Precio" required>
-
+                            <p class="local_error" ><%= locals.errors && errors.precio? errors.precio.msg : null %></p>
                             <textarea name="descripcion" id="descripcion" placeholder="Descripción"></textarea required>
+                            <p class="local_error" ><%= locals.errors && errors.descripcion? errors.descripcion.msg : null %></p>
                             </div>
 
                             <label class="talle-titulo">Talle</label>

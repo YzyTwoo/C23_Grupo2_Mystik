@@ -4,6 +4,7 @@ const multer = require('multer');
 const {detalleProducts, cargaProducto, dashboard, formEditarProducto, editarProducto, carritoProducts, viewProducts, vistacrear, create, destroy} = require('../controllers/productosControllers');
 const isAdminValidate = require('../middlewares/isAdminValidate');
 const sessionValidate = require('../middlewares/sessionValidate');
+const createProductValidator = require('../validations/createProductValidator');
 const path = require('path');
 
 
@@ -34,7 +35,7 @@ router.post('/cargaProducto', isAdminValidate, cargaProducto);
 
 
 router.get('/create', isAdminValidate, vistacrear);
-router.post('/create', isAdminValidate, uploadFile.single('imagen_id'), create);
+router.post('/create', isAdminValidate, uploadFile.single('imagen_id'), createProductValidator, create);
 
 router.delete('/delete/:id', isAdminValidate, destroy); 
 

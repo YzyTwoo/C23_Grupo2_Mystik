@@ -111,6 +111,9 @@
     width: 80px;
 }
 
+.isInvalid{
+    background-color: crimson;
+}
 
 @media (min-width: 768px) {
 
