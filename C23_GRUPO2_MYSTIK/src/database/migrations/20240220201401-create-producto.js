@@ -15,10 +15,10 @@ module.exports = {
         allowNull: false
     },
     imagen_id: {
-      type: Sequelize.STRING(255),
+      type: DataType.STRING(255),
     },
     precio:{
-        type: DataType.DECIMAL(6,2),
+        type: DataType.DECIMAL(10,2),
         allowNull: false,
         unsigned: true
     },
@@ -27,7 +27,7 @@ module.exports = {
         allowNull: false,
     },
     stock:{
-        type: DataType.STRING(45),
+        type: DataType.SMALLINT,
         allowNull: true
     },
     talles_id: {
