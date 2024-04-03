@@ -81,11 +81,7 @@
 .nav-general {
     display: none;
 }
-.errores{
-    color: blue;
-    margin-bottom: 8px;
-    font-size: 13px;
-    }
+
 
 @media (min-width: 768px) {
     .main_edit {
@@ -206,6 +202,11 @@
     }
     .nav-general {
         display: none;
+    }
+    .errores{
+        color: blue;
+        margin-bottom: 8px;
+        font-size: 13px;
     }
     
 }

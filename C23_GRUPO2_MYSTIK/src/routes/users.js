@@ -8,6 +8,7 @@ const validationLogin = require('../validations/validacionLogin');
 const profileValidator = require('../validations/profileValidator');
 const sessionValidate = require('../middlewares/sessionValidate');
 
+
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
         cb(null,(path.join(__dirname,"../","../","/public/images/users")))

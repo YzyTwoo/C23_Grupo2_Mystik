@@ -16,4 +16,4 @@ module.exports =[
     .isLength({min:6, max:21}).withMessage('El valor ingresado debe tener al menos 6 y maximo 21 caracteres').bail(),
 
     body('contrasenia').isLength({max:30}).withMessage('La contraseña debe tener maximo 30 caracteres')
-]
+] 
