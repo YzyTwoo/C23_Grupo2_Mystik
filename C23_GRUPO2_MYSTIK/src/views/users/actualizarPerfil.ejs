@@ -2,7 +2,7 @@
 
 <%- include('../partials/heads.ejs', {title: 'Actualizar Perfil'}) %>
 <link rel="stylesheet" href="/stylesheets/editarUsuario.css">
-<script src="/js/profileValidator.js"> </script>
+
 <body>
     <!-- header -->
 <%- include('../partials/headerProduct.ejs') %>
@@ -20,13 +20,13 @@
 
             <div class="form_email">
                 <label class="label_form" for="email">Email:</label>
-                <input type="text" class="form_input" id="email"  name="email" value="<%= locals.user ? user.email : locals.old && old.email ? old.email : null %>">
+                <input type="text" class="form_input" id="validacion-email"  name="email" value="<%= locals.user ? user.email : locals.old && old.email ? old.email : null %>">
                 <p class="local_error" id="emailErrors" > <%= locals.errors && errors.email ? errors.email.msg : null %> </p>
             </div>
 
             <div class="form_telefono">
                 <label class="label_form" for="telefono">Teléfono:</label>
-                <input type="text" class="form_input" id="telefono"  name="telefono" value="<%= locals.user ? user.telefono : locals.old && old.telefono ? old.telefono : null %>">
+                <input type="text" class="form_input" id="validacion-telefono"  name="telefono" value="<%= locals.user ? user.telefono : locals.old && old.telefono ? old.telefono : null %>">
                 <p class="local_error" id="telefonoErrors"> <%= locals.errors && errors.telefono ? errors.telefono.msg : null %> </p>
             </div>
 
@@ -56,7 +56,7 @@
 
             <div class="form_password">
                 <label class="label_form" for="password">Crear nueva contraseña:</label>
-                <input type="password" class="form_input" id="contraseña" name="contrasenia"
+                <input type="password" class="form_input" id="contrasenia" name="contrasenia"
                 <p class="local_error"> <%= locals.errors && errors.contrasenia ? errors.contrasenia.msg : null %> </p>
             </div>
             </div>
@@ -71,9 +71,7 @@
             <button type="submit" class="update_perfil">Actualizar Perfil</button>
             </div>
 
-            <div >
-                <ul class="errores" id="errores"></ul>
-            </div>
+            
             
         </form>
     </main>

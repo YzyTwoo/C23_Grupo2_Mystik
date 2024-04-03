@@ -1,12 +1,12 @@
-
+/* 
 window.onload = function (){
-    let formulario = document.querySelector("#form-profile")
+    let formulario = document.getElementById("form-profile")
 
     formulario.addEventListener("submit",function(e){
        
-        let nombre = document.querySelector("#nombre");
-        let email = document.querySelector("#email");
-        let telefono = document.querySelector("#telefono");
+        let nombre = document.getElementById("nombre");
+        let emailInput = document.getElementById("email");
+        let telefono = document.getElementById("telefono");
 
         let errores = [];
 
@@ -14,128 +14,104 @@ window.onload = function (){
 
         if (nombre.value == ""){
             errores.push("Debe ingresar un nombre");
+            return false
         }
         else if (nombre.value.length <=3){
             errores.push("El valor ingresado debe tener al menos 3 caracteres");
+            return false
         }
-        if (email.value == ""){
-            errores.push("Debe ingresar un email");
+
+
+        const email = emailInput.value.trim();
+        const expresionRegularEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email === '') {
+            e.preventDefault();
+            errores.push('Por favor ingresa tu email.');
+            return false;
+        } else if (!expresionRegularEmail.test(email)) {
+            e.preventDefault();
+            errores.push('Por favor ingresa un email válido');
+            return false;
         }
         
         if (telefono.value == ""){
             errores.push("Debe ingresar un telefono");
+            return false
         }
         else if (telefono.value.length < 6 || telefono.value.length > 21){
             errores.push("El valor ingresado debe tener al menos 6 y maximo 21 caracteres");
+            return false
         }
 
         if(errores.length > 0 ){
             e.preventDefault();
 
-            let ulErrores = document.querySelector("#errores")
+            let ulErrores = document.getAnimations("errores")
 
             for (let i = 0; i < errores.length; i++){
 
-                ulErrores.innerHTML += "<li>" + errores[i] +"</li>"
+                ulErrores.innerHTML + "<li>" + errores[i] +"</li>"
             }
         }
     })
-} 
+}  */
 
-/* function qs(element) {
-    return document.querySelector(element)
+window.onload = function(){
+
+   function validarRegistro(e) {
+       const nombreInput = document.getElementById('validacion-nombre');
+       const emailInput = document.getElementById('validacion-email');
+       const telefonoInput = document.getElementById('validacion-telefono');
+       
+
+       if (nombreInput.value.trim() === '') {
+           e.preventDefault();
+           Swal.fire("Debe ingresar un nombre a");
+           return false;
+       }
+
+       if (nombreInput.value.length < 3) {
+           e.preventDefault();
+           Swal.fire("Su nombre debe tener al menos 3 caracteres");
+           return false;
+       }
+
+       const email = emailInput.value.trim();
+       const expresionRegularEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+       if (email === '') {
+           e.preventDefault();
+           Swal.fire('Por favor ingresa tu email.');
+           return false;
+       } else if (!expresionRegularEmail.test(email)) {
+           e.preventDefault();
+           Swal.fire('Por favor ingresa un email válido');
+           return false;
+       }
+       
+       if (telefonoInput.value.trim() === '') {
+        e.preventDefault();
+        Swal.fire("Debe ingresar un numero de telefono");
+        return false;
+    }
+
+    if (telefonoInput.value.length < 6 || telefonoInput.value.length >21) {
+        e.preventDefault();
+        Swal.fire("El valor ingresado debe tener al menos 6 y maximo 21 caracteres");
+        return false;
+    }
+
+      
+      
+       Swal.fire({
+           icon: 'success',
+           timer: 10000
+       })
+
+       return true;
+   }
+
+   const formularioRegistro = document.getElementById('form-profile');
+   formularioRegistro.addEventListener('submit', validarRegistro);
 }
-
-window.addEventListener('load', function () {
-
-    let $email = qs('#email'),
-    $emailErrors = qs('#emailErrors'),
-    $nombre = qs('#nombre'),
-    $nombreErrors = qs('#nombreErrors'),
-    $telefono = qs('#telefono'),
-    $telefonoErrors = qs('#telefonoErrors'),
-    $form = qs('#form'),
-    regExEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
-    regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$/;
-
-
-    let validationsErrors = false
-
-
-    $email.addEventListener('blur', function(){
-        switch (true) {
-            case !$email.value.trim():
-                $emailErrors.innerHTML = 'El campo email es obligatorio <i id="warning" class="fas fa-engine-warning"></i>'
-                $email.classList.add('invalid')
-                $email.classList.remove('valid')
-                validationsErrors = true
-                break;
-            case !regExEmail.test($email.value):
-                $emailErrors.innerHTML = 'Debe ingresar un email válido <i id="warning" class="fas fa-engine-warning"></i>'
-                $email.classList.add('invalid')
-                $email.classList.remove('valid')
-                validationsErrors = true
-                break;    
-            default:
-                $email.classList.remove("invalid");
-                $email.classList.add('valid')
-                $emailErrors.innerHTML = '<i class="fas fa-check-circle"></i>'
-                validationsErrors = false
-                break;
-        }
-    })
-
-
-    $telefono.addEventListener('blur', function(){
-        switch (true) {
-            case !$telefono.value.trim():
-                $telefonoErrors.innerHTML = 'El campo contraseña es obligatorio <i id="warning" class="fas fa-engine-warning"></i>'
-                $telefono.classList.add('invalid')
-                $telefono.classList.remove('valid')
-                validationsErrors = true
-                break;
-            case !regExPass.test($telefono.value):
-                $telefonoErrors.innerHTML = 'La contraseña debe tener: entre 6 o 12 caracteres, al menos una mayúscula, una minúscula y un número <i id="warning" class="fas fa-engine-warning"></i>';
-                $telefono.classList.add('invalid')
-                $telefono.classList.remove('valid')
-                validationsErrors = true
-                break;    
-            default:
-                $telefono.classList.remove("invalid");
-                $telefono.classList.add('valid')
-                $telefonoErrors.innerHTML = '<i class="fas fa-check-circle"></i>'
-                validationsErrors = false
-                break;
-        }
-    })
-
-
-
-    $form.addEventListener('submit', function(e) {
-        e.preventDefault()
-        
-        let error = false
-        let elementsForm = this.elements
-
-        console.log(elementsForm)
-
-        for(let index = 0; index < elementsForm.length-3; index++){
-            if(elementsForm[index].value == ""
-            ){
-                elementsForm[index].classList.add('invalid')
-                $pass.classList.add('invalid')
-                submitErrors.innerHTML = 'Los campos señalados son obligatorios'
-                error = true
-            }
-        }
-
-
-        if(!error && !validationsErrors){
-            $form.submit()
-        }
-        
-    })
-
-
-})
- */
