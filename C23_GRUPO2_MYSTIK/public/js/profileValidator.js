@@ -39,7 +39,7 @@ window.onload = function(){
             Swal.fire({
                 icon: 'error',
                 title: 'Errores',
-                html: /*  '<ul>' + errores.map(error => `<li>${error}</li>`).join('') + '</ul>' */ "Debes completar los campos" + errores.map(error => `<li>${error}</li>`).join('') 
+                html:  "Debes completar los campos" + errores.map(error => `<li>${error}</li>`).join('') 
             });
             return false;
         }
