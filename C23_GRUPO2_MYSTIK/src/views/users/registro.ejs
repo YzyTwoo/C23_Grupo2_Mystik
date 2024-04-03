@@ -1,96 +1,47 @@
-<!-- head -->
-
 <%- include('../partials/heads.ejs') %>
-<link rel="stylesheet" href="/stylesheets/registro.css">
 <body>
 <!-- header -->
-
 <%- include('../partials/headerUser.ejs') %>
-<section class="inicio_body">
-    <a href="" class="inicio_header">Inicio ></a>
-    <a href="" class="crear_cuenta_header"> Crear Cuenta</a>
-    </section>
-<main class="registro_main">
-    <fieldset class="fielset_class">
-        <div class="logo_imagen_section">
-        <img src="/images/LOGO/LogoMobile/logo-mobile.svg" alt="Logo Mystik" width="40px">
+
+<div>
+    <nav class="menu-list">
+        <ul>
+            <li><a href="/">Inicio</a><i class="fa-solid fa-chevron-right fa-2xs" id="flecha"></i></li>
+            <li><a href="">Registro</a></li>
+        </ul>
+    </nav>
+    <p class="titulo_iniciar_sesion">Crear cuenta</p>
+</div>
+
+<main class="iniciar_main">
+    <form action="/users/registro" method="POST" enctype="multipart/form-data" class="login-form" id="formularioRegistro">
+        <div class="item-form">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="input-form" name="nombre" id="nombre" autocomplete="current-password" value="<%= locals.old && old.nombre ? old.nombre : null %>">
+            <p class="p-errors"><%= locals.errors && errors.nombre ? errors.nombre.msg : null %></p>
+
+            <label for="email">Email</label>
+            <input type="text" class="input-form" name="email" id="email" autocomplete="current-password" value="<%= locals.old && old.email ? old.email : null %>">
+            <p class="p-errors"><%= locals.errors && errors.email ? errors.email.msg : null %></p>
+            
+            <label for="contrasenia">Contraseña</label>
+            <div class="password-container">
+                <input type="password" class="input-form" name="contrasenia" id="contrasenia" placeholder="Ingrese su contraseña" autocomplete="current-password">
+                <i id="togglePassword" class="fas fa-eye"></i>
+            </div>
+            <p class="p-errors"><%= locals.errors && errors.contrasenia ? errors.contrasenia.msg : null %></p>
+            
+            <div class="container-input-file">
+                <label for="imagen" class="form-label">Seleccione una imagen de perfil:</label>
+                <input name="imagen" id="imagen" class="form-input" type="file" multiple>
+            </div>
         </div>
-        <form action="/users/registro" method="post" enctype="multipart/form-data" >
-            <section class="cuadrado_bordes">
-            <h2 class="titulo_cuenta">Crear cuenta</h2>
-            <h4 class="descripcion_cuenta">Comprá más rápido y lleva el control de tus compras</h4>
-            <section class="formulario_section">
-                <div class="nombre_div">
-                <p>
-                <label for="nombre">Nombre</label>
-                </p>
-                <input id="cuadro_texto" type="text" name="nombre" value="<%= locals.old && old.nombre ? old.nombre : null %>">
-                <small class="text-danger d-flex">
-                    <%= locals.errors && errors.nombre ? errors.nombre.msg : null %>
-                </small>
-                </div>
-                <div class="nombre_div">
-                    <p>
-                    <label for="apellido">Apellido</label>
-                    </p>
-                    <input id="cuadro_texto" type="text" name="apellido" value="<%= locals.old && old.apellido ? old.apellido : null %>">
-                    <small class="text-danger d-flex">
-                        <%= locals.errors && errors.apellido ? errors.apellido.msg : null %>
-                    </small>
-                    </div>
-                <div class="email_div">
-                <p>
-                <label for="email">Email</label>
-                </p>
-                <input id="cuadro_texto" type="email" name="email" value="<%= locals.old && old.email ? old.email : null %>">
-                <small class="text-danger d-flex">
-                    <%= locals.errors && errors.email ? errors.email.msg : null %>
-                </small>
-                </div>
-                <% if (locals.usuario && usuario.roles_id == "admin") {%>
-                <div class="email_div">
-                    <p>
-                    <label for="roles_id">Rol</label>
-                    </p>
-                    <input id="cuadro_texto" type="rol" name="roles_id" value="<%= locals.old && old.roles_id ? old.roles_id : null %>">
-                    <small class="text-danger d-flex">
-                        <%= locals.errors && errors.roles_id ? errors.roles_id.msg : null %>
-                    </small>
-                    </div>
-                <% } %>
-                <div class="telefono_div">
-                <p>
-                <label for="telefono">Teléfono (opcional)</label>
-                </p>
-                <input id="cuadro_texto" type="text" name="telefono" value="<%= locals.old && old.telefono ? old.telefono : null %>">
-                </div>
-                <div class="contraseña_div">
-                <p>
-                <label for="contrasenia">Contraseña</label>
-                </p>
-                <input id="cuadro_texto" type="password" name="contrasenia">
-                <small class="text-danger d-flex">
-                    <%= locals.errors && errors.contrasenia ? errors.contrasenia.msg : null %>
-                </small>
-                </div>
-
-                <div class="telefono_div">
-                    <label for="description" class="form-label">Seleccione una imagen de perfil:</label>
-                    <input name="imagen" id="imagen" class="form-input" type="file" multiple></input>
-                </div>
-
-            </section>
-                <div class="boton_registro_div">
-                <a href=""><input id="boton_enviar" type="submit" value="Registrarse"></a>
-                </div>
-                <div class="abajo_formulario">
-                    <p class="formulario_pregunta">¿Ya tenés una cuenta? |</p>
-                    <a href="/users/login" class="inicia_sesion">Inicia sesión</a>
-                </div>
-            </section>
-        </form>
-    </fieldset>
+        
+        <button class="button-form" type="submit">Registrarse</button>
+        <div class="forget">
+            <p>¿Ya tenés una cuenta? <a href="/users/login">Inicia sesión</a></p>
+        </div>
+    </form>
 </main>
 </body>
-
 </html>

@@ -27,7 +27,7 @@ module.exports = {
         allowNull: false,
     },
     stock:{
-        type: DataType.STRING(45),
+        type: DataType.SMALLINT,
         allowNull: true
     },
     talles_id: {
