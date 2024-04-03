@@ -1,16 +1,14 @@
-
 const db = require('../database/models');
 
 
- const productsController = {
-  allProducts: (req, res) => {
-    db.Producto.findAll()
-      .then(productos => {
+ const userController = {
+  allUsers: (req, res) => {
+    db.Usuario.findAll()
+      .then(usuarios => {
         res.status(200).json({
           status: 200,
-          totalProductos: productos.length,
-          todosLosProductos: productos,
-          categorias:productos.categorias_id,
+          totalUsuarios:usuarios.length,
+          usuarios:usuarios,
         })
     
       })
@@ -19,12 +17,12 @@ const db = require('../database/models');
         res.status(500).json({ message: error.message });
       });
   },
-  productByID: (req,res) =>{
-    db.Producto.findByPk(req.params.id)
-      .then(producto => {
+  usersByID: (req,res) =>{
+    db.Usuario.findByPk(req.params.id)
+      .then(usuario => {
         res.status(200).json({
           status: 200,
-          producto:producto
+          usuario:usuario
         })
     
       })
@@ -35,7 +33,5 @@ const db = require('../database/models');
   }
 }
 
-module.exports = productsController
 
-
-
+module.exports = userController
