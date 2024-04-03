@@ -13,7 +13,7 @@ window.onload = function(){
             errores.push("Debe ingresar un nombre");
         }
  
-        if (nombreInput.value.length < 3) {
+        else if (nombreInput.value.length < 3) {
             errores.push("Su nombre debe tener al menos 3 caracteres");
         }
  
@@ -30,7 +30,7 @@ window.onload = function(){
             errores.push("Debe ingresar un número de teléfono");
         }
  
-        if (telefonoInput.value.length < 6 || telefonoInput.value.length > 21) {
+        else if (telefonoInput.value.length < 6 || telefonoInput.value.length > 21) {
             errores.push("El valor del telefono debe tener al menos 6 y máximo 21 caracteres");
         }
  
