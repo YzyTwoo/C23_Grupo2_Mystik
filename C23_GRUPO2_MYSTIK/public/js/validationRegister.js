@@ -1,5 +1,8 @@
 window.onload = function(){
      // efecto visual de seguridad
+    const nombreInput = document.getElementById('nombre');
+    const emailInput = document.getElementById('email');
+    const avatarInput = document.getElementById('imagen')
     const passwordInput = document.getElementById('contrasenia');
     const togglePassword = document.getElementById('togglePassword');
 
@@ -119,6 +122,25 @@ window.onload = function(){
         return true;
     }
 
+    function validarInputBlur(inputElement) {
+        inputElement.addEventListener('blur', function() {
+            const valor = this.value.trim();
+                if (valor === '') {
+            // Si el campo está vacío, mostrar una alerta
+            alert('Este campo no puede estar vacío.');
+            } else if (valor.length < 5) {
+            // Si el valor ingresado es demasiado corto, mostrar una alerta
+            alert('El valor ingresado es demasiado corto. Por favor, ingrese al menos 5 caracteres.');
+        }
+        });
+    }
+
+    validarInputBlur(nombreInput)
+    validarInputBlur(emailInput)
+    validarInputBlur(passwordInput)
+
     const formularioRegistro = document.getElementById('formularioRegistro');
     formularioRegistro.addEventListener('submit', validarRegistro);
+
+
 }
