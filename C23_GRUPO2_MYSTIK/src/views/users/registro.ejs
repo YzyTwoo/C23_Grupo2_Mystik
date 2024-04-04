@@ -18,18 +18,18 @@
         <div class="item-form">
             <label for="nombre">Nombre</label>
             <input type="text" class="input-form" name="nombre" id="nombre" autocomplete="current-password" value="<%= locals.old && old.nombre ? old.nombre : null %>">
-            <p class="p-errors"><%= locals.errors && errors.nombre ? errors.nombre.msg : null %></p>
+            <p class="p-errors" id="p-errors-nombre"><%= locals.errors && errors.nombre ? errors.nombre.msg : null %></p>
 
             <label for="email">Email</label>
             <input type="text" class="input-form" name="email" id="email" autocomplete="current-password" value="<%= locals.old && old.email ? old.email : null %>">
-            <p class="p-errors"><%= locals.errors && errors.email ? errors.email.msg : null %></p>
+            <p class="p-errors" id="p-errors-email"><%= locals.errors && errors.email ? errors.email.msg : null %></p>
             
             <label for="contrasenia">Contraseña</label>
             <div class="password-container">
                 <input type="password" class="input-form" name="contrasenia" id="contrasenia" placeholder="Ingrese su contraseña" autocomplete="current-password">
                 <i id="togglePassword" class="fas fa-eye"></i>
             </div>
-            <p class="p-errors"><%= locals.errors && errors.contrasenia ? errors.contrasenia.msg : null %></p>
+            <p class="p-errors" id="p-errors-contrasenia"><%= locals.errors && errors.contrasenia ? errors.contrasenia.msg : null %></p>
             
             <div class="container-input-file">
                 <label for="imagen" class="form-label">Seleccione una imagen de perfil:</label>

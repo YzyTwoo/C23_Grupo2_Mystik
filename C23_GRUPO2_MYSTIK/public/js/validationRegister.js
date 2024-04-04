@@ -54,7 +54,7 @@ window.onload = function(){
 
         if (email === '') {
             e.preventDefault();
-            Swal.fire('Por favor ingresa tu email.');
+            Swal.fire('Por favor ingresa un email.');
             return false;
         } else if (!expresionRegularEmail.test(email)) {
             e.preventDefault();
@@ -122,22 +122,58 @@ window.onload = function(){
         return true;
     }
 
-    function validarInputBlur(inputElement) {
-        inputElement.addEventListener('blur', function() {
-            const valor = this.value.trim();
-                if (valor === '') {
-            // Si el campo está vacío, mostrar una alerta
-            alert('Este campo no puede estar vacío.');
-            } else if (valor.length < 5) {
-            // Si el valor ingresado es demasiado corto, mostrar una alerta
-            alert('El valor ingresado es demasiado corto. Por favor, ingrese al menos 5 caracteres.');
-        }
+    function ValidarInputNombre(input, pErrorId) {
+        input.addEventListener('blur', function() {
+            const valorQueLlega = this.value.trim();
+            const mensajeError = document.getElementById(pErrorId);
+    
+            if (valorQueLlega === '') {
+                mensajeError.innerText = 'Por favor ingresa un nombre.';
+            } else if (valorQueLlega.length < 2) {
+                mensajeError.innerText = 'El nombre debe tener al menos 2 caracteres.';
+            } else {
+                mensajeError.innerText = '';
+            }
+        });
+    }
+    
+    function ValidarInputEmail(input, pErrorId) {
+        input.addEventListener('blur', function() {
+            const valorQueLlega = this.value.trim();
+            const mensajeError = document.getElementById(pErrorId);
+            const expresionRegularEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+            if (valorQueLlega === '') {
+                mensajeError.innerText = 'Por favor ingresa un email.';
+            } else if (!expresionRegularEmail.test(valorQueLlega)) {
+                mensajeError.innerText = 'Ingrese un email válido';
+            } else {
+                mensajeError.innerText = '';
+            }
         });
     }
 
-    validarInputBlur(nombreInput)
-    validarInputBlur(emailInput)
-    validarInputBlur(passwordInput)
+    function ValidarInputContrasenia(input, pErrorId) {
+        input.addEventListener('blur', function() {
+            const valorQueLlega = this.value.trim();
+            const mensajeError = document.getElementById(pErrorId);
+
+            if (valorQueLlega === '') {
+                mensajeError.innerText = 'Debe ingresar una contraseña';
+            } else if (valorQueLlega.length < 6) {
+                mensajeError.innerText = 'La contraseña debe tener al menos 6 caracteres.';
+            } else if (!validarPasswordSeguro(valorQueLlega)){
+                mensajeError.innerText = 'La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.';
+            } else { 
+                mensajeError.innerText = ''
+            }
+        });
+    }
+    
+
+    ValidarInputNombre(nombreInput, 'p-errors-nombre');
+    ValidarInputEmail(emailInput, 'p-errors-email')
+    ValidarInputContrasenia(passwordInput, 'p-errors-contrasenia')
 
     const formularioRegistro = document.getElementById('formularioRegistro');
     formularioRegistro.addEventListener('submit', validarRegistro);
