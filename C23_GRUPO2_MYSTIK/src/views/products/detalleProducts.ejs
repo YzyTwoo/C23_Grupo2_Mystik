@@ -20,7 +20,7 @@
 
                 <div class="container-price">
                     <h3 class="h3-tittle-product"><%= productos.nombre %></h3>
-                    <span><%= productos.precio %></span>
+                    <span>$ <%= productos.precio %></span>
                 </div>
 
                 <div class="container-details-product">
@@ -96,18 +96,19 @@
         </section>
         <h2 class="h2-detail-product">También te puede gustar</h2>
     </main>
-
+    
+<!--MAS PRODUCTOS-->
     <section class="container-related-products">
         <div class="card-list-products">
             <article class="card">
                 <div class="card-img">
-                    <img class="img-card" src="/images/products/chaoooos.jpg" alt="producto-1">
+                    <img class="img-card" src="/images/products/<%= productos.imagen_id%>" alt="producto-1">
                 </div>
 
                 <div class="info-card">
                     <div class="text-product">
-                        <h3>BUZO NEGRO - CHAOS</h3>
-                        <h4>$42.999</h4>
+                        <h3><%=productos.nombre%></h3>
+                        <h4>$ <%=productos.precio%></h4>
                         <p class="six-interest-free">
                             <i class="fa-solid fa-credit-card"></i>
                             3 cuotas sin interés de $14.333
@@ -127,13 +128,13 @@
 
             <article class="card">
                 <div class="card-img">
-                    <img class="img-card" src="/images/products/ReligionSucks.jpg" alt="producto-1">
+                    <img class="img-card" src="/images/products/<%= productos.imagen_id%>" alt="producto-1">
                 </div>
 
                 <div class="info-card">
                     <div class="text-product">
-                        <h3>BUZO NEGRO - RELIGION SUCKS</h3>
-                        <h4>$44.999</h4>
+                        <h3><%=productos.nombre%></h3>
+                        <h4>$ <%=productos.precio%></h4>
                         <p class="six-interest-free">
                             <i class="fa-solid fa-credit-card"></i>
                             3 cuotas sin interés de $14.333
@@ -152,15 +153,15 @@
 
             <article class="card">
                 <div class="card-img">
-                    <img class="img-card" src="/images/products/UrbanCity.jpg" alt="producto-1">
+                    <img class="img-card" src="/images/products/<%= productos.imagen_id%>" alt="producto-1">
                 </div>
                 <div class="info-card">
                     <div class="text-product">
-                        <h3>BUZO NEGRO - URBAN CITY</h3>
-                        <h4>$44.999</h4>
+                        <h3><%=productos.nombre%></h3>
+                        <h4>$ <%=productos.precio%></h4>
                         <p class="six-interest-free">
                             <i class="fa-solid fa-credit-card"></i>
-                            3 cuotas sin interés de $14.333
+                            3 cuotas sin interés de $15.333
                         </p>
                     </div>
                     <div class="buttons-card">
@@ -173,28 +174,6 @@
                     </div>
                 </div>
             </article>
-
-            <article class="card">
-                <div class="card-img">
-                    <img class="img-card" src="/images/products/dddibujito3.jpg" alt="producto-1">
-                </div>
-                <div class="info-card">
-                    <div class="text-product">
-                        <h3>BUZO NEGRO - WORLD</h3>
-                        <h4>$44.999</h4>
-                        <p class="six-interest-free">
-                            <i class="fa-solid fa-credit-card"></i>
-                            3 cuotas sin interés de $14.333
-                        </p>
-                    </div>
-                    <div class="buttons-card">
-                        <a href="users/registro"><button class="button-buy">
-                            Comprar
-                        </button></a>
-                        <a href="<%= productos.id %>"><button class="button-look">
-                            Ver
-                        </button></a>
-                    </div>
                 </div>
             </article>
         </div>
