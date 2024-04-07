@@ -1,8 +1,9 @@
 const path = require("path");
-const {leerArchivo, setJson, cargarArchivo }= require('../database/dbLogica')
+const {leerArchivo, setJson, cargarArchivo }= require('../database/dbLogica');
 const fs = require('fs');
 
 const db = require('../database/models');
+const { validationResult } = require("express-validator");
 
 const productosControllers = {
     viewProducts: (req, res) => {
@@ -31,45 +32,51 @@ const productosControllers = {
         res.render('products/cargaProducto', {productos, usuario:req.session.user});
     },
 
-    formEditarProducto:  (req, res) => {
+    formEditarProducto: (req, res) => {
         db.Producto.findByPk(req.params.id)
-        .then(function(result) {
-            if (result) {
-                req.session.usuario = req.session.user
-                res.render('products/editProduct', {title: result.nombre, result: result});
-            }
-        });
+            .then(result => {
+                if (!result) {
+                    return res.status(404).send('no se encontro el producto');
+                }
+                res.render('products/editProduct', { title: 'Editar Producto', result: result, usuario: req.session.user, errors:{}});
+            })
+            .catch(err => {
+                console.log('error', err);
+            });
     },
 
     editarProducto: (req, res) => {
-        const id = req.params.id;
-        const { nombre, precio, descripcion, stock, talles_id, colecciones_id, categorias_id, colores_id } = req.body;
-        const file = req.file;
-    
-        db.Producto.update(
-            {
-                nombre,
-                precio,
-                descripcion,
-                stock,
-                talles_id,
-                colecciones_id,
-                categorias_id,
-                colores_id
-            },
-            {
-                where: {
-                    id: id
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            return res.render('products/editProduct', { title: 'Editar Producto', result: req.body, usuario: req.session.user, errors: errors.mapped()});
+        } else {
+            const { nombre, precio, descripcion, talles_id, stock, categorias_id, colecciones_id, colores_id } = req.body;
+            db.Producto.update(
+                {
+                    nombre,
+                    precio,
+                    descripcion,
+                    talles_id,
+                    stock,
+                    categorias_id,
+                    colecciones_id,
+                    colores_id
+                },
+                {
+                    where: {
+                        id: req.params.id
+                    }
                 }
-            }
             )
             .then(() => {
                 req.session.usuario = req.session.user;
                 res.redirect('/productos/dashboard');
             })
-            .catch((error) => {
-                console.error(error);
+            .catch(err => {
+                console.log('error', err);
             });
+        }
     },
 
     dashboard:(req, res) => {
