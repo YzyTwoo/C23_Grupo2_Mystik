@@ -86,58 +86,33 @@ const productosControllers = {
 		res.render('products/create', { title: "create", usuario:req.session.user});
 	},
 
-    create: (req,res)=>{
-    const errors = validationResult(req)
-    console.log('error:' + errors.mapped())
-    if (errors.isEmpty()){
-        const { nombre, precio, descripcion, talles_id, stock, imagen_id, categorias_id, colores_id} = req.body;
-        const product = {
-            imagen_id,
-            nombre: nombre.trim(),
-            precio: precio.trim(),
-            descripcion,
-            talles_id,
-            stock,
-            categorias_id,
-            colores_id
-        };
-        db.Producto.create(product)
-            .then(user => {
-                res.redirect('/productos/dashboard');
-                
-            });
-    }else{
-        
-        return res.render('products/create', {old: req.body, errors: errors.mapped()});
-    }
-    // console.log(req.body);
-    //     const file = req.file;
-    //         db.Producto.create({
-    //             imagen_id : file?file.filename:"default.png",
-    //             nombre: req.body.nombre,
-    //             precio: req.body.precio,
-    //             descripcion: req.body.descripcion,
-    //             talles_id:req.body.talles_id,
-    //             stock:req.body.stock,
-    //             categorias_id:req.body.categorias_id,
-    //             colores_id:req.body.colores_id, 
-    //     }).then(()=>{res.redirect(`/productos/dashboard`)})
-    //     .catch(error => console.log(error))
-        
-
-
-    /*  db.Producto.create({
-            
-			nombre: req.body.nombre,
-			precio: req.body.precio,
-		    descripcion: req.body.descripcion,
-            talles_id:req.body.talles_id,
-            /* colecciones_id:req.body.colecciones_id,
-            stock:req.body.stock,
-            stock:req.body.stock,
-            stock:req.body.stock, */
-
-},
+    create: (req, res) => {
+        const errors = validationResult(req);
+    
+        if (errors.isEmpty()) {
+            const { nombre, precio, descripcion, talles_id, stock, imagen_id, categorias_id, colores_id, colecciones_id } = req.body;
+            const product = {
+                imagen_id,
+                nombre: nombre.trim(),
+                precio: precio.trim(),
+                descripcion,
+                talles_id,
+                stock,
+                categorias_id,
+                colores_id,
+                colecciones_id
+            };
+            db.Producto.create(product)
+                .then(user => {
+                    res.redirect('/productos/dashboard');
+                })
+                .catch(err => {
+                    res.status(500).send('Error interno del servidor');
+                });
+        } else {
+            return res.render('products/create', { old: req.body, errors: errors.mapped() });
+        }
+    },
     destroy : (req, res) => {
         id = req.params.id
         db.Producto.destroy({

@@ -13,13 +13,13 @@
                         <div class="div-form">
                             <label class="subtitulo">Cargar imagen del producto</label>
 
-                            <input type="file" name="imagen_id" id="imagen_id" accept="image/*">
+                            <input type="file" name="imagen_id" id="imagen_id" accept="image/*" value="<%= locals.old && old.imagen_id ? old.imagen_id : null %>">
                             <p class="local_error" ><%= locals.errors && errors.imagen_id? errors.imagen_id.msg : null %></p>
-                            <input type="text" name="nombre" placeholder="Nombre" id="nombre"required>
+                            <input type="text" name="nombre" placeholder="Nombre" id="nombre"required value="<%= locals.old && old.nombre ? old.nombre : null %>">
                             <p class="local_error" ><%= locals.errors && errors.nombre? errors.nombre.msg : null %></p>
-                            <input type="text" name="precio" id="precio" placeholder="Precio" required>
+                            <input type="text" name="precio" id="precio" placeholder="Precio" required value="<%= locals.old && old.precio ? old.precio : null %>">
                             <p class="local_error" ><%= locals.errors && errors.precio? errors.precio.msg : null %></p>
-                            <textarea name="descripcion" id="descripcion" placeholder="Descripción"></textarea required>
+                            <textarea name="descripcion" id="descripcion" placeholder="Descripción" required><%= locals.old && old.descripcion ? old.descripcion : null %></textarea>
                             <p class="local_error" ><%= locals.errors && errors.descripcion? errors.descripcion.msg : null %></p>
                             </div>
 
@@ -28,51 +28,59 @@
         <div class="talle-productos">
             
             <label>S</label>
-            <input type="checkbox" tabindex="20" name="talles_id" value="S" />
+            <input type="checkbox" tabindex="20" name="talles_id" value="1" />
             <label>M</label>
-            <input type="checkbox" tabindex="21" name="talles_id" value="M" />
+            <input type="checkbox" tabindex="21" name="talles_id" value="2" />
             <label>L</label>
-            <input type="checkbox" tabindex="22" name="talles_id" value="L" />
+            <input type="checkbox" tabindex="22" name="talles_id" value="3" />
             <label>XL</label>
-            <input type="checkbox" tabindex="23" name="talles_id" value="XL" />
+            <input type="checkbox" tabindex="23" name="talles_id" value="4" />
             <label>XXL</label>
-            <input type="checkbox" tabindex="24" name="talles_id" value="XXL" />
+            <input type="checkbox" tabindex="24" name="talles_id" value="5" />
         </div>
         <label class="category">Categoría</label>
-        <select name="categorias_id">
-            <option value="buzos">Buzos</option>
-            <option value="remeras">Remeras</option>
-            <option value="camperas">Camperas</option>
-            <option value="colecciones especiales">Colecciones especiales</option>
-            <option value="ofertas">Ofertas</option>
+        <select name="categorias_id" required>
+            <option value="1">Buzos</option>
+            <option value="2">Remeras</option>
+            <option value="3">Camperas</option>
+            <option value="4">Colecciones especiales</option>
+            <option value="5">Ofertas</option>
+        </select>
+        <br>
+        <label for="category">Colecciones:</label>
+        <select name="colecciones_id" required>
+            <option value="1">Verano</option>
+            <option value="2">Invierno</option>
+            <option value="3">Game over</option>
+            <option value="4">Fetch</option>
         </select>
         <br>
         <label class="colors">Colores disponibles :</label> 
         <div class="box">
         
                 <div class="color-box">
-                  <input type="checkbox" name="colores_id" value="Negro" id="colores_id">
+                  <input type="checkbox" name="colores_id" value="1" id="colores_id">
                   <label for="color" >Negro</label>
                 </div>
 
                 <div class="color-box">
-                  <input type="checkbox" name="colores_id" value="Blanco" id="colores_id">
+                  <input type="checkbox" name="colores_id" value="2" id="colores_id">
                   <label for="color" >Blanco</label>
                 </div>
 
                 <div class="color-box">
-                  <input type="checkbox" name="colores_id" value="Gris" id="colores_id">
+                  <input type="checkbox" name="colores_id" value="3" id="colores_id">
                   <label for="color" >Gris</label>
                 </div>
         </div>
         <div class="estock">
         <label>Stock :</label>
-        <input type="number" name="stock" id="stock" min="0">
+        <input type="number" name="stock" id="stock" min="0" required>
         </div>
 
         <div class="button-enviar-borrar">
-            <a  href="/"><button type="submit" value="Enviar">Enviar</button></a>
-            <a href="/"> <button type="reset" value="Borrar">Borrar</button></a>
+            <button type="submit" value="Enviar" id="submitBtn">Enviar</button>
+            <button type="reset" value="Borrar">Borrar</button>
         </div>
     </form>  
 </section>

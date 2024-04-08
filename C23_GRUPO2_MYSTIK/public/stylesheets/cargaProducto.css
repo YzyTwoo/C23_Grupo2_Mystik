@@ -112,7 +112,11 @@
 }
 
 .isInvalid{
-    background-color: crimson;
+    color: crimson;
+}
+.error {
+    border: 1px solid red;
+    background-color: rgb(220, 188, 196);
 }
 
 @media (min-width: 768px) {
