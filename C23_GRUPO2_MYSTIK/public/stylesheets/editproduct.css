@@ -4,11 +4,6 @@
     width: 100%;
 }
 
-.error {
-    font-weight: bold;
-    border:1px solid rgba(255, 0, 0, 0.622);
-}
-
 .div-form-edit-product{
     display: flex;
     flex-direction: column;
@@ -26,13 +21,14 @@
 }
 .form_edit_product input{
     display: flex;
-    width: 100%;
+    width: 70%;
 }
 .talle{
     width: 120px;
 }
-.form_edit_product label{
-}
+
+/*.form_edit_product label{
+}*/
 
 /* .textarea_form_edit_product{
     resize: none;
@@ -56,9 +52,10 @@
     
  }
 
- .talle-productos label{
-    /* margin-left: 25px; */
-}
+/* .talle-productos label{
+    margin-left: 25px;
+}*/
+
  /* .talle-productos select{
     height: 20px;
     margin-left:15px;
@@ -89,3 +86,40 @@
 .containter_talle_edit_product input{
     width: 14px;
     height: 20px;} */
+
+/*ERRORES*/
+.ed-errors{
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*#error-nombre {
+    color: red;
+    margin-left: 2px;
+}
+
+#error-precio {
+    color: red;
+    margin-left: 2px;
+}
+
+#error-descripcion {
+    color: red;
+    margin-left: 2px;
+}
+
+#error-talles {
+    color: red;
+    margin-left: 2px;
+}
+
+#error-categoria {
+    color: red;
+    margin-left: 2px;
+}
+
+#error-stock {
+    color: red;
+    margin-left: 2px;
+}*/
