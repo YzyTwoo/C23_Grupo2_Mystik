@@ -62,7 +62,7 @@ module.exports = {
   },
   productByID: async (req, res) => {
     try {
-      const product = await db.Producto.findByPk(req.params.id, modelResponseProduct)
+      const product = await db.Producto.findByPk(req.params.id, /* modelResponseProduct */)
 
       const productCustom = {
         ...product.dataValues,
