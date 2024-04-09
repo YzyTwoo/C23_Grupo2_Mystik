@@ -27,7 +27,14 @@ window.onload = function() {
     const formulario = document.getElementById('validarEdicionProducto');
     const camposValidar = {
         'nombre': {
-            mensajeVacio: 'Debe ingresar el nombre del producto.'
+            mensajeVacio: 'Debe ingresar el nombre del producto.',
+            validarCampo: (valor) => {
+                if (valor.trim().length < 3) {
+                    return 'El nombre debe tener 3 caracteres.';
+                } else {
+                    return '';
+                }
+            }
         },
         'precio': {
             mensajeVacio: 'Debe ingresar el precio del producto.',
@@ -60,10 +67,10 @@ window.onload = function() {
             mensajeVacio: 'Debe ingresar el stock del producto.',
             /*mensajeInvalido: 'El stock debe ser mayor a cero.',*/
             validarCampo: (valor) => {
-                if (/^\d+$/.test(valor.trim()) && valor.trim() > 0) {
+                if (/^\d+$/.test(valor.trim()) && valor.trim() > -1) {
                     return '';
                 } else {
-                    return 'El stock debe ser mayor a cero.';
+                    return 'El stock no puede ser negativo.';
                 }
             }
         }
@@ -94,6 +101,15 @@ window.onload = function() {
             Swal.fire(
                 'Error',
                 'Debe ingresar el nombre del producto.',
+                'error'
+            );
+            return;
+        }
+
+        if (nombreInput.value.trim().length < 3) {
+            Swal.fire(
+                'Error',
+                'El nombre debe tener 3 caracteres.',
                 'error'
             );
             return;
@@ -162,14 +178,14 @@ window.onload = function() {
             return;
         }
 
-        if (stockInput.value.trim() <= 0) {
+        /*if (stockInput.value.trim() <= -1) {
             Swal.fire(
                 'Error',
-                'El stock debe ser mayor a cero.',
+                'El stock no puede ser negativo.',
                 'error'
             );
             return;
-        }
+        }*/
     
         // no hay errores //
         formulario.submit();
