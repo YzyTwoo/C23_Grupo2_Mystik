@@ -82,6 +82,7 @@
     display: none;
 }
 
+
 @media (min-width: 768px) {
     .main_edit {
         max-width: 700px;
@@ -202,4 +203,5 @@
     .nav-general {
         display: none;
     }
+   
 }
