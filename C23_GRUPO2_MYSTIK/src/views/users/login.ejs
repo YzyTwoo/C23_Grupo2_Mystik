@@ -21,11 +21,11 @@
             <form action="/users/login" method="POST" class="login-form">
             <div class="item-form">
                     <label for="email"> Email</label>
-                    <input type="text" name="email" id="name"
+                    <input type="text" class="input-form" name="email" id="name"
                     value="<%= locals.old && old.email %>">
                 <p class="p-errors"><%= locals.errors && errors.email ? errors.email.msg : null %></p>
                     <label for="contrasenia">Contraseña</label>
-                    <input type="password" id="name" name="contrasenia" id="contrasenia"
+                    <input type="password" class="input-form" id="name" name="contrasenia" id="contrasenia"
                     <%= locals.old && old.contrasenia %>>
                 <p class="p-errors"><%= locals.errors && errors.contrasenia ? errors.contrasenia.msg : null %></p>
             </div>

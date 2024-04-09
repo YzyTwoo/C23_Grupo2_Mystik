@@ -63,7 +63,10 @@ const usersControllers = {
                 .then(user => {
                     res.redirect('/users/login');
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    res.render('error')
+                });
         } else {
             return res.render('users/registro', { old: req.body, errors: errors.mapped() });
         }

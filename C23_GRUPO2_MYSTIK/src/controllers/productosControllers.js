@@ -1,9 +1,9 @@
 const path = require("path");
 const {leerArchivo, setJson, cargarArchivo }= require('../database/dbLogica');
 const fs = require('fs');
-
+const {validationResult} = require('express-validator');
 const db = require('../database/models');
-const { validationResult } = require("express-validator");
+
 
 const productosControllers = {
     viewProducts: (req, res) => {
@@ -93,57 +93,33 @@ const productosControllers = {
 		res.render('products/create', { title: "create", usuario:req.session.user});
 	},
 
-    create: (req,res)=>{
-
-    console.log(req.body);
-        const file = req.file;
-            db.Producto.create({
-                imagen_id : file?file.filename:"default.png",
-                nombre: req.body.nombre,
-                precio: req.body.precio,
-                descripcion: req.body.descripcion,
-                talles_id:req.body.talles_id,
-                stock:req.body.stock,
-                categorias_id:req.body.categorias_id,
-                colores_id:req.body.colores_id, 
-        }).then(()=>{res.redirect(`/productos/dashboard`)})
-        .catch(error => console.log(error))
-        
-
-
-    /*  db.Producto.create({
-            
-			nombre: req.body.nombre,
-			precio: req.body.precio,
-		    descripcion: req.body.descripcion,
-            talles_id:req.body.talles_id,
-            /* colecciones_id:req.body.colecciones_id,
-            stock:req.body.stock,
-            stock:req.body.stock,
-            stock:req.body.stock, */
-
-        
-        /*  let productos = leerArchivo('productos');
-        const {image, name, price, description, talle, category, color, stock} = req.body;
-        const id =  productos[productos.length-1].id + 1;
-        const file = req.file;
-        const productoNuevo = {
-			id: +id,
-            image: file?file.filename:"default.png",
-			name,
-			price,
-			description,
-            talle,
-            category,
-            color,
-            stock,
-			
-		};
-        productos.push(productoNuevo);
-        const Json = JSON.stringify(productos);
-        fs.writeFileSync(path.join(__dirname,"../database/productos.json"), Json, 'utf-8' );
-        res.redirect(`/productos/dashboard`,{usuario:req.session.usuario});   */
-},
+    create: (req, res) => {
+        const errors = validationResult(req);
+    
+        if (errors.isEmpty()) {
+            const { nombre, precio, descripcion, talles_id, stock, imagen_id, categorias_id, colores_id, colecciones_id } = req.body;
+            const product = {
+                imagen_id,
+                nombre: nombre.trim(),
+                precio: precio.trim(),
+                descripcion,
+                talles_id,
+                stock,
+                categorias_id,
+                colores_id,
+                colecciones_id
+            };
+            db.Producto.create(product)
+                .then(user => {
+                    res.redirect('/productos/dashboard');
+                })
+                .catch(err => {
+                    res.status(500).send('Error interno del servidor');
+                });
+        } else {
+            return res.render('products/create', { old: req.body, errors: errors.mapped() });
+        }
+    },
     destroy : (req, res) => {
         id = req.params.id
         db.Producto.destroy({
