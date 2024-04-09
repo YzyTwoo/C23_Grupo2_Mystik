@@ -185,7 +185,7 @@ window.onload = function() {
                 'error'
             );
             return;
-        }*/
+        }**/
     
         // no hay errores //
         formulario.submit();
