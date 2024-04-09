@@ -106,10 +106,10 @@ module.exports = {
 
       const productCustom = {
         ...product.dataValues,
-        categoria : product.categoria.nombre,
-        talle : product.talle.nombre,
-        coleccion : product.coleccion.nombre, 
-        color : product.colores.nombre,
+        categoria : product.categoria.nombre_categoria,
+        talle : product.talle.nombre_talle,
+        coleccion : product.coleccion.nombre_coleccion, 
+        color : product.colores.nombre_color,
        /*  imagenes : `${req.protocol}://${req.get('host')}/images/products/${product.imagen}` */ 
       }
 
