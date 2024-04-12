@@ -101,6 +101,11 @@ header {
     margin-left: 58px;
     animation: error-animated 700ms ease-out 0s 1 normal forwards;
 }
+.contrasenia-errors{
+    color: red;
+    margin-left: 58px;
+    animation: error-animated 700ms ease-out 0s 1 normal forwards;
+}
 @keyframes error-animated {
 	0% {
 		opacity: 0;
