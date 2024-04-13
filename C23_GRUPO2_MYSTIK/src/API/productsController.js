@@ -29,7 +29,7 @@ const modelResponseProduct = {
       association : 'color',
       attributes : ['nombre_color']
     },
-   /*  {
+  /*  {
       association : 'imagenes',
       attributes : ['']
     }   */

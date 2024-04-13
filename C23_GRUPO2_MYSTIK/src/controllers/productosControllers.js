@@ -15,11 +15,22 @@ const productosControllers = {
     },
 
     detalleProducts: (req, res) => {
-        db.Producto.findByPk(req.params.id)
-        .then(function(productos){
-            res.render('products/detalleProducts', { title: 'Detalles', productos, usuario:req.session.user })
+        db.Producto.findByPk(req.params.id, {
+            include: [{
+                model: db.Imagen,
+                as: 'imagenes'
+            }]
         })
-        .catch(err => console.log(err))
+        .then(function(producto){
+            const imagenes = producto.imagenes.map(imagen => imagen.file);
+            res.render('products/detalleProducts', { 
+                title: 'Detalles', 
+                producto, 
+                imagenes,
+                usuario: req.session.user 
+            });
+        })
+        .catch(err => console.log(err));
     },
 
     carritoProducts: (req, res) => {

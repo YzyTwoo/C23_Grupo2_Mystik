@@ -4,11 +4,27 @@ const db = require('../database/models')
 
 const indexControllers = {
     index: (req, res) => {
-        db.Producto.findAll()
-        .then(function(productos){
-        res.render('index', {title: "Mystik", productos, usuario:req.session.user})
+        db.Producto.findAll({
+            include: [{
+                model: db.Imagen,
+                as: 'imagenes'
+            }]
         })
-        .catch(err => console.log(err))
-}
+        .then(function(productos){
+            const imagenes = [];
+            productos.forEach(producto => {
+                producto.imagenes.forEach(imagen => {
+                    imagenes.push(imagen.file);
+                });
+            });
+            res.render('index', { 
+                title: 'Inicio', 
+                productos, 
+                imagenes,
+                usuario: req.session.user 
+            });
+        })
+        .catch(err => console.log(err));
+    }
 }
 module.exports = indexControllers;
