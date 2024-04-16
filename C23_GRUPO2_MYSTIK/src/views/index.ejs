@@ -39,17 +39,19 @@
           <!-- SECCION PRODUCTOS -->
           <section class="section-home">
             <% productos.forEach(function(producto) { %>
-                <article class="home-article">
-                    <a href="/productos/detalle/<%= producto.id %>">
-                        <img class="article-img" src="/images/products/<%= producto.imagen_id %>" alt="">
-                        <div class="article-description">
-                            <h4 class="title-article"><%= producto.nombre %></h4>
-                            <p class="article-price">$ <%= producto.precio %></p>
-                            <p class="article-pay"><%= producto.descripcion %></p>
-                            <a class="detalle-texto" href="/productos/detalle/<%= producto.id %>">VER DETALLE</a>
-                        </div>
-                    </a>
-                </article>
+              <article class="home-article">
+                  <a href="/productos/detalle/<%= producto.id %>">
+                      <% producto.imagenes.forEach(function(imagen) { %>
+                          <img class="article-img" src="/images/products/<%= imagen.file %>" alt="">
+                      <% }) %>
+                      <div class="article-description">
+                          <h4 class="title-article"><%= producto.nombre %></h4>
+                          <p class="article-price">$ <%= producto.precio %></p>
+                          <p class="article-pay"><%= producto.descripcion %></p>
+                          <a class="detalle-texto" href="/productos/detalle/<%= producto.id %>">VER DETALLE</a>
+                      </div>
+                  </a>
+              </article>
             <% }); %>
         </section>
 
