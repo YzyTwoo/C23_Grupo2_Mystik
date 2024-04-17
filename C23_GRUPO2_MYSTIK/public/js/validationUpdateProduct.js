@@ -188,6 +188,10 @@ window.onload = function() {
         }**/
     
         // no hay errores //
+        Swal.fire({
+            icon: "success"
+        });
+        
         formulario.submit();
     });    
 

@@ -8,7 +8,6 @@ const validationLogin = require('../validations/validacionLogin');
 const profileValidator = require('../validations/profileValidator');
 const sessionValidate = require('../middlewares/sessionValidate');
 
-
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
         cb(null,(path.join(__dirname,"../","../","/public/images/users")))
@@ -26,7 +25,7 @@ router.get('/login', ingreso);
 router.post('/login', validationLogin, login);
 
 router.get('/registro', register);
-router.post('/registro',upload.single('image'),registerValidator,createUsers);
+router.post('/registro',registerValidator,upload.single('image'),createUsers);
 
 router.get('/editar/:id', sessionValidate, perfil);
 router.put('/editar/:id', upload.single('image'), sessionValidate, profileValidator, perfilEditar);

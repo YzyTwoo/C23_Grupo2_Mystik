@@ -72,9 +72,11 @@
                     <label for="color" >Gris</label>
                 </div>
             </div>
-
+        
+        <div class="stock-class">
         <label for="stock" class="stock-titulo">Stock</label>
         <input type="number" name="stock" id="stock" min="0" value="<%= result.stock %>">
+        </div>
         <p class="ed-errors" id="error-stock" ><%= errors.stock ? errors.stock.msg : '' %></p>
         
             <div class="button-enviar-borrar">

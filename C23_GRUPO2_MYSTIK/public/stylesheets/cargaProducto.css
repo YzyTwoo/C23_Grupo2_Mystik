@@ -52,11 +52,11 @@
     margin-bottom: 20px;
    
 }
-.talle-titulo{
+/*.talle-titulo{
     margin-top: 20px;
     margin-bottom: 20px;
     font-weight: bold;
-}
+}*/
 
  .talle-productos{
     display: flex;
@@ -84,6 +84,7 @@
     
  }
  .color-box input{
+    margin-top: 10px;
     height: 20px;
     display: inline;
    

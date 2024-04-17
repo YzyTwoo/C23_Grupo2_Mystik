@@ -1,13 +1,16 @@
 <!-- head -->
 
 <%- include('../partials/heads.ejs', {title: 'Actualizar Perfil'}) %>
+<script src="/js/profileValidator.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+<form class="form_class" id="form-profile" action="/users/editar/<%=user.id%>?_method=PUT" method="post" enctype="multipart/form-data">
 <link rel="stylesheet" href="/stylesheets/editarUsuario.css">
 
 <body>
     <!-- header -->
 <%- include('../partials/headerProduct.ejs') %>
     <main class="main_edit">
-        <form class="form_class" id="form-profile" action="/users/editar/<%=user.id%>?_method=PUT" method="post" enctype="multipart/form-data">
             <div class="forms_general" >
 
            
