@@ -14,13 +14,13 @@
                             <label class="subtitulo">Cargar imagen del producto</label>
 
                             <input type="file" name="imagen_id" id="imagen_id" accept="image/*" value="<%= locals.old && old.imagen_id ? old.imagen_id : null %>">
-                            <p class="local_error" ><%= locals.errors && errors.imagen_id? errors.imagen_id.msg : null %></p>
+                            <p class="p-errors" ><%= locals.errors && errors.imagen_id? errors.imagen_id.msg : null %></p>
                             <input type="text" name="nombre" placeholder="Nombre" id="nombre"required value="<%= locals.old && old.nombre ? old.nombre : null %>">
-                            <p class="local_error" ><%= locals.errors && errors.nombre? errors.nombre.msg : null %></p>
+                            <p class="p-errors" ><%= locals.errors && errors.nombre? errors.nombre.msg : null %></p>
                             <input type="text" name="precio" id="precio" placeholder="Precio" required value="<%= locals.old && old.precio ? old.precio : null %>">
-                            <p class="local_error" ><%= locals.errors && errors.precio? errors.precio.msg : null %></p>
+                            <p class="p-errors" ><%= locals.errors && errors.precio? errors.precio.msg : null %></p>
                             <textarea name="descripcion" id="descripcion" placeholder="Descripción" required><%= locals.old && old.descripcion ? old.descripcion : null %></textarea>
-                            <p class="local_error" ><%= locals.errors && errors.descripcion? errors.descripcion.msg : null %></p>
+                            <p class="p-errors" ><%= locals.errors && errors.descripcion? errors.descripcion.msg : null %></p>
                             </div>
 
                             <label class="talle-titulo">Talle</label>
@@ -85,6 +85,8 @@
     </form>  
 </section>
 </main>
+
+<script src="/js/validationCreateProduct.js"></script>
 
 
 <!-- footer -->
