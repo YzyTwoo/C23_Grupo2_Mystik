@@ -1,4 +1,5 @@
 window.onload = function() {
+    console.log('CARGUE LA HOJA JS');
     const form = document.getElementById('form-id');
     const submitBtn = document.getElementById('submitBtn');
 

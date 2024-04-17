@@ -128,7 +128,7 @@ const productosControllers = {
                     res.status(500).send('Error interno del servidor');
                 });
         } else {
-            return res.render('products/create', { old: req.body, errors: errors.mapped() });
+            return res.render('products/create', { old: req.body, errors: errors.mapped(), usuario:req.session.user});
         }
     },
     destroy : (req, res) => {
