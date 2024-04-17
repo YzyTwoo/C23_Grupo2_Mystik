@@ -13,8 +13,6 @@
     <main class="main_edit">
             <div class="forms_general" >
 
-           
-               
             <div class="form_nombre">
                 <label class="label_form" for="nombre">Nombre:</label>
                 <input type="text" class="form_input" id="validacion-nombre" name="nombre" value="<%= locals.user ? user.nombre : locals.old && old.nombre ? old.nombre : null %>">
@@ -80,6 +78,6 @@
         </form>
     </main>
     <%- include("../partials/footer.ejs") %>
-    
+    <script src="/js/profileValidator.js"></script>
 </body>
 </html>
