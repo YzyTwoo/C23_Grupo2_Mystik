@@ -29,10 +29,10 @@ const modelResponseProduct = {
       association : 'color',
       attributes : ['nombre_color']
     },
- /*    {
+  /*  {
       association : 'imagenes',
-      attributes : ['name']
-    }  */
+      attributes : ['']
+    }   */
   ] 
 }
 
@@ -62,20 +62,12 @@ module.exports = {
   },
   productByID: async (req, res) => {
     try {
-      const product = await db.Producto.findByPk(req.params.id, /* modelResponseProduct */)
+      const product = await db.Producto.findByPk(req.params.id,  modelResponseProduct )
 
-      const productCustom = {
-        ...product.dataValues,
-        categoria : product.categoria.nombre_categoria,
-        talle : product.talle.nombre_talle,
-        coleccion : product.coleccion.nombre_coleccion, 
-        color : product.colores.nombre_color,
-       /*  imagenes : `${req.protocol}://${req.get('host')}/images/products/${product.imagen}` */ 
-      }
-
+   
       return res.status(200).json({
         ok : true,
-        product : productCustom
+        product : product,
       })
     } catch (error) {
       return res.status(error.status || 500).json({

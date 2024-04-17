@@ -12,15 +12,15 @@
         <section class="section-container-main">
             <div class="container-images-product-buy">
                 <div class="container-img">
-                    <img class="img-product" src="/images/products/<%= productos.imagen_id %>" alt="producto">
+                    <img class="img-product" src="/images/products/<%= imagenes %>" alt="producto">
                 </div>
             </div>
 
             <div class="container-info-product">
 
                 <div class="container-price">
-                    <h3 class="h3-tittle-product"><%= productos.nombre %></h3>
-                    <span>$ <%= productos.precio %></span>
+                    <h3 class="h3-tittle-product"><%= producto.nombre %></h3>
+                    <span>$ <%= producto.precio %></span>
                 </div>
 
                 <div class="container-details-product">
@@ -42,7 +42,7 @@
 
                 <div class="container-add-cart">
                     <div class="containter-quantity">
-                        <!-- INPUT CONTADOR (CANTIDAD DE PRODUCTOS PARA AÑADIR AL CARRITO) -->
+                        <!-- INPUT CONTADOR (CANTIDAD DE PRODUCTO PARA AÑADIR AL CARRITO) -->
                         <label for="quantity">Cantidad</label>
                         <input
                             type="number"
@@ -102,13 +102,13 @@
         <div class="card-list-products">
             <article class="card">
                 <div class="card-img">
-                    <img class="img-card" src="/images/products/<%= productos.imagen_id%>" alt="producto-1">
+                    <img class="img-card" src="/images/products/<%= producto.imagen_id%>" alt="producto-1">
                 </div>
 
                 <div class="info-card">
                     <div class="text-product">
-                        <h3><%=productos.nombre%></h3>
-                        <h4>$ <%=productos.precio%></h4>
+                        <h3><%=producto.nombre%></h3>
+                        <h4>$ <%=producto.precio%></h4>
                         <p class="six-interest-free">
                             <i class="fa-solid fa-credit-card"></i>
                             3 cuotas sin interés de $14.333
@@ -119,7 +119,7 @@
                         <a href="users/registro"><button class="button-buy">
                             Comprar
                         </button></a>
-                        <a href="<%= productos.id %>"><button class="button-look">
+                        <a href="<%= producto.id %>"><button class="button-look">
                             Ver
                         </button></a>
                     </div>
@@ -128,13 +128,13 @@
 
             <article class="card">
                 <div class="card-img">
-                    <img class="img-card" src="/images/products/<%= productos.imagen_id%>" alt="producto-1">
+                    <img class="img-card" src="/images/products/<%= producto.imagen_id%>" alt="producto-1">
                 </div>
 
                 <div class="info-card">
                     <div class="text-product">
-                        <h3><%=productos.nombre%></h3>
-                        <h4>$ <%=productos.precio%></h4>
+                        <h3><%=producto.nombre%></h3>
+                        <h4>$ <%=producto.precio%></h4>
                         <p class="six-interest-free">
                             <i class="fa-solid fa-credit-card"></i>
                             3 cuotas sin interés de $14.333
@@ -144,7 +144,7 @@
                         <a href="users/registro"><button class="button-buy">
                             Comprar
                         </button></a>
-                        <a href="<%= productos.id %>"><button class="button-look">
+                        <a href="<%= producto.id %>"><button class="button-look">
                             Ver
                         </button></a>
                     </div>
@@ -153,12 +153,12 @@
 
             <article class="card">
                 <div class="card-img">
-                    <img class="img-card" src="/images/products/<%= productos.imagen_id%>" alt="producto-1">
+                    <img class="img-card" src="/images/products/<%= producto.imagen_id%>" alt="producto-1">
                 </div>
                 <div class="info-card">
                     <div class="text-product">
-                        <h3><%=productos.nombre%></h3>
-                        <h4>$ <%=productos.precio%></h4>
+                        <h3><%=producto.nombre%></h3>
+                        <h4>$ <%=producto.precio%></h4>
                         <p class="six-interest-free">
                             <i class="fa-solid fa-credit-card"></i>
                             3 cuotas sin interés de $15.333
@@ -168,7 +168,7 @@
                         <a href="users/registro"><button class="button-buy">
                             Comprar
                         </button></a>
-                        <a href="<%= productos.id %>"><button class="button-look">
+                        <a href="<%= producto.id %>"><button class="button-look">
                             Ver
                         </button></a>
                     </div>
