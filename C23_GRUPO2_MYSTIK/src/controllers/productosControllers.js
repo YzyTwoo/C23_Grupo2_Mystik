@@ -134,12 +134,14 @@ const productosControllers = {
                 id: producto.id,
                 nombre: producto.nombre,
                 precio: producto.precio,
+                descripcion:producto.descripcion,
+                stock:producto.stock,
                 categoria: producto.categoria ? producto.categoria.nombre_categoria : null,
                 talle: producto.talle ? producto.talle.nombre_talle : null,
                 coleccion: producto.coleccion ? producto.coleccion.nombre_coleccion : null,
                 color: producto.color ? producto.color.nombre_color : null
             }));
-            const propiedades = ['id', 'nombre', 'precio', 'categoria', 'talle', 'coleccion', 'color'];
+            const propiedades = ['id', 'nombre', 'precio', 'descripcion', 'stock', 'categoria', 'talle', 'coleccion', 'color'];
             res.render('products/dashboard', {
                 title: "Dashboard",
                 productos: productosMapped,
