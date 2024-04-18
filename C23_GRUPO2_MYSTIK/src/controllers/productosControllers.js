@@ -15,11 +15,22 @@ const productosControllers = {
     },
 
     detalleProducts: (req, res) => {
-        db.Producto.findByPk(req.params.id)
-        .then(function(productos){
-            res.render('products/detalleProducts', { title: 'Detalles', productos, usuario:req.session.user })
+        db.Producto.findByPk(req.params.id, {
+            include: [{
+                model: db.Imagen,
+                as: 'imagenes'
+            }]
         })
-        .catch(err => console.log(err))
+        .then(function(producto){
+            const imagenes = producto.imagenes.map(imagen => imagen.file);
+            res.render('products/detalleProducts', { 
+                title: 'Detalles', 
+                producto, 
+                imagenes,
+                usuario: req.session.user 
+            });
+        })
+        .catch(err => console.log(err));
     },
 
     carritoProducts: (req, res) => {
@@ -79,14 +90,69 @@ const productosControllers = {
         }
     },
 
-    dashboard:(req, res) => {
-        db.Producto.findAll()
-            .then(productos => {
-                const propiedades = ['id', 'nombre', 'precio', 'descripcion', 'stock', 'categorias_id', 'colecciones_id', 'colores_id', 'talles_id'];
-                res.render('products/dashboard', { title: "Dashboard", productos, propiedades, usuario:req.session.user });
-            }).catch(err => { 
-                console.log(err)
+    dashboard: (req, res) => {
+                db.Producto.findAll({
+                    attributes: [
+                        'id',
+                        'nombre',
+                        'imagen_id',
+                        'precio',
+                        'descripcion',
+                        'stock',
+                        'talles_id',
+                        'colecciones_id',
+                        'categorias_id',
+                        'colores_id',
+                        'createdAt',
+                        'updatedAt'
+                    ],
+                    include: [
+                        {
+                            model: db.Categoria,
+                            as: 'categoria',
+                            attributes: ['nombre_categoria']
+                        },
+                        {
+                            model: db.Talle,
+                            as: 'talle',
+                            attributes: ['nombre_talle']
+                        },
+                        {
+                            model: db.Coleccion,
+                            as: 'coleccion',
+                            attributes: ['nombre_coleccion']
+                        },
+                        {
+                            model: db.Color,
+                            as: 'color',
+                            attributes: ['nombre_color']
+                        }
+                    ]
+                })
+        .then(productos => {
+            const productosMapped = productos.map(producto => ({
+                id: producto.id,
+                nombre: producto.nombre,
+                precio: producto.precio,
+                descripcion:producto.descripcion,
+                stock:producto.stock,
+                categoria: producto.categoria ? producto.categoria.nombre_categoria : null,
+                talle: producto.talle ? producto.talle.nombre_talle : null,
+                coleccion: producto.coleccion ? producto.coleccion.nombre_coleccion : null,
+                color: producto.color ? producto.color.nombre_color : null
+            }));
+            const propiedades = ['id', 'nombre', 'precio', 'descripcion', 'stock', 'categoria', 'talle', 'coleccion', 'color'];
+            res.render('products/dashboard', {
+                title: "Dashboard",
+                productos: productosMapped,
+                propiedades,
+                usuario: req.session.user
             });
+        })
+        .catch(err => { 
+            console.log(err);
+            res.status(500).send("Error interno del servidor");
+        });
     },
 
     vistacrear: (req,res)=>{
@@ -117,7 +183,7 @@ const productosControllers = {
                     res.status(500).send('Error interno del servidor');
                 });
         } else {
-            return res.render('products/create', { old: req.body, errors: errors.mapped() });
+            return res.render('products/create', { old: req.body, errors: errors.mapped(), usuario:req.session.user});
         }
     },
     destroy : (req, res) => {
@@ -131,6 +197,44 @@ const productosControllers = {
         }
     }).catch(err => console.log(err))
 },
+colecciones: (req,res)=>{
+    return res.render('products/colecciones.ejs')
+},
+productosColeccion:(req,res)=>{
+    const nombreColeccion = req.params.nombreColeccion;
+    db.Producto.findAll({
+        include: [
+        {
+            model: db.Imagen,
+            as: 'imagenes'
+        },
+        {
+            model: db.Coleccion,
+            as: 'coleccion',
+            where: { nombre_coleccion: nombreColeccion},
+            attributes: ['nombre_coleccion']
+        },
+    ]
+    })
+    .then(function(productos){
+        const imagenes = [];
+        productos.forEach(producto => {
+            producto.imagenes.forEach(imagen => {
+                imagenes.push(imagen.file);
+            });
+        });
+        res.render('products/productosColeccion', { 
+            productos, 
+            imagenes,
+            usuario: req.session.user 
+        });
+    })
+    .catch(err => console.log(err));
 }
+
+}
+
+module.exports = productosControllers;
+
 
 module.exports = productosControllers;
