@@ -197,6 +197,44 @@ const productosControllers = {
         }
     }).catch(err => console.log(err))
 },
+colecciones: (req,res)=>{
+    return res.render('products/colecciones.ejs')
+},
+productosColeccion:(req,res)=>{
+    const nombreColeccion = req.params.nombreColeccion;
+    db.Producto.findAll({
+        include: [
+        {
+            model: db.Imagen,
+            as: 'imagenes'
+        },
+        {
+            model: db.Coleccion,
+            as: 'coleccion',
+            where: { nombre_coleccion: nombreColeccion},
+            attributes: ['nombre_coleccion']
+        },
+    ]
+    })
+    .then(function(productos){
+        const imagenes = [];
+        productos.forEach(producto => {
+            producto.imagenes.forEach(imagen => {
+                imagenes.push(imagen.file);
+            });
+        });
+        res.render('products/productosColeccion', { 
+            productos, 
+            imagenes,
+            usuario: req.session.user 
+        });
+    })
+    .catch(err => console.log(err));
 }
+
+}
+
+module.exports = productosControllers;
+
 
 module.exports = productosControllers;
