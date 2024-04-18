@@ -5,22 +5,22 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('colecciones', [
       {
-      nombre_coleccion: 'Verano',
-      createdAt: new Date,
-      updatedAt: new Date
-    },
-    {
       nombre_coleccion: 'Invierno',
       createdAt: new Date,
       updatedAt: new Date
     },
     {
-      nombre_coleccion: 'GameOver',
+      nombre_coleccion: 'Otoño',
       createdAt: new Date,
       updatedAt: new Date
     },
     {
-      nombre_coleccion: 'Fetch',
+      nombre_coleccion: 'Primavera',
+      createdAt: new Date,
+      updatedAt: new Date
+    },
+    {
+      nombre_coleccion: 'Verano',
       createdAt: new Date,
       updatedAt: new Date
     }
