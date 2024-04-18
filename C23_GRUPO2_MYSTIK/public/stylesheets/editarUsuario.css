@@ -1,0 +1,207 @@
+.main_edit {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #ebebeb;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+.form_nombre{
+    margin-bottom: 20px;
+}
+
+.form_email{
+    margin-bottom: 20px;
+}
+
+.form_telefono{
+    margin-bottom: 20px;
+}
+
+.form_rol{
+    margin-bottom: 20px;
+}
+
+.form_password {
+    margin-bottom: 20px;
+}
+
+.form_imagen{
+    width: 100%;
+}
+
+.form_imagen input {
+    font-size: 11px;
+}
+
+.form_input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.label_form {
+    display: flex;
+    text-align: left;
+}
+
+.local_error {
+    color: red;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.update_perfil {
+    padding: 10px;
+    background-color: #511478;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.update_perfil:hover{
+    background-color: #7E1FBA;
+}
+
+.div_submit {
+    text-align: center;
+}
+
+.imagen_perfil{
+    max-width: 40%;
+}
+
+.nav-general {
+    display: none;
+}
+
+
+@media (min-width: 768px) {
+    .main_edit {
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 40px;
+        background-color: #ebebeb;
+        border-radius: 5px;
+        text-align: center;
+    }
+    
+    .forms_general {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .form_nombre  {
+        width: 48%;
+    }
+    .form_email {
+        width: 48%;
+    }
+
+    .form_telefono {
+        width: 48%;
+    }
+
+    .form_rol {
+        width: 48%;
+    }
+
+    .form_password {
+        width: 48%;
+    }
+
+    .form_imagen input {
+        font-size: 13px;
+    }
+
+    .form_imagen{
+        width: 100%
+    }
+
+    .update_perfil {
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+    
+    .update_perfil:hover{
+        background-color: #7E1FBA;
+    }
+    .div_submit {
+        text-align: left;
+    }
+    .imagen_perfil{
+        max-width: 40%;
+    }
+    .nav-general {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main_edit {
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 40px;
+        background-color: #ebebeb;
+        border-radius: 5px;
+        text-align: center;
+    }
+    
+    .forms_general {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .form_nombre  {
+        width: 48%;
+    }
+    .form_email {
+        width: 48%;
+    }
+
+    .form_telefono {
+        width: 48%;
+    }
+
+    .form_rol {
+        width: 48%;
+    }
+
+    .form_password {
+        width: 48%;
+    }
+    
+    .form_imagen{
+        width: 100%;
+    }
+    .form_imagen input {
+        font-size: 13px;
+    }
+    .update_perfil {
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+    
+    .update_perfil:hover{
+        background-color: #7E1FBA;
+    }
+    .div_submit {
+        text-align: left;
+    }
+    .imagen_perfil{
+        max-width: 50%;
+    }
+    .nav-general {
+        display: none;
+    }
+   
+}

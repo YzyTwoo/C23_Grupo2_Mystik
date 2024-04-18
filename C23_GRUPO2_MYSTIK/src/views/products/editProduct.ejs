@@ -1,0 +1,90 @@
+<!-- head -->
+<div></div>
+<%- include('../partials/heads.ejs') %>
+<body>
+    <!-- header -->
+    <%- include("../partials/headerProduct.ejs") %>
+
+    <!-- validacion frontend -->
+    <script src="/js/validationUpdateProduct.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+
+    <main>
+        <section class="section_form_edit_product">
+            <form id="validarEdicionProducto" action="<%= `/productos/editarProducto/${result.id}?_method=PUT` %>" method="POST" class="form_edit_product" enctype="multipart/form-data">
+                <h1 class="h1_form_edit_product">Edición del producto</h1>
+        <div class="div-form-edit-product">
+            <label for="image">Imagen</label>
+            <div class="container_img_edit_product">
+                <img class="img_edit_product" src="/images/products/<%= result.imagen_id ? result.imagen_id : "default.png" %>" alt="no-img">
+            </div>
+            <input type="file" name="imagen" id="imagen" accept="image/*">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" value="<%= result.nombre %>">
+            <p class="ed-errors" id="error-nombre"><%= errors.nombre ? errors.nombre.msg : '' %></p>
+
+            <label for="precio">Precio</label>
+            <input type="text" name="precio" id="precio" value="<%= result.precio %>">
+            <p class="ed-errors" id="error-precio"><%= errors.nombre ? errors.nombre.msg : '' %></p>
+
+            <label for="descripcion">Agregue una descripción del producto</label>
+            <input type="text" name="descripcion" id="descripcion" value="<%= result.descripcion %>">
+            <p class="ed-errors" id="error-descripcion"><%= errors.descripcion ? errors.descripcion.msg : '' %></p>
+
+            <label for="talles_id" class="talle-titulo">Talle</label>
+            <select name="talles_id" id="talles" class="talle">
+                <option value="" <%= result.talles_id == "" ? "selected" : null %>>Elegir</option>
+                <option value="1" <%= result.talles_id == "1" ? "selected" : null %>>Talle S</option>
+                <option value="2" <%= result.talles_id == "2" ? "selected" : null %>>Talle M</option>
+                <option value="3" <%= result.talles_id == "3" ? "selected" : null %>>Talle L</option>
+                <option value="4" <%= result.talles_id == "4" ? "selected" : null %>>Talle XL</option>
+                <option value="5" <%= result.talles_id == "5" ? "selected" : null %>>Talle XXL</option>
+            </select>
+            <p class="ed-errors" id="error-talles"><%= errors.talles_id ? errors.talles_id.msg : '' %></p>
+            
+            <label for="categorias_id" class="categorias-titulo">Categoría</label>
+            <select name="categorias_id" id="categorias" class="categorias">
+                <option value="" <%= result.categorias_id == "" ? "selected" : null %>>Elegir</option>
+                <option value="1" <%= result.categorias_id == "buzos" ? "selected" : null %>>Buzos</option>
+                <option value="2" <%= result.categorias_id == "remeras" ? "selected" : null %>>Remeras</option>
+                <option value="3" <%= result.categorias_id == "camperas" ? "selected" : null %>>Camperas</option>
+                <option value="4" <%= result.categorias_id == "colecciones especiales" ? "selected" : null %>>Colecciones especiales</option>
+                <option value="5" <%= result.categorias_id == "ofertas" ? "selected" : null %>>Ofertas</option>
+            </select>
+            <p class="ed-errors" id="error-categorias"><%= errors.categorias_id ? errors.categorias_id.msg : '' %></p>
+            
+            
+            
+
+        <label class="colores_id">Colores disponibles:</label> 
+        <div class="box">
+            <div class="color-box">
+                <input type="checkbox" name="colores_id" value="1" <%= result.colores_id == "Negro" ? "checked" : null %> id="color-negro">
+                <label for="color" >Negro</label>
+                </div>
+                <div class="color-box">
+                <input type="checkbox" name="colores_id" value="2" <%= result.colores_id == "Blanco" ? "checked" : null %> id="color-blanco">
+                <label for="color" >Blanco</label>
+                </div>
+                <div class="color-box">
+                <input type="checkbox" name="colores_id" value="3" <%= result.colores_id == "Gris" ? "checked" : null %> id="color-gris">
+                    <label for="color" >Gris</label>
+                </div>
+            </div>
+
+        <label for="stock" class="stock-titulo">Stock</label>
+        <input type="number" name="stock" id="stock" min="0" value="<%= result.stock %>">
+        <p class="ed-errors" id="error-stock" ><%= errors.stock ? errors.stock.msg : '' %></p>
+        
+            <div class="button-enviar-borrar">
+                <button type="submit" value="Enviar">Enviar</button>
+                <button type="reset" value="Borrar">Borrar</button>
+            </div>
+        </div>
+            </form>
+    </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+</body>

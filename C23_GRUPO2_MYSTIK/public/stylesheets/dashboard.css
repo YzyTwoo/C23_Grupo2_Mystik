@@ -1,0 +1,68 @@
+.dashboard-button-create{
+   border: 2px solid var(--color-negro);
+   font-size: 18px;
+   margin-bottom: 10px;
+   padding: 5px;
+   font-weight: bolder;
+}
+
+.dashboard-button-create:hover{
+    background-color: var(--color-violeta-claro);
+    color: var(--color-blanco)
+}
+
+.table{
+    background-color: var(--color-gris-oscuro);
+}
+
+.section-home-dashboard{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.dashboard-buttons-actions{
+    width: 10px;
+    font-size: 20px;
+
+}
+
+.dashboard-buttons-actions a{
+    color: var(--color-negro);
+    margin: 5px;
+}
+
+.dashboard-buttons-actions a:hover{
+    color: var(--color-violeta-claro)
+
+}
+.dashboard-buttons-actions button{
+    color: var(--color-negro);
+}
+
+.dashboard-buttons-actions button:hover{
+    color: var(--color-violeta-claro)
+
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px; 
+    text-decoration: none; 
+    font-size: 18px;
+    color: black;
+}
+
+.pagination a.active {
+    font-weight: bold; 
+}
+
+.pagination i {
+    font-size: 20px; 
+}

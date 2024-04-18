@@ -1,0 +1,125 @@
+.section_form_edit_product{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.div-form-edit-product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+}
+.form_edit_product {
+    margin: 40px 0px;
+    padding: 30px;
+    border: 1px solid var(--color-gris-oscuro);
+    width: 50%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+.form_edit_product input{
+    display: flex;
+    width: 70%;
+}
+.talle{
+    width: 120px;
+}
+
+/*.form_edit_product label{
+}*/
+
+/* .textarea_form_edit_product{
+    resize: none;
+    margin-top: 20px;
+    width: 100%;
+} */
+.container_img_edit_product {
+    width: 200px;
+    height: 250px;
+    text-align: center;
+}
+.img_edit_product{
+    width: 70%;
+}
+.h1_form_edit_product{
+    margin-bottom: 20px;
+}
+.talle-productos{
+    display: flex;
+    flex-direction: row;
+    
+ }
+
+/* .talle-productos label{
+    margin-left: 25px;
+}*/
+
+ /* .talle-productos select{
+    height: 20px;
+    margin-left:15px;
+ } */
+
+ .button-enviar-borrar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.button-enviar-borrar button{
+    width: 80px;
+}
+/* .containter_talle_edit_product{
+    display: flex;
+    flex-direction: row;
+}
+
+.containter_talle_edit_product label{
+    margin-left: 20px ;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.containter_talle_edit_product input{
+    width: 14px;
+    height: 20px;} */
+
+/*ERRORES*/
+.ed-errors{
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*#error-nombre {
+    color: red;
+    margin-left: 2px;
+}
+
+#error-precio {
+    color: red;
+    margin-left: 2px;
+}
+
+#error-descripcion {
+    color: red;
+    margin-left: 2px;
+}
+
+#error-talles {
+    color: red;
+    margin-left: 2px;
+}
+
+#error-categoria {
+    color: red;
+    margin-left: 2px;
+}
+
+#error-stock {
+    color: red;
+    margin-left: 2px;
+}*/

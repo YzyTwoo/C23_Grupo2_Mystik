@@ -1,0 +1,48 @@
+<%- include('../partials/heads.ejs') %>
+<body>
+<!-- header -->
+<%- include('../partials/headerUser.ejs') %>
+
+<div>
+    <nav class="menu-list">
+        <ul>
+            <li><a href="/">Inicio</a><i class="fa-solid fa-chevron-right fa-2xs" id="flecha"></i></li>
+            <li><a href="">Registro</a></li>
+        </ul>
+    </nav>
+    <p class="titulo_iniciar_sesion">Crear cuenta</p>
+</div>
+
+<main class="iniciar_main">
+    <form action="/users/registro" method="POST" enctype="multipart/form-data" class="login-form" id="formularioRegistro">
+        <div class="item-form">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="input-form" name="nombre" id="nombre" autocomplete="current-password" value="<%= locals.old && old.nombre ? old.nombre : null %>">
+            <p class="p-errors"><%= locals.errors && errors.nombre ? errors.nombre.msg : null %></p>
+
+            <label for="email">Email</label>
+            <input type="text" class="input-form" name="email" id="email" autocomplete="current-password" value="<%= locals.old && old.email ? old.email : null %>">
+            <p class="p-errors"><%= locals.errors && errors.email ? errors.email.msg : null %></p>
+            
+            <label for="contrasenia">Contraseña</label>
+            <div class="password-container">
+                <input type="password" class="input-form" name="contrasenia" id="contrasenia" placeholder="Ingrese su contraseña" autocomplete="current-password">
+                <i id="togglePassword" class="fas fa-eye"></i>
+            </div>
+            <p class="p-errors"><%= locals.errors && errors.contrasenia ? errors.contrasenia.msg : null %></p>
+            
+            <div class="container-input-file">
+                <label for="imagen" class="form-label">Seleccione una imagen de perfil:</label>
+                <input name="imagen" id="imagen" class="form-input" type="file" multiple>
+            </div>
+        </div>
+        
+        <button class="button-form" type="submit">Registrarse</button>
+        <div class="forget">
+            <p>¿Ya tenés una cuenta? <a href="/users/login">Inicia sesión</a></p>
+        </div>
+    </form>
+</main>
+<script src="/js/validationRegister.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-gris-oscuro: #666;
+    --color-gris-oscuro-v2: #858796;
+    --color-gris-claro: #ebebeb;
+    --color-gris-claro-v2: #c5c5c5;
+    --color-blanco : #fff;
+    --color-negro : #000;
+    --color-violeta-oscuro : #511478;
+    --color-violeta-claro : #7E1FBA;
+}

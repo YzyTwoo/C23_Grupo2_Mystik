@@ -1,0 +1,207 @@
+footer{
+    background-color: var(--color-negro);
+}
+.a__bold{
+    font-weight: bold;
+    color: var(--color-blanco);
+    text-decoration: none;
+}
+.section__footer__nav {
+    background-color: var(--color-negro);
+    display: flex;
+    flex-direction: column;
+}
+.buscar__tienda__footer {
+    width: 90%;
+    margin: auto;
+    padding: 20px 0px;
+    border-bottom: 1px solid var(--color-gris-oscuro);
+}
+.buscar__tienda__footer a{
+    margin: 20px auto;
+}
+.ayuda__footer {
+    width: 90%;
+    margin: auto;
+    padding: 10px 0px;
+    border-bottom: 1px solid var(--color-gris-oscuro);
+}
+.nav__ayuda {
+    list-style: none;
+}
+.nav__ayuda ul li{
+    list-style-type: none;
+    margin:20px 0px ;
+}
+.a__nav__footer {
+    text-decoration: none;
+    color: var(--color-gris-oscuro);
+    transition: all 600ms;
+}
+.a__nav__footer:hover{
+    transition: all 450ms;
+    color: var(--color-blanco);
+}
+.acerca__mystik__footer {
+    width: 90%;
+    margin: auto;
+    padding: 10px 0px;
+    border-bottom: 1px solid var(--color-gris-oscuro);
+}
+.acerca__mystik__footer nav ul li{
+    list-style-type: none;
+    margin: 20px 0px;
+}
+.precios__justos__footer{
+    margin: 15px;
+    display: flex;
+    justify-content: left;
+}
+.precios__justos__footer img{
+    margin-right: 15px;
+    width: 100px;
+    height: 45px;
+}
+
+/* section de abajo */
+
+.section__footer__bottom {
+    background-color: var(--color-negro);
+    display: flex;
+    flex-direction: column;
+}
+.bottom__nav__izquierdo {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0px;
+    color: var(--color-blanco);
+}
+.bottom__nav__izquierdo li{
+    color: var(--color-blanco);
+    list-style: none;
+}
+.bottom__nav__derecho {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+
+@media (min-width:768px){
+    .precios__justos__footer{
+        margin: 20px auto;
+    }
+}
+@media (min-width:1024px){
+    .section__footer__nav{
+        display: flex;
+        flex-direction: row;
+        width: 85%;
+        margin: auto;
+        padding: 40px 0px;
+    }
+    .buscar__tienda__footer{
+        border: none;
+        margin: 0px 20px;
+    }
+    .ayuda__footer{
+        border: none;
+        margin: 0px;
+        padding: 0px 20px;
+    }
+    .acerca__mystik__footer{
+        border: none;
+        margin: 0px 20px;
+        padding: 0px;
+    }
+    .precios__justos__footer{
+        flex-direction: column;
+    }
+    .precios__justos__footer img{
+        width: 200px;
+        height: 80px;
+    }
+    .section__footer__bottom{
+        border-top: 1px solid var(--color-gris-oscuro);
+        display: flex;
+        flex-direction: row;
+        padding: 40px 0px;
+    }
+    .bottom__nav__derecho{
+        text-align: none;
+        align-items: none;
+    }
+    .bottom__nav__derecho nav{
+        display: flex;
+    }
+    .bottom__nav__derecho nav ul{
+        display: flex;
+    }
+    .bottom__nav__derecho nav ul li{
+        list-style-type: none;
+        margin: 0px 20px;
+    }
+    .bottom__nav__izquierdo{
+        flex-direction: row;
+        justify-content: center;
+    }
+    }
+    .buscar__tienda__footer{
+        border: none;
+        margin: 0px 20px;
+    }
+    .ayuda__footer{
+        border: none;
+        margin: 0px;
+        padding: 0px 20px;
+    }
+    .acerca__mystik__footer{
+        border: none;
+        margin: 0px 20px;
+        padding: 0px;
+    }
+    .precios__justos__footer{
+        flex-direction: column;
+    }
+    .precios__justos__footer img{
+        width: 200px;
+        height: 80px;
+    }
+    .section__footer__bottom{
+        border-top: 1px solid var(--color-gris-oscuro);
+        display: flex;
+        flex-direction: row;
+        padding: 40px 0px;
+    }
+    .bottom__nav__derecho{
+        text-align: none;
+        align-items: none;
+    }
+    .bottom__nav__derecho nav{
+        display: flex;
+    }
+    .bottom__nav__derecho nav ul{
+        display: flex;
+    }
+    .bottom__nav__derecho nav ul li{
+        list-style-type: none;
+        margin: 0px 20px;
+    }
+    .bottom__nav__izquierdo{
+        flex-direction: row;
+        justify-content: center;
+    }
+    .fa-globe{
+        margin-right: 8px;
+        margin-bottom: 15px;
+    }
+    .bottom__nav__izquierdo span{
+        margin-right: 40px;
+    }

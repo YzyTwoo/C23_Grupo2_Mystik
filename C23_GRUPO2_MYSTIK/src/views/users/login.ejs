@@ -1,0 +1,47 @@
+<!-- head -->
+
+<%- include('../partials/heads.ejs') %>
+<body>
+<!-- header -->
+
+<%- include('../partials/headerUser.ejs') %>
+
+
+    <div>
+        <nav class="menu-list">
+            <ul>
+                <li><a href="/">Inicio</a><i class="fa-solid fa-chevron-right fa-2xs" id="flecha"></i></li>
+                <li><a href="">Login</a></li>
+            </ul>
+        </nav>
+        <p class="titulo_iniciar_sesion">Iniciar sesión</p>
+    </div>
+    
+    <main class="iniciar_main">
+            <form action="/users/login" method="POST" class="login-form">
+            <div class="item-form">
+                    <label for="email"> Email</label>
+                    <input type="text" class="input-form" name="email" id="name"
+                    value="<%= locals.old && old.email %>">
+                <p class="p-errors"><%= locals.errors && errors.email ? errors.email.msg : null %></p>
+                    <label for="contrasenia">Contraseña</label>
+                    <input type="password" class="input-form" id="name" name="contrasenia" id="contrasenia"
+                    <%= locals.old && old.contrasenia %>>
+                <p class="p-errors"><%= locals.errors && errors.contrasenia ? errors.contrasenia.msg : null %></p>
+            </div>
+                <div class="recuerdame-div">
+                    <label class="recuerdame-label" for="remember">Recordame</label>
+                    <input class="recuerdame-input" type="checkbox" id="remember" name="remember" value="true">
+                </div>
+                    <button class="button-form" type="submit"> INICIAR SESIÓN </button>
+                    <div class="forget">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                <div class="register">
+                    <p>¿No tenés cuenta? <a href="/users/registro">Registrarme</a></p>
+                </div>
+            </form>
+    </main>
+</body>
+
+</html>

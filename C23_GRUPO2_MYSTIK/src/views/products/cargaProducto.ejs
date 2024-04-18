@@ -1,0 +1,49 @@
+<!-- head -->
+
+<%- include('../partials/heads.ejs', {title: 'Formulario de creación'}) %>
+<body>
+<!-- header -->
+
+<%- include("../partials/headerProduct.ejs") %>
+    <main>
+        <h1 class="titulo-producto">Carga de productos</h1>
+        <section class="section-form">
+            
+        <form action="/productos/create" method="POST" class="form-product">
+        <div class="div-form">
+            <label class="subtitulo">Cargar imagen del producto</label>
+
+            <input type="file" name="imagen_id" id="imagen">
+
+            <input type="text" name="nombre" placeholder="Nombre" >
+
+            <input type="text" name="precio" placeholder="Precio">
+
+            <textarea name="description" id="Descripción" placeholder="Descripción"></textarea>
+
+            <label class="talle-titulo">Talle</label>
+
+            <div class="talle-productos">
+                <label>S</label>
+                <input type="checkbox" tabindex="20" name="talle_id" value="S" />
+                <label>M</label>
+                <input type="checkbox" tabindex="21" name="talle_id" value="M" />
+                <label>L</label>
+                <input type="checkbox" tabindex="22" name="talle_id" value="L" />
+                <label>XL</label>
+                <input type="checkbox" tabindex="23" name="talle_id" value="XL" />
+                <label>XXL</label>
+                <input type="checkbox" tabindex="24" name="talle_id" value="XXL" />
+            </div>
+            <div class="button-enviar-borrar">
+                <a  href="/"><button type="submit" value="Enviar">Enviar</button></a>
+                <a href="/"> <button type="reset" value="Borrar">Borrar</button></a>
+            </div>
+        </form>  
+    </section>
+    </main>
+    <!-- footer -->
+
+    <!-- <script src="/js/validationCreateProduct.js"></script> -->
+
+</body>
