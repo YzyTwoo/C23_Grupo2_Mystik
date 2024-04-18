@@ -12,11 +12,11 @@ module.exports = {
       nombre_color: 'Blanco'
     },
     {
-      nombre_color: 'Rojo'
+      nombre_color: 'gris'
     },
     {
-      nombre_color: 'Azul'
-    }
+      nombre_color: 'Rojo'
+    },
   ], {});
   
   },
