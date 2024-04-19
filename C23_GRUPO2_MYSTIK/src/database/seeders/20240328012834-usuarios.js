@@ -5,9 +5,20 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('usuarios', [
       {
-      nombre: 'Leonel',
-      apellido: 'Anchaba',
-      email: 'leoanchaba@gmail.com',
+        nombre: 'Tiziano',
+        apellido: 'Orieta',
+        email: 'tiziorieta@gmail.com',
+        contrasenia: '$2a$10$Yo.QkjMLz9M8PBK1tqfvPeFvYKOfUFQy.Rjl5DEIm82aCMJAGfXfq',
+        telefono: '1158918203',
+        nacimiento: new Date,
+        roles_id: '1',
+        createdAt: new Date,
+        updatedAt: new Date
+      },
+      {
+      nombre: 'Lautaro',
+      apellido: 'Contreras',
+      email: 'laucontreras@gmail.com',
       contrasenia: '$2a$10$Yo.QkjMLz9M8PBK1tqfvPeFvYKOfUFQy.Rjl5DEIm82aCMJAGfXfq',
       telefono: '1158918203',
       nacimiento: new Date,
@@ -16,9 +27,9 @@ module.exports = {
       updatedAt: new Date
     },
     {
-      nombre: 'Ezequiel',
-      apellido: 'Calvo',
-      email: 'ezecalvo@gmail.com',
+      nombre: 'Ayelen',
+      apellido: 'Coppa',
+      email: 'ayeCoppa@gmail.com',
       contrasenia: '$2a$10$Yo.QkjMLz9M8PBK1tqfvPeFvYKOfUFQy.Rjl5DEIm82aCMJAGfXfq',
       telefono: '1158918204',
       nacimiento: new Date,
@@ -27,9 +38,9 @@ module.exports = {
       updatedAt: new Date
     },
     {
-      nombre: 'Tiziano',
-      apellido: 'Orieta',
-      email: 'tiziorieta@gmail.com',
+      nombre: 'Valentina',
+      apellido: 'Rodriguez',
+      email: 'valenrodriguez@gmail.com',
       contrasenia: '$2a$10$Yo.QkjMLz9M8PBK1tqfvPeFvYKOfUFQy.Rjl5DEIm82aCMJAGfXfq',
       telefono: '1158918203',
       nacimiento: new Date,
@@ -38,13 +49,24 @@ module.exports = {
       updatedAt: new Date
     },
     {
-      nombre: 'Emiliano',
-      apellido: 'Ferreira',
-      email: 'emiferro@gmail.com',
+      nombre: 'Fabian',
+      apellido: 'Medina',
+      email: 'fabimedina@gmail.com',
       contrasenia: '$2a$10$Yo.QkjMLz9M8PBK1tqfvPeFvYKOfUFQy.Rjl5DEIm82aCMJAGfXfq',
       telefono: '1158918203',
       nacimiento: new Date,
       roles_id: '1',
+      createdAt: new Date,
+      updatedAt: new Date
+    },
+    {
+      nombre: 'Prueba User',
+      apellido: 'Demostración',
+      email: 'prueba@gmail.com',
+      contrasenia: '$2a$10$Yo.QkjMLz9M8PBK1tqfvPeFvYKOfUFQy.Rjl5DEIm82aCMJAGfXfq',
+      telefono: '1158918203',
+      nacimiento: new Date,
+      roles_id: '2',
       createdAt: new Date,
       updatedAt: new Date
     }
