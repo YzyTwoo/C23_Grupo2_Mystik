@@ -25,10 +25,10 @@ router.get('/login', ingreso);
 router.post('/login', validationLogin, login);
 
 router.get('/registro', register);
-router.post('/registro',registerValidator,upload.single('image'),createUsers);
+router.post('/registro',upload.single('image'),createUsers);
 
 router.get('/editar/:id', sessionValidate, perfil);
-router.put('/editar/:id', upload.single('image'), sessionValidate, profileValidator, perfilEditar);
+router.put('/editar/:id', upload.single('image'), profileValidator, perfilEditar);
 
 router.get('/logout', logout);
 

@@ -5,7 +5,14 @@ module.exports =[
     body('nombre').notEmpty().withMessage("Debe ingresar un nombre")
         .bail()
         .isLength({min:2}).withMessage("El valor ingresado debe tener al menos 2 caracteres")
-        .bail(),
+        .bail()
+        .custom((value, {req}) => {
+            if (/\d/.test(value)) {
+                throw new Error('El nombre no puede contener números');
+            }
+            
+            return true;
+        }),
     body('email')
         .notEmpty().withMessage('Este campo es obligatorio').bail()
         .isEmail().withMessage('El email tiene un formato invalido').bail()
