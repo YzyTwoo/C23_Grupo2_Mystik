@@ -44,25 +44,32 @@ const productosControllers = {
     },
 
     formEditarProducto: (req, res) => {
-        db.Producto.findByPk(req.params.id)
-            .then(result => {
-                if (!result) {
-                    return res.status(404).send('no se encontro el producto');
-                }
-                res.render('products/editProduct', { title: 'Editar Producto', result: result, usuario: req.session.user, errors:{}});
-            })
-            .catch(err => {
-                console.log('error', err);
-            });
+        db.Producto.findByPk(req.params.id, {
+            include: [{
+                model: db.Imagen,
+                as: 'imagenes'
+            }]
+        })
+        .then(result => {
+            if (!result) {
+                return res.status(404).send('error');
+            }
+            const imagenes = result.imagenes.map(imagen => imagen.file);
+            res.render('products/editProduct', { title: 'Editar Producto', result: result, usuario: req.session.user, imagenes: imagenes, errors: {}});
+        })
+        .catch(err => {
+            console.log('error', err);
+        });
     },
-
+    
     editarProducto: (req, res) => {
         const errors = validationResult(req);
-
+    
         if (!errors.isEmpty()) {
             return res.render('products/editProduct', { title: 'Editar Producto', result: req.body, usuario: req.session.user, errors: errors.mapped()});
         } else {
-            const { nombre, precio, descripcion, talles_id, stock, categorias_id, colecciones_id, colores_id } = req.body;
+            const { nombre, precio, descripcion, talles_id, stock, categorias_id, colecciones_id, colores_id, imagen_id} = req.body;
+    
             db.Producto.update(
                 {
                     nombre,
@@ -72,7 +79,8 @@ const productosControllers = {
                     stock,
                     categorias_id,
                     colecciones_id,
-                    colores_id
+                    colores_id,
+                    imagen_id
                 },
                 {
                     where: {
@@ -181,17 +189,17 @@ const productosControllers = {
         const errors = validationResult(req);
     
         if (errors.isEmpty()) {
-            const { nombre, precio, descripcion, talles_id, stock, imagen_id, categorias_id, colores_id, colecciones_id } = req.body;
+            const {nombre, precio, descripcion, talles_id, stock, categorias_id, colecciones_id, colores_id, imagen_id} = req.body;
             const product = {
-                imagen_id,
                 nombre: nombre.trim(),
                 precio: precio.trim(),
                 descripcion,
                 talles_id,
                 stock,
                 categorias_id,
+                colecciones_id,
                 colores_id,
-                colecciones_id
+                imagen_id
             };
             db.Producto.create(product)
                 .then(user => {

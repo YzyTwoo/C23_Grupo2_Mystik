@@ -26,7 +26,7 @@ router.get('/carrito', sessionValidate,carritoProducts);
 router.get('/dashboard', isAdminValidate, dashboard);
 
 router.get('/formEditarProducto/:id', isAdminValidate, formEditarProducto);
-router.put('/editarProducto/:id', isAdminValidate, uploadFile.single('image'), editProductValidator, editarProducto);
+router.put('/editarProducto/:id', isAdminValidate, uploadFile.single('imagen_id'), editProductValidator, editarProducto);
 
 router.get('/colecciones', colecciones);
 router.get('/colecciones/:nombreColeccion', productosColeccion);

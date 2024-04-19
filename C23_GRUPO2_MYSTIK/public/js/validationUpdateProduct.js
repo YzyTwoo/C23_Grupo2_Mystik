@@ -1,4 +1,18 @@
 window.onload = function() {
+    //IMAGEN//
+    const imagenInput = document.getElementById('imagen_id');
+    const imagenPreview = document.getElementById('imagen-preview');
+
+    imagenInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                imagenPreview.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
 
     // ERRORES //
     function mostrarError(idCampo, mensajeVacio, /*mensajeInvalido*/) {
@@ -63,6 +77,12 @@ window.onload = function() {
         'categorias': {
             mensajeVacio: 'Debe seleccionar una categoría para el producto.'
         },
+        'colecciones': {
+            mensajeVacio: 'Debe seleccionar una categoría para el producto.'
+        },
+        'colores': {
+            mensajeVacio: 'Debe seleccionar un color para el producto.'
+        },
         'stock': {
             mensajeVacio: 'Debe ingresar el stock del producto.',
             /*mensajeInvalido: 'El stock debe ser mayor a cero.',*/
@@ -76,7 +96,7 @@ window.onload = function() {
         }
     };
 
-    formulario.querySelectorAll('input, select').forEach(campo => {
+    formulario.querySelectorAll('input, select, textarea').forEach(campo => {
         campo.addEventListener('blur', function() {
             const valor = campo.value.trim();
             const idCampo = campo.id;
@@ -95,6 +115,8 @@ window.onload = function() {
         const descripcionInput = document.getElementById('descripcion');
         const tallesInput = document.getElementById('talles');
         const categoriasInput = document.getElementById('categorias');
+        const coleccionesInput = document.getElementById('colecciones');
+        const coloresInput = document.getElementById('colores')
         const stockInput = document.getElementById('stock');
     
         if (!nombreInput.value.trim()) {
@@ -169,6 +191,24 @@ window.onload = function() {
             return;
         }
 
+        if (!coleccionesInput.value.trim()) {
+            Swal.fire(
+                'Error',
+                'Debe seleccionar una colección para el producto.',
+                'error'
+            );
+            return;
+        }
+
+        if (!coloresInput.value.trim()) {
+            Swal.fire(
+                'Error',
+                'Debe seleccionar un color para el producto.',
+                'error'
+            );
+            return;
+        }
+
         if (!stockInput.value.trim()) {
             Swal.fire(
                 'Error',
@@ -188,6 +228,10 @@ window.onload = function() {
         }**/
     
         // no hay errores //
+        Swal.fire({
+            icon: "success"
+        });
+        
         formulario.submit();
     });    
 
