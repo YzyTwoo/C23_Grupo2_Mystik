@@ -1,46 +1,51 @@
 'use strict';
-/** @type {import('sequelize-cli').Migration} */
+
 module.exports = {
-  async up(queryInterface, DataType) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable('items', {
       id: {
-        type: DataType.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
         allowNull: false,
         unsigned: true,
         autoIncrement: true
-    },
-    cantidad:{
-        type: DataType.INTEGER,
-        allowNull: true
-    },
-    productos_id: {
-      type: DataType.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'productos',
-        key: 'id'
       },
-    },
-    ordenes_id: {
-      type: DataType.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'ordenes',
-        key: 'id'
+      cantidad: {
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
-    },
-    createdAt:{
-      type: DataType.DATEONLY,
-      allowNull: false
-    },
-    updatedAt:{
-      type: DataType.DATEONLY,
-      allowNull: false
-    }
+      productos_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'productos',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
+      usuarios_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'usuarios',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false
+      }
     });
   },
-  async down(queryInterface, DataType) {
+
+  async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('items');
   }
 };

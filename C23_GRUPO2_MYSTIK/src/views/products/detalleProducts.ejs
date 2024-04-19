@@ -41,6 +41,7 @@
                 </div>
 
                 <div class="container-add-cart">
+                    <form action="/productos/<%= producto.id %>/agregar-al-carrito" method="post">
                     <div class="containter-quantity">
                         <!-- INPUT CONTADOR (CANTIDAD DE PRODUCTO PARA AÑADIR AL CARRITO) -->
                         <label for="quantity">Cantidad</label>
@@ -50,14 +51,16 @@
                             value="1"
                             min="1"
                             id="quantity"
+                            name="cantidad"
                             class="input-quantity"
                         />
+                        <button class="btn-add-to-cart">
+                            <i class="fa-solid fa-plus"></i>
+                            Añadir al carrito
+                        </button>
+                    </form>
                     </div>
 
-                    <button class="btn-add-to-cart">
-                        <i class="fa-solid fa-plus"></i>
-                        Añadir al carrito
-                    </button>
                     <div class="container-social">
                         <span class="span-social">Compartir</span>
                         <div class="container-buttons-social">

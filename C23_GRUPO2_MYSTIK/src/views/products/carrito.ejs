@@ -1,0 +1,41 @@
+<%- include('../partials/heads.ejs') %>
+
+<body>
+    <%- include('../partials/headerProduct.ejs') %>
+    <h1>Carrito de Compras</h1>
+    
+    <% if (productos.length > 0) { %>
+    <table>
+        <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% productos.forEach(producto => { %>
+            <tr>
+            <td><%= producto.nombre %></td>
+            <td>$<%= producto.precio %></td>
+            <td><input type="number" value="<%= producto.cantidad %>" min="1" max="99"></td>
+              <td>$<%= producto.precio * producto.cantidad %></td>
+            <td>
+                <button onclick="actualizarCantidad('<%= producto.id %>', this.parentNode.parentNode.querySelector('input').value)">Actualizar</button>
+                <button onclick="eliminarProducto('<%= producto.id %>')">Eliminar</button>
+            </td>
+            </tr>
+        <% }); %>
+        </tbody>
+    </table>
+    <p>Total: $<%= calcularTotal(productos) %></p>
+    <button onclick="procederAlPago()">Proceder al Pago</button>
+    <% } else { %>
+    <p>No hay productos en el carrito.</p>
+    <% } %>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

@@ -22,7 +22,17 @@ const productosControllers = {
             }]
         })
         .then(function(producto){
-            const imagenes = producto.imagenes.map(imagen => imagen.file);
+            if (!producto) {
+                // Manejar el caso en el que el producto no exista
+                res.status(404).send('Producto no encontrado');
+                return;
+            }
+    
+            let imagenes = [];
+            if (producto.imagenes) {
+                imagenes = producto.imagenes.map(imagen => imagen.file);
+            }
+    
             res.render('products/detalleProducts', { 
                 title: 'Detalles', 
                 producto, 
@@ -31,11 +41,6 @@ const productosControllers = {
             });
         })
         .catch(err => console.log(err));
-    },
-
-    carritoProducts: (req, res) => {
-        let productos = leerArchivo('productos');
-        res.render('products/carritoProducts', {title:'Carrito', productos, usuario:req.session.user });
     },
 
     cargaProducto:  (req, res) => {
@@ -196,7 +201,22 @@ const productosControllers = {
             res.redirect('/productos/dashboard');
         }
     }).catch(err => console.log(err))
+}, vistaCarrito:(req, res)=>{
+    res.render('products/carrito', {usuario:req.session.user})
 },
-}
+agregarAlCarrito:(req, res)=>{
+    const idProducto = req.params.idProducto;
+    const idUsuario = req.session.user;
+    const cantidad = req.body.cantidad;
 
+    Item.create({ id_producto: idProducto, id_usuario: idUsuario, cantidad })
+    .then(() => {
+        res.redirect('/carrito');
+    })
+    .catch(error => {
+        console.error('Error al agregar producto al carrito:', error);
+        res.status(500).send('Ocurrió un error al agregar el producto al carrito.');
+    });
+}
+}
 module.exports = productosControllers;
