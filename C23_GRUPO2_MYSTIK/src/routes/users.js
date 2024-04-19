@@ -28,7 +28,7 @@ router.get('/registro', register);
 router.post('/registro',upload.single('image'),registerValidator,createUsers);
 
 router.get('/editar/:id', sessionValidate, perfil);
-router.put('/editar/:id', upload.single('image'), sessionValidate, profileValidator, perfilEditar);
+router.put('/editar/:id', upload.single('image'), profileValidator, perfilEditar);
 
 router.get('/logout', logout);
 
