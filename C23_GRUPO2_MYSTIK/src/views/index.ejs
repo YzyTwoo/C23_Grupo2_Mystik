@@ -54,8 +54,26 @@
               </article>
             <% }); %>
         </section>
-
           <!-- fin de sección productos -->
+
+          
+          <!-- Paginación -->
+        <div class="pagination">
+          <% if (pagina > 1) { %>
+              <a href="/?pagina=<%= pagina - 1 %>" class="btn-pagination">
+                <i class="fa-solid fa-circle-chevron-left" style="color: #7E1FBA;"></i>
+              </a>
+          <% } %>
+          <% for(let i = 1; i <= totalPaginas; i++) { %>
+              <a href="/?pagina=<%= i %>" class="<%= pagina == i ? 'active' : '' %>"><%= i %></a>
+          <% } %>
+          <% if (pagina < totalPaginas) { %>
+              <a href="/?pagina=<%= parseInt(pagina) + 1 %>" class="btn-pagination">
+                <i class="fa-solid fa-circle-chevron-right" style="color: #7E1FBA;"></i>
+              </a>
+          <% } %>
+      </div>
+      <!-- Fin de Paginación -->
     
           <!-- ASIDE ESPECIAL -->
           <div class="color-fondo-colecciones">
@@ -65,7 +83,7 @@
     
             <section class="section-aside">
                 <div class="img-aside">
-                    <a href="#"><img src="/images/coleccion1.jpg"    alt=""></a> 
+                    <a href="/productos/colecciones"><img src="/images/coleccion1.jpg"    alt=""></a> 
                 </div>
     
                 <div class="description-aside">
@@ -78,7 +96,7 @@
             <section class="section-aside">
     
                 <div class="img-aside">
-                    <a href="#"><img src="/images/coleccion2.jpg" alt=""></a>
+                    <a href="/productos/colecciones"><img src="/images/coleccion2.jpg" alt=""></a>
                 </div>
     
                 <div class="description-aside">

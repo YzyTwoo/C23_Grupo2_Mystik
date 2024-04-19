@@ -96,68 +96,86 @@ const productosControllers = {
                 console.log('error', err);
             });
         }
-    },    
-    
+    },
+
     dashboard: (req, res) => {
-                db.Producto.findAll({
-                    attributes: [
-                        'id',
-                        'nombre',
-                        'imagen_id',
-                        'precio',
-                        'descripcion',
-                        'stock',
-                        'talles_id',
-                        'colecciones_id',
-                        'categorias_id',
-                        'colores_id',
-                        'createdAt',
-                        'updatedAt'
-                    ],
-                    include: [
-                        {
-                            model: db.Categoria,
-                            as: 'categoria',
-                            attributes: ['nombre_categoria']
-                        },
-                        {
-                            model: db.Talle,
-                            as: 'talle',
-                            attributes: ['nombre_talle']
-                        },
-                        {
-                            model: db.Coleccion,
-                            as: 'coleccion',
-                            attributes: ['nombre_coleccion']
-                        },
-                        {
-                            model: db.Color,
-                            as: 'color',
-                            attributes: ['nombre_color']
-                        }
-                    ]
-                })
+        const pagina = req.query.pagina || 1; 
+        const porPagina = 10;
+        const offset = (pagina - 1) * porPagina;
+    
+        db.Producto.findAll({
+            attributes: [
+                'id',
+                'nombre',
+                'imagen_id',
+                'precio',
+                'descripcion',
+                'stock',
+                'talles_id',
+                'colecciones_id',
+                'categorias_id',
+                'colores_id',
+                'createdAt',
+                'updatedAt'
+            ],
+            include: [
+                {
+                    model: db.Categoria,
+                    as: 'categoria',
+                    attributes: ['nombre_categoria']
+                },
+                {
+                    model: db.Talle,
+                    as: 'talle',
+                    attributes: ['nombre_talle']
+                },
+                {
+                    model: db.Coleccion,
+                    as: 'coleccion',
+                    attributes: ['nombre_coleccion']
+                },
+                {
+                    model: db.Color,
+                    as: 'color',
+                    attributes: ['nombre_color']
+                }
+            ],
+            limit: porPagina,
+            offset: offset
+        })
         .then(productos => {
             const productosMapped = productos.map(producto => ({
                 id: producto.id,
                 nombre: producto.nombre,
                 precio: producto.precio,
-                descripcion:producto.descripcion,
-                stock:producto.stock,
+                descripcion: producto.descripcion,
+                stock: producto.stock,
                 categoria: producto.categoria ? producto.categoria.nombre_categoria : null,
                 talle: producto.talle ? producto.talle.nombre_talle : null,
                 coleccion: producto.coleccion ? producto.coleccion.nombre_coleccion : null,
                 color: producto.color ? producto.color.nombre_color : null
             }));
             const propiedades = ['id', 'nombre', 'precio', 'descripcion', 'stock', 'categoria', 'talle', 'coleccion', 'color'];
-            res.render('products/dashboard', {
-                title: "Dashboard",
-                productos: productosMapped,
-                propiedades,
-                usuario: req.session.user
+    
+            db.Producto.count()
+            .then(totalProductos => {
+                const totalPaginas = Math.ceil(totalProductos / porPagina);
+    
+                res.render('products/dashboard', {
+                    title: "Dashboard",
+                    productos: productosMapped,
+                    propiedades,
+                    usuario: req.session.user,
+                    pagina,
+                    totalPaginas
+                });
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).send("Error interno del servidor");
             });
         })
-        .catch(err => { 
+        .catch(err => {
             console.log(err);
             res.status(500).send("Error interno del servidor");
         });
@@ -205,6 +223,44 @@ const productosControllers = {
         }
     }).catch(err => console.log(err))
 },
+colecciones: (req,res)=>{
+    return res.render('products/colecciones.ejs')
+},
+productosColeccion:(req,res)=>{
+    const nombreColeccion = req.params.nombreColeccion;
+    db.Producto.findAll({
+        include: [
+        {
+            model: db.Imagen,
+            as: 'imagenes'
+        },
+        {
+            model: db.Coleccion,
+            as: 'coleccion',
+            where: { nombre_coleccion: nombreColeccion},
+            attributes: ['nombre_coleccion']
+        },
+    ]
+    })
+    .then(function(productos){
+        const imagenes = [];
+        productos.forEach(producto => {
+            producto.imagenes.forEach(imagen => {
+                imagenes.push(imagen.file);
+            });
+        });
+        res.render('products/productosColeccion', { 
+            productos, 
+            imagenes,
+            usuario: req.session.user 
+        });
+    })
+    .catch(err => console.log(err));
 }
+
+}
+
+module.exports = productosControllers;
+
 
 module.exports = productosControllers;

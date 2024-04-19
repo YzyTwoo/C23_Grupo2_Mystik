@@ -36,45 +36,56 @@
                               <i class="fa-brands fa-readme"></i>
                           </a>
 
-                          <a href="/productos/formEditarProducto/<%= producto.id %>">
-                              <i class="fa-solid fa-pen-to-square"></i>
-                          </a>
+                        <a href="/productos/formEditarProducto/<%= producto.id %>">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
 
-                          <a href="/productos/dashboard">
-                              <form action="/productos/delete/<%= producto.id %>?_method=DELETE" method="POST" style="display: inline-flex">
-
-                                  <button type="submit" class="action-button delete">
-                                      <i class="fa-solid fa-trash"></i>
-                                  </button>
-
-                              </form>
-                            </a>
+                        <a href="/productos/dashboard" style="display: inline-flex;">
+                            <form action="/productos/delete/<%= producto.id %>?_method=DELETE" method="POST" style="margin: 0;">
+                                <button type="submit" style="border: none; background: none; cursor: pointer;">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </form>
+                        </a>
 
                             </td>
                         </tr>
                     <%}); %>
                 </tbody>
-              </table>
+            </table>
 
     
-          </section>
+        </section>
     
-          <!-- fin de sección productos -->
-    
-    
-          
+        <!-- fin de sección productos -->
 
-      </main>
+    </main>
+
+                <!-- Paginación -->
+                <div class="pagination">
+                    <% if (pagina > 1) { %>
+                        <a href="/productos/dashboard?pagina=<%= pagina - 1 %>" class="btn-pagination">
+                            <i class="fa-solid fa-circle-chevron-left" style="color: #7E1FBA;"></i>
+                        </a>
+                    <% } %>
+                    <% for(let i = 1; i <= totalPaginas; i++) { %>
+                        <a href="/productos/dashboard?pagina=<%= i %>" class="<%= pagina == i ? 'active' : '' %>"><%= i %></a>
+                    <% } %>
+                    <% if (pagina < totalPaginas) { %>
+                        <a href="/productos/dashboard?pagina=<%= parseInt(pagina) + 1 %>" class="btn-pagination">
+                            <i class="fa-solid fa-circle-chevron-right" style="color: #7E1FBA;"></i>
+                        </a>
+                    <% } %>
+                </div>
+                <!-- Fin de Paginación -->
     
 
-      
-      <!-- Footer -->
-      <%- include("../partials/footer.ejs") %>
+    
+    <!-- Footer -->
+    <%- include("../partials/footer.ejs") %>
 
 
     
-     
-  
 </body>
 
 </html>
