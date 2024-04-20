@@ -25,6 +25,14 @@ const indexControllers = {
             });
         })
         .catch(err => console.log(err));
-    }
+    },
+
+    informacion:(req,res)=>{
+        res.render("informacion",{title:"Informacion"})
+       },
+
+       tienda:(req,res)=>{
+        res.render("tienda",{title:"Tienda"})
+       }   
 }
 module.exports = indexControllers;
