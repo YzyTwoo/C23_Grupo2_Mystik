@@ -29,10 +29,10 @@ const modelResponseProduct = {
       association : 'color',
       attributes : ['nombre_color']
     },
-  /*  {
+    {
       association : 'imagenes',
-      attributes : ['']
-    }   */
+      attributes : ['file','path','productos_id']
+    }   
   ] 
 }
 
@@ -44,7 +44,7 @@ module.exports = {
       const products = rows.map(product => {
         return {
           ...product.dataValues,
-          detail : `${req.protocol}://${req.get('host')}/products/${product.id}`
+          detail : `${req.protocol}://${req.get('host')}/productos/detalle/${product.id}`
         }
       })
 

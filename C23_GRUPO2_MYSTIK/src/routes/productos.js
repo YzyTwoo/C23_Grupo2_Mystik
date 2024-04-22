@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 const multer = require('multer');
-const {detalleProducts, editCarrito, cargaProducto, destroyCarrito, dashboard, formEditarProducto, editarProducto, agregarAlCarrito , vistaCarrito, viewProducts, vistacrear, create, destroy} = require('../controllers/productosControllers');
+const {detalleProducts, editCarrito, cargaProducto, destroyCarrito, dashboard, formEditarProducto, editarProducto, agregarAlCarrito , vistaCarrito, viewProducts, vistacrear, create, destroy,colecciones,productosColeccion} = require('../controllers/productosControllers');
 const isAdminValidate = require('../middlewares/isAdminValidate');
-const sessionValidate = require('../middlewares/sessionValidate');
+// const sessionValidate = require('../middlewares/sessionValidate');
 const editProductValidator = require('../validations/editProductValidator');
 const createProductValidator = require('../validations/createProductValidator');
 const path = require('path');
@@ -42,4 +42,6 @@ router.post('/create', isAdminValidate, uploadFile.single('imagen_id'), createPr
 
 router.delete('/delete/:id', isAdminValidate, destroy); 
 
+router.get('/colecciones', colecciones);
+router.get('/colecciones/:nombreColeccion', productosColeccion);
 module.exports = router; 
