@@ -15,6 +15,8 @@ module.exports = (sequelize, DataTypes) => {
       Producto.belongsTo(models.Coleccion, { foreignKey: 'colecciones_id', as: 'coleccion' });
       Producto.belongsTo(models.Categoria, { foreignKey: 'categorias_id', as: 'categoria' });
       Producto.belongsTo(models.Color, { foreignKey: 'colores_id', as: 'color' });
+      this.hasMany(models.Item, { foreignKey: 'Productos_id', as: 'item' });
+      Producto.belongsToMany(models.Usuario, {through: 'Items', foreignKey:'productos_id', otherKey: 'usuarios_id', as: 'items'})
     }
   }
   Producto.init({

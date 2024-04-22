@@ -1,10 +1,12 @@
+const { Association } = require("sequelize");
 const db = require("../database/models");
+const { includes } = require("../validations/editProductValidator");
 
 const modelRespondeUser = {
   attributes : {
     exclude : ['createdAt', 'updatedAt', 'roles_id','contrasenia']
   },
-  
+  include:{association:'items'}
 }
 
 module.exports = {
