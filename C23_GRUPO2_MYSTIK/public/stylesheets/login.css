@@ -120,8 +120,8 @@ header {
 }
 
 #contrasenia {
-    margin-top: 10px;
-    padding: 2px;
+    /*margin-top: 10px;*/
+    /*padding: 2px;*/
     margin-bottom: 10px;
     transition: background-color 0.3s ease;
     
@@ -266,8 +266,8 @@ header {
     }
 
     #contrasenia {
-        margin-top: 10px;
-        padding: 2px;
+        /*margin-top: 10px;*/
+        /*padding: 2px;*/
         margin-bottom: 10px;
         transition: background-color 0.3s ease;
     }
@@ -337,7 +337,7 @@ header {
     #password {
         margin-top: 10px;
         border-radius: 15px;
-        padding: 5px;
+        /*padding: 5px;*/
         margin-bottom: 20px;
         width: 90%;
     }
