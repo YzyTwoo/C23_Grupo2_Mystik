@@ -181,10 +181,12 @@
     border-radius: 5px;
     background-color: var(--color-gris-claro);
     transition: 0.6s;
+    text-decoration:none
 }
 
 .btn-add-to-cart:hover{
     color: var(--color-blanco);
+    text-decoration:none;
     background-color: var(--color-violeta-claro);
     transition: all 400ms;
     .fa-plus{
@@ -193,7 +195,6 @@
         transform: rotateZ(-90deg);
     }
 }
-
 /* ICONO + dentro del BOTON (añadir al carrito) */
 .fa-plus {
     transition: 0.3s;

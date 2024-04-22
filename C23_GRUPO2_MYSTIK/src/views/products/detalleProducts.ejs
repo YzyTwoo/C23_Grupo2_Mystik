@@ -41,26 +41,29 @@
                 </div>
 
                 <div class="container-add-cart">
-                    <form action="/productos/<%= producto.id %>/agregar-al-carrito" method="post">
-                    <div class="containter-quantity">
-                        <!-- INPUT CONTADOR (CANTIDAD DE PRODUCTO PARA AÑADIR AL CARRITO) -->
-                        <label for="quantity">Cantidad</label>
-                        <input
-                            type="number"
-                            placeholder="1"
-                            value="1"
-                            min="1"
-                            id="quantity"
-                            name="cantidad"
-                            class="input-quantity"
-                        />
-                        <button class="btn-add-to-cart">
-                            <i class="fa-solid fa-plus"></i>
-                            Añadir al carrito
-                        </button>
-                    </form>
-                    </div>
-
+                    <% if (locals.usuario){ %>
+                        <form action="/productos/agregar-al-carrito/<%= producto.id %>" method="post">
+                            <div class="containter-quantity">
+                                <!-- INPUT CONTADOR (CANTIDAD DE PRODUCTO PARA AÑADIR AL CARRITO) -->
+                                <label for="quantity">Cantidad</label>
+                                <input type="number" placeholder="1" value="1" min="1" id="quantity" name="cantidad" class="input-quantity"/>
+                                <button class="btn-add-to-cart">
+                                    <i class="fa-solid fa-plus"></i>
+                                    Añadir al carrito
+                                </button>
+                            </form>
+                        </div>
+                        <% }else { %>
+                                <div class="containter-quantity">
+                                    <!-- INPUT CONTADOR (CANTIDAD DE PRODUCTO PARA AÑADIR AL CARRITO) -->
+                                    <label for="quantity">Cantidad</label>
+                                    <input type="number" placeholder="1" value="1" min="1" id="quantity" name="cantidad" class="input-quantity"/>
+                                    <a href="/users/login" class="btn-add-to-cart"><button class="btn-add-to-cart">
+                                        <i class="fa-solid fa-plus"></i>
+                                        Añadir al carrito</a>
+                                    </button>
+                                </div>
+                    <% } %>
                     <div class="container-social">
                         <span class="span-social">Compartir</span>
                         <div class="container-buttons-social">

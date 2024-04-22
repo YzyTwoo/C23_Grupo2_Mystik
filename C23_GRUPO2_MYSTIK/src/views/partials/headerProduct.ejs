@@ -33,10 +33,15 @@
         </div>
         <div class="search-cart">
             <input type="text" placeholder="Buscar"><i class="fas fa-search"></i>
+
             <div class="cart">
-                <a href="/productos/carrito"><i class="fa-solid fa-cart-shopping icon-carrito-user"></i></a>
+                <% if (locals.usuario){ %>
+                    <a href="/productos/carrito"><i class="fa-solid fa-cart-shopping icon-carrito-user"></i></a>
+                    <% }else { %>
+                        <a href="users/login"><i class="fa-solid fa-cart-shopping icon-carrito-user"></i></a>
+                <% } %>
             </div>
-            <div>
+            
                 <% if(locals.usuario){ %>
                     <div class="transition_menu">
                     <a class="line"><%= locals.usuario.nombre %></a>

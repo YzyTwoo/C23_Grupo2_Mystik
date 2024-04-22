@@ -40,6 +40,7 @@ app.use(session({
 
 app.use(cookieValidate);
 
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/productos', productosRouter);

@@ -2,40 +2,53 @@
 
 <body>
     <%- include('../partials/headerProduct.ejs') %>
-    <h1>Carrito de Compras</h1>
-    
-    <% if (productos.length > 0) { %>
-    <table>
-        <thead>
-        <tr>
-            <th>Producto</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
-            <th>Subtotal</th>
-            <th>Acciones</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% productos.forEach(producto => { %>
-            <tr>
-            <td><%= producto.nombre %></td>
-            <td>$<%= producto.precio %></td>
-            <td><input type="number" value="<%= producto.cantidad %>" min="1" max="99"></td>
-              <td>$<%= producto.precio * producto.cantidad %></td>
-            <td>
-                <button onclick="actualizarCantidad('<%= producto.id %>', this.parentNode.parentNode.querySelector('input').value)">Actualizar</button>
-                <button onclick="eliminarProducto('<%= producto.id %>')">Eliminar</button>
-            </td>
-            </tr>
-        <% }); %>
-        </tbody>
-    </table>
-    <p>Total: $<%= calcularTotal(productos) %></p>
-    <button onclick="procederAlPago()">Proceder al Pago</button>
-    <% } else { %>
-    <p>No hay productos en el carrito.</p>
-    <% } %>
 
+    <% if(items) { %>
+        <div>
+            <h1>Carrito de Compras</h1>
+            <table class="table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Imagen</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% items.forEach(item => { %>
+                    <tr>
+                        <td><%= item.producto.nombre %></td>
+                        <td><img src="<%= item.producto.imagen %>" alt="<%= item.producto.nombre %>" style="width: 50px;"></td>
+                        <td>$<%= item.producto.precio %></td>
+                        <td><%= item.cantidad %></td>
+                        <td>$<%= item.cantidad * parseFloat(item.producto.precio) %></td>
+                        <td>
+                            <form action="/productos/carrito/<%= item.id %>/actualizar?_method=PUT" method="POST" enctype="multipart/form-data">
+                                <input type="number" name="cantidad" value="<%= item.cantidad %>" min="1" max="99">
+                                <button type="submit">Actualizar</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/productos/carrito/<%= item.id %>/eliminar?_method=DELETE" method="POST" enctype="multipart/form-data">
+                                <button type="submit">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <p>Total: $<%= toThousand(total) %></p>
+        <button onclick="procederAlPago()">Proceder al Pago</button>
+    </div>
+    <% } else { %>
+        <h1>Carrito de Compras</h1>
+        <p>no hay ningun producto agregado</p>
+        <a href="/"><button>Seguir comprando</button></a>
+    <% } %>
+    
     <%- include('../partials/footer.ejs') %>
 </body>
 </html>

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const multer = require('multer');
-const {detalleProducts, cargaProducto, dashboard, formEditarProducto, editarProducto, agregarAlCarrito , vistaCarrito, viewProducts, vistacrear, create, destroy} = require('../controllers/productosControllers');
+const {detalleProducts, editCarrito, cargaProducto, destroyCarrito, dashboard, formEditarProducto, editarProducto, agregarAlCarrito , vistaCarrito, viewProducts, vistacrear, create, destroy} = require('../controllers/productosControllers');
 const isAdminValidate = require('../middlewares/isAdminValidate');
 const sessionValidate = require('../middlewares/sessionValidate');
 const editProductValidator = require('../validations/editProductValidator');
@@ -28,8 +28,9 @@ router.get('/formEditarProducto/:id', isAdminValidate, formEditarProducto);
 router.put('/editarProducto/:id', isAdminValidate, uploadFile.single('image'), editProductValidator, editarProducto);
 
 router.get('/carrito', vistaCarrito)
-
-router.post('/productos/:idProducto/agregar-al-carrito', agregarAlCarrito)
+router.post('/agregar-al-carrito/:idProducto', agregarAlCarrito)
+router.delete('/carrito/:id/eliminar', destroyCarrito)
+router.put('/carrito/:id/actualizar', editCarrito)
 /*carga de productos*/
 
 router.get('/cargaProducto', isAdminValidate, cargaProducto);
