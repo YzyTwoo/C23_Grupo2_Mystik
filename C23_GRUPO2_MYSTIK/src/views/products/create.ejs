@@ -1,94 +1,106 @@
-<!-- head -->
-
 <%- include('../partials/heads.ejs') %>
 
-    <body>
-        <!-- header -->
-        <%- include("../partials/headerProduct.ejs") %>
-            <main>
-                <h1 class="titulo-producto">Carga de productos</h1>
-                <section class="section-form">
+<body>
+    <%- include("../partials/headerProduct.ejs") %>
 
-                    <form action="/productos/create" method="POST" class="form-product" enctype="multipart/form-data" id="form-id">
-                        <div class="div-form">
-                            <label class="subtitulo">Cargar imagen del producto</label>
-
-                            <input type="file" name="imagen_id" id="imagen_id" accept="image/*" value="<%= locals.old && old.imagen_id ? old.imagen_id : null %>">
-                            <p class="local_error" ><%= locals.errors && errors.imagen_id? errors.imagen_id.msg : null %></p>
-                            <input type="text" name="nombre" placeholder="Nombre" id="nombre"required value="<%= locals.old && old.nombre ? old.nombre : null %>">
-                            <p class="local_error" ><%= locals.errors && errors.nombre? errors.nombre.msg : null %></p>
-                            <input type="text" name="precio" id="precio" placeholder="Precio" required value="<%= locals.old && old.precio ? old.precio : null %>">
-                            <p class="local_error" ><%= locals.errors && errors.precio? errors.precio.msg : null %></p>
-                            <textarea name="descripcion" id="descripcion" placeholder="Descripción" required><%= locals.old && old.descripcion ? old.descripcion : null %></textarea>
-                            <p class="local_error" ><%= locals.errors && errors.descripcion? errors.descripcion.msg : null %></p>
-                            </div>
-
-                            <label class="talle-titulo">Talle</label>
-
-        <div class="talle-productos">
-            
-            <label>S</label>
-            <input type="checkbox" tabindex="20" name="talles_id" value="1" />
-            <label>M</label>
-            <input type="checkbox" tabindex="21" name="talles_id" value="2" />
-            <label>L</label>
-            <input type="checkbox" tabindex="22" name="talles_id" value="3" />
-            <label>XL</label>
-            <input type="checkbox" tabindex="23" name="talles_id" value="4" />
-            <label>XXL</label>
-            <input type="checkbox" tabindex="24" name="talles_id" value="5" />
-        </div>
-        <label class="category">Categoría</label>
-        <select name="categorias_id" required>
-            <option value="1">Buzos</option>
-            <option value="2">Remeras</option>
-            <option value="3">Camperas</option>
-            <option value="4">Colecciones especiales</option>
-            <option value="5">Ofertas</option>
-        </select>
-        <br>
-        <label for="category">Colecciones:</label>
-        <select name="colecciones_id" required>
-            <option value="1">Verano</option>
-            <option value="2">Invierno</option>
-            <option value="3">Game over</option>
-            <option value="4">Fetch</option>
-        </select>
-        <br>
-        <label class="colors">Colores disponibles :</label> 
-        <div class="box">
-        
-                <div class="color-box">
-                  <input type="checkbox" name="colores_id" value="1" id="colores_id">
-                  <label for="color" >Negro</label>
+    <main class="fondocolor">
+        <section class="section_form_edit_product">
+            <form action="/productos/create" method="POST" class="form-product" enctype="multipart/form-data" id="form-id">
+                
+                <!-- TITULO EDICIÓN DEL PRODUCTO -->
+                <div class="contenedor">
+                    <div class="cuadrado"><p class="edicion_p">Carga de productos</p></div>
                 </div>
+    
+                <!-- CONTENEDOR DEL FORMULARIO -->
+                <div class="cuadrado_form">
+                    <!-- IZQUIERDA FORMULARIO -->
+                    <div class="izq_formulario">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" class="input-nombre" id="nombre" required value="<%= locals.old && old.nombre ? old.nombre : '' %>">
+                        <p class="p-errors" ><%= locals.errors && errors.nombre ? errors.nombre.msg : null %></p>
+                        
+                        <label for="precio">Precio</label>
+                        <input type="text" name="precio" id="precio" class="input-precio" required value="<%= locals.old && old.precio ? old.precio : '' %>">
+                        <p class="p-errors" ><%= locals.errors && errors.precio ? errors.precio.msg : null %></p>
+                        
+                        <label for="descripcion">Agregue una descripción al producto</label>
+                        <textarea name="descripcion" id="descripcion" class="input-descripcion" required><%= locals.old && old.descripcion ? old.descripcion : '' %></textarea>
+                        <p class="p-errors" ><%= locals.errors && errors.descripcion ? errors.descripcion.msg : null %></p>    
+                    </div>
+    
+                    <div class="v-line"></div>
+    
+                    <div class="centro_form">
+                        <div class="caract_product_title">
+                            <div class="titulo_prod"><p class="clase_p_caracteristicas">CARACTERISTICAS DEL PRODUCTO</p></div>
+                        </div>
+    
+                        <label for="talles_id" class="talle-titulo">Talle</label>
+                        <select name="talles_id" id="talles" class="talle">
+                            <option value="" disabled selected >Elegir</option>
+                            <option value="1" >Talle S</option>
+                            <option value="2" >Talle M</option>
+                            <option value="3" >Talle L</option>
+                            <option value="4">Talle XL</option>
+                            <option value="5" >Talle XXL</option>
+                        </select>
+                    
+                        <label for="categorias_id" class="categorias-titulo">Categoría</label>
+                        <select name="categorias_id" id="categorias" class="categorias">
+                            <option value="" disabled selected>Elegir</option>
+                            <option value="1" >Buzo</option>
+                            <option value="2" >Campera</option>
+                            <option value="3" >Sweater</option>
+                            <option value="4" >Remera</option>
+                        </select>
+                    
+                        <label for="colecciones_id" class="colecciones_label">Colecciones</label>
+                        <select name="colecciones_id" id="colecciones" class="colecciones">
+                            <option value="" disabled selected>Elegir</option>
+                            <option value="1">Invierno</option>
+                            <option value="2" >Otoño</option>
+                            <option value="3">Primavera</option>
+                            <option value="4">Verano</option>
+                        </select>
+                    
+                        <label class="colores_id">Colores disponibles</label>
+                        <select name="colores_id" id="colores" class="colores">
+                            <option value="" disabled selected>Elegir</option>
+                            <option value="1" >Negro</option>
+                            <option value="2" >Blanco</option>
+                            <option value="3" >Gris</option>
+                            <option value="4" >Rojo</option>
+                        </select>
 
-                <div class="color-box">
-                  <input type="checkbox" name="colores_id" value="2" id="colores_id">
-                  <label for="color" >Blanco</label>
+                        <div class="stock-class">
+                            <label for="stock" class="stock-titulo">Stock</label>
+                            <input type="number" name="stock" id="stock" min="0" value="">
+                            <p class="ed-errors" id="error-stock" ></p>
+                        </div>
+                    </div>
+                    
+                    <div class="v-line"></div>
+
+                    <div class="der_formulario">
+                        <div class="container_img_edit_product">
+                            <img id="imagen-preview" class="img_edit_product">
+                            <p id="imagen-placeholder">Cargar imagen del producto</p>
+                        </div>
+                        <div class="input_imagen_select">
+                            <input type="file" name="imagen_id" id="imagen_id" accept="image/*" value="<%= locals.old && old.imagen_id ? old.imagen_id : '' %>">
+                            <p class="p-errors" ><%= locals.errors && errors.imagen_id ? errors.imagen_id.msg : null %></p>
+                        </div>
+                    </div>
+                
                 </div>
-
-                <div class="color-box">
-                  <input type="checkbox" name="colores_id" value="3" id="colores_id">
-                  <label for="color" >Gris</label>
+                <div class="enviar_bottom_borrar">
+                    <button type="submit" value="Enviar" id="submitBtn">Enviar</button>
+                    <button type="reset" value="Borrar">Borrar</button>
                 </div>
-        </div>
-        <div class="estock">
-        <label>Stock :</label>
-        <input type="number" name="stock" id="stock" min="0" required>
-        </div>
-
-        <div class="button-enviar-borrar">
-            <button type="submit" value="Enviar" id="submitBtn">Enviar</button>
-            <button type="reset" value="Borrar">Borrar</button>
-        </div>
-    </form>  
-</section>
-</main>
-
-
-<!-- footer -->
-
-
-
+            </form>
+        </section>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+    <script src="/js/validationCreateProduct.js"></script>
 </body>

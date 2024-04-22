@@ -2,6 +2,22 @@ window.onload = function() {
     console.log('CARGUE LA HOJA JS');
     const form = document.getElementById('form-id');
     const submitBtn = document.getElementById('submitBtn');
+    ///// AL AGREGAR UNA IMAGEN SE VISUALIZA EN LA PAGINA ////
+    const imagenInput = document.getElementById('imagen_id');
+    const imagenPreview = document.getElementById('imagen-preview');
+    const imagenPlaceholder = document.getElementById('imagen-placeholder');
+    
+    imagenInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                imagenPreview.src = e.target.result;
+                imagenPlaceholder.style.display = 'none';
+            }
+            reader.readAsDataURL(file);
+        }
+    });
 
     /////////// nombrando las variables //////////////////
     const nombre = document.getElementById('nombre');
@@ -9,7 +25,7 @@ window.onload = function() {
     const descripcion = document.getElementById('descripcion');
     const talles_id = document.getElementById('talles_id');
     const stock = document.getElementById('stock');
-    const categorias_id = document.getElementById('catagorias_id');
+    const categorias_id = document.getElementById('categorias_id');
     const colores_id = document.getElementById('colores_id');
     let alertaMostrada = false;
 

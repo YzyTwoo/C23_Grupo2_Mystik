@@ -56,4 +56,3 @@ window.onload = function(){
     const formularioPerfil = document.getElementById('form-profile');
     formularioPerfil.addEventListener('submit', validateProfile);
  }
- 

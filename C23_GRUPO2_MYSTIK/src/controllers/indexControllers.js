@@ -4,24 +4,37 @@ const db = require('../database/models')
 
 const indexControllers = {
     index: (req, res) => {
-        db.Producto.findAll({
+        const pagina = req.query.pagina || 1;
+        const porPagina = 12;
+        const offset = (pagina - 1) * porPagina;
+
+        db.Producto.findAndCountAll({
             include: [{
                 model: db.Imagen,
                 as: 'imagenes'
-            }]
+            }],
+            limit: porPagina,
+            offset: offset
         })
-        .then(function(productos){
+        .then(function(result){
+            const productos = result.rows;
+            const totalProductos = result.count;
+            const totalPaginas = Math.ceil(totalProductos / porPagina);
+
             const imagenes = [];
             productos.forEach(producto => {
                 producto.imagenes.forEach(imagen => {
                     imagenes.push(imagen.file);
                 });
             });
+
             res.render('index', { 
                 title: 'Inicio', 
                 productos, 
                 imagenes,
-                usuario: req.session.user 
+                usuario: req.session.user,
+                pagina,
+                totalPaginas
             });
         })
         .catch(err => console.log(err));
@@ -35,4 +48,5 @@ const indexControllers = {
         res.render("tienda",{title:"Tienda"})
        }   
 }
+
 module.exports = indexControllers;
