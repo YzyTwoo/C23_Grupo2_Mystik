@@ -325,8 +325,5 @@ editCarrito: (req, res) => {
     });
 }
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> develop
 module.exports = productosControllers;
