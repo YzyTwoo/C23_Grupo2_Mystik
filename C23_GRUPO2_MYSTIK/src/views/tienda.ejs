@@ -1,8 +1,9 @@
 <!-- head -->
 
 <%- include('./partials/heads.ejs') %>
+<body>
 
-  <body>
+  <body class="clase_body">
     <!-- header-->
     <%- include('./partials/headerProduct.ejs') %>
       <!-- header-->
@@ -10,7 +11,7 @@
       <section class="section">
         <div class="container">
           <h1 dir="ltr"><span
-              style="color: rgb(77, 81, 86); font-family: arial, sans-serif; font-size: 14px;">📍&nbsp;</span>Dirección:
+              style="color: rgb(77, 81, 86); font-family: arial, sans-serif; font-size: 14px;"><i class="fa-solid fa-location-dot"></i>&nbsp;</span>Dirección
           </h1>
           <br>
           <h5>Moron 4756, Floresta, CABA, Argentina.</h5>
@@ -21,15 +22,16 @@
             referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
        <div id="horarios">
-        <h4 id="contacto">Contactanos</h4>
-        <p dir="ltr">⏰<strong>Horario:</strong></p>
-          <p dir="ltr">Lunes a Sabado de 12hs a 20hs</p>
-          <p dir="ltr"><span style="color: rgb(77, 81, 86); font-family: arial, sans-serif; font-size: 14px;">📱</span>
-            <strong>Teléfono (sólo Whatsapp):</strong></p>
+        <h4 id="contacto">Contactanos:</h4>
+        <p class="p_clases" dir="ltr"><i class="fa-solid fa-clock"></i><strong class="letras_tamaño"> Horario</strong>
+          <br>
+          <p class="telefono-decoration">Lunes a Sabado de 12hs a 20hs</p></p>
+          <p class="p_clases" dir="ltr"><span style="color: rgb(77, 81, 86); font-family: arial, sans-serif; font-size: 14px;"><i class="fa-solid fa-phone"></i></span>
+            <strong class="letras_tamaño"> Teléfono (sólo Whatsapp)</strong></p>
           <a href="https://api.whatsapp.com/send/?phone=542664312790" class="telefono-decoration">+54 26604312790</a>
           <br>
-          <p dir="ltr"><span style="color: rgb(77, 81, 86); font-family: arial, sans-serif; font-size: 14px;"></span>
-            <strong><p>✉️ Email:</strong></p>
+          <p class="p_clases" dir="ltr"><span style="color: rgb(77, 81, 86); font-family: arial, sans-serif; font-size: 14px;"><i class="fa-solid fa-envelope-circle-check"></i></span>
+            <strong class="letras_tamaño"> Email</strong></p>
           <a href="mystikCompany@gmail.com" class="email-decoration"> mystikCompany@gmail.com</a><br>
         </div>
   </section>

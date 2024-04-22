@@ -223,7 +223,7 @@ const productosControllers = {
     }).catch(err => console.log(err))
 },
 colecciones: (req,res)=>{
-  return res.render('products/colecciones.ejs')
+    return res.render('products/colecciones.ejs', {title:"Colecciones", usuario: req.session.user})
 },
 productosColeccion:(req,res)=>{
   const nombreColeccion = req.params.nombreColeccion;
@@ -325,4 +325,8 @@ editCarrito: (req, res) => {
     });
 }
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> develop
 module.exports = productosControllers;

@@ -41,11 +41,16 @@ const indexControllers = {
     },
 
     informacion:(req,res)=>{
-        res.render("informacion",{title:"Informacion"})
+        res.render("informacion",{
+            title:"Informacion",
+            usuario: req.session.user
+        })
        },
 
        tienda:(req,res)=>{
-        res.render("tienda",{title:"Tienda"})
+        res.render("tienda",{
+            title:"Tienda",
+            usuario: req.session.user})
        }   
 }
 
