@@ -32,6 +32,22 @@
     height: 460px;
 }
 
+.fa-envelope,
+.fa-facebook,
+.fa-x-twitter,
+.fa-x-twitter,
+.fa-instagram,
+.fa-pinterest
+{
+    font-size: 20px;
+    color: #511478;
+    margin-right: 5px;
+}
+
+.container-buttons-social{
+    margin-top: 10px;
+}
+
 /* CAJA PADRE Contenedor principal de la información total del producto (↓ CAJAS HIJAS ↓ )*/
 .container-info-product {
     width: 60%;
