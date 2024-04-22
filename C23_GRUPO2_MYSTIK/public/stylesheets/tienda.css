@@ -1,0 +1,28 @@
+.section {
+  display: flex; 
+}
+
+.container {
+  flex: 1; 
+  text-align: center; 
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#horarios {
+  flex: 1; 
+  margin-top: 10%;
+  font-size: 100%;
+}
+
+.telefono-decoration{
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+.email-decoration{
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  }
