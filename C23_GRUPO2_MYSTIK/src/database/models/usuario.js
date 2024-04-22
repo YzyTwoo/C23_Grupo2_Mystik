@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       Usuario.belongsTo(models.Rol, { foreignKey: 'roles_id', as: 'rol' });
       Usuario.hasMany(models.Direccion, { foreignKey: 'usuarios_id', as: 'direcciones' });
       Usuario.hasMany(models.Orden, { foreignKey: 'usuarios_id', as: 'ordenes' });
+      Usuario.belongsToMany(models.Producto, {through: 'Items', foreignKey:'usuarios_id', otherKey:'productos_id', as: 'items'});
     }
   }
   Usuario.init({

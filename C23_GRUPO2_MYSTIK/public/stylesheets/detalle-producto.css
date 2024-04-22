@@ -197,10 +197,25 @@
     border-radius: 5px;
     background-color: var(--color-gris-claro);
     transition: 0.6s;
+    text-decoration:none
 }
 
-.btn-add-to-cart:hover{
+.btn-add-to-cart-carrito {
+    cursor: pointer;
+    font-weight: 600;
+    margin: 10px 0px;
+    padding: 5px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-gris-claro-v2);
+    transition: 0.6s;
+    text-decoration:none
+}
+
+.btn-add-to-cart-carrito:hover{
     color: var(--color-blanco);
+    text-decoration:none;
     background-color: var(--color-violeta-claro);
     transition: all 400ms;
     .fa-plus{
@@ -210,6 +225,17 @@
     }
 }
 
+.btn-add-to-cart:hover{
+    color: var(--color-blanco);
+    text-decoration:none;
+    background-color: var(--color-violeta-claro);
+    transition: all 400ms;
+    .fa-plus{
+        color: var(--color-blanco);
+        transition: all 300ms;
+        transform: rotateZ(-90deg);
+    }
+}
 /* ICONO + dentro del BOTON (añadir al carrito) */
 .fa-plus {
     transition: 0.3s;
