@@ -5,7 +5,7 @@ window.onload = function(){
         const emailInput = document.getElementById('validacion-email');
         const telefonoInput = document.getElementById('validacion-telefono');
  
-        e.preventDefault();
+        /*e.preventDefault();*/
  
         let errores = []; 
  

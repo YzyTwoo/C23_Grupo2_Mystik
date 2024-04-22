@@ -1,6 +1,8 @@
 <!-- head -->
 
 <%- include('./partials/heads.ejs') %>
+<!--FONT AWESOME-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 <body>
   <!-- header-->
   <%- include('./partials/headerProduct.ejs') %>
@@ -40,6 +42,13 @@
           <section class="section-home">
             <% productos.forEach(function(producto) { %>
               <article class="home-article">
+                <!-- CUADRADO EDITAR PRODUCTO-->
+                <% if (locals.usuario && locals.usuario.roles_id === 1) { %>
+                  <a href="/productos/formEditarProducto/<%= producto.id %>" class="edit-product-link">
+                      <i class="fas fa-edit edit-icon" id="cuadrado_editar_fondo"></i>
+                  </a>
+              <% } %>
+              <!-- SECCION PRODUCTOS -->
                   <a href="/productos/detalle/<%= producto.id %>">
                       <% producto.imagenes.forEach(function(imagen) { %>
                           <img class="article-img" src="/images/products/<%= imagen.file %>" alt="">
