@@ -29,6 +29,11 @@
 
 }
 
+.dashboard-buttons-actions-trash{
+    width: 15px;
+    font-size: 24px;
+}
+
 .dashboard-buttons-actions a{
     color: var(--color-negro);
     margin: 5px;
