@@ -1,0 +1,65 @@
+<!-- head -->
+
+<%- include('../partials/heads.ejs') %>
+<!--FONT AWESOME-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+<body>
+  <!-- header-->
+  <%- include('../partials/headerProduct.ejs') %>
+    <!-- header-->
+    <main class="main-home">
+
+       
+
+          <!-- SECCION PRODUCTOS -->
+         
+          <section class="section-home">
+            <% productos.forEach(function(producto) { %>
+              <article class="home-article">
+                <!-- CUADRADO EDITAR PRODUCTO-->
+                <% if (locals.usuario && locals.usuario.roles_id === 1) { %>
+                <a href="/productos/formEditarProducto/<%= producto.id %>" class="edit-product-link">
+                <i class="fas fa-edit edit-icon" id="cuadrado_editar_fondo"></i>
+                </a>
+                  <% } %>
+                  <!-- SECCION PRODUCTOS -->
+                  <a href="/productos/detalle/<%= producto.id %>">
+                      <% producto.imagenes.forEach(function(imagen) { %>
+                          <img class="article-img" src="/images/products/<%= imagen.file %>" alt="">
+                      <% }) %>
+                      <div class="article-description">
+                          <h4 class="title-article"><%= producto.nombre %></h4>
+                          <p class="article-price">$ <%= producto.precio %></p>
+                          <p class="article-pay"><%= producto.descripcion %></p>
+                          <p class="article-pay"><%= producto.coleccion.nombre_coleccion%></p>
+                          <a class="detalle-texto" href="/productos/detalle/<%= producto.id %>">VER DETALLE</a>
+                      </div>
+                  </a>
+              </article>
+            <% }); %>
+        </section>
+          <!-- fin de sección productos -->
+    
+          
+    
+          
+    
+      </main>
+    
+      <div class="article-description"><a href="#">Ver mas productos</a></div> <br>
+
+      
+
+<!-- footer -->
+
+<%- include('../partials/footer.ejs') %>
+
+
+
+    
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  
+</body>
+
+</html>

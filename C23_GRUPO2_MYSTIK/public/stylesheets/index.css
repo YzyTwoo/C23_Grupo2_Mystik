@@ -15,6 +15,7 @@ main {
 }
 
 .home-article {
+    position: relative; /*para cuadrado de editar producto*/
     width: 23%;
     padding: 10px;
     margin: 10px 0;
@@ -31,7 +32,7 @@ main {
 }
 
 .heigth-img{
-    height: 680px;
+    height: 700px;
 }
 
 .title-article {
@@ -127,6 +128,49 @@ main {
     text-align: center;
 }
 
+/*cuadrado editar producto desde home*/
+.edit-product-link {
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    z-index: 1;
+    transition: padding 0.3s ease, margin 0.3s ease;
+}
+
+.edit-product-link:hover {
+    display: block;
+}
+
+#cuadrado_editar_fondo {
+    position: absolute;
+    top: 3px;
+    left: -25px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: padding 0.3s ease, margin 0.3s ease;
+}
+
+.cuadrado_editar_fondo:hover {
+    display: block;
+}
+
+.fa-edit:before{
+    color: #511478;
+    font-size: 20px;
+    transition: padding 0.3s ease, margin 0.3s ease;
+}
+
+.fa-edit:before:hover {
+    display: block;
+}
+
+/*MEDIA*/
 @media (min-width: 768px) {
     .home-article {
         width: 23%;

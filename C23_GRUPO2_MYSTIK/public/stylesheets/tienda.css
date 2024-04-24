@@ -1,0 +1,56 @@
+.section {
+  display: flex; 
+}
+
+.letras_tamaño{
+  font-size: 20px;
+}
+
+#contacto{
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+}
+
+.fa-clock,
+.fa-phone,
+.fa-envelope-circle-check{
+  font-size: 25px;
+  color: #7E1FBA;
+  margin-right: 5px;
+}
+
+.fa-location-dot{
+  margin-left: 20px;
+  font-size: 30px;
+  color: #7E1FBA;
+  margin-right: 5px;
+}
+
+.container {
+  flex: 1; 
+  text-align: center; 
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.p_clases{
+  margin-top: 40px;
+}
+#horarios {
+  flex: 1; 
+  margin-top: 10%;
+  font-size: 100%;
+}
+
+.telefono-decoration{
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+.email-decoration{
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  }

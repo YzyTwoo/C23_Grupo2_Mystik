@@ -1,4 +1,4 @@
-.titulo-producto{
+/*.titulo-producto{
     text-align: center;
     padding: 20px;
 }
@@ -52,7 +52,7 @@
     margin-bottom: 20px;
    
 }
-.talle-titulo{
+/*.talle-titulo{
     margin-top: 20px;
     margin-bottom: 20px;
     font-weight: bold;
@@ -84,6 +84,7 @@
     
  }
  .color-box input{
+    margin-top: 10px;
     height: 20px;
     display: inline;
    
@@ -149,3 +150,23 @@
        
         
         }
+*/
+
+.colecciones_label{
+    margin-top:20px;
+    display: block;
+}
+
+#imagen-placeholder{
+    margin-top: 180px;
+    color: rgba(128, 128, 128, 0.462);
+}
+
+/*Errores*/
+.isInvalid{
+    color: crimson;
+}
+.error {
+    border: 1px solid red;
+    background-color: rgb(220, 188, 196);
+}

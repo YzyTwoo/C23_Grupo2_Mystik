@@ -36,11 +36,11 @@
                               <i class="fa-brands fa-readme"></i>
                           </a>
 
-                          <a href="/productos/formEditarProducto/<%= producto.id %>">
-                              <i class="fa-solid fa-pen-to-square"></i>
-                          </a>
+                        <a href="/productos/formEditarProducto/<%= producto.id %>">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
 
-                          <a href="/productos/dashboard" style="display: inline-flex;">
+                        <a href="/productos/dashboard" style="display: inline-flex;">
                             <form action="/productos/delete/<%= producto.id %>?_method=DELETE" method="POST" style="margin: 0;">
                                 <button type="submit" style="border: none; background: none; cursor: pointer;">
                                     <i class="fa-solid fa-trash-can"></i>
@@ -52,20 +52,17 @@
                         </tr>
                     <%}); %>
                 </tbody>
-              </table>
+            </table>
 
     
-          </section>
+        </section>
     
-          <!-- fin de sección productos -->
-    
-    
-          
+        <!-- fin de sección productos -->
 
-      </main>
+    </main>
 
-                  <!-- Paginación -->
-                  <div class="pagination">
+                <!-- Paginación -->
+                <div class="pagination">
                     <% if (pagina > 1) { %>
                         <a href="/productos/dashboard?pagina=<%= pagina - 1 %>" class="btn-pagination">
                             <i class="fa-solid fa-circle-chevron-left" style="color: #7E1FBA;"></i>
@@ -83,14 +80,12 @@
                 <!-- Fin de Paginación -->
     
 
-      
-      <!-- Footer -->
-      <%- include("../partials/footer.ejs") %>
+    
+    <!-- Footer -->
+    <%- include("../partials/footer.ejs") %>
 
 
     
-     
-  
 </body>
 
 </html>

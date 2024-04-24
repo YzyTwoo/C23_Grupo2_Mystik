@@ -14,8 +14,8 @@
                 <div class="hamburguesa-content">
                     <a href="/"><strong>INICIO</strong></a> 
                     <a href="#"><strong>TIENDA</strong></a> 
-                    <a href="#"><strong>COLECCIÓN</strong></a> 
-                    <a href="#" class="line-end"><strong>POLITICA DE DEVOLUCIÓN</strong></a>
+                    <a href="/productos/colecciones"><strong>COLECCIÓN</strong></a> 
+                    <a href="/informacion/#politica-de-devolucion" class="line-end"><strong>POLITICA DE DEVOLUCIÓN</strong></a>
                 </div>
 
             </div>
@@ -27,16 +27,21 @@
         </div>
         <div class="nav-desktop">
             <a href="/">INICIO</a> 
-            <a href="/">TIENDA</a> 
-            <a href="/">COLECCIÓN</a>
-            <a href="/">POLITICA DE DEVOLUCIÓN</a>
+            <a href="/tienda">TIENDA</a> 
+            <a href="/productos/colecciones">COLECCIÓN</a>
+            <a href="/informacion/#politica-de-devolucion">POLITICA DE DEVOLUCIÓN</a>
         </div>
         <div class="search-cart">
             <input type="text" placeholder="Buscar"><i class="fas fa-search"></i>
+
             <div class="cart">
-                <a href="/productos/carrito"><i class="fa-solid fa-cart-shopping icon-carrito-user"></i></a>
+                <% if (locals.usuario){ %>
+                    <a href="/productos/carrito"><i class="fa-solid fa-cart-shopping icon-carrito-user"></i></a>
+                    <% }else { %>
+                        <a href="/users/login"><i class="fa-solid fa-cart-shopping icon-carrito-user"></i></a>
+                <% } %>
             </div>
-            <div>
+            
                 <% if(locals.usuario){ %>
                     <div class="transition_menu">
                     <a class="line"><%= locals.usuario.nombre %></a>
@@ -52,7 +57,7 @@
                     </div>
                     </div>
                 <% }else{ %>
-                    <a href="users/login" class="line"><i class="fa-solid fa-user icon-user-login"></i></a>
+                    <a href="/users/login" class="line"><i class="fa-solid fa-user icon-user-login"></i></a>
                 <% } %>
             </div>
         </div>

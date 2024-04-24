@@ -6,6 +6,11 @@
 <body>
     <!-- header -->
 <%- include('../partials/headerProduct.ejs') %>
+    <!-- validacion frontend -->
+    <script src="/js/profileValidator.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+
     <main class="main_edit">
         <form class="form_class" id="form-profile" action="/users/editar/<%=user.id%>?_method=PUT" method="post" enctype="multipart/form-data">
             <div class="forms_general" >
@@ -54,7 +59,7 @@
 
             <div class="form_password">
                 <label class="label_form" for="password">Crear nueva contraseña:</label>
-                <input type="password" class="form_input" id="contrasenia" name="contrasenia"
+                <input type="password" class="form_input" id="contrasenia" name="contrasenia">
                 <p class="local_error"> <%= locals.errors && errors.contrasenia ? errors.contrasenia.msg : null %> </p>
             </div>
             </div>
@@ -66,15 +71,11 @@
             </div>
 
             <div class="div_submit">
-            <button type="submit" class="update_perfil">Actualizar Perfil</button>
+                <button type="submit" class="update_perfil">Actualizar Perfil</button>
             </div>
-
-
-            
-            
         </form>
     </main>
+
     <%- include("../partials/footer.ejs") %>
-    <script src="/js/profileValidator.js"></script>
 </body>
 </html>

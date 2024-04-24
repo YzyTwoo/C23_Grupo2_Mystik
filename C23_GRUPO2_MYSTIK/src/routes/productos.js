@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const multer = require('multer');
-const {detalleProducts, cargaProducto, dashboard, formEditarProducto, editarProducto, carritoProducts, viewProducts, vistacrear, create, destroy} = require('../controllers/productosControllers');
+const {detalleProducts, cargaProducto, dashboard, formEditarProducto,vistaCarrito, agregarAlCarrito, destroyCarrito, editCarrito, editarProducto, viewProducts, vistacrear, create, destroy,colecciones,productosColeccion} = require('../controllers/productosControllers');
 const isAdminValidate = require('../middlewares/isAdminValidate');
 const sessionValidate = require('../middlewares/sessionValidate');
 const editProductValidator = require('../validations/editProductValidator');
@@ -19,17 +19,20 @@ const storage = multer.diskStorage({
 
 const uploadFile = multer({ storage:storage }); 
 
-/* GET home page. */
 router.get('/detalle/:id', detalleProducts);
 router.get('/', viewProducts)
-router.get('/carrito', sessionValidate,carritoProducts);
 router.get('/dashboard', isAdminValidate, dashboard);
 
+router.get('/carrito', vistaCarrito)
+router.post('/agregar-al-carrito/:idProducto', agregarAlCarrito)
+router.delete('/carrito/:id/eliminar', destroyCarrito)
+router.put('/carrito/:id/edit', editCarrito)
+
 router.get('/formEditarProducto/:id', isAdminValidate, formEditarProducto);
-router.put('/editarProducto/:id', isAdminValidate, uploadFile.single('image'), editProductValidator, editarProducto);
+router.put('/editarProducto/:id', isAdminValidate, uploadFile.single('imagen_id'), editProductValidator, editarProducto);
 
-
-/*carga de productos*/
+router.get('/colecciones', colecciones);
+router.get('/colecciones/:nombreColeccion', productosColeccion);
 
 router.get('/cargaProducto', isAdminValidate, cargaProducto);
 router.post('/cargaProducto', isAdminValidate, cargaProducto);
@@ -40,4 +43,4 @@ router.post('/create', isAdminValidate, uploadFile.single('imagen_id'), createPr
 
 router.delete('/delete/:id', isAdminValidate, destroy); 
 
-module.exports = router; 
+module.exports = router;
